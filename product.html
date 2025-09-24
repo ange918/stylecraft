@@ -1,0 +1,369 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Product - StyleCraft | Premium Fashion</title>
+    <meta name="description" content="Découvrez les détails de ce produit premium. Qualité supérieure, livraison gratuite et garantie satisfaction.">
+    
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <!-- FontAwesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <!-- Promo Banner -->
+    <div class="promo-banner">
+        <p><i class="fas fa-gift"></i> Get 15% off on your first order - Use code: WELCOME15</p>
+    </div>
+
+    <!-- Header -->
+    <header class="header">
+        <div class="container">
+            <div class="header-content">
+                <!-- Logo -->
+                <div class="logo">
+                    <a href="index.html" data-testid="logo">
+                        <h1>StyleCraft</h1>
+                    </a>
+                </div>
+
+                <!-- Navigation Desktop -->
+                <nav class="nav-desktop">
+                    <ul>
+                        <li><a href="index.html" data-testid="nav-home">Home</a></li>
+                        <li><a href="shop.html" data-testid="nav-shop">Shop</a></li>
+                        <li><a href="#" data-testid="nav-blog">Blog</a></li>
+                        <li><a href="#" data-testid="nav-about">About</a></li>
+                        <li><a href="#" data-testid="nav-careers">Careers</a></li>
+                        <li><a href="#" data-testid="nav-faq">FAQ</a></li>
+                        <li><a href="contact.html" data-testid="nav-contact">Contact</a></li>
+                    </ul>
+                </nav>
+
+                <!-- Right Icons -->
+                <div class="header-icons">
+                    <button class="icon-btn" data-testid="search-btn">
+                        <i class="fas fa-search"></i>
+                    </button>
+                    <button class="icon-btn" data-testid="user-btn">
+                        <i class="fas fa-user"></i>
+                    </button>
+                    <button class="icon-btn cart-btn" data-testid="cart-btn" onclick="window.location.href='cart.html'">
+                        <i class="fas fa-shopping-bag"></i>
+                        <span class="cart-count" data-testid="cart-count">0</span>
+                    </button>
+                    <button class="mobile-menu-btn" data-testid="mobile-menu-btn">
+                        <i class="fas fa-bars"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Mobile Menu -->
+        <div class="mobile-menu" data-testid="mobile-menu">
+            <div class="mobile-menu-header">
+                <h2>StyleCraft</h2>
+                <button class="mobile-menu-close" data-testid="mobile-menu-close">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            <nav class="mobile-nav">
+                <ul>
+                    <li><a href="index.html" data-testid="mobile-nav-home">Home</a></li>
+                    <li><a href="shop.html" data-testid="mobile-nav-shop">Shop</a></li>
+                    <li><a href="#" data-testid="mobile-nav-blog">Blog</a></li>
+                    <li><a href="#" data-testid="mobile-nav-about">About</a></li>
+                    <li><a href="#" data-testid="mobile-nav-careers">Careers</a></li>
+                    <li><a href="#" data-testid="mobile-nav-faq">FAQ</a></li>
+                    <li><a href="contact.html" data-testid="mobile-nav-contact">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+        <div class="mobile-menu-overlay" data-testid="mobile-menu-overlay"></div>
+    </header>
+
+    <!-- Product Page Content -->
+    <main class="product-page">
+        <div class="container">
+            <!-- Breadcrumb -->
+            <nav class="breadcrumb" data-testid="breadcrumb">
+                <ol>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="shop.html">Shop</a></li>
+                    <li id="breadcrumb-product">Product</li>
+                </ol>
+            </nav>
+
+            <div class="product-layout">
+                <!-- Product Images -->
+                <div class="product-images">
+                    <div class="main-image">
+                        <img id="mainProductImage" src="" alt="" data-testid="main-product-image">
+                        <div class="sale-badge" id="productSaleBadge" style="display: none;" data-testid="sale-badge">
+                            Sale!
+                        </div>
+                    </div>
+                    <div class="image-gallery" id="imageGallery" data-testid="image-gallery">
+                        <!-- Thumbnail images will be populated by JS -->
+                    </div>
+                </div>
+
+                <!-- Product Details -->
+                <div class="product-details">
+                    <div class="product-header">
+                        <h1 id="productName" data-testid="product-title"></h1>
+                        <div class="product-price">
+                            <span id="productPrice" class="price" data-testid="product-price"></span>
+                            <span id="productOriginalPrice" class="original-price" data-testid="original-price" style="display: none;"></span>
+                            <span id="productSavings" class="savings" data-testid="product-savings" style="display: none;"></span>
+                        </div>
+                    </div>
+
+                    <div class="product-description">
+                        <p id="productDescription" data-testid="product-description"></p>
+                    </div>
+
+                    <!-- Size Selection -->
+                    <div class="product-option">
+                        <label>Size <span class="required">*</span></label>
+                        <div class="size-options" id="sizeOptions" data-testid="size-selection">
+                            <!-- Size options will be populated by JS -->
+                        </div>
+                    </div>
+
+                    <!-- Color Selection -->
+                    <div class="product-option" id="colorOption" style="display: none;">
+                        <label>Color</label>
+                        <div class="color-options" id="colorOptions" data-testid="color-selection">
+                            <!-- Color options will be populated by JS -->
+                        </div>
+                    </div>
+
+                    <!-- Quantity -->
+                    <div class="product-option">
+                        <label>Quantity</label>
+                        <div class="quantity-controls" data-testid="quantity-selector">
+                            <button class="quantity-btn" id="decreaseQuantity" data-testid="decrease-quantity">-</button>
+                            <input type="number" id="quantityInput" value="1" min="1" data-testid="quantity-input">
+                            <button class="quantity-btn" id="increaseQuantity" data-testid="increase-quantity">+</button>
+                        </div>
+                    </div>
+
+                    <!-- Action Buttons -->
+                    <div class="product-actions">
+                        <button class="btn btn-primary btn-large" id="addToCartBtn" data-testid="add-to-cart">
+                            Add to Cart - $<span id="totalPrice">0.00</span>
+                        </button>
+                        <div class="secondary-actions">
+                            <button class="btn btn-secondary" data-testid="add-to-wishlist">
+                                <i class="fas fa-heart"></i> Add to Wishlist
+                            </button>
+                            <button class="btn btn-secondary" data-testid="share-product">
+                                <i class="fas fa-share"></i> Share
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Product Features -->
+                    <div class="product-features">
+                        <div class="feature">
+                            <i class="fas fa-truck"></i>
+                            <span>Free shipping on orders over $50</span>
+                        </div>
+                        <div class="feature">
+                            <i class="fas fa-undo"></i>
+                            <span>30-day return policy</span>
+                        </div>
+                        <div class="feature">
+                            <i class="fas fa-shield-alt"></i>
+                            <span>1-year warranty</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Product Tabs -->
+            <div class="product-tabs">
+                <div class="tab-buttons">
+                    <button class="tab-btn active" data-tab="description" data-testid="tab-description">Description</button>
+                    <button class="tab-btn" data-tab="sizing" data-testid="tab-sizing">Size Guide</button>
+                    <button class="tab-btn" data-tab="reviews" data-testid="tab-reviews">Reviews (2)</button>
+                </div>
+
+                <div class="tab-content">
+                    <div class="tab-panel active" id="description-tab">
+                        <h3>Product Description</h3>
+                        <p>This is a high-quality product crafted with attention to detail. Made from premium materials, it offers both style and comfort for everyday wear.</p>
+                        <h4>Features:</h4>
+                        <ul>
+                            <li>Premium quality materials</li>
+                            <li>Comfortable fit</li>
+                            <li>Durable construction</li>
+                            <li>Easy care instructions</li>
+                        </ul>
+                    </div>
+
+                    <div class="tab-panel" id="sizing-tab">
+                        <h3>Size Guide</h3>
+                        <div class="size-table">
+                            <table>
+                                <thead>
+                                    <tr>
+                                        <th>Size</th>
+                                        <th>Chest (inches)</th>
+                                        <th>Waist (inches)</th>
+                                        <th>Length (inches)</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>XS</td>
+                                        <td>32-34</td>
+                                        <td>28-30</td>
+                                        <td>26</td>
+                                    </tr>
+                                    <tr>
+                                        <td>S</td>
+                                        <td>34-36</td>
+                                        <td>30-32</td>
+                                        <td>27</td>
+                                    </tr>
+                                    <tr>
+                                        <td>M</td>
+                                        <td>36-38</td>
+                                        <td>32-34</td>
+                                        <td>28</td>
+                                    </tr>
+                                    <tr>
+                                        <td>L</td>
+                                        <td>38-40</td>
+                                        <td>34-36</td>
+                                        <td>29</td>
+                                    </tr>
+                                    <tr>
+                                        <td>XL</td>
+                                        <td>40-42</td>
+                                        <td>36-38</td>
+                                        <td>30</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+
+                    <div class="tab-panel" id="reviews-tab">
+                        <h3>Customer Reviews</h3>
+                        <div class="reviews">
+                            <div class="review">
+                                <div class="review-header">
+                                    <div class="reviewer-info">
+                                        <span class="reviewer-name">John Doe</span>
+                                        <div class="review-rating">
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                        </div>
+                                    </div>
+                                    <span class="review-date">2024-01-15</span>
+                                </div>
+                                <p class="review-text">Great quality and perfect fit!</p>
+                            </div>
+                            <div class="review">
+                                <div class="review-header">
+                                    <div class="reviewer-info">
+                                        <span class="reviewer-name">Jane Smith</span>
+                                        <div class="review-rating">
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star text-gray-300"></i>
+                                        </div>
+                                    </div>
+                                    <span class="review-date">2024-01-10</span>
+                                </div>
+                                <p class="review-text">Love the style, runs a bit small.</p>
+                            </div>
+                        </div>
+                        <button class="btn btn-secondary" data-testid="write-review">Write a Review</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3 data-testid="footer-logo">StyleCraft</h3>
+                    <p>Timeless fashion for the modern wardrobe. Quality clothing that lasts.</p>
+                    <div class="social-links">
+                        <a href="#" data-testid="social-facebook" aria-label="Facebook">
+                            <i class="fab fa-facebook"></i>
+                        </a>
+                        <a href="#" data-testid="social-instagram" aria-label="Instagram">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                        <a href="#" data-testid="social-twitter" aria-label="Twitter">
+                            <i class="fab fa-twitter"></i>
+                        </a>
+                        <a href="#" data-testid="social-pinterest" aria-label="Pinterest">
+                            <i class="fab fa-pinterest"></i>
+                        </a>
+                    </div>
+                </div>
+                <div class="footer-section">
+                    <h4>Shop</h4>
+                    <ul>
+                        <li><a href="shop.html?category=mens" data-testid="footer-shop-mens-wear">Mens Wear</a></li>
+                        <li><a href="shop.html?category=womens" data-testid="footer-shop-womens-wear">Womens Wear</a></li>
+                        <li><a href="shop.html?category=kids" data-testid="footer-shop-kids-wear">Kids Wear</a></li>
+                        <li><a href="shop.html?category=accessories" data-testid="footer-shop-accessories">Accessories</a></li>
+                        <li><a href="shop.html?sale=true" data-testid="footer-shop-sale">Sale</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Help</h4>
+                    <ul>
+                        <li><a href="#" data-testid="footer-help-size-guide">Size Guide</a></li>
+                        <li><a href="#" data-testid="footer-help-shipping-info">Shipping Info</a></li>
+                        <li><a href="#" data-testid="footer-help-returns">Returns</a></li>
+                        <li><a href="#" data-testid="footer-help-faq">FAQ</a></li>
+                        <li><a href="contact.html" data-testid="footer-help-contact">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>My Profile</h4>
+                    <ul>
+                        <li><a href="#" data-testid="footer-profile-my-account">My Account</a></li>
+                        <li><a href="#" data-testid="footer-profile-order-history">Order History</a></li>
+                        <li><a href="#" data-testid="footer-profile-wishlist">Wishlist</a></li>
+                        <li><a href="#" data-testid="footer-profile-track-order">Track Order</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p data-testid="footer-copyright">&copy; 2024 StyleCraft. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Notification Toast -->
+    <div class="toast" id="toast">
+        <div class="toast-content">
+            <i class="toast-icon"></i>
+            <span class="toast-message"></span>
+        </div>
+    </div>
+
+    <!-- JavaScript -->
+    <script src="js/script.js"></script>
+</body>
+</html>

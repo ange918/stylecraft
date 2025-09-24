@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us - StyleCraft | Get in Touch</title>
+    <meta name="description" content="Contactez StyleCraft pour toute question sur nos vêtements premium. Service client rapide et support personnalisé.">
+    
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <!-- FontAwesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <!-- Promo Banner -->
+    <div class="promo-banner">
+        <p><i class="fas fa-gift"></i> Get 15% off on your first order - Use code: WELCOME15</p>
+    </div>
+
+    <!-- Header -->
+    <header class="header">
+        <div class="container">
+            <div class="header-content">
+                <!-- Logo -->
+                <div class="logo">
+                    <a href="index.html" data-testid="logo">
+                        <h1>StyleCraft</h1>
+                    </a>
+                </div>
+
+                <!-- Navigation Desktop -->
+                <nav class="nav-desktop">
+                    <ul>
+                        <li><a href="index.html" data-testid="nav-home">Home</a></li>
+                        <li><a href="shop.html" data-testid="nav-shop">Shop</a></li>
+                        <li><a href="#" data-testid="nav-blog">Blog</a></li>
+                        <li><a href="#" data-testid="nav-about">About</a></li>
+                        <li><a href="#" data-testid="nav-careers">Careers</a></li>
+                        <li><a href="#" data-testid="nav-faq">FAQ</a></li>
+                        <li><a href="contact.html" class="active" data-testid="nav-contact">Contact</a></li>
+                    </ul>
+                </nav>
+
+                <!-- Right Icons -->
+                <div class="header-icons">
+                    <button class="icon-btn" data-testid="search-btn">
+                        <i class="fas fa-search"></i>
+                    </button>
+                    <button class="icon-btn" data-testid="user-btn">
+                        <i class="fas fa-user"></i>
+                    </button>
+                    <button class="icon-btn cart-btn" data-testid="cart-btn" onclick="window.location.href='cart.html'">
+                        <i class="fas fa-shopping-bag"></i>
+                        <span class="cart-count" data-testid="cart-count">0</span>
+                    </button>
+                    <button class="mobile-menu-btn" data-testid="mobile-menu-btn">
+                        <i class="fas fa-bars"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Mobile Menu -->
+        <div class="mobile-menu" data-testid="mobile-menu">
+            <div class="mobile-menu-header">
+                <h2>StyleCraft</h2>
+                <button class="mobile-menu-close" data-testid="mobile-menu-close">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            <nav class="mobile-nav">
+                <ul>
+                    <li><a href="index.html" data-testid="mobile-nav-home">Home</a></li>
+                    <li><a href="shop.html" data-testid="mobile-nav-shop">Shop</a></li>
+                    <li><a href="#" data-testid="mobile-nav-blog">Blog</a></li>
+                    <li><a href="#" data-testid="mobile-nav-about">About</a></li>
+                    <li><a href="#" data-testid="mobile-nav-careers">Careers</a></li>
+                    <li><a href="#" data-testid="mobile-nav-faq">FAQ</a></li>
+                    <li><a href="contact.html" data-testid="mobile-nav-contact">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+        <div class="mobile-menu-overlay" data-testid="mobile-menu-overlay"></div>
+    </header>
+
+    <!-- Contact Page Content -->
+    <main class="contact-page">
+        <div class="container">
+            <div class="contact-header">
+                <h1 data-testid="contact-title">Contact Us</h1>
+                <p>We'd love to hear from you. Send us a message and we'll respond as soon as possible.</p>
+            </div>
+
+            <div class="contact-layout">
+                <!-- Contact Form -->
+                <div class="contact-form-section">
+                    <div class="form-container">
+                        <h2 data-testid="contact-form-title">Send us a message</h2>
+                        <form class="contact-form" id="contactForm" data-testid="contact-form">
+                            <div class="form-group">
+                                <label for="name">Name *</label>
+                                <input type="text" id="name" name="name" required data-testid="input-name" placeholder="Your full name">
+                                <span class="error-message" id="nameError"></span>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="email">Email *</label>
+                                <input type="email" id="email" name="email" required data-testid="input-email" placeholder="your.email@example.com">
+                                <span class="error-message" id="emailError"></span>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="message">Message *</label>
+                                <textarea id="message" name="message" rows="5" required data-testid="input-message" placeholder="Tell us how we can help you..."></textarea>
+                                <span class="error-message" id="messageError"></span>
+                            </div>
+                            
+                            <button type="submit" class="btn btn-primary btn-large" id="submitBtn" data-testid="submit-btn">
+                                <span class="btn-text">Send Message</span>
+                                <span class="btn-loading" style="display: none;">
+                                    <i class="fas fa-spinner fa-spin"></i> Sending...
+                                </span>
+                            </button>
+                        </form>
+                    </div>
+                </div>
+
+                <!-- Contact Information -->
+                <div class="contact-info-section">
+                    <!-- Contact Details -->
+                    <div class="contact-info-card">
+                        <h3 data-testid="contact-info-title">Get in touch</h3>
+                        <div class="contact-info-items">
+                            <div class="contact-info-item" data-testid="contact-info-0">
+                                <div class="contact-icon">
+                                    <i class="fas fa-map-marker-alt"></i>
+                                </div>
+                                <div class="contact-details">
+                                    <h4>Address</h4>
+                                    <p>123 Fashion Street</p>
+                                    <p>New York, NY 10001</p>
+                                </div>
+                            </div>
+                            
+                            <div class="contact-info-item" data-testid="contact-info-1">
+                                <div class="contact-icon">
+                                    <i class="fas fa-phone"></i>
+                                </div>
+                                <div class="contact-details">
+                                    <h4>Phone</h4>
+                                    <p>+1 (555) 123-4567</p>
+                                </div>
+                            </div>
+                            
+                            <div class="contact-info-item" data-testid="contact-info-2">
+                                <div class="contact-icon">
+                                    <i class="fas fa-envelope"></i>
+                                </div>
+                                <div class="contact-details">
+                                    <h4>Email</h4>
+                                    <p>hello@stylecraft.com</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Business Hours -->
+                    <div class="contact-info-card">
+                        <h3 data-testid="business-hours-title">Business Hours</h3>
+                        <div class="business-hours">
+                            <div class="hours-item" data-testid="business-hours-0">
+                                <span>Monday - Friday</span>
+                                <span>9:00 AM - 6:00 PM</span>
+                            </div>
+                            <div class="hours-item" data-testid="business-hours-1">
+                                <span>Saturday</span>
+                                <span>10:00 AM - 4:00 PM</span>
+                            </div>
+                            <div class="hours-item" data-testid="business-hours-2">
+                                <span>Sunday</span>
+                                <span>Closed</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Emergency Contact -->
+                    <div class="contact-info-card">
+                        <h3>Need immediate help?</h3>
+                        <p>For urgent inquiries, you can reach us directly at:</p>
+                        <div class="urgent-contact">
+                            <div class="urgent-item">
+                                <i class="fas fa-phone"></i>
+                                <strong>+1 (555) 123-4567</strong>
+                            </div>
+                            <div class="urgent-item">
+                                <i class="fas fa-envelope"></i>
+                                <strong>support@stylecraft.com</strong>
+                            </div>
+                        </div>
+                        <p class="response-time">Average response time: 2-4 hours during business hours</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- FAQ Section -->
+            <div class="faq-section">
+                <div class="section-header">
+                    <h2>Frequently Asked Questions</h2>
+                    <p>Quick answers to common questions</p>
+                </div>
+                
+                <div class="faq-grid">
+                    <div class="faq-card">
+                        <h3>What are your shipping options?</h3>
+                        <p>We offer free standard shipping on orders over $50. Express shipping is available for an additional fee.</p>
+                    </div>
+                    
+                    <div class="faq-card">
+                        <h3>What is your return policy?</h3>
+                        <p>We accept returns within 30 days of purchase. Items must be unworn and in original condition.</p>
+                    </div>
+                    
+                    <div class="faq-card">
+                        <h3>Do you offer size exchanges?</h3>
+                        <p>Yes! We offer free size exchanges on your first exchange within 30 days of purchase.</p>
+                    </div>
+                    
+                    <div class="faq-card">
+                        <h3>How can I track my order?</h3>
+                        <p>Once your order ships, you'll receive a tracking number via email to monitor your package.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Map Section -->
+            <div class="map-section">
+                <h2>Visit Our Store</h2>
+                <div class="map-container">
+                    <div class="map-placeholder">
+                        <i class="fas fa-map-marked-alt"></i>
+                        <p>Interactive Map</p>
+                        <small>123 Fashion Street, New York, NY 10001</small>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3 data-testid="footer-logo">StyleCraft</h3>
+                    <p>Timeless fashion for the modern wardrobe. Quality clothing that lasts.</p>
+                    <div class="social-links">
+                        <a href="#" data-testid="social-facebook" aria-label="Facebook">
+                            <i class="fab fa-facebook"></i>
+                        </a>
+                        <a href="#" data-testid="social-instagram" aria-label="Instagram">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                        <a href="#" data-testid="social-twitter" aria-label="Twitter">
+                            <i class="fab fa-twitter"></i>
+                        </a>
+                        <a href="#" data-testid="social-pinterest" aria-label="Pinterest">
+                            <i class="fab fa-pinterest"></i>
+                        </a>
+                    </div>
+                </div>
+                <div class="footer-section">
+                    <h4>Shop</h4>
+                    <ul>
+                        <li><a href="shop.html?category=mens" data-testid="footer-shop-mens-wear">Mens Wear</a></li>
+                        <li><a href="shop.html?category=womens" data-testid="footer-shop-womens-wear">Womens Wear</a></li>
+                        <li><a href="shop.html?category=kids" data-testid="footer-shop-kids-wear">Kids Wear</a></li>
+                        <li><a href="shop.html?category=accessories" data-testid="footer-shop-accessories">Accessories</a></li>
+                        <li><a href="shop.html?sale=true" data-testid="footer-shop-sale">Sale</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Help</h4>
+                    <ul>
+                        <li><a href="#" data-testid="footer-help-size-guide">Size Guide</a></li>
+                        <li><a href="#" data-testid="footer-help-shipping-info">Shipping Info</a></li>
+                        <li><a href="#" data-testid="footer-help-returns">Returns</a></li>
+                        <li><a href="#" data-testid="footer-help-faq">FAQ</a></li>
+                        <li><a href="contact.html" data-testid="footer-help-contact">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>My Profile</h4>
+                    <ul>
+                        <li><a href="#" data-testid="footer-profile-my-account">My Account</a></li>
+                        <li><a href="#" data-testid="footer-profile-order-history">Order History</a></li>
+                        <li><a href="#" data-testid="footer-profile-wishlist">Wishlist</a></li>
+                        <li><a href="#" data-testid="footer-profile-track-order">Track Order</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p data-testid="footer-copyright">&copy; 2024 StyleCraft. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Notification Toast -->
+    <div class="toast" id="toast">
+        <div class="toast-content">
+            <i class="toast-icon"></i>
+            <span class="toast-message"></span>
+        </div>
+    </div>
+
+    <!-- JavaScript -->
+    <script src="js/script.js"></script>
+</body>
+</html>
