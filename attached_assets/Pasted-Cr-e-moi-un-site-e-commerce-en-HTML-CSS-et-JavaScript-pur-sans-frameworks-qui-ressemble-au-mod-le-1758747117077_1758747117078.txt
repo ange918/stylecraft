@@ -1,0 +1,61 @@
+Crée-moi un site e-commerce en HTML, CSS et JavaScript pur (sans frameworks) qui ressemble au modèle "Clothing Store 04" de WebsiteDemos.  
+
+⚡ Pages à inclure :
+1. Page d’accueil :
+   - Header avec logo fictif + menu : Home, Shop, Blog, About, Careers, FAQ, Contact.
+   - Bannière promo en haut ("Get 15% off on your first order").
+   - Hero section avec grand titre "Timeless Fashion for the Modern Wardrobe", sous-texte et bouton "Explore the Collection".
+   - Sections : 
+       - "New Arrivals" (6 produits en grille).
+       - "Categories" (Mens Wear, Womens Wear, Kids Wear, Accessories).
+       - "Bestsellers".
+       - Section promotion "Get up to 50% off".
+       - Témoignages clients.
+       - Section "How it works" (Pick Styles, Pick Your Fit, Checkout Fast).
+   - Footer avec liens rapides (Shop, Help, My Profile, etc.) + icônes réseaux sociaux.
+
+2. Page Shop (shop.html) :
+   - Grille de produits avec nom, prix, image, bouton "Quick View" ou "Select Options".
+   - Ajoute des étiquettes "Sale!" sur certains produits.
+   - Pagination en bas de page.
+
+3. Page Produit (product.html) :
+   - Grande image du produit avec miniatures.
+   - Titre, prix (avec promo barrée si applicable).
+   - Sélecteur de taille/couleur.
+   - Bouton "Add to Cart".
+   - Description et avis clients.
+
+4. Page Panier (cart.html) :
+   - Tableau récapitulatif des produits ajoutés.
+   - Bouton "Proceed to Checkout".
+
+5. Page Contact (contact.html) :
+   - Formulaire simple (Nom, Email, Message).
+   - Coordonnées fictives et carte intégrée.
+
+🎨 Design à respecter :
+- Palette moderne, fond clair, beaucoup d’espace blanc.
+- Boutons arrondis et colorés (hover animé en CSS).
+- Police simple et élégante (Google Fonts type Poppins ou Montserrat).
+- Icônes avec FontAwesome.
+- Images produits en `<img>` (placeholders type https://picsum.photos ou via liens fictifs).
+- Structure responsive avec flexbox et grid CSS.
+
+⚙️ Fonctionnalités JS :
+- Animation des boutons et du menu.
+- "Quick View" qui ouvre un modal avec détails rapides du produit.
+- Ajout au panier (stockage en localStorage pour la démo).
+- Pagination dynamique sur la page Shop.
+
+📁 Organisation des fichiers :
+- index.html (accueil)
+- shop.html
+- product.html
+- cart.html
+- contact.html
+- /css/style.css
+- /js/script.js
+- /images/ (images placeholders)
+
+Le site doit être responsive et utilisable sur mobile et ordinateur.
