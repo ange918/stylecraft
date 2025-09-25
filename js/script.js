@@ -287,7 +287,7 @@ const sampleProducts = [
         name: "Leather Crossbody Bag",
         price: 145.99,
         originalPrice: null,
-        category: "accessories",
+        category: "perruques",
         image: "src/assets/sac-bandouliere-cuir-1.jpg",
         images: [
             "src/assets/sac-bandouliere-cuir-1.jpg",
@@ -356,7 +356,7 @@ const sampleProducts = [
         name: "Classic Watch",
         price: 199.99,
         originalPrice: null,
-        category: "accessories",
+        category: "perruques",
         image: "src/assets/montre-classique-1.jpg",
         images: [
             "src/assets/montre-classique-1.jpg"
