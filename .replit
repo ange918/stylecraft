@@ -8,7 +8,7 @@ channel = "stable-24_05"
 [deployment]
 deploymentTarget = "autoscale"
 build = ["npm", "run", "build"]
-run = ["npm", "run", "start"]
+run = ["python", "-m", "http.server", "5000", "--bind", "0.0.0.0"]
 
 [[ports]]
 localPort = 5000
