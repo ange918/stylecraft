@@ -1662,7 +1662,7 @@ function openMobilePaymentModal(method) {
         titleEl.textContent = 'Paiement Orange Money';
     }
     
-    amountEl.value = `${total.total.toFixed(2)} FCFA`;
+    amountEl.value = `$${total.total.toFixed(2)}`;    
     
     // Set payment instructions
     instructionsEl.innerHTML = generatePaymentInstructions(method);
@@ -1783,7 +1783,7 @@ function showPaymentSuccess(method, phoneNumber) {
                 <i class="fas fa-check"></i>
             </div>
             <h3>Paiement Réussi!</h3>
-            <p>Votre paiement de <strong>${total.total.toFixed(2)} FCFA</strong> via ${paymentMethod} a été traité avec succès.</p>
+            <p>Votre paiement de <strong>$${total.total.toFixed(2)}</strong> via ${paymentMethod} a été traité avec succès.</p>
             <p>Numéro de téléphone: <strong>${phoneNumber}</strong></p>
             <p>Un SMS de confirmation vous sera envoyé prochainement.</p>
             <div class="form-actions">
