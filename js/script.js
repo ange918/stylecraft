@@ -22,10 +22,10 @@ const sampleProducts = [
         price: 299.99,
         originalPrice: 399.99,
         category: "perruques",
-        image: "https://images.unsplash.com/photo-1594736797933-d0c29c8d4d68?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&h=750",
+        image: "src/assets/perruque-cheveux-naturels-1.jpg",
         images: [
-            "https://images.unsplash.com/photo-1594736797933-d0c29c8d4d68?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&h=750",
-            "https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&h=750"
+            "src/assets/perruque-cheveux-naturels-1.jpg",
+            "src/assets/perruque-cheveux-naturels-2.jpg"
         ],
         description: "Perruque en cheveux naturels 100% humains, longueur 50cm. Qualité premium pour un rendu naturel exceptionnel.",
         sizes: ["One Size"],
@@ -40,9 +40,9 @@ const sampleProducts = [
         price: 89.99,
         originalPrice: 129.99,
         category: "perruques",
-        image: "https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&h=750",
+        image: "src/assets/perruque-synthetique-1.jpg",
         images: [
-            "https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&h=750"
+            "src/assets/perruque-synthetique-1.jpg"
         ],
         description: "Perruque synthétique avec ondulations naturelles. Facile à coiffer et à entretenir.",
         sizes: ["One Size"],
@@ -57,9 +57,9 @@ const sampleProducts = [
         price: 149.99,
         originalPrice: null,
         category: "perruques",
-        image: "https://images.unsplash.com/photo-1594736797933-d0c29c8d4d68?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&h=750",
+        image: "src/assets/perruque-court-1.jpg",
         images: [
-            "https://images.unsplash.com/photo-1594736797933-d0c29c8d4d68?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&h=750"
+            "src/assets/perruque-court-1.jpg"
         ],
         description: "Coupe moderne et tendance, parfaite pour un look contemporain.",
         sizes: ["One Size"],
@@ -75,10 +75,10 @@ const sampleProducts = [
         price: 179.99,
         originalPrice: 229.99,
         category: "vetements-femme",
-        image: "https://images.unsplash.com/photo-1539008835657-9e8e9680c956?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&h=750",
+        image: "src/assets/robe-elegante-soiree-1.jpg",
         images: [
-            "https://images.unsplash.com/photo-1539008835657-9e8e9680c956?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&h=750",
-            "https://images.unsplash.com/photo-1566479179817-c9b93cac3c23?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&h=750"
+            "src/assets/robe-elegante-soiree-1.jpg",
+            "src/assets/robe-elegante-soiree-2.jpg"
         ],
         description: "Robe de soirée sophistiquée en soie, coupe ajustée et élégante.",
         sizes: ["XS", "S", "M", "L", "XL"],
@@ -93,9 +93,9 @@ const sampleProducts = [
         price: 49.99,
         originalPrice: null,
         category: "vetements-femme",
-        image: "https://images.unsplash.com/photo-1434389677669-e08b4cac3105?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&h=750",
+        image: "src/assets/top-decontracte-femme-1.jpg",
         images: [
-            "https://images.unsplash.com/photo-1434389677669-e08b4cac3105?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&h=750"
+            "src/assets/top-decontracte-femme-1.jpg"
         ],
         description: "Top confortable en coton bio, parfait pour le quotidien.",
         sizes: ["XS", "S", "M", "L", "XL"],
@@ -111,9 +111,9 @@ const sampleProducts = [
         price: 39.99,
         originalPrice: 59.99,
         category: "vetements-enfant",
-        image: "https://images.unsplash.com/photo-1503454537195-1dcabb73ffb9?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&h=750",
+        image: "src/assets/robe-princesse-enfant-1.jpg",
         images: [
-            "https://images.unsplash.com/photo-1503454537195-1dcabb73ffb9?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&h=750"
+            "src/assets/robe-princesse-enfant-1.jpg"
         ],
         description: "Robe de princesse pour enfant, tissu doux et confortable.",
         sizes: ["2T", "3T", "4T", "5T", "6T"],
@@ -128,9 +128,9 @@ const sampleProducts = [
         price: 19.99,
         originalPrice: null,
         category: "vetements-enfant",
-        image: "https://images.unsplash.com/photo-1622470952203-2b8e3e9fa35a?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&h=750",
+        image: "src/assets/tshirt-enfant-graphique-1.jpg",
         images: [
-            "https://images.unsplash.com/photo-1622470952203-2b8e3e9fa35a?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&h=750"
+            "src/assets/tshirt-enfant-graphique-1.jpg"
         ],
         description: "T-shirt amusant avec motif graphique, coton 100%.",
         sizes: ["2T", "3T", "4T", "5T", "6T"],
@@ -146,10 +146,10 @@ const sampleProducts = [
         price: 249.99,
         originalPrice: 329.99,
         category: "sacs",
-        image: "https://images.unsplash.com/photo-1553062407-98eeb64c6a62?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&h=750",
+        image: "src/assets/sac-main-cuir-premium-1.jpg",
         images: [
-            "https://images.unsplash.com/photo-1553062407-98eeb64c6a62?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&h=750",
-            "https://images.unsplash.com/photo-1584917865442-de89df76afd3?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&h=750"
+            "src/assets/sac-main-cuir-premium-1.jpg",
+            "src/assets/sac-main-cuir-premium-2.jpg"
         ],
         description: "Sac à main en cuir véritable, fabrication artisanale de qualité supérieure.",
         sizes: ["One Size"],
@@ -164,9 +164,9 @@ const sampleProducts = [
         price: 89.99,
         originalPrice: null,
         category: "sacs",
-        image: "https://images.unsplash.com/photo-1584917865442-de89df76afd3?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&h=750",
+        image: "src/assets/sac-dos-tendance-1.jpg",
         images: [
-            "https://images.unsplash.com/photo-1584917865442-de89df76afd3?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&h=750"
+            "src/assets/sac-dos-tendance-1.jpg"
         ],
         description: "Sac à dos moderne et fonctionnel, parfait pour le quotidien.",
         sizes: ["One Size"],
@@ -181,9 +181,9 @@ const sampleProducts = [
         price: 79.99,
         originalPrice: 99.99,
         category: "sacs",
-        image: "https://images.unsplash.com/photo-1523275335684-37898b6baf30?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&h=750",
+        image: "src/assets/sac-soiree-elegant-1.jpg",
         images: [
-            "https://images.unsplash.com/photo-1523275335684-37898b6baf30?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&h=750"
+            "src/assets/sac-soiree-elegant-1.jpg"
         ],
         description: "Petit sac de soirée raffiné, idéal pour les occasions spéciales.",
         sizes: ["One Size"],
@@ -199,10 +199,10 @@ const sampleProducts = [
         price: 89.99,
         originalPrice: 119.99,
         category: "mens",
-        image: "https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&h=750",
+        image: "src/assets/chemise-blanche-homme-1.jpg",
         images: [
-            "https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&h=750",
-            "https://images.unsplash.com/photo-1594938298603-c8148c4dae35?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&h=750"
+            "src/assets/chemise-blanche-homme-1.jpg",
+            "src/assets/chemise-blanche-homme-2.jpg"
         ],
         description: "A timeless classic that belongs in every wardrobe. Made from premium cotton with a perfect fit.",
         sizes: ["XS", "S", "M", "L", "XL"],
@@ -217,10 +217,10 @@ const sampleProducts = [
         price: 149.99,
         originalPrice: null,
         category: "womens",
-        image: "https://images.unsplash.com/photo-1539008835657-9e8e9680c956?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&h=750",
+        image: "src/assets/robe-noire-elegante-1.jpg",
         images: [
-            "https://images.unsplash.com/photo-1539008835657-9e8e9680c956?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&h=750",
-            "https://images.unsplash.com/photo-1566479179817-c9b93cac3c23?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&h=750"
+            "src/assets/robe-noire-elegante-1.jpg",
+            "src/assets/robe-noire-elegante-2.jpg"
         ],
         description: "Sophisticated and versatile dress perfect for any occasion. Crafted with attention to detail.",
         sizes: ["XS", "S", "M", "L", "XL"],
@@ -235,10 +235,10 @@ const sampleProducts = [
         price: 119.99,
         originalPrice: 159.99,
         category: "mens",
-        image: "https://images.unsplash.com/photo-1542272604-787c3835535d?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&h=750",
+        image: "src/assets/jean-premium-homme-1.jpg",
         images: [
-            "https://images.unsplash.com/photo-1542272604-787c3835535d?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&h=750",
-            "https://images.unsplash.com/photo-1473966968600-fa801b869a1a?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&h=750"
+            "src/assets/jean-premium-homme-1.jpg",
+            "src/assets/jean-premium-homme-2.jpg"
         ],
         description: "High-quality denim with a modern fit. Durable construction and timeless style.",
         sizes: ["28", "30", "32", "34", "36", "38"],
@@ -253,10 +253,10 @@ const sampleProducts = [
         price: 79.99,
         originalPrice: null,
         category: "womens",
-        image: "https://images.unsplash.com/photo-1434389677669-e08b4cac3105?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&h=750",
+        image: "src/assets/pull-tricot-femme-1.jpg",
         images: [
-            "https://images.unsplash.com/photo-1434389677669-e08b4cac3105?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&h=750",
-            "https://images.unsplash.com/photo-1576566588028-4147f3842f27?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&h=750"
+            "src/assets/pull-tricot-femme-1.jpg",
+            "src/assets/pull-tricot-femme-2.jpg"
         ],
         description: "Soft and comfortable sweater perfect for cooler days. Made from premium wool blend.",
         sizes: ["XS", "S", "M", "L", "XL"],
@@ -271,9 +271,9 @@ const sampleProducts = [
         price: 24.99,
         originalPrice: 34.99,
         category: "kids",
-        image: "https://images.unsplash.com/photo-1503454537195-1dcabb73ffb9?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&h=750",
+        image: "src/assets/tshirt-aventure-enfant-1.jpg",
         images: [
-            "https://images.unsplash.com/photo-1503454537195-1dcabb73ffb9?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&h=750"
+            "src/assets/tshirt-aventure-enfant-1.jpg"
         ],
         description: "Fun and colorful t-shirt designed for active kids. Comfortable cotton fabric.",
         sizes: ["2T", "3T", "4T", "5T", "6T"],
@@ -288,10 +288,10 @@ const sampleProducts = [
         price: 199.99,
         originalPrice: null,
         category: "accessories",
-        image: "https://images.unsplash.com/photo-1553062407-98eeb64c6a62?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&h=750",
+        image: "src/assets/sac-bandouliere-cuir-1.jpg",
         images: [
-            "https://images.unsplash.com/photo-1553062407-98eeb64c6a62?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&h=750",
-            "https://images.unsplash.com/photo-1584917865442-de89df76afd3?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&h=750"
+            "src/assets/sac-bandouliere-cuir-1.jpg",
+            "src/assets/sac-bandouliere-cuir-2.jpg"
         ],
         description: "Handcrafted leather bag with multiple compartments. Perfect for everyday use.",
         sizes: ["One Size"],
@@ -306,9 +306,9 @@ const sampleProducts = [
         price: 59.99,
         originalPrice: 79.99,
         category: "mens",
-        image: "https://images.unsplash.com/photo-1586790170083-2f9ceadc732d?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&h=750",
+        image: "src/assets/polo-coton-homme-1.jpg",
         images: [
-            "https://images.unsplash.com/photo-1586790170083-2f9ceadc732d?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&h=750"
+            "src/assets/polo-coton-homme-1.jpg"
         ],
         description: "Classic polo shirt made from 100% cotton. Perfect for casual or business casual wear.",
         sizes: ["S", "M", "L", "XL", "XXL"],
@@ -323,9 +323,9 @@ const sampleProducts = [
         price: 89.99,
         originalPrice: null,
         category: "womens",
-        image: "https://images.unsplash.com/photo-1515372039744-b8f02a3ae446?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&h=750",
+        image: "src/assets/robe-ete-fluide-1.jpg",
         images: [
-            "https://images.unsplash.com/photo-1515372039744-b8f02a3ae446?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&h=750"
+            "src/assets/robe-ete-fluide-1.jpg"
         ],
         description: "Light and airy dress perfect for warm weather. Features a flattering silhouette.",
         sizes: ["XS", "S", "M", "L", "XL"],
@@ -340,9 +340,9 @@ const sampleProducts = [
         price: 44.99,
         originalPrice: 64.99,
         category: "kids",
-        image: "https://images.unsplash.com/photo-1622470952203-2b8e3e9fa35a?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&h=750",
+        image: "src/assets/veste-jean-enfant-1.jpg",
         images: [
-            "https://images.unsplash.com/photo-1622470952203-2b8e3e9fa35a?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&h=750"
+            "src/assets/veste-jean-enfant-1.jpg"
         ],
         description: "Stylish denim jacket for kids. Durable and perfect for layering.",
         sizes: ["2T", "3T", "4T", "5T", "6T"],
@@ -357,9 +357,9 @@ const sampleProducts = [
         price: 299.99,
         originalPrice: null,
         category: "accessories",
-        image: "https://images.unsplash.com/photo-1523275335684-37898b6baf30?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&h=750",
+        image: "src/assets/montre-classique-1.jpg",
         images: [
-            "https://images.unsplash.com/photo-1523275335684-37898b6baf30?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&h=750"
+            "src/assets/montre-classique-1.jpg"
         ],
         description: "Elegant timepiece with classic design. Features premium materials and precise movement.",
         sizes: ["One Size"],
