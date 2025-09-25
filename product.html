@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Product - StyleCraft | Premium Fashion</title>
+    <title>Produit - StyleCraft | Mode premium</title>
     <meta name="description" content="Découvrez les détails de ce produit premium. Qualité supérieure, livraison gratuite et garantie satisfaction.">
     
     <!-- Google Fonts -->
@@ -16,7 +16,7 @@
 <body>
     <!-- Promo Banner -->
     <div class="promo-banner">
-        <p><i class="fas fa-gift"></i> Get 15% off on your first order - Use code: WELCOME15</p>
+        <p><i class="fas fa-gift"></i> -15% sur votre première commande - Code : WELCOME15</p>
     </div>
 
     <!-- Header -->
@@ -33,21 +33,18 @@
                 <!-- Navigation Desktop -->
                 <nav class="nav-desktop">
                     <ul>
-                        <li><a href="index.html" data-testid="nav-home">Home</a></li>
-                        <li><a href="shop.html" data-testid="nav-shop">Shop</a></li>
-                        <li><a href="#" data-testid="nav-blog">Blog</a></li>
-                        <li><a href="#" data-testid="nav-about">About</a></li>
-                        <li><a href="#" data-testid="nav-careers">Careers</a></li>
-                        <li><a href="#" data-testid="nav-faq">FAQ</a></li>
+                        <li><a href="index.html" data-testid="nav-home">Accueil</a></li>
+                        <li><a href="shop.html" data-testid="nav-shop">Boutique</a></li>
+                        <li><a href="blog.html" data-testid="nav-blog">Blog</a></li>
+                        <li><a href="about.html" data-testid="nav-about">À propos</a></li>
+                        <li><a href="careers.html" data-testid="nav-careers">Carrières</a></li>
+                        <li><a href="faq.html" data-testid="nav-faq">FAQ</a></li>
                         <li><a href="contact.html" data-testid="nav-contact">Contact</a></li>
                     </ul>
                 </nav>
 
                 <!-- Right Icons -->
                 <div class="header-icons">
-                    <button class="icon-btn" data-testid="search-btn">
-                        <i class="fas fa-search"></i>
-                    </button>
                     <button class="icon-btn" data-testid="user-btn">
                         <i class="fas fa-user"></i>
                     </button>
@@ -72,12 +69,12 @@
             </div>
             <nav class="mobile-nav">
                 <ul>
-                    <li><a href="index.html" data-testid="mobile-nav-home">Home</a></li>
-                    <li><a href="shop.html" data-testid="mobile-nav-shop">Shop</a></li>
-                    <li><a href="#" data-testid="mobile-nav-blog">Blog</a></li>
-                    <li><a href="#" data-testid="mobile-nav-about">About</a></li>
-                    <li><a href="#" data-testid="mobile-nav-careers">Careers</a></li>
-                    <li><a href="#" data-testid="mobile-nav-faq">FAQ</a></li>
+                    <li><a href="index.html" data-testid="mobile-nav-home">Accueil</a></li>
+                    <li><a href="shop.html" data-testid="mobile-nav-shop">Boutique</a></li>
+                    <li><a href="blog.html" data-testid="mobile-nav-blog">Blog</a></li>
+                    <li><a href="about.html" data-testid="mobile-nav-about">À propos</a></li>
+                    <li><a href="careers.html" data-testid="mobile-nav-careers">Carrières</a></li>
+                    <li><a href="faq.html" data-testid="mobile-nav-faq">FAQ</a></li>
                     <li><a href="contact.html" data-testid="mobile-nav-contact">Contact</a></li>
                 </ul>
             </nav>
@@ -91,9 +88,9 @@
             <!-- Breadcrumb -->
             <nav class="breadcrumb" data-testid="breadcrumb">
                 <ol>
-                    <li><a href="index.html">Home</a></li>
-                    <li><a href="shop.html">Shop</a></li>
-                    <li id="breadcrumb-product">Product</li>
+                    <li><a href="index.html">Accueil</a></li>
+                    <li><a href="shop.html">Boutique</a></li>
+                    <li id="breadcrumb-product">Produit</li>
                 </ol>
             </nav>
 
@@ -103,7 +100,7 @@
                     <div class="main-image">
                         <img id="mainProductImage" src="" alt="" data-testid="main-product-image">
                         <div class="sale-badge" id="productSaleBadge" style="display: none;" data-testid="sale-badge">
-                            Sale!
+                            Promo !
                         </div>
                     </div>
                     <div class="image-gallery" id="imageGallery" data-testid="image-gallery">
@@ -128,7 +125,7 @@
 
                     <!-- Size Selection -->
                     <div class="product-option">
-                        <label>Size <span class="required">*</span></label>
+                        <label>Taille <span class="required">*</span></label>
                         <div class="size-options" id="sizeOptions" data-testid="size-selection">
                             <!-- Size options will be populated by JS -->
                         </div>
@@ -136,7 +133,7 @@
 
                     <!-- Color Selection -->
                     <div class="product-option" id="colorOption" style="display: none;">
-                        <label>Color</label>
+                        <label>Couleur</label>
                         <div class="color-options" id="colorOptions" data-testid="color-selection">
                             <!-- Color options will be populated by JS -->
                         </div>
@@ -144,7 +141,7 @@
 
                     <!-- Quantity -->
                     <div class="product-option">
-                        <label>Quantity</label>
+                        <label>Quantité</label>
                         <div class="quantity-controls" data-testid="quantity-selector">
                             <button class="quantity-btn" id="decreaseQuantity" data-testid="decrease-quantity">-</button>
                             <input type="number" id="quantityInput" value="1" min="1" data-testid="quantity-input">
@@ -155,14 +152,14 @@
                     <!-- Action Buttons -->
                     <div class="product-actions">
                         <button class="btn btn-primary btn-large" id="addToCartBtn" data-testid="add-to-cart">
-                            Add to Cart - $<span id="totalPrice">0.00</span>
+                            Ajouter au panier - $<span id="totalPrice">0.00</span>
                         </button>
                         <div class="secondary-actions">
                             <button class="btn btn-secondary" data-testid="add-to-wishlist">
-                                <i class="fas fa-heart"></i> Add to Wishlist
+                                <i class="fas fa-heart"></i> Ajouter à la liste de souhaits
                             </button>
                             <button class="btn btn-secondary" data-testid="share-product">
-                                <i class="fas fa-share"></i> Share
+                                <i class="fas fa-share"></i> Partager
                             </button>
                         </div>
                     </div>
@@ -171,15 +168,15 @@
                     <div class="product-features">
                         <div class="feature">
                             <i class="fas fa-truck"></i>
-                            <span>Free shipping on orders over $50</span>
+                            <span>Livraison gratuite dès 50 $ d’achat</span>
                         </div>
                         <div class="feature">
                             <i class="fas fa-undo"></i>
-                            <span>30-day return policy</span>
+                            <span>Retours sous 30 jours</span>
                         </div>
                         <div class="feature">
                             <i class="fas fa-shield-alt"></i>
-                            <span>1-year warranty</span>
+                            <span>Garantie 1 an</span>
                         </div>
                     </div>
                 </div>
@@ -189,33 +186,33 @@
             <div class="product-tabs">
                 <div class="tab-buttons">
                     <button class="tab-btn active" data-tab="description" data-testid="tab-description">Description</button>
-                    <button class="tab-btn" data-tab="sizing" data-testid="tab-sizing">Size Guide</button>
-                    <button class="tab-btn" data-tab="reviews" data-testid="tab-reviews">Reviews (2)</button>
+                    <button class="tab-btn" data-tab="sizing" data-testid="tab-sizing">Guide des tailles</button>
+                    <button class="tab-btn" data-tab="reviews" data-testid="tab-reviews">Avis (2)</button>
                 </div>
 
                 <div class="tab-content">
                     <div class="tab-panel active" id="description-tab">
-                        <h3>Product Description</h3>
-                        <p>This is a high-quality product crafted with attention to detail. Made from premium materials, it offers both style and comfort for everyday wear.</p>
-                        <h4>Features:</h4>
+                        <h3>Description du produit</h3>
+                        <p>Un produit de haute qualité conçu avec le sens du détail. Fabriqué avec des matériaux premium, il offre style et confort au quotidien.</p>
+                        <h4>Caractéristiques :</h4>
                         <ul>
-                            <li>Premium quality materials</li>
-                            <li>Comfortable fit</li>
-                            <li>Durable construction</li>
-                            <li>Easy care instructions</li>
+                            <li>Matériaux de qualité premium</li>
+                            <li>Coupe confortable</li>
+                            <li>Construction durable</li>
+                            <li>Entretien facile</li>
                         </ul>
                     </div>
 
                     <div class="tab-panel" id="sizing-tab">
-                        <h3>Size Guide</h3>
+                        <h3>Guide des tailles</h3>
                         <div class="size-table">
                             <table>
                                 <thead>
                                     <tr>
-                                        <th>Size</th>
-                                        <th>Chest (inches)</th>
-                                        <th>Waist (inches)</th>
-                                        <th>Length (inches)</th>
+                                        <th>Taille</th>
+                                        <th>Poitrine (pouces)</th>
+                                        <th>Taille (pouces)</th>
+                                        <th>Longueur (pouces)</th>
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -255,12 +252,12 @@
                     </div>
 
                     <div class="tab-panel" id="reviews-tab">
-                        <h3>Customer Reviews</h3>
+                        <h3>Avis clients</h3>
                         <div class="reviews">
                             <div class="review">
                                 <div class="review-header">
                                     <div class="reviewer-info">
-                                        <span class="reviewer-name">John Doe</span>
+                                <span class="reviewer-name">Jean Dupont</span>
                                         <div class="review-rating">
                                             <i class="fas fa-star"></i>
                                             <i class="fas fa-star"></i>
@@ -271,12 +268,12 @@
                                     </div>
                                     <span class="review-date">2024-01-15</span>
                                 </div>
-                                <p class="review-text">Great quality and perfect fit!</p>
+                                <p class="review-text">Super qualité et coupe parfaite !</p>
                             </div>
                             <div class="review">
                                 <div class="review-header">
                                     <div class="reviewer-info">
-                                        <span class="reviewer-name">Jane Smith</span>
+                                        <span class="reviewer-name">Marie Martin</span>
                                         <div class="review-rating">
                                             <i class="fas fa-star"></i>
                                             <i class="fas fa-star"></i>
@@ -287,10 +284,10 @@
                                     </div>
                                     <span class="review-date">2024-01-10</span>
                                 </div>
-                                <p class="review-text">Love the style, runs a bit small.</p>
+                                <p class="review-text">J’adore le style, taille un peu petit.</p>
                             </div>
                         </div>
-                        <button class="btn btn-secondary" data-testid="write-review">Write a Review</button>
+                        <button class="btn btn-secondary" data-testid="write-review">Écrire un avis</button>
                     </div>
                 </div>
             </div>
@@ -303,7 +300,7 @@
             <div class="footer-content">
                 <div class="footer-section">
                     <h3 data-testid="footer-logo">StyleCraft</h3>
-                    <p>Timeless fashion for the modern wardrobe. Quality clothing that lasts.</p>
+                    <p>Mode intemporelle pour une garde-robe moderne. Des vêtements de qualité qui durent.</p>
                     <div class="social-links">
                         <a href="#" data-testid="social-facebook" aria-label="Facebook">
                             <i class="fab fa-facebook"></i>
@@ -320,37 +317,37 @@
                     </div>
                 </div>
                 <div class="footer-section">
-                    <h4>Shop</h4>
+                    <h4>Boutique</h4>
                     <ul>
-                        <li><a href="shop.html?category=mens" data-testid="footer-shop-mens-wear">Mens Wear</a></li>
-                        <li><a href="shop.html?category=womens" data-testid="footer-shop-womens-wear">Womens Wear</a></li>
-                        <li><a href="shop.html?category=kids" data-testid="footer-shop-kids-wear">Kids Wear</a></li>
-                        <li><a href="shop.html?category=accessories" data-testid="footer-shop-accessories">Accessories</a></li>
-                        <li><a href="shop.html?sale=true" data-testid="footer-shop-sale">Sale</a></li>
+                        <li><a href="shop.html?category=mens" data-testid="footer-shop-mens-wear">Vêtements homme</a></li>
+                        <li><a href="shop.html?category=womens" data-testid="footer-shop-womens-wear">Vêtements femme</a></li>
+                        <li><a href="shop.html?category=kids" data-testid="footer-shop-kids-wear">Enfants</a></li>
+                        <li><a href="shop.html?category=accessories" data-testid="footer-shop-accessories">Accessoires</a></li>
+                        <li><a href="shop.html?sale=true" data-testid="footer-shop-sale">Promotions</a></li>
                     </ul>
                 </div>
                 <div class="footer-section">
-                    <h4>Help</h4>
+                    <h4>Aide</h4>
                     <ul>
-                        <li><a href="#" data-testid="footer-help-size-guide">Size Guide</a></li>
-                        <li><a href="#" data-testid="footer-help-shipping-info">Shipping Info</a></li>
-                        <li><a href="#" data-testid="footer-help-returns">Returns</a></li>
-                        <li><a href="#" data-testid="footer-help-faq">FAQ</a></li>
+                        <li><a href="#" data-testid="footer-help-size-guide">Guide des tailles</a></li>
+                        <li><a href="#" data-testid="footer-help-shipping-info">Informations de livraison</a></li>
+                        <li><a href="#" data-testid="footer-help-returns">Retours</a></li>
+                        <li><a href="faq.html" data-testid="footer-help-faq">FAQ</a></li>
                         <li><a href="contact.html" data-testid="footer-help-contact">Contact</a></li>
                     </ul>
                 </div>
                 <div class="footer-section">
-                    <h4>My Profile</h4>
+                    <h4>Mon espace</h4>
                     <ul>
-                        <li><a href="#" data-testid="footer-profile-my-account">My Account</a></li>
-                        <li><a href="#" data-testid="footer-profile-order-history">Order History</a></li>
-                        <li><a href="#" data-testid="footer-profile-wishlist">Wishlist</a></li>
-                        <li><a href="#" data-testid="footer-profile-track-order">Track Order</a></li>
+                        <li><a href="#" data-testid="footer-profile-my-account">Mon compte</a></li>
+                        <li><a href="#" data-testid="footer-profile-order-history">Historique des commandes</a></li>
+                        <li><a href="#" data-testid="footer-profile-wishlist">Liste de souhaits</a></li>
+                        <li><a href="#" data-testid="footer-profile-track-order">Suivre ma commande</a></li>
                     </ul>
                 </div>
             </div>
             <div class="footer-bottom">
-                <p data-testid="footer-copyright">&copy; 2024 StyleCraft. All rights reserved.</p>
+                <p data-testid="footer-copyright">&copy; 2024 StyleCraft. Tous droits réservés.</p>
             </div>
         </div>
     </footer>

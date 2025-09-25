@@ -15,6 +15,184 @@ let currentFilters = {
 
 // Sample Products Data
 const sampleProducts = [
+    // Perruques
+    {
+        id: 101,
+        name: "Perruque Cheveux Naturels Longs",
+        price: 299.99,
+        originalPrice: 399.99,
+        category: "perruques",
+        image: "https://images.unsplash.com/photo-1594736797933-d0c29c8d4d68?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&h=750",
+        images: [
+            "https://images.unsplash.com/photo-1594736797933-d0c29c8d4d68?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&h=750",
+            "https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&h=750"
+        ],
+        description: "Perruque en cheveux naturels 100% humains, longueur 50cm. Qualité premium pour un rendu naturel exceptionnel.",
+        sizes: ["One Size"],
+        colors: ["Brun", "Blond", "Roux", "Noir"],
+        featured: true,
+        bestseller: true,
+        sale: true
+    },
+    {
+        id: 102,
+        name: "Perruque Synthétique Ondulée",
+        price: 89.99,
+        originalPrice: 129.99,
+        category: "perruques",
+        image: "https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&h=750",
+        images: [
+            "https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&h=750"
+        ],
+        description: "Perruque synthétique avec ondulations naturelles. Facile à coiffer et à entretenir.",
+        sizes: ["One Size"],
+        colors: ["Blond", "Brun", "Roux"],
+        featured: true,
+        bestseller: false,
+        sale: true
+    },
+    {
+        id: 103,
+        name: "Perruque Court Moderne",
+        price: 149.99,
+        originalPrice: null,
+        category: "perruques",
+        image: "https://images.unsplash.com/photo-1594736797933-d0c29c8d4d68?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&h=750",
+        images: [
+            "https://images.unsplash.com/photo-1594736797933-d0c29c8d4d68?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&h=750"
+        ],
+        description: "Coupe moderne et tendance, parfaite pour un look contemporain.",
+        sizes: ["One Size"],
+        colors: ["Noir", "Brun", "Blond"],
+        featured: false,
+        bestseller: true,
+        sale: false
+    },
+    // Vêtements Femme
+    {
+        id: 201,
+        name: "Robe Élégante Soirée",
+        price: 179.99,
+        originalPrice: 229.99,
+        category: "vetements-femme",
+        image: "https://images.unsplash.com/photo-1539008835657-9e8e9680c956?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&h=750",
+        images: [
+            "https://images.unsplash.com/photo-1539008835657-9e8e9680c956?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&h=750",
+            "https://images.unsplash.com/photo-1566479179817-c9b93cac3c23?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&h=750"
+        ],
+        description: "Robe de soirée sophistiquée en soie, coupe ajustée et élégante.",
+        sizes: ["XS", "S", "M", "L", "XL"],
+        colors: ["Noir", "Rouge", "Bleu"],
+        featured: true,
+        bestseller: true,
+        sale: true
+    },
+    {
+        id: 202,
+        name: "Top Décontracté Femme",
+        price: 49.99,
+        originalPrice: null,
+        category: "vetements-femme",
+        image: "https://images.unsplash.com/photo-1434389677669-e08b4cac3105?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&h=750",
+        images: [
+            "https://images.unsplash.com/photo-1434389677669-e08b4cac3105?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&h=750"
+        ],
+        description: "Top confortable en coton bio, parfait pour le quotidien.",
+        sizes: ["XS", "S", "M", "L", "XL"],
+        colors: ["Blanc", "Gris", "Rose"],
+        featured: true,
+        bestseller: false,
+        sale: false
+    },
+    // Vêtements Enfant
+    {
+        id: 301,
+        name: "Robe Princesse Enfant",
+        price: 39.99,
+        originalPrice: 59.99,
+        category: "vetements-enfant",
+        image: "https://images.unsplash.com/photo-1503454537195-1dcabb73ffb9?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&h=750",
+        images: [
+            "https://images.unsplash.com/photo-1503454537195-1dcabb73ffb9?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&h=750"
+        ],
+        description: "Robe de princesse pour enfant, tissu doux et confortable.",
+        sizes: ["2T", "3T", "4T", "5T", "6T"],
+        colors: ["Rose", "Bleu", "Violet"],
+        featured: true,
+        bestseller: true,
+        sale: true
+    },
+    {
+        id: 302,
+        name: "T-shirt Enfant Graphique",
+        price: 19.99,
+        originalPrice: null,
+        category: "vetements-enfant",
+        image: "https://images.unsplash.com/photo-1622470952203-2b8e3e9fa35a?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&h=750",
+        images: [
+            "https://images.unsplash.com/photo-1622470952203-2b8e3e9fa35a?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&h=750"
+        ],
+        description: "T-shirt amusant avec motif graphique, coton 100%.",
+        sizes: ["2T", "3T", "4T", "5T", "6T"],
+        colors: ["Bleu", "Rouge", "Vert"],
+        featured: false,
+        bestseller: false,
+        sale: false
+    },
+    // Sacs
+    {
+        id: 401,
+        name: "Sac à Main Cuir Premium",
+        price: 249.99,
+        originalPrice: 329.99,
+        category: "sacs",
+        image: "https://images.unsplash.com/photo-1553062407-98eeb64c6a62?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&h=750",
+        images: [
+            "https://images.unsplash.com/photo-1553062407-98eeb64c6a62?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&h=750",
+            "https://images.unsplash.com/photo-1584917865442-de89df76afd3?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&h=750"
+        ],
+        description: "Sac à main en cuir véritable, fabrication artisanale de qualité supérieure.",
+        sizes: ["One Size"],
+        colors: ["Noir", "Marron", "Rouge"],
+        featured: true,
+        bestseller: true,
+        sale: true
+    },
+    {
+        id: 402,
+        name: "Sac à Dos Tendance",
+        price: 89.99,
+        originalPrice: null,
+        category: "sacs",
+        image: "https://images.unsplash.com/photo-1584917865442-de89df76afd3?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&h=750",
+        images: [
+            "https://images.unsplash.com/photo-1584917865442-de89df76afd3?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&h=750"
+        ],
+        description: "Sac à dos moderne et fonctionnel, parfait pour le quotidien.",
+        sizes: ["One Size"],
+        colors: ["Noir", "Gris", "Bleu"],
+        featured: true,
+        bestseller: false,
+        sale: false
+    },
+    {
+        id: 403,
+        name: "Sac de Soirée Élégant",
+        price: 79.99,
+        originalPrice: 99.99,
+        category: "sacs",
+        image: "https://images.unsplash.com/photo-1523275335684-37898b6baf30?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&h=750",
+        images: [
+            "https://images.unsplash.com/photo-1523275335684-37898b6baf30?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&h=750"
+        ],
+        description: "Petit sac de soirée raffiné, idéal pour les occasions spéciales.",
+        sizes: ["One Size"],
+        colors: ["Noir", "Or", "Argent"],
+        featured: false,
+        bestseller: true,
+        sale: true
+    },
+    // Produits existants (gardés pour compatibilité)
     {
         id: 1,
         name: "Classic White Button-Down Shirt",
@@ -218,6 +396,12 @@ function initializeApp() {
         loadCartPage();
     } else if (currentPath.includes('contact.html')) {
         loadContactPage();
+    } else if (currentPath.includes('perruques.html')) {
+        loadCategoryPage('perruques');
+    } else if (currentPath.includes('vetements-femme-enfant.html')) {
+        loadCategoryPage('vetements-femme', 'vetements-enfant');
+    } else if (currentPath.includes('sacs.html')) {
+        loadCategoryPage('sacs');
     }
 }
 
@@ -230,17 +414,63 @@ function setupEventListeners() {
     const mobileMenuOverlay = document.querySelector('.mobile-menu-overlay');
     
     if (mobileMenuBtn && mobileMenu) {
-        mobileMenuBtn.addEventListener('click', () => {
+        // Fonction pour fermer le menu
+        const closeMobileMenu = () => {
+            mobileMenu.classList.remove('active');
+            if (mobileMenuOverlay) {
+                mobileMenuOverlay.classList.remove('active');
+            }
+        };
+
+        // Ouvrir le menu
+        mobileMenuBtn.addEventListener('click', (e) => {
+            e.preventDefault();
             mobileMenu.classList.add('active');
-        });
-        
-        [mobileMenuClose, mobileMenuOverlay].forEach(element => {
-            if (element) {
-                element.addEventListener('click', () => {
-                    mobileMenu.classList.remove('active');
-                });
+            if (mobileMenuOverlay) {
+                mobileMenuOverlay.classList.add('active');
             }
         });
+        
+        // Fermer le menu
+        [mobileMenuClose, mobileMenuOverlay].forEach(element => {
+            if (element) {
+                element.addEventListener('click', closeMobileMenu);
+            }
+        });
+
+        // Fermer le menu quand on clique sur un lien de navigation
+        const mobileNavLinks = mobileMenu.querySelectorAll('.mobile-nav a');
+        mobileNavLinks.forEach(link => {
+            link.addEventListener('click', closeMobileMenu);
+        });
+
+        // Fermer le menu avec la touche Escape
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape' && mobileMenu.classList.contains('active')) {
+                closeMobileMenu();
+            }
+        });
+
+        // Marquer la page active dans le menu mobile
+        const setActiveMobileNavItem = () => {
+            const currentPath = window.location.pathname;
+            const mobileNavLinks = mobileMenu.querySelectorAll('.mobile-nav a');
+            
+            mobileNavLinks.forEach(link => {
+                link.classList.remove('active');
+                const href = link.getAttribute('href');
+                
+                if (href === 'index.html' && (currentPath === '/' || currentPath.includes('index.html'))) {
+                    link.classList.add('active');
+                } else if (href && currentPath.includes(href)) {
+                    link.classList.add('active');
+                }
+            });
+        };
+
+        // Appeler la fonction au chargement et quand le menu s'ouvre
+        setActiveMobileNavItem();
+        mobileMenuBtn.addEventListener('click', setActiveMobileNavItem);
     }
     
     // Quick view modal
@@ -898,6 +1128,49 @@ function proceedToCheckout() {
 
 function goToProduct(productId) {
     window.location.href = `product.html?id=${productId}`;
+}
+
+// Category Page Functions
+function loadCategoryPage(...categories) {
+    setupFilters();
+    setupSorting();
+    setupPagination();
+    renderCategoryProducts(categories);
+}
+
+function renderCategoryProducts(categories) {
+    const container = document.getElementById('perruques-grid') || 
+                     document.getElementById('vetements-grid') || 
+                     document.getElementById('sacs-grid');
+    const noProductsDiv = document.getElementById('no-products');
+    const productCountSpan = document.querySelector('[data-testid="product-count"]');
+    
+    if (!container) return;
+    
+    // Filter products by categories
+    const filteredProducts = products.filter(product => 
+        categories.includes(product.category)
+    );
+    
+    const totalProducts = filteredProducts.length;
+    
+    if (totalProducts === 0) {
+        container.style.display = 'none';
+        if (noProductsDiv) noProductsDiv.style.display = 'block';
+        return;
+    }
+    
+    container.style.display = 'grid';
+    if (noProductsDiv) noProductsDiv.style.display = 'none';
+    
+    // Render products
+    container.innerHTML = filteredProducts.map(product => createProductCard(product)).join('');
+    setupProductCardEvents(container);
+    
+    // Update product count
+    if (productCountSpan) {
+        productCountSpan.textContent = `Affichage de 1-${totalProducts} sur ${totalProducts} produits`;
+    }
 }
 
 // Contact Page Functions

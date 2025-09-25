@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Shopping Cart - StyleCraft | Your Fashion Selection</title>
-    <meta name="description" content="Votre panier StyleCraft. Finalisez votre commande de vêtements premium avec livraison gratuite et checkout sécurisé.">
+    <title>À propos - StyleCraft | Mode et Accessoires</title>
+    <meta name="description" content="Découvrez l'histoire de StyleCraft, spécialiste des perruques, vêtements femme/enfant et sacs de qualité.">
     
     <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
@@ -16,7 +16,7 @@
 <body>
     <!-- Promo Banner -->
     <div class="promo-banner">
-        <p><i class="fas fa-gift"></i> Get 15% off on your first order - Use code: WELCOME15</p>
+        <p><i class="fas fa-gift"></i> -15% sur votre première commande - Code : WELCOME15</p>
     </div>
 
     <!-- Header -->
@@ -33,10 +33,10 @@
                 <!-- Navigation Desktop -->
                 <nav class="nav-desktop">
                     <ul>
-                        <li><a href="index.html" data-testid="nav-home">Home</a></li>
-                        <li><a href="shop.html" data-testid="nav-shop">Shop</a></li>
+                        <li><a href="index.html" data-testid="nav-home">Accueil</a></li>
+                        <li><a href="shop.html" data-testid="nav-shop">Boutique</a></li>
                         <li><a href="blog.html" data-testid="nav-blog">Blog</a></li>
-                        <li><a href="about.html" data-testid="nav-about">À propos</a></li>
+                        <li><a href="about.html" class="active" data-testid="nav-about">À propos</a></li>
                         <li><a href="careers.html" data-testid="nav-careers">Carrières</a></li>
                         <li><a href="faq.html" data-testid="nav-faq">FAQ</a></li>
                         <li><a href="contact.html" data-testid="nav-contact">Contact</a></li>
@@ -45,10 +45,13 @@
 
                 <!-- Right Icons -->
                 <div class="header-icons">
+                    <button class="icon-btn" data-testid="search-btn">
+                        <i class="fas fa-search"></i>
+                    </button>
                     <button class="icon-btn" data-testid="user-btn">
                         <i class="fas fa-user"></i>
                     </button>
-                    <button class="icon-btn cart-btn active" data-testid="cart-btn">
+                    <button class="icon-btn cart-btn" data-testid="cart-btn" onclick="window.location.href='cart.html'">
                         <i class="fas fa-shopping-bag"></i>
                         <span class="cart-count" data-testid="cart-count">0</span>
                     </button>
@@ -69,10 +72,10 @@
             </div>
             <nav class="mobile-nav">
                 <ul>
-                    <li><a href="index.html" data-testid="mobile-nav-home">Home</a></li>
-                    <li><a href="shop.html" data-testid="mobile-nav-shop">Shop</a></li>
+                    <li><a href="index.html" data-testid="mobile-nav-home">Accueil</a></li>
+                    <li><a href="shop.html" data-testid="mobile-nav-shop">Boutique</a></li>
                     <li><a href="blog.html" data-testid="mobile-nav-blog">Blog</a></li>
-                    <li><a href="about.html" data-testid="mobile-nav-about">À propos</a></li>
+                    <li><a href="about.html" class="active" data-testid="mobile-nav-about">À propos</a></li>
                     <li><a href="careers.html" data-testid="mobile-nav-careers">Carrières</a></li>
                     <li><a href="faq.html" data-testid="mobile-nav-faq">FAQ</a></li>
                     <li><a href="contact.html" data-testid="mobile-nav-contact">Contact</a></li>
@@ -82,104 +85,74 @@
         <div class="mobile-menu-overlay" data-testid="mobile-menu-overlay"></div>
     </header>
 
-    <!-- Cart Page Content -->
-    <main class="cart-page">
+    <!-- About Page Content -->
+    <main class="about-page">
         <div class="container">
-            <!-- Empty Cart State -->
-            <div class="empty-cart" id="emptyCart" data-testid="empty-cart">
-                <div class="empty-cart-content">
-                    <i class="fas fa-shopping-bag"></i>
-                    <h1>Your cart is empty</h1>
-                    <p>Looks like you haven't added anything to your cart yet.</p>
-                    <a href="shop.html" class="btn btn-primary" data-testid="continue-shopping">Continue Shopping</a>
-                </div>
+            <div class="about-header">
+                <h1 data-testid="about-title">À propos de StyleCraft</h1>
+                <p>Votre destination pour les perruques, vêtements femme/enfant et sacs de qualité</p>
             </div>
 
-            <!-- Cart with Items -->
-            <div class="cart-content" id="cartContent" style="display: none;">
-                <div class="cart-header">
-                    <h1 data-testid="cart-title">Shopping Cart (<span id="cartItemCount">0</span> items)</h1>
-                    <button class="btn btn-secondary clear-cart" id="clearCartBtn" data-testid="clear-cart">
-                        <i class="fas fa-trash"></i> Clear Cart
-                    </button>
-                </div>
+            <div class="about-content">
+                <section class="about-story">
+                    <h2>Notre Histoire</h2>
+                    <p>Depuis notre création, StyleCraft s'est spécialisé dans l'univers de la mode féminine et enfantine. Nous proposons une sélection soigneusement choisie de perruques de qualité, de vêtements tendance pour femmes et enfants, ainsi que des sacs élégants pour compléter votre look.</p>
+                    <p>Notre mission est de vous offrir des produits qui allient style, confort et qualité, à des prix accessibles.</p>
+                </section>
 
-                <div class="cart-layout">
-                    <!-- Cart Items -->
-                    <div class="cart-items">
-                        <div class="cart-items-container" id="cartItemsContainer" data-testid="cart-items">
-                            <!-- Cart items will be populated by JavaScript -->
-                        </div>
-                        
-                        <!-- Continue Shopping -->
-                        <div class="continue-shopping">
-                            <a href="shop.html" class="btn btn-secondary" data-testid="continue-shopping-link">
-                                <i class="fas fa-arrow-left"></i> Continue Shopping
-                            </a>
-                        </div>
-                    </div>
-
-                    <!-- Cart Summary -->
-                    <div class="cart-summary" data-testid="cart-summary">
-                        <h2>Order Summary</h2>
-                        
-                        <div class="summary-details">
-                            <div class="summary-row">
-                                <span>Subtotal:</span>
-                                <span id="cartSubtotal" data-testid="subtotal">$0.00</span>
-                            </div>
-                            <div class="summary-row">
-                                <span>Shipping:</span>
-                                <span id="cartShipping" data-testid="shipping">$0.00</span>
-                            </div>
-                            <div class="free-shipping-notice" id="freeShippingNotice" style="display: none;">
-                                <i class="fas fa-check-circle"></i>
-                                Free shipping on orders over $50!
-                            </div>
-                            <div class="summary-row">
-                                <span>Tax:</span>
-                                <span id="cartTax" data-testid="tax">$0.00</span>
-                            </div>
-                            <div class="summary-divider"></div>
-                            <div class="summary-row total">
-                                <span>Total:</span>
-                                <span id="cartTotal" data-testid="total">$0.00</span>
-                            </div>
-                        </div>
-
-                        <div class="checkout-actions">
-                            <button class="btn btn-primary btn-large checkout-btn" data-testid="checkout-btn">
-                                Proceed to Checkout
-                            </button>
-                            
-                            <div class="security-badges">
-                                <div class="security-item">
-                                    <i class="fas fa-shield-alt"></i>
-                                    <span>Secure Checkout</span>
-                                </div>
-                                <div class="security-item">
-                                    <i class="fas fa-truck"></i>
-                                    <span>Fast Delivery</span>
+                <section class="about-categories">
+                    <h2>Nos Spécialités</h2>
+                    <div class="categories-grid">
+                        <div class="category-card">
+                            <div class="category-image">
+                                <img src="https://images.unsplash.com/photo-1594736797933-d0c29c8d4d68?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&h=400" alt="Perruques de qualité">
+                                <div class="category-overlay">
+                                    <h3>Perruques</h3>
+                                    <p>Qualité premium et styles variés</p>
                                 </div>
                             </div>
-                            
-                            <p class="checkout-notice">
-                                By proceeding to checkout, you agree to our Terms of Service and Privacy Policy.
-                            </p>
                         </div>
-
-                        <!-- Payment Methods -->
-                        <div class="payment-methods">
-                            <p>We Accept:</p>
-                            <div class="payment-icons">
-                                <div class="payment-icon">VISA</div>
-                                <div class="payment-icon">MC</div>
-                                <div class="payment-icon">AMEX</div>
-                                <div class="payment-icon">PAYPAL</div>
+                        <div class="category-card">
+                            <div class="category-image">
+                                <img src="https://images.unsplash.com/photo-1529139574466-a303027c1d8b?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&h=400" alt="Vêtements femme et enfant">
+                                <div class="category-overlay">
+                                    <h3>Vêtements</h3>
+                                    <p>Femme et enfant, tendances actuelles</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="category-card">
+                            <div class="category-image">
+                                <img src="https://images.unsplash.com/photo-1553062407-98eeb64c6a62?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&h=400" alt="Sacs élégants">
+                                <div class="category-overlay">
+                                    <h3>Sacs</h3>
+                                    <p>Élégance et praticité</p>
+                                </div>
                             </div>
                         </div>
                     </div>
-                </div>
+                </section>
+
+                <section class="about-values">
+                    <h2>Nos Valeurs</h2>
+                    <div class="values-grid">
+                        <div class="value-card">
+                            <i class="fas fa-star"></i>
+                            <h3>Qualité</h3>
+                            <p>Nous sélectionnons uniquement des produits de haute qualité pour vous garantir satisfaction et durabilité.</p>
+                        </div>
+                        <div class="value-card">
+                            <i class="fas fa-heart"></i>
+                            <h3>Style</h3>
+                            <p>Notre équipe suit les dernières tendances pour vous proposer des pièces à la mode et intemporelles.</p>
+                        </div>
+                        <div class="value-card">
+                            <i class="fas fa-users"></i>
+                            <h3>Service Client</h3>
+                            <p>Notre équipe dédiée est là pour vous accompagner dans vos choix et répondre à vos questions.</p>
+                        </div>
+                    </div>
+                </section>
             </div>
         </div>
     </main>
@@ -209,10 +182,9 @@
                 <div class="footer-section">
                     <h4>Boutique</h4>
                     <ul>
-                        <li><a href="shop.html?category=mens" data-testid="footer-shop-mens-wear">Vêtements homme</a></li>
-                        <li><a href="shop.html?category=womens" data-testid="footer-shop-womens-wear">Vêtements femme</a></li>
-                        <li><a href="shop.html?category=kids" data-testid="footer-shop-kids-wear">Enfants</a></li>
-                        <li><a href="shop.html?category=accessories" data-testid="footer-shop-accessories">Accessoires</a></li>
+                        <li><a href="perruques.html" data-testid="footer-shop-perruques">Perruques</a></li>
+                        <li><a href="vetements-femme-enfant.html" data-testid="footer-shop-vetements">Vêtements</a></li>
+                        <li><a href="sacs.html" data-testid="footer-shop-sacs">Sacs</a></li>
                         <li><a href="shop.html?sale=true" data-testid="footer-shop-sale">Promotions</a></li>
                     </ul>
                 </div>

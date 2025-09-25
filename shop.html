@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Shop - StyleCraft | Premium Fashion Collection</title>
+    <title>Boutique - StyleCraft | Collection de mode premium</title>
     <meta name="description" content="Découvrez notre collection complète de vêtements premium. Homme, femme, enfant et accessoires avec livraison gratuite.">
     
     <!-- Google Fonts -->
@@ -16,7 +16,7 @@
 <body>
     <!-- Promo Banner -->
     <div class="promo-banner">
-        <p><i class="fas fa-gift"></i> Get 15% off on your first order - Use code: WELCOME15</p>
+        <p><i class="fas fa-gift"></i> -15% sur votre première commande - Code : WELCOME15</p>
     </div>
 
     <!-- Header -->
@@ -33,21 +33,18 @@
                 <!-- Navigation Desktop -->
                 <nav class="nav-desktop">
                     <ul>
-                        <li><a href="index.html" data-testid="nav-home">Home</a></li>
-                        <li><a href="shop.html" class="active" data-testid="nav-shop">Shop</a></li>
-                        <li><a href="#" data-testid="nav-blog">Blog</a></li>
-                        <li><a href="#" data-testid="nav-about">About</a></li>
-                        <li><a href="#" data-testid="nav-careers">Careers</a></li>
-                        <li><a href="#" data-testid="nav-faq">FAQ</a></li>
+                        <li><a href="index.html" data-testid="nav-home">Accueil</a></li>
+                        <li><a href="shop.html" class="active" data-testid="nav-shop">Boutique</a></li>
+                        <li><a href="blog.html" data-testid="nav-blog">Blog</a></li>
+                        <li><a href="about.html" data-testid="nav-about">À propos</a></li>
+                        <li><a href="careers.html" data-testid="nav-careers">Carrières</a></li>
+                        <li><a href="faq.html" data-testid="nav-faq">FAQ</a></li>
                         <li><a href="contact.html" data-testid="nav-contact">Contact</a></li>
                     </ul>
                 </nav>
 
                 <!-- Right Icons -->
                 <div class="header-icons">
-                    <button class="icon-btn" data-testid="search-btn">
-                        <i class="fas fa-search"></i>
-                    </button>
                     <button class="icon-btn" data-testid="user-btn">
                         <i class="fas fa-user"></i>
                     </button>
@@ -72,12 +69,12 @@
             </div>
             <nav class="mobile-nav">
                 <ul>
-                    <li><a href="index.html" data-testid="mobile-nav-home">Home</a></li>
-                    <li><a href="shop.html" data-testid="mobile-nav-shop">Shop</a></li>
-                    <li><a href="#" data-testid="mobile-nav-blog">Blog</a></li>
-                    <li><a href="#" data-testid="mobile-nav-about">About</a></li>
-                    <li><a href="#" data-testid="mobile-nav-careers">Careers</a></li>
-                    <li><a href="#" data-testid="mobile-nav-faq">FAQ</a></li>
+                    <li><a href="index.html" data-testid="mobile-nav-home">Accueil</a></li>
+                    <li><a href="shop.html" data-testid="mobile-nav-shop">Boutique</a></li>
+                    <li><a href="blog.html" data-testid="mobile-nav-blog">Blog</a></li>
+                    <li><a href="about.html" data-testid="mobile-nav-about">À propos</a></li>
+                    <li><a href="careers.html" data-testid="mobile-nav-careers">Carrières</a></li>
+                    <li><a href="faq.html" data-testid="mobile-nav-faq">FAQ</a></li>
                     <li><a href="contact.html" data-testid="mobile-nav-contact">Contact</a></li>
                 </ul>
             </nav>
@@ -92,52 +89,52 @@
                 <!-- Filters Sidebar -->
                 <aside class="filters-sidebar" data-testid="filters-sidebar">
                     <div class="filters-header">
-                        <h3>Filters</h3>
-                        <button class="clear-filters" data-testid="clear-filters">Clear All</button>
+                        <h3>Filtres</h3>
+                        <button class="clear-filters" data-testid="clear-filters">Tout effacer</button>
                     </div>
                     
                     <!-- Category Filter -->
                     <div class="filter-group">
-                        <h4>Category</h4>
+                        <h4>Catégorie</h4>
                         <div class="filter-options">
                             <label class="filter-option">
                                 <input type="checkbox" value="mens" data-testid="filter-category-mens">
-                                <span>Mens Wear</span>
+                                <span>Vêtements homme</span>
                             </label>
                             <label class="filter-option">
                                 <input type="checkbox" value="womens" data-testid="filter-category-womens">
-                                <span>Womens Wear</span>
+                                <span>Vêtements femme</span>
                             </label>
                             <label class="filter-option">
                                 <input type="checkbox" value="kids" data-testid="filter-category-kids">
-                                <span>Kids Wear</span>
+                                <span>Enfants</span>
                             </label>
                             <label class="filter-option">
                                 <input type="checkbox" value="accessories" data-testid="filter-category-accessories">
-                                <span>Accessories</span>
+                                <span>Accessoires</span>
                             </label>
                         </div>
                     </div>
 
                     <!-- Price Filter -->
                     <div class="filter-group">
-                        <h4>Price Range</h4>
+                        <h4>Tranche de prix</h4>
                         <div class="filter-options">
                             <label class="filter-option">
                                 <input type="radio" name="price" value="0-50" data-testid="filter-price-0-50">
-                                <span>$0 - $50</span>
+                                <span>0 $ - 50 $</span>
                             </label>
                             <label class="filter-option">
                                 <input type="radio" name="price" value="50-100" data-testid="filter-price-50-100">
-                                <span>$50 - $100</span>
+                                <span>50 $ - 100 $</span>
                             </label>
                             <label class="filter-option">
                                 <input type="radio" name="price" value="100-200" data-testid="filter-price-100-200">
-                                <span>$100 - $200</span>
+                                <span>100 $ - 200 $</span>
                             </label>
                             <label class="filter-option">
                                 <input type="radio" name="price" value="200+" data-testid="filter-price-200+">
-                                <span>$200+</span>
+                                <span>200 $ et plus</span>
                             </label>
                         </div>
                     </div>
@@ -147,7 +144,7 @@
                         <div class="filter-options">
                             <label class="filter-option">
                                 <input type="checkbox" value="sale" data-testid="filter-sale">
-                                <span>On Sale Only</span>
+                                <span>En promotion uniquement</span>
                             </label>
                         </div>
                     </div>
@@ -157,15 +154,15 @@
                 <section class="products-section">
                     <div class="products-header">
                         <div class="products-info">
-                            <h1 data-testid="shop-title">All Products</h1>
-                            <p class="product-count" data-testid="product-count">Showing 1-6 of 10 products</p>
+                            <h1 data-testid="shop-title">Tous les produits</h1>
+                            <p class="product-count" data-testid="product-count">Affichage de 1–6 sur 10 produits</p>
                         </div>
                         <div class="sort-controls">
                             <select class="sort-select" data-testid="sort-select">
-                                <option value="featured">Sort by: Featured</option>
-                                <option value="price-low-high">Price: Low to High</option>
-                                <option value="price-high-low">Price: High to Low</option>
-                                <option value="newest">Newest First</option>
+                                <option value="featured">Trier par : En vedette</option>
+                                <option value="price-low-high">Prix : du plus bas au plus élevé</option>
+                                <option value="price-high-low">Prix : du plus élevé au plus bas</option>
+                                <option value="newest">Les plus récents</option>
                             </select>
                         </div>
                     </div>
@@ -178,21 +175,21 @@
                     <!-- No Products Message -->
                     <div class="no-products" id="no-products" style="display: none;" data-testid="no-products">
                         <i class="fas fa-search"></i>
-                        <h3>No products found</h3>
-                        <p>Try adjusting your filters or search criteria</p>
-                        <button class="btn btn-primary" id="reset-filters" data-testid="reset-filters">Reset Filters</button>
+                        <h3>Aucun produit trouvé</h3>
+                        <p>Essayez d’ajuster vos filtres ou vos critères de recherche</p>
+                        <button class="btn btn-primary" id="reset-filters" data-testid="reset-filters">Réinitialiser les filtres</button>
                     </div>
 
                     <!-- Pagination -->
                     <div class="pagination" id="pagination" data-testid="pagination">
                         <button class="pagination-btn" id="prev-page" data-testid="pagination-prev" disabled>
-                            <i class="fas fa-chevron-left"></i> Previous
+                            <i class="fas fa-chevron-left"></i> Précédent
                         </button>
                         <div class="pagination-numbers" id="pagination-numbers">
                             <!-- Page numbers will be populated by JS -->
                         </div>
                         <button class="pagination-btn" id="next-page" data-testid="pagination-next">
-                            Next <i class="fas fa-chevron-right"></i>
+                            Suivant <i class="fas fa-chevron-right"></i>
                         </button>
                     </div>
                 </section>
@@ -206,7 +203,7 @@
             <div class="footer-content">
                 <div class="footer-section">
                     <h3 data-testid="footer-logo">StyleCraft</h3>
-                    <p>Timeless fashion for the modern wardrobe. Quality clothing that lasts.</p>
+                    <p>Mode intemporelle pour une garde-robe moderne. Des vêtements de qualité qui durent.</p>
                     <div class="social-links">
                         <a href="#" data-testid="social-facebook" aria-label="Facebook">
                             <i class="fab fa-facebook"></i>
@@ -223,37 +220,37 @@
                     </div>
                 </div>
                 <div class="footer-section">
-                    <h4>Shop</h4>
+                    <h4>Boutique</h4>
                     <ul>
-                        <li><a href="shop.html?category=mens" data-testid="footer-shop-mens-wear">Mens Wear</a></li>
-                        <li><a href="shop.html?category=womens" data-testid="footer-shop-womens-wear">Womens Wear</a></li>
-                        <li><a href="shop.html?category=kids" data-testid="footer-shop-kids-wear">Kids Wear</a></li>
-                        <li><a href="shop.html?category=accessories" data-testid="footer-shop-accessories">Accessories</a></li>
-                        <li><a href="shop.html?sale=true" data-testid="footer-shop-sale">Sale</a></li>
+                        <li><a href="shop.html?category=mens" data-testid="footer-shop-mens-wear">Vêtements homme</a></li>
+                        <li><a href="shop.html?category=womens" data-testid="footer-shop-womens-wear">Vêtements femme</a></li>
+                        <li><a href="shop.html?category=kids" data-testid="footer-shop-kids-wear">Enfants</a></li>
+                        <li><a href="shop.html?category=accessories" data-testid="footer-shop-accessories">Accessoires</a></li>
+                        <li><a href="shop.html?sale=true" data-testid="footer-shop-sale">Promotions</a></li>
                     </ul>
                 </div>
                 <div class="footer-section">
-                    <h4>Help</h4>
+                    <h4>Aide</h4>
                     <ul>
-                        <li><a href="#" data-testid="footer-help-size-guide">Size Guide</a></li>
-                        <li><a href="#" data-testid="footer-help-shipping-info">Shipping Info</a></li>
-                        <li><a href="#" data-testid="footer-help-returns">Returns</a></li>
-                        <li><a href="#" data-testid="footer-help-faq">FAQ</a></li>
+                        <li><a href="#" data-testid="footer-help-size-guide">Guide des tailles</a></li>
+                        <li><a href="#" data-testid="footer-help-shipping-info">Informations de livraison</a></li>
+                        <li><a href="#" data-testid="footer-help-returns">Retours</a></li>
+                        <li><a href="faq.html" data-testid="footer-help-faq">FAQ</a></li>
                         <li><a href="contact.html" data-testid="footer-help-contact">Contact</a></li>
                     </ul>
                 </div>
                 <div class="footer-section">
-                    <h4>My Profile</h4>
+                    <h4>Mon espace</h4>
                     <ul>
-                        <li><a href="#" data-testid="footer-profile-my-account">My Account</a></li>
-                        <li><a href="#" data-testid="footer-profile-order-history">Order History</a></li>
-                        <li><a href="#" data-testid="footer-profile-wishlist">Wishlist</a></li>
-                        <li><a href="#" data-testid="footer-profile-track-order">Track Order</a></li>
+                        <li><a href="#" data-testid="footer-profile-my-account">Mon compte</a></li>
+                        <li><a href="#" data-testid="footer-profile-order-history">Historique des commandes</a></li>
+                        <li><a href="#" data-testid="footer-profile-wishlist">Liste de souhaits</a></li>
+                        <li><a href="#" data-testid="footer-profile-track-order">Suivre ma commande</a></li>
                     </ul>
                 </div>
             </div>
             <div class="footer-bottom">
-                <p data-testid="footer-copyright">&copy; 2024 StyleCraft. All rights reserved.</p>
+                <p data-testid="footer-copyright">&copy; 2024 StyleCraft. Tous droits réservés.</p>
             </div>
         </div>
     </footer>
@@ -276,19 +273,19 @@
                         <span id="modalProductOriginalPrice" class="original-price" data-testid="modal-product-original-price"></span>
                     </div>
                     <div class="modal-sizes">
-                        <label>Size *</label>
+                        <label>Taille *</label>
                         <div class="size-options" id="modalSizeOptions" data-testid="modal-size-options">
                             <!-- Size options will be populated by JS -->
                         </div>
                     </div>
                     <div class="modal-colors">
-                        <label>Color</label>
+                        <label>Couleur</label>
                         <div class="color-options" id="modalColorOptions" data-testid="modal-color-options">
                             <!-- Color options will be populated by JS -->
                         </div>
                     </div>
                     <div class="modal-quantity">
-                        <label>Quantity</label>
+                        <label>Quantité</label>
                         <div class="quantity-controls">
                             <button class="quantity-btn" data-testid="modal-decrease-quantity">-</button>
                             <input type="number" value="1" min="1" data-testid="modal-quantity-input">
@@ -296,8 +293,8 @@
                         </div>
                     </div>
                     <div class="modal-actions">
-                        <button class="btn btn-primary" id="modalAddToCart" data-testid="modal-add-to-cart">Add to Cart</button>
-                        <button class="btn btn-secondary" id="modalViewDetails" data-testid="modal-view-details">View Details</button>
+                        <button class="btn btn-primary" id="modalAddToCart" data-testid="modal-add-to-cart">Ajouter au panier</button>
+                        <button class="btn btn-secondary" id="modalViewDetails" data-testid="modal-view-details">Voir les détails</button>
                     </div>
                 </div>
             </div>
