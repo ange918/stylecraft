@@ -19,8 +19,8 @@ const sampleProducts = [
     {
         id: 101,
         name: "Perruque Cheveux Naturels Longs",
-        price: 299.99,
-        originalPrice: 399.99,
+        price: 189.99,
+        originalPrice: 249.99,
         category: "perruques",
         image: "src/assets/perruque-cheveux-naturels-1.jpg",
         images: [
@@ -37,8 +37,8 @@ const sampleProducts = [
     {
         id: 102,
         name: "Perruque Synthétique Ondulée",
-        price: 89.99,
-        originalPrice: 129.99,
+        price: 55.99,
+        originalPrice: 79.99,
         category: "perruques",
         image: "src/assets/perruque-synthetique-1.jpg",
         images: [
@@ -54,7 +54,7 @@ const sampleProducts = [
     {
         id: 103,
         name: "Perruque Court Moderne",
-        price: 149.99,
+        price: 95.99,
         originalPrice: null,
         category: "perruques",
         image: "src/assets/perruque-court-1.jpg",
@@ -72,8 +72,8 @@ const sampleProducts = [
     {
         id: 201,
         name: "Robe Élégante Soirée",
-        price: 179.99,
-        originalPrice: 229.99,
+        price: 125.99,
+        originalPrice: 159.99,
         category: "vetements-femme",
         image: "src/assets/robe-elegante-soiree-1.jpg",
         images: [
@@ -90,7 +90,7 @@ const sampleProducts = [
     {
         id: 202,
         name: "Top Décontracté Femme",
-        price: 49.99,
+        price: 35.99,
         originalPrice: null,
         category: "vetements-femme",
         image: "src/assets/top-decontracte-femme-1.jpg",
@@ -108,8 +108,8 @@ const sampleProducts = [
     {
         id: 301,
         name: "Robe Princesse Enfant",
-        price: 39.99,
-        originalPrice: 59.99,
+        price: 28.99,
+        originalPrice: 39.99,
         category: "vetements-enfant",
         image: "src/assets/robe-princesse-enfant-1.jpg",
         images: [
@@ -125,7 +125,7 @@ const sampleProducts = [
     {
         id: 302,
         name: "T-shirt Enfant Graphique",
-        price: 19.99,
+        price: 18.99,
         originalPrice: null,
         category: "vetements-enfant",
         image: "src/assets/tshirt-enfant-graphique-1.jpg",
@@ -143,8 +143,8 @@ const sampleProducts = [
     {
         id: 401,
         name: "Sac à Main Cuir Premium",
-        price: 249.99,
-        originalPrice: 329.99,
+        price: 179.99,
+        originalPrice: 229.99,
         category: "sacs",
         image: "src/assets/sac-main-cuir-premium-1.jpg",
         images: [
@@ -161,7 +161,7 @@ const sampleProducts = [
     {
         id: 402,
         name: "Sac à Dos Tendance",
-        price: 89.99,
+        price: 65.99,
         originalPrice: null,
         category: "sacs",
         image: "src/assets/sac-dos-tendance-1.jpg",
@@ -178,8 +178,8 @@ const sampleProducts = [
     {
         id: 403,
         name: "Sac de Soirée Élégant",
-        price: 79.99,
-        originalPrice: 99.99,
+        price: 55.99,
+        originalPrice: 69.99,
         category: "sacs",
         image: "src/assets/sac-soiree-elegant-1.jpg",
         images: [
@@ -196,8 +196,8 @@ const sampleProducts = [
     {
         id: 1,
         name: "Classic White Button-Down Shirt",
-        price: 89.99,
-        originalPrice: 119.99,
+        price: 65.99,
+        originalPrice: 85.99,
         category: "mens",
         image: "src/assets/chemise-blanche-homme-1.jpg",
         images: [
@@ -214,7 +214,7 @@ const sampleProducts = [
     {
         id: 2,
         name: "Elegant Black Dress",
-        price: 149.99,
+        price: 109.99,
         originalPrice: null,
         category: "womens",
         image: "src/assets/robe-noire-elegante-1.jpg",
@@ -232,8 +232,8 @@ const sampleProducts = [
     {
         id: 3,
         name: "Premium Denim Jeans",
-        price: 119.99,
-        originalPrice: 159.99,
+        price: 85.99,
+        originalPrice: 115.99,
         category: "mens",
         image: "src/assets/jean-premium-homme-1.jpg",
         images: [
@@ -250,7 +250,7 @@ const sampleProducts = [
     {
         id: 4,
         name: "Cozy Knit Sweater",
-        price: 79.99,
+        price: 58.99,
         originalPrice: null,
         category: "womens",
         image: "src/assets/pull-tricot-femme-1.jpg",
@@ -268,8 +268,8 @@ const sampleProducts = [
     {
         id: 5,
         name: "Kids Adventure T-Shirt",
-        price: 24.99,
-        originalPrice: 34.99,
+        price: 22.99,
+        originalPrice: 29.99,
         category: "kids",
         image: "src/assets/tshirt-aventure-enfant-1.jpg",
         images: [
@@ -285,7 +285,7 @@ const sampleProducts = [
     {
         id: 6,
         name: "Leather Crossbody Bag",
-        price: 199.99,
+        price: 145.99,
         originalPrice: null,
         category: "accessories",
         image: "src/assets/sac-bandouliere-cuir-1.jpg",
@@ -303,8 +303,8 @@ const sampleProducts = [
     {
         id: 7,
         name: "Cotton Polo Shirt",
-        price: 59.99,
-        originalPrice: 79.99,
+        price: 42.99,
+        originalPrice: 55.99,
         category: "mens",
         image: "src/assets/polo-coton-homme-1.jpg",
         images: [
@@ -320,7 +320,7 @@ const sampleProducts = [
     {
         id: 8,
         name: "Flowy Summer Dress",
-        price: 89.99,
+        price: 64.99,
         originalPrice: null,
         category: "womens",
         image: "src/assets/robe-ete-fluide-1.jpg",
@@ -337,8 +337,8 @@ const sampleProducts = [
     {
         id: 9,
         name: "Kids Denim Jacket",
-        price: 44.99,
-        originalPrice: 64.99,
+        price: 32.99,
+        originalPrice: 45.99,
         category: "kids",
         image: "src/assets/veste-jean-enfant-1.jpg",
         images: [
@@ -354,7 +354,7 @@ const sampleProducts = [
     {
         id: 10,
         name: "Classic Watch",
-        price: 299.99,
+        price: 199.99,
         originalPrice: null,
         category: "accessories",
         image: "src/assets/montre-classique-1.jpg",
