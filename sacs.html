@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sacs - StyleCraft | Collection Premium de Sacs</title>
+    <meta name="description" content="Découvrez notre collection de sacs premium. Sacs à main, cabas, sacs de soirée et plus encore avec livraison gratuite.">
+    
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <!-- FontAwesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <!-- Promo Banner -->
+    <div class="promo-banner">
+        <p><i class="fas fa-gift"></i> -15% sur votre première commande - Code : WELCOME15</p>
+    </div>
+
+    <!-- Header -->
+    <header class="header">
+        <div class="container">
+            <div class="header-content">
+                <!-- Logo -->
+                <div class="logo">
+                    <a href="index.html" data-testid="logo">
+                        <h1>StyleCraft</h1>
+                    </a>
+                </div>
+
+                <!-- Navigation Desktop -->
+                <nav class="nav-desktop">
+                    <ul>
+                        <li><a href="index.html" data-testid="nav-home">Accueil</a></li>
+                        <li><a href="shop.html" data-testid="nav-shop">Boutique</a></li>
+                        <li><a href="about.html" data-testid="nav-about">À propos</a></li>
+                        <li><a href="contact.html" data-testid="nav-contact">Contact</a></li>
+                    </ul>
+                </nav>
+
+                <!-- Right Icons -->
+                <div class="header-icons">
+                    <button class="icon-btn" data-testid="user-btn">
+                        <i class="fas fa-user"></i>
+                    </button>
+                    <button class="icon-btn cart-btn" data-testid="cart-btn" onclick="window.location.href='cart.html'">
+                        <i class="fas fa-shopping-bag"></i>
+                        <span class="cart-count" data-testid="cart-count">0</span>
+                    </button>
+                    <button class="mobile-menu-btn" data-testid="mobile-menu-btn">
+                        <i class="fas fa-bars"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Mobile Menu -->
+        <div class="mobile-menu" data-testid="mobile-menu">
+            <div class="mobile-menu-header">
+                <h2>StyleCraft</h2>
+                <button class="mobile-menu-close" data-testid="mobile-menu-close">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            <nav class="mobile-nav">
+                <ul>
+                    <li><a href="index.html" data-testid="mobile-nav-home">Accueil</a></li>
+                    <li><a href="shop.html" data-testid="mobile-nav-shop">Boutique</a></li>
+                    <li><a href="about.html" data-testid="mobile-nav-about">À propos</a></li>
+                    <li><a href="contact.html" data-testid="mobile-nav-contact">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+        <div class="mobile-menu-overlay" data-testid="mobile-menu-overlay"></div>
+    </header>
+
+    <!-- Hero Section for Sacs -->
+    <section class="category-hero">
+        <div class="container">
+            <div class="category-hero-content">
+                <h1 data-testid="sacs-hero-title">Collection Sacs Premium</h1>
+                <p data-testid="sacs-hero-description">Découvrez notre sélection exclusive de sacs en cuir véritable et matériaux premium. Du quotidien aux occasions spéciales.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sacs Gallery -->
+    <section class="sacs-gallery">
+        <div class="container">
+            <div class="section-header">
+                <h2 data-testid="sacs-gallery-title">Tous nos Sacs</h2>
+                <p>Des styles variés pour toutes les occasions</p>
+            </div>
+            
+            <!-- Sacs Grid -->
+            <div class="products-grid" id="sacs-grid" data-testid="sacs-grid">
+                <!-- Products will be loaded by JavaScript -->
+            </div>
+
+            <!-- Additional Sacs Display -->
+            <div class="additional-sacs">
+                <h3>Découvrez toute notre gamme</h3>
+                <div class="sacs-showcase">
+                    <div class="sac-item">
+                        <img src="src/assets/sac-main-cuir-premium-1.jpg" alt="Sac Main Cuir Premium">
+                        <h4>Sacs à Main Cuir</h4>
+                        <p>Cuir véritable pour un style intemporel</p>
+                    </div>
+                    <div class="sac-item">
+                        <img src="src/assets/sac-main-cuir-premium-2.jpg" alt="Sac Main Cuir Premium Variante">
+                        <h4>Collection Premium</h4>
+                        <p>Finitions exceptionnelles et détails soignés</p>
+                    </div>
+                    <div class="sac-item">
+                        <img src="src/assets/sac-dos-tendance-1.jpg" alt="Sac à Dos Tendance">
+                        <h4>Sacs à Dos</h4>
+                        <p>Confort et style pour vos déplacements</p>
+                    </div>
+                    <div class="sac-item">
+                        <img src="src/assets/sac-soiree-elegant-1.jpg" alt="Sac de Soirée">
+                        <h4>Sacs de Soirée</h4>
+                        <p>Élégance pour vos événements spéciaux</p>
+                    </div>
+                    <div class="sac-item">
+                        <img src="src/assets/sac-bandouliere-cuir-1.jpg" alt="Sac Bandoulière">
+                        <h4>Sacs Bandoulière</h4>
+                        <p>Praticité et style au quotidien</p>
+                    </div>
+                    <div class="sac-item">
+                        <img src="src/assets/sac-cabas-moderne-1.jpg" alt="Sac Cabas Moderne">
+                        <h4>Sacs Cabas</h4>
+                        <p>Spacieux et moderne pour le travail</p>
+                    </div>
+                    <div class="sac-item">
+                        <img src="src/assets/sac-sport-elegant-1.jpg" alt="Sac Sport Élégant">
+                        <h4>Sacs Sport</h4>
+                        <p>Fonctionnalité et style urbain</p>
+                    </div>
+                    <div class="sac-item">
+                        <img src="src/assets/sac-luxe-premium-1.jpg" alt="Sac Luxe Premium">
+                        <h4>Collection Luxe</h4>
+                        <p>Le summum de l'élégance et du raffinement</p>
+                    </div>
+                    <div class="sac-item">
+                        <img src="src/assets/sac-bandouliere-cuir-2.jpg" alt="Sac Bandoulière Cuir 2">
+                        <h4>Styles Variés</h4>
+                        <p>Large choix de couleurs et formes</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Benefits Section -->
+    <section class="sacs-benefits">
+        <div class="container">
+            <div class="section-header">
+                <h2>Pourquoi choisir nos sacs ?</h2>
+            </div>
+            <div class="benefits-grid">
+                <div class="benefit-card">
+                    <div class="benefit-icon">
+                        <i class="fas fa-gem"></i>
+                    </div>
+                    <h3>Matériaux Premium</h3>
+                    <p>Cuir véritable et matériaux de haute qualité pour une durabilité exceptionnelle</p>
+                </div>
+                <div class="benefit-card">
+                    <div class="benefit-icon">
+                        <i class="fas fa-palette"></i>
+                    </div>
+                    <h3>Design Intemporel</h3>
+                    <p>Styles classiques et modernes qui traversent les tendances</p>
+                </div>
+                <div class="benefit-card">
+                    <div class="benefit-icon">
+                        <i class="fas fa-heart"></i>
+                    </div>
+                    <h3>Artisanat Expert</h3>
+                    <p>Confection soignée et finitions de qualité pour chaque pièce</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3 data-testid="footer-logo">StyleCraft</h3>
+                    <p>Mode intemporelle pour une garde-robe moderne. Des sacs de qualité qui durent.</p>
+                    <div class="social-links">
+                        <a href="#" data-testid="social-facebook" aria-label="Facebook">
+                            <i class="fab fa-facebook"></i>
+                        </a>
+                        <a href="#" data-testid="social-instagram" aria-label="Instagram">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                        <a href="#" data-testid="social-twitter" aria-label="Twitter">
+                            <i class="fab fa-twitter"></i>
+                        </a>
+                        <a href="#" data-testid="social-pinterest" aria-label="Pinterest">
+                            <i class="fab fa-pinterest"></i>
+                        </a>
+                    </div>
+                </div>
+                <div class="footer-section">
+                    <h4>Boutique</h4>
+                    <ul>
+                        <li><a href="shop.html?category=mens" data-testid="footer-shop-mens-wear">Vêtements homme</a></li>
+                        <li><a href="shop.html?category=womens" data-testid="footer-shop-womens-wear">Vêtements femme</a></li>
+                        <li><a href="shop.html?category=kids" data-testid="footer-shop-kids-wear">Enfants</a></li>
+                        <li><a href="shop.html?category=perruques" data-testid="footer-shop-perruques">Perruques</a></li>
+                        <li><a href="shop.html?category=sacs" data-testid="footer-shop-sacs">Sacs</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Aide</h4>
+                    <ul>
+                        <li><a href="#" data-testid="footer-help-size-guide">Guide des tailles</a></li>
+                        <li><a href="#" data-testid="footer-help-shipping-info">Informations de livraison</a></li>
+                        <li><a href="#" data-testid="footer-help-returns">Retours</a></li>
+                        <li><a href="contact.html" data-testid="footer-help-contact">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Mon espace</h4>
+                    <ul>
+                        <li><a href="#" data-testid="footer-profile-my-account">Mon compte</a></li>
+                        <li><a href="#" data-testid="footer-profile-order-history">Historique des commandes</a></li>
+                        <li><a href="#" data-testid="footer-profile-wishlist">Liste de souhaits</a></li>
+                        <li><a href="#" data-testid="footer-profile-track-order">Suivre ma commande</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p data-testid="footer-copyright">&copy; 2024 StyleCraft. Tous droits réservés.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Quick View Modal -->
+    <div class="modal" id="quickViewModal" data-testid="quick-view-modal">
+        <div class="modal-overlay"></div>
+        <div class="modal-content">
+            <button class="modal-close" data-testid="modal-close">
+                <i class="fas fa-times"></i>
+            </button>
+            <div class="modal-body">
+                <div class="modal-image">
+                    <img id="modalProductImage" src="" alt="" data-testid="modal-product-image">
+                </div>
+                <div class="modal-details">
+                    <h3 id="modalProductName" data-testid="modal-product-name"></h3>
+                    <div class="modal-price">
+                        <span id="modalProductPrice" class="price" data-testid="modal-product-price"></span>
+                        <span id="modalProductOriginalPrice" class="original-price" data-testid="modal-product-original-price"></span>
+                    </div>
+                    <div class="modal-sizes">
+                        <label>Taille *</label>
+                        <div class="size-options" id="modalSizeOptions" data-testid="modal-size-options">
+                            <!-- Size options will be populated by JS -->
+                        </div>
+                    </div>
+                    <div class="modal-colors">
+                        <label>Couleur</label>
+                        <div class="color-options" id="modalColorOptions" data-testid="modal-color-options">
+                            <!-- Color options will be populated by JS -->
+                        </div>
+                    </div>
+                    <div class="modal-quantity">
+                        <label>Quantité</label>
+                        <div class="quantity-controls">
+                            <button class="quantity-btn" data-testid="modal-decrease-quantity">-</button>
+                            <input type="number" value="1" min="1" data-testid="modal-quantity-input">
+                            <button class="quantity-btn" data-testid="modal-increase-quantity">+</button>
+                        </div>
+                    </div>
+                    <div class="modal-actions">
+                        <button class="btn btn-primary" id="modalAddToCart" data-testid="modal-add-to-cart">Ajouter au panier</button>
+                        <button class="btn btn-secondary" id="modalViewDetails" data-testid="modal-view-details">Voir les détails</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- JavaScript -->
+    <script src="js/script.js"></script>
+</body>
+</html>

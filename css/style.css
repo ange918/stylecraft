@@ -2972,3 +2972,64 @@ input, textarea, select {
         gap: 1.5rem;
     }
 }
+
+
+/* Sacs Page Styles */
+.sacs-gallery {
+    padding: 4rem 0;
+}
+
+.additional-sacs {
+    margin-top: 4rem;
+    text-align: center;
+}
+
+.additional-sacs h3 {
+    font-size: 2rem;
+    margin-bottom: 3rem;
+    color: #333;
+}
+
+.sacs-showcase {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    margin-top: 2rem;
+}
+
+.sac-item {
+    background: white;
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.sac-item:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
+}
+
+.sac-item img {
+    width: 100%;
+    height: 250px;
+    object-fit: cover;
+}
+
+.sac-item h4 {
+    font-size: 1.25rem;
+    font-weight: 600;
+    margin: 1rem;
+    color: #333;
+}
+
+.sac-item p {
+    color: #666;
+    margin: 0 1rem 1.5rem;
+    line-height: 1.5;
+}
+
+.sacs-benefits {
+    background: #f8f9fa;
+    padding: 4rem 0;
+}

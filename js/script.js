@@ -192,6 +192,58 @@ const sampleProducts = [
         bestseller: true,
         sale: true
     },
+    // Nouveaux sacs ajoutés
+    {
+        id: 406,
+        name: "Sac Cabas Moderne",
+        price: 89.99,
+        originalPrice: 119.99,
+        category: "sacs",
+        image: "src/assets/sac-cabas-moderne-1.jpg",
+        images: [
+            "src/assets/sac-cabas-moderne-1.jpg"
+        ],
+        description: "Sac cabas spacieux et moderne, parfait pour le quotidien et le travail.",
+        sizes: ["One Size"],
+        colors: ["Noir", "Beige", "Marine"],
+        featured: true,
+        bestseller: false,
+        sale: true
+    },
+    {
+        id: 407,
+        name: "Sac Sport Élégant",
+        price: 75.99,
+        originalPrice: null,
+        category: "sacs",
+        image: "src/assets/sac-sport-elegant-1.jpg",
+        images: [
+            "src/assets/sac-sport-elegant-1.jpg"
+        ],
+        description: "Sac de sport élégant alliant fonctionnalité et style urbain.",
+        sizes: ["One Size"],
+        colors: ["Noir", "Gris", "Bleu"],
+        featured: true,
+        bestseller: true,
+        sale: false
+    },
+    {
+        id: 408,
+        name: "Sac Luxe Premium",
+        price: 299.99,
+        originalPrice: 399.99,
+        category: "sacs",
+        image: "src/assets/sac-luxe-premium-1.jpg",
+        images: [
+            "src/assets/sac-luxe-premium-1.jpg"
+        ],
+        description: "Sac de luxe en cuir véritable, design intemporel et finitions exceptionnelles.",
+        sizes: ["One Size"],
+        colors: ["Camel", "Noir", "Cognac"],
+        featured: true,
+        bestseller: true,
+        sale: true
+    },
     // Nouvelles perruques ajoutées
     {
         id: 404,
