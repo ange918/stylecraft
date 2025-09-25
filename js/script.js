@@ -75,10 +75,9 @@ const sampleProducts = [
         price: 125.99,
         originalPrice: 159.99,
         category: "vetements",
-        image: "src/assets/robe-elegante-soiree-1.jpg",
+        image: "attached_assets/vetement/robe-longue-grande-taille-femme.jpg",
         images: [
-            "src/assets/robe-elegante-soiree-1.jpg",
-            "src/assets/robe-elegante-soiree-2.jpg"
+            "attached_assets/vetement/robe-longue-grande-taille-femme.jpg"
         ],
         description: "Robe de soirée sophistiquée en soie, coupe ajustée et élégante.",
         sizes: ["XS", "S", "M", "L", "XL"],
@@ -93,9 +92,9 @@ const sampleProducts = [
         price: 35.99,
         originalPrice: null,
         category: "vetements",
-        image: "src/assets/top-decontracte-femme-1.jpg",
+        image: "attached_assets/vetement/OUTFITTERY_10Y_Day1_1288_9335-683x1024.jpg",
         images: [
-            "src/assets/top-decontracte-femme-1.jpg"
+            "attached_assets/vetement/OUTFITTERY_10Y_Day1_1288_9335-683x1024.jpg"
         ],
         description: "Top confortable en coton bio, parfait pour le quotidien.",
         sizes: ["XS", "S", "M", "L", "XL"],
@@ -111,9 +110,9 @@ const sampleProducts = [
         price: 28.99,
         originalPrice: 39.99,
         category: "vetements",
-        image: "src/assets/robe-princesse-enfant-1.jpg",
+        image: "attached_assets/vetement/enfant.jpg",
         images: [
-            "src/assets/robe-princesse-enfant-1.jpg"
+            "attached_assets/vetement/enfant.jpg"
         ],
         description: "Robe de princesse pour enfant, tissu doux et confortable.",
         sizes: ["2T", "3T", "4T", "5T", "6T"],
@@ -128,9 +127,9 @@ const sampleProducts = [
         price: 18.99,
         originalPrice: null,
         category: "vetements",
-        image: "src/assets/tshirt-enfant-graphique-1.jpg",
+        image: "attached_assets/vetement/enffant.jpg",
         images: [
-            "src/assets/tshirt-enfant-graphique-1.jpg"
+            "attached_assets/vetement/enffant.jpg"
         ],
         description: "T-shirt amusant avec motif graphique, coton 100%.",
         sizes: ["2T", "3T", "4T", "5T", "6T"],
@@ -286,10 +285,9 @@ const sampleProducts = [
         price: 65.99,
         originalPrice: 85.99,
         category: "vetements",
-        image: "src/assets/chemise-blanche-homme-1.jpg",
+        image: "attached_assets/vetement/51WxBImyzpL._AC_SX522_.jpg",
         images: [
-            "src/assets/chemise-blanche-homme-1.jpg",
-            "src/assets/chemise-blanche-homme-2.jpg"
+            "attached_assets/vetement/51WxBImyzpL._AC_SX522_.jpg"
         ],
         description: "A timeless classic that belongs in every wardrobe. Made from premium cotton with a perfect fit.",
         sizes: ["XS", "S", "M", "L", "XL"],
@@ -304,10 +302,9 @@ const sampleProducts = [
         price: 109.99,
         originalPrice: null,
         category: "vetements",
-        image: "src/assets/robe-noire-elegante-1.jpg",
+        image: "attached_assets/vetement/613+tot5pML._AC_SL1200_.jpg",
         images: [
-            "src/assets/robe-noire-elegante-1.jpg",
-            "src/assets/robe-noire-elegante-2.jpg"
+            "attached_assets/vetement/613+tot5pML._AC_SL1200_.jpg"
         ],
         description: "Sophisticated and versatile dress perfect for any occasion. Crafted with attention to detail.",
         sizes: ["XS", "S", "M", "L", "XL"],
@@ -322,9 +319,9 @@ const sampleProducts = [
         price: 85.99,
         originalPrice: 115.99,
         category: "vetements",
-        image: "src/assets/jean-premium-homme-1.jpg",
+        image: "attached_assets/vetement/61KkAWEFzuL._AC_SL1500_.jpg",
         images: [
-            "src/assets/jean-premium-homme-1.jpg",
+            "attached_assets/vetement/61KkAWEFzuL._AC_SL1500_.jpg",
             "src/assets/jean-premium-homme-2.jpg"
         ],
         description: "High-quality denim with a modern fit. Durable construction and timeless style.",
@@ -340,9 +337,9 @@ const sampleProducts = [
         price: 58.99,
         originalPrice: null,
         category: "vetements",
-        image: "src/assets/pull-tricot-femme-1.jpg",
+        image: "attached_assets/vetement/613uQE 56VL._AC_UY350_.jpg",
         images: [
-            "src/assets/pull-tricot-femme-1.jpg",
+            "attached_assets/vetement/613uQE 56VL._AC_UY350_.jpg",
             "src/assets/pull-tricot-femme-2.jpg"
         ],
         description: "Soft and comfortable sweater perfect for cooler days. Made from premium wool blend.",
@@ -358,9 +355,9 @@ const sampleProducts = [
         price: 22.99,
         originalPrice: 29.99,
         category: "vetements",
-        image: "src/assets/tshirt-aventure-enfant-1.jpg",
+        image: "attached_assets/vetement/enfanttt.jfif",
         images: [
-            "src/assets/tshirt-aventure-enfant-1.jpg"
+            "attached_assets/vetement/enfanttt.jfif"
         ],
         description: "Fun and colorful t-shirt designed for active children. Comfortable cotton fabric.",
         sizes: ["2T", "3T", "4T", "5T", "6T"],
@@ -393,9 +390,9 @@ const sampleProducts = [
         price: 42.99,
         originalPrice: 55.99,
         category: "vetements",
-        image: "src/assets/polo-coton-homme-1.jpg",
+        image: "attached_assets/vetement/61Zw7NrauNL._AC_SL1500_.jpg",
         images: [
-            "src/assets/polo-coton-homme-1.jpg"
+            "attached_assets/vetement/61Zw7NrauNL._AC_SL1500_.jpg"
         ],
         description: "Classic polo shirt made from 100% cotton. Perfect for casual or business casual wear.",
         sizes: ["S", "M", "L", "XL", "XXL"],
@@ -410,9 +407,9 @@ const sampleProducts = [
         price: 64.99,
         originalPrice: null,
         category: "vetements",
-        image: "src/assets/robe-ete-fluide-1.jpg",
+        image: "attached_assets/vetement/images.jfif",
         images: [
-            "src/assets/robe-ete-fluide-1.jpg"
+            "attached_assets/vetement/images.jfif"
         ],
         description: "Light and airy dress perfect for warm weather. Features a flattering silhouette.",
         sizes: ["XS", "S", "M", "L", "XL"],
@@ -423,13 +420,13 @@ const sampleProducts = [
     },
     {
         id: 9,
-        name: "Kids Denim Jacket",
+        name: "Veste Jean Enfant",
         price: 32.99,
         originalPrice: 45.99,
         category: "vetements",
-        image: "src/assets/veste-jean-enfant-1.jpg",
+        image: "attached_assets/vetement/enfantt.webp",
         images: [
-            "src/assets/veste-jean-enfant-1.jpg"
+            "attached_assets/vetement/enfantt.webp"
         ],
         description: "Stylish denim jacket for children. Durable and perfect for layering.",
         sizes: ["2T", "3T", "4T", "5T", "6T"],
