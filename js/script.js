@@ -1115,15 +1115,12 @@ function clearCart() {
 
 function proceedToCheckout() {
     if (cart.length === 0) {
-        showToast('Your cart is empty', 'error');
+        showToast('Votre panier est vide', 'error');
         return;
     }
     
-    // Simulate checkout process
-    showToast('Redirecting to checkout...', 'success');
-    setTimeout(() => {
-        alert('This is a demo. In a real application, you would be redirected to the checkout page.');
-    }, 1000);
+    // Open payment method selection modal
+    openPaymentModal();
 }
 
 function goToProduct(productId) {
@@ -1527,5 +1524,282 @@ document.addEventListener('DOMContentLoaded', function() {
     const searchButtons = document.querySelectorAll('[data-testid="search-btn"]');
     searchButtons.forEach(btn => {
         btn.addEventListener('click', handleSearch);
+    });
+});
+
+// =============================================
+//   Payment Modal Functions
+// =============================================
+
+let selectedPaymentMethod = null;
+
+// Open payment method selection modal
+function openPaymentModal() {
+    const modal = document.getElementById('paymentModal');
+    if (modal) {
+        modal.classList.add('active');
+        document.body.style.overflow = 'hidden';
+    }
+}
+
+// Close payment method selection modal
+function closePaymentModal() {
+    const modal = document.getElementById('paymentModal');
+    if (modal) {
+        modal.classList.remove('active');
+        document.body.style.overflow = 'auto';
+    }
+}
+
+// Select payment method
+function selectPaymentMethod(method) {
+    selectedPaymentMethod = method;
+    
+    if (method === 'airtel' || method === 'orange') {
+        closePaymentModal();
+        openMobilePaymentModal(method);
+    } else if (method === 'card') {
+        closePaymentModal();
+        showToast('Intégration carte de crédit à venir', 'success');
+    } else if (method === 'paypal') {
+        closePaymentModal();
+        showToast('Intégration PayPal à venir', 'success');
+    }
+}
+
+// Open mobile payment form modal
+function openMobilePaymentModal(method) {
+    const modal = document.getElementById('mobilePaymentModal');
+    const titleEl = document.getElementById('mobilePaymentTitle');
+    const amountEl = document.getElementById('paymentAmount');
+    const instructionsEl = document.getElementById('paymentInstructions');
+    
+    if (!modal) return;
+    
+    // Calculate total amount
+    const total = calculateCartTotal();
+    
+    // Set title and amount
+    if (method === 'airtel') {
+        titleEl.textContent = 'Paiement Airtel Money';
+    } else if (method === 'orange') {
+        titleEl.textContent = 'Paiement Orange Money';
+    }
+    
+    amountEl.value = `${total.total.toFixed(2)} FCFA`;
+    
+    // Set payment instructions
+    instructionsEl.innerHTML = generatePaymentInstructions(method);
+    
+    // Setup form submission
+    setupMobilePaymentForm(method);
+    
+    modal.classList.add('active');
+    document.body.style.overflow = 'hidden';
+}
+
+// Close mobile payment modal
+function closeMobilePaymentModal() {
+    const modal = document.getElementById('mobilePaymentModal');
+    if (modal) {
+        modal.classList.remove('active');
+        document.body.style.overflow = 'auto';
+        
+        // Reset form
+        const form = document.getElementById('mobilePaymentForm');
+        if (form) form.reset();
+    }
+}
+
+// Generate payment instructions
+function generatePaymentInstructions(method) {
+    if (method === 'airtel') {
+        return `
+            <h4><i class="fas fa-info-circle"></i> Instructions de paiement Airtel Money</h4>
+            <ol>
+                <li>Composez <strong>#123#</strong> sur votre téléphone Airtel</li>
+                <li>Sélectionnez <strong>Paiement Marchand</strong></li>
+                <li>Entrez le code marchand : <strong>StyleCraft001</strong></li>
+                <li>Entrez le montant affiché ci-dessus</li>
+                <li>Confirmez avec votre code PIN Airtel Money</li>
+                <li>Cliquez sur "Confirmer le paiement" après avoir reçu le SMS de confirmation</li>
+            </ol>
+        `;
+    } else if (method === 'orange') {
+        return `
+            <h4><i class="fas fa-info-circle"></i> Instructions de paiement Orange Money</h4>
+            <ol>
+                <li>Composez <strong>#144#</strong> sur votre téléphone Orange</li>
+                <li>Sélectionnez <strong>Paiement Marchand</strong></li>
+                <li>Entrez le code marchand : <strong>StyleCraft002</strong></li>
+                <li>Entrez le montant affiché ci-dessus</li>
+                <li>Confirmez avec votre code PIN Orange Money</li>
+                <li>Cliquez sur "Confirmer le paiement" après avoir reçu le SMS de confirmation</li>
+            </ol>
+        `;
+    }
+    return '';
+}
+
+// Setup mobile payment form
+function setupMobilePaymentForm(method) {
+    const form = document.getElementById('mobilePaymentForm');
+    if (!form) return;
+    
+    // Remove existing event listeners
+    const newForm = form.cloneNode(true);
+    form.parentNode.replaceChild(newForm, form);
+    
+    // Add new event listener
+    newForm.addEventListener('submit', function(e) {
+        e.preventDefault();
+        processMobilePayment(method);
+    });
+}
+
+// Process mobile payment
+function processMobilePayment(method) {
+    const phoneNumber = document.getElementById('phoneNumber').value;
+    
+    if (!phoneNumber) {
+        showToast('Veuillez entrer votre numéro de téléphone', 'error');
+        return;
+    }
+    
+    // Validate phone number format (basic validation)
+    if (!isValidPhoneNumber(phoneNumber)) {
+        showToast('Format de numéro de téléphone invalide', 'error');
+        return;
+    }
+    
+    // Show processing state
+    const submitBtn = document.querySelector('#mobilePaymentForm button[type="submit"]');
+    const originalText = submitBtn.textContent;
+    submitBtn.textContent = 'Traitement en cours...';
+    submitBtn.disabled = true;
+    
+    // Simulate payment processing
+    setTimeout(() => {
+        // Reset button
+        submitBtn.textContent = originalText;
+        submitBtn.disabled = false;
+        
+        // Show success
+        showPaymentSuccess(method, phoneNumber);
+        
+        // Clear cart after successful payment
+        clearCart();
+        
+    }, 3000);
+}
+
+// Show payment success
+function showPaymentSuccess(method, phoneNumber) {
+    const modal = document.getElementById('mobilePaymentModal');
+    const modalBody = modal.querySelector('.modal-body');
+    
+    const paymentMethod = method === 'airtel' ? 'Airtel Money' : 'Orange Money';
+    const total = calculateCartTotal();
+    
+    modalBody.innerHTML = `
+        <div class="payment-success">
+            <div class="success-icon">
+                <i class="fas fa-check"></i>
+            </div>
+            <h3>Paiement Réussi!</h3>
+            <p>Votre paiement de <strong>${total.total.toFixed(2)} FCFA</strong> via ${paymentMethod} a été traité avec succès.</p>
+            <p>Numéro de téléphone: <strong>${phoneNumber}</strong></p>
+            <p>Un SMS de confirmation vous sera envoyé prochainement.</p>
+            <div class="form-actions">
+                <button type="button" class="btn btn-primary" onclick="finishPayment()">
+                    Continuer
+                </button>
+            </div>
+        </div>
+    `;
+}
+
+// Finish payment process
+function finishPayment() {
+    closeMobilePaymentModal();
+    showToast('Commande confirmée! Merci pour votre achat.', 'success');
+    
+    // Redirect to home page after a delay
+    setTimeout(() => {
+        window.location.href = 'index.html';
+    }, 2000);
+}
+
+// Validate phone number (basic validation for African numbers)
+function isValidPhoneNumber(phone) {
+    // Remove all non-numeric characters except +
+    const cleaned = phone.replace(/[^\d+]/g, '');
+    
+    // Check for various African phone number formats
+    const patterns = [
+        /^\+225\d{8,10}$/,  // Côte d'Ivoire
+        /^\+221\d{7,9}$/,   // Sénégal
+        /^\+226\d{8}$/,     // Burkina Faso
+        /^\+223\d{8}$/,     // Mali
+        /^\+227\d{8}$/,     // Niger
+        /^(05|06|07|08|09)\d{8}$/,  // Local format
+        /^\d{8,10}$/        // Simple 8-10 digit format
+    ];
+    
+    return patterns.some(pattern => pattern.test(cleaned));
+}
+
+// Calculate cart total (enhanced version)
+function calculateCartTotal() {
+    const subtotal = cart.reduce((sum, item) => {
+        return sum + (item.price * item.quantity);
+    }, 0);
+    
+    const shipping = subtotal >= 50 ? 0 : 5; // Free shipping over $50
+    const tax = subtotal * 0.08; // 8% tax
+    const total = subtotal + shipping + tax;
+    
+    return {
+        subtotal,
+        shipping,
+        tax,
+        total
+    };
+}
+
+// Initialize payment modal event listeners
+document.addEventListener('DOMContentLoaded', function() {
+    // Setup checkout button
+    const checkoutBtn = document.querySelector('[data-testid="checkout-btn"]');
+    if (checkoutBtn) {
+        checkoutBtn.addEventListener('click', proceedToCheckout);
+    }
+    
+    // Setup modal close on overlay click
+    document.addEventListener('click', function(e) {
+        if (e.target.classList.contains('modal-overlay')) {
+            const modal = e.target.closest('.modal');
+            if (modal) {
+                if (modal.id === 'paymentModal') {
+                    closePaymentModal();
+                } else if (modal.id === 'mobilePaymentModal') {
+                    closeMobilePaymentModal();
+                }
+            }
+        }
+    });
+    
+    // Setup ESC key to close modals
+    document.addEventListener('keydown', function(e) {
+        if (e.key === 'Escape') {
+            const paymentModal = document.getElementById('paymentModal');
+            const mobileModal = document.getElementById('mobilePaymentModal');
+            
+            if (paymentModal && paymentModal.classList.contains('active')) {
+                closePaymentModal();
+            } else if (mobileModal && mobileModal.classList.contains('active')) {
+                closeMobilePaymentModal();
+            }
+        }
     });
 });

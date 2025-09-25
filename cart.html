@@ -170,12 +170,14 @@
 
                         <!-- Payment Methods -->
                         <div class="payment-methods">
-                            <p>We Accept:</p>
+                            <p>Moyens de paiement acceptés:</p>
                             <div class="payment-icons">
                                 <div class="payment-icon">VISA</div>
                                 <div class="payment-icon">MC</div>
                                 <div class="payment-icon">AMEX</div>
                                 <div class="payment-icon">PAYPAL</div>
+                                <div class="payment-icon mobile-payment airtel">AIRTEL</div>
+                                <div class="payment-icon mobile-payment orange">ORANGE</div>
                             </div>
                         </div>
                     </div>
@@ -247,6 +249,111 @@
         <div class="toast-content">
             <i class="toast-icon"></i>
             <span class="toast-message"></span>
+        </div>
+    </div>
+
+    <!-- Payment Modal -->
+    <div class="modal payment-modal" id="paymentModal" data-testid="payment-modal">
+        <div class="modal-overlay" onclick="closePaymentModal()"></div>
+        <div class="modal-content payment-modal-content">
+            <div class="modal-header">
+                <h2>Choisir le moyen de paiement</h2>
+                <button class="modal-close" onclick="closePaymentModal()" data-testid="close-payment-modal">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div class="payment-options">
+                    <div class="payment-section">
+                        <h3>Paiement Mobile</h3>
+                        <div class="payment-option" data-payment="airtel" onclick="selectPaymentMethod('airtel')" data-testid="payment-airtel">
+                            <div class="payment-option-icon airtel-icon">
+                                <i class="fas fa-mobile-alt"></i>
+                            </div>
+                            <div class="payment-option-details">
+                                <h4>Airtel Money</h4>
+                                <p>Paiement sécurisé via Airtel Money</p>
+                            </div>
+                            <i class="fas fa-chevron-right"></i>
+                        </div>
+                        <div class="payment-option" data-payment="orange" onclick="selectPaymentMethod('orange')" data-testid="payment-orange">
+                            <div class="payment-option-icon orange-icon">
+                                <i class="fas fa-mobile-alt"></i>
+                            </div>
+                            <div class="payment-option-details">
+                                <h4>Orange Money</h4>
+                                <p>Paiement sécurisé via Orange Money</p>
+                            </div>
+                            <i class="fas fa-chevron-right"></i>
+                        </div>
+                    </div>
+                    
+                    <div class="payment-section">
+                        <h3>Cartes de Crédit</h3>
+                        <div class="payment-option" data-payment="card" onclick="selectPaymentMethod('card')" data-testid="payment-card">
+                            <div class="payment-option-icon card-icon">
+                                <i class="fas fa-credit-card"></i>
+                            </div>
+                            <div class="payment-option-details">
+                                <h4>Carte de Crédit/Débit</h4>
+                                <p>Visa, Mastercard, American Express</p>
+                            </div>
+                            <i class="fas fa-chevron-right"></i>
+                        </div>
+                        <div class="payment-option" data-payment="paypal" onclick="selectPaymentMethod('paypal')" data-testid="payment-paypal">
+                            <div class="payment-option-icon paypal-icon">
+                                <i class="fab fa-paypal"></i>
+                            </div>
+                            <div class="payment-option-details">
+                                <h4>PayPal</h4>
+                                <p>Paiement sécurisé via PayPal</p>
+                            </div>
+                            <i class="fas fa-chevron-right"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Mobile Payment Forms -->
+    <div class="modal payment-form-modal" id="mobilePaymentModal" data-testid="mobile-payment-modal">
+        <div class="modal-overlay" onclick="closeMobilePaymentModal()"></div>
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2 id="mobilePaymentTitle">Paiement Mobile</h2>
+                <button class="modal-close" onclick="closeMobilePaymentModal()" data-testid="close-mobile-payment-modal">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            <div class="modal-body">
+                <form id="mobilePaymentForm" data-testid="mobile-payment-form">
+                    <div class="form-group">
+                        <label for="phoneNumber">Numéro de téléphone</label>
+                        <input type="tel" id="phoneNumber" name="phoneNumber" required 
+                               placeholder="ex: +225 07 XX XX XX XX" data-testid="phone-number-input">
+                        <small>Entrez le numéro associé à votre compte mobile money</small>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="paymentAmount">Montant à payer</label>
+                        <input type="text" id="paymentAmount" name="paymentAmount" readonly data-testid="payment-amount">
+                    </div>
+                    
+                    <div class="payment-instructions" id="paymentInstructions">
+                        <!-- Instructions will be populated by JavaScript -->
+                    </div>
+                    
+                    <div class="form-actions">
+                        <button type="button" class="btn btn-secondary" onclick="closeMobilePaymentModal()">
+                            Annuler
+                        </button>
+                        <button type="submit" class="btn btn-primary" data-testid="confirm-payment">
+                            Confirmer le paiement
+                        </button>
+                    </div>
+                </form>
+            </div>
         </div>
     </div>
 
