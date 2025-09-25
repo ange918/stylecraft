@@ -192,6 +192,41 @@ const sampleProducts = [
         bestseller: true,
         sale: true
     },
+    // Nouvelles perruques ajoutées
+    {
+        id: 404,
+        name: "Perruque Lisse Élégante",
+        price: 129.99,
+        originalPrice: 169.99,
+        category: "perruques",
+        image: "src/assets/perruque-lisse-1.jpg",
+        images: [
+            "src/assets/perruque-lisse-1.jpg"
+        ],
+        description: "Perruque lisse d'une élégance exceptionnelle, parfaite pour un look sophistiqué.",
+        sizes: ["One Size"],
+        colors: ["Noir", "Brun", "Blond"],
+        featured: true,
+        bestseller: false,
+        sale: true
+    },
+    {
+        id: 405,
+        name: "Perruque Bouclée Volume",
+        price: 139.99,
+        originalPrice: null,
+        category: "perruques",
+        image: "src/assets/perruque-bouclees-1.jpg",
+        images: [
+            "src/assets/perruque-bouclees-1.jpg"
+        ],
+        description: "Perruque bouclée avec un volume naturel parfait pour un style glamour.",
+        sizes: ["One Size"],
+        colors: ["Brun", "Noir", "Blond Vénitien"],
+        featured: true,
+        bestseller: true,
+        sale: false
+    },
     // Produits existants (gardés pour compatibilité)
     {
         id: 1,
