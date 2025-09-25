@@ -1558,12 +1558,6 @@ function selectPaymentMethod(method) {
     if (method === 'airtel' || method === 'orange') {
         closePaymentModal();
         openMobilePaymentModal(method);
-    } else if (method === 'card') {
-        closePaymentModal();
-        showToast('Intégration carte de crédit à venir', 'success');
-    } else if (method === 'paypal') {
-        closePaymentModal();
-        showToast('Intégration PayPal à venir', 'success');
     }
 }
 
