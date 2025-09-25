@@ -74,7 +74,7 @@ const sampleProducts = [
         name: "Robe Élégante Soirée",
         price: 125.99,
         originalPrice: 159.99,
-        category: "vetements-femme",
+        category: "vetements",
         image: "src/assets/robe-elegante-soiree-1.jpg",
         images: [
             "src/assets/robe-elegante-soiree-1.jpg",
@@ -92,7 +92,7 @@ const sampleProducts = [
         name: "Top Décontracté Femme",
         price: 35.99,
         originalPrice: null,
-        category: "vetements-femme",
+        category: "vetements",
         image: "src/assets/top-decontracte-femme-1.jpg",
         images: [
             "src/assets/top-decontracte-femme-1.jpg"
@@ -110,7 +110,7 @@ const sampleProducts = [
         name: "Robe Princesse Enfant",
         price: 28.99,
         originalPrice: 39.99,
-        category: "vetements-enfant",
+        category: "vetements",
         image: "src/assets/robe-princesse-enfant-1.jpg",
         images: [
             "src/assets/robe-princesse-enfant-1.jpg"
@@ -127,7 +127,7 @@ const sampleProducts = [
         name: "T-shirt Enfant Graphique",
         price: 18.99,
         originalPrice: null,
-        category: "vetements-enfant",
+        category: "vetements",
         image: "src/assets/tshirt-enfant-graphique-1.jpg",
         images: [
             "src/assets/tshirt-enfant-graphique-1.jpg"
@@ -285,7 +285,7 @@ const sampleProducts = [
         name: "Classic White Button-Down Shirt",
         price: 65.99,
         originalPrice: 85.99,
-        category: "mens",
+        category: "vetements",
         image: "src/assets/chemise-blanche-homme-1.jpg",
         images: [
             "src/assets/chemise-blanche-homme-1.jpg",
@@ -303,7 +303,7 @@ const sampleProducts = [
         name: "Elegant Black Dress",
         price: 109.99,
         originalPrice: null,
-        category: "womens",
+        category: "vetements",
         image: "src/assets/robe-noire-elegante-1.jpg",
         images: [
             "src/assets/robe-noire-elegante-1.jpg",
@@ -321,7 +321,7 @@ const sampleProducts = [
         name: "Premium Denim Jeans",
         price: 85.99,
         originalPrice: 115.99,
-        category: "mens",
+        category: "vetements",
         image: "src/assets/jean-premium-homme-1.jpg",
         images: [
             "src/assets/jean-premium-homme-1.jpg",
@@ -339,7 +339,7 @@ const sampleProducts = [
         name: "Cozy Knit Sweater",
         price: 58.99,
         originalPrice: null,
-        category: "womens",
+        category: "vetements",
         image: "src/assets/pull-tricot-femme-1.jpg",
         images: [
             "src/assets/pull-tricot-femme-1.jpg",
@@ -357,12 +357,12 @@ const sampleProducts = [
         name: "Kids Adventure T-Shirt",
         price: 22.99,
         originalPrice: 29.99,
-        category: "kids",
+        category: "vetements",
         image: "src/assets/tshirt-aventure-enfant-1.jpg",
         images: [
             "src/assets/tshirt-aventure-enfant-1.jpg"
         ],
-        description: "Fun and colorful t-shirt designed for active kids. Comfortable cotton fabric.",
+        description: "Fun and colorful t-shirt designed for active children. Comfortable cotton fabric.",
         sizes: ["2T", "3T", "4T", "5T", "6T"],
         colors: ["Blue", "Green", "Red"],
         featured: false,
@@ -392,7 +392,7 @@ const sampleProducts = [
         name: "Cotton Polo Shirt",
         price: 42.99,
         originalPrice: 55.99,
-        category: "mens",
+        category: "vetements",
         image: "src/assets/polo-coton-homme-1.jpg",
         images: [
             "src/assets/polo-coton-homme-1.jpg"
@@ -409,7 +409,7 @@ const sampleProducts = [
         name: "Flowy Summer Dress",
         price: 64.99,
         originalPrice: null,
-        category: "womens",
+        category: "vetements",
         image: "src/assets/robe-ete-fluide-1.jpg",
         images: [
             "src/assets/robe-ete-fluide-1.jpg"
@@ -426,12 +426,12 @@ const sampleProducts = [
         name: "Kids Denim Jacket",
         price: 32.99,
         originalPrice: 45.99,
-        category: "kids",
+        category: "vetements",
         image: "src/assets/veste-jean-enfant-1.jpg",
         images: [
             "src/assets/veste-jean-enfant-1.jpg"
         ],
-        description: "Stylish denim jacket for kids. Durable and perfect for layering.",
+        description: "Stylish denim jacket for children. Durable and perfect for layering.",
         sizes: ["2T", "3T", "4T", "5T", "6T"],
         colors: ["Light Blue", "Dark Blue"],
         featured: false,
@@ -485,8 +485,6 @@ function initializeApp() {
         loadContactPage();
     } else if (currentPath.includes('perruques.html')) {
         loadCategoryPage('perruques');
-    } else if (currentPath.includes('vetements-femme-enfant.html')) {
-        loadCategoryPage('vetements-femme', 'vetements-enfant');
     } else if (currentPath.includes('sacs.html')) {
         loadCategoryPage('sacs');
     }
