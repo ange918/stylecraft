@@ -2407,38 +2407,25 @@ function closeMobilePaymentModal() {
     }
 }
 
-// Generate payment instructions with receiving numbers
+// Generate simple payment instructions
 function generatePaymentInstructions(method, customerPhone = '', amount = 0) {
-    const instructions = PAYMENT_INSTRUCTIONS[method];
-    if (!instructions) return '';
-    
     // Obtenir le numéro de réception selon le pays du client
     const receivingData = getReceivingNumber(method, customerPhone || '+243800000000');
     
-    const stepsList = instructions.steps
-        .map(step => {
-            return step
-                .replace('{receivingNumber}', receivingData.number)
-                .replace('{amount}', amount + ' USD');
-        })
-        .map(step => `<li>${step}</li>`)
-        .join('');
+    const methodTitle = method === 'airtel' ? 'Airtel Money' : 'Orange Money';
+    const methodCode = method === 'airtel' ? '*150#' : '#150#';
     
     return `
-        <div class="payment-info">
-            <h4>${instructions.title}</h4>
-            <div class="receiving-account">
-                <h5><i class="fas fa-user"></i> Compte de réception :</h5>
-                <div class="account-number">${receivingData.number}</div>
-                <small>Pays détecté: ${receivingData.country}</small>
-                ${receivingData.backup ? `<div class="backup-number">Numéro alternatif: ${receivingData.backup}</div>` : ''}
+        <div class="payment-info-simple">
+            <h4><i class="fas fa-mobile-alt"></i> Instructions de paiement</h4>
+            <div class="payment-details">
+                <p><strong>Envoyer ${amount} USD vers :</strong></p>
+                <div class="receiving-number">${receivingData.number}</div>
+                <small>via ${methodTitle} (${receivingData.country})</small>
             </div>
-            <div class="payment-steps">
-                <h5><i class="fas fa-list"></i> Étapes à suivre :</h5>
-                <ol>${stepsList}</ol>
-            </div>
-            <div class="payment-note">
-                <p><i class="fas fa-info-circle"></i> ${instructions.note}</p>
+            <div class="payment-simple-note">
+                <p><i class="fas fa-info-circle"></i> Composez <strong>${methodCode}</strong> sur votre téléphone et effectuez le transfert</p>
+                <p><small>Vous recevrez une confirmation une fois le paiement traité</small></p>
             </div>
         </div>
     `;
@@ -2511,26 +2498,28 @@ async function processMobilePayment(method) {
     // Show processing state
     const submitBtn = document.querySelector('#mobilePaymentForm button[type="submit"]');
     const originalText = submitBtn.textContent;
-    submitBtn.textContent = 'Envoi du code...';
+    submitBtn.textContent = 'Traitement...';
     submitBtn.disabled = true;
     
     try {
-        // Generate verification code
-        const verificationCode = generateVerificationCode();
-        currentPaymentData.verificationCode = verificationCode;
-        
-        // Send verification code via email (simulating SMS)
+        // Simplified process - directly process the payment
+        const total = calculateCartTotal();
         const methodName = method === 'airtel' ? 'Airtel Money' : 'Orange Money';
-        await sendPaymentVerificationCode(customerEmail, phoneNumber, verificationCode, methodName);
         
-        showToast(`Code de vérification envoyé à ${customerEmail}`, 'success');
+        // Send payment confirmation email immediately
+        await sendOrderConfirmation(customerEmail, phoneNumber, total, methodName);
         
-        // Show verification code input
-        showVerificationCodeForm();
+        showToast(`Confirmation envoyée à ${customerEmail}. Effectuez le paiement sur votre téléphone`, 'success');
+        
+        // Close modal and clear cart after success
+        setTimeout(() => {
+            closeMobilePaymentModal();
+            clearCart();
+        }, 2000);
         
     } catch (error) {
-        console.error('Error sending verification code:', error);
-        showToast('Erreur lors de l\'envoi du code. Veuillez réessayer.', 'error');
+        console.error('Error sending confirmation:', error);
+        showToast('Erreur lors de l\'envoi de la confirmation. Veuillez réessayer.', 'error');
     } finally {
         // Reset button
         submitBtn.textContent = originalText;
@@ -2538,7 +2527,51 @@ async function processMobilePayment(method) {
     }
 }
 
-// Generate random 6-digit verification code
+// Send order confirmation directly using existing email function
+async function sendOrderConfirmation(customerEmail, phoneNumber, total, methodName) {
+    try {
+        const receivingData = getReceivingNumber(selectedPaymentMethod.toLowerCase(), phoneNumber);
+        
+        const emailData = {
+            to: customerEmail,
+            subject: 'Confirmation de commande - StyleCraft',
+            html: `
+                <div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto;">
+                    <h2 style="color: #333;">Confirmation de commande</h2>
+                    <p>Bonjour,</p>
+                    <p>Votre commande a été confirmée. Voici les détails :</p>
+                    
+                    <div style="background: #f5f5f5; padding: 20px; border-radius: 8px; margin: 20px 0;">
+                        <h3 style="margin: 0 0 15px 0;">Informations de paiement</h3>
+                        <p><strong>Montant à payer :</strong> $${total.total.toFixed(2)} USD</p>
+                        <p><strong>Méthode :</strong> ${methodName}</p>
+                        <p><strong>Votre numéro :</strong> ${phoneNumber}</p>
+                        <p><strong>Envoyer vers :</strong> ${receivingData.number}</p>
+                        <p><strong>Pays :</strong> ${receivingData.country}</p>
+                    </div>
+                    
+                    <div style="background: #e8f5e8; padding: 15px; border-radius: 8px; margin: 20px 0;">
+                        <h4 style="margin: 0 0 10px 0; color: #2c5530;">Instructions :</h4>
+                        <p style="margin: 0;">Effectuez le transfert de <strong>$${total.total.toFixed(2)} USD</strong> vers <strong>${receivingData.number}</strong> via ${methodName}</p>
+                    </div>
+                    
+                    <p>Votre commande sera traitée dès réception du paiement.</p>
+                    <p>Merci pour votre confiance !</p>
+                    <p><strong>L'équipe StyleCraft</strong></p>
+                </div>
+            `,
+            text: `Confirmation de commande StyleCraft\n\nMontant: $${total.total.toFixed(2)} USD\nMéthode: ${methodName}\nVotre numéro: ${phoneNumber}\nEnvoyer vers: ${receivingData.number}\nPays: ${receivingData.country}\n\nEffectuez le transfert via ${methodName} et votre commande sera traitée dès réception du paiement.\n\nMerci pour votre confiance !\nL'équipe StyleCraft`
+        };
+        
+        await sendEmail(emailData);
+        
+    } catch (error) {
+        console.error('Error sending order confirmation:', error);
+        throw error;
+    }
+}
+
+// Generate random 6-digit verification code (legacy - not used in simplified process)
 function generateVerificationCode() {
     return Math.floor(100000 + Math.random() * 900000).toString();
 }

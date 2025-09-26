@@ -3345,3 +3345,66 @@ input, textarea, select {
 .payment-option[data-payment="orange"] .method-icon {
     color: #ff8c00;
 }
+
+/* Payment Instructions - Simplified Version */
+.payment-info-simple h4 {
+    color: #333;
+    margin-bottom: 20px;
+    font-size: 1.2rem;
+    border-bottom: 2px solid #007bff;
+    padding-bottom: 10px;
+}
+
+.payment-details {
+    background: #f8f9fa;
+    padding: 20px;
+    border-radius: 8px;
+    margin: 15px 0;
+    text-align: center;
+}
+
+.payment-details p {
+    margin: 0 0 15px 0;
+    font-size: 1.1rem;
+}
+
+.receiving-number {
+    font-size: 1.8rem;
+    font-weight: bold;
+    color: #007bff;
+    background: white;
+    padding: 15px;
+    border-radius: 8px;
+    border: 2px solid #007bff;
+    margin: 15px 0;
+    letter-spacing: 1px;
+    font-family: 'Courier New', monospace;
+}
+
+.payment-details small {
+    display: block;
+    color: #666;
+    font-size: 0.9rem;
+    margin-top: 10px;
+}
+
+.payment-simple-note {
+    background: #e8f5e8;
+    padding: 15px;
+    border-radius: 8px;
+    border-left: 4px solid #28a745;
+    margin: 20px 0;
+}
+
+.payment-simple-note p {
+    margin: 5px 0;
+    color: #2c5530;
+}
+
+.payment-simple-note p:first-child {
+    font-weight: 500;
+}
+
+.payment-simple-note small {
+    color: #555;
+}
