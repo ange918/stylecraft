@@ -4,6 +4,30 @@
 
 StyleCraft is a modern, responsive e-commerce website for a premium fashion brand. Built with vanilla HTML, CSS, and JavaScript without any frameworks, it offers a clean, professional shopping experience with features like product browsing, cart management, and responsive design. The site focuses on timeless fashion for modern wardrobes, targeting men's, women's, and children's clothing along with accessories.
 
+**Recently Imported to Replit (September 2025)**: The site has been successfully imported and configured to run in the Replit environment with French localization and custom payment verification system.
+
+## Recent Changes (September 2025)
+
+### French Localization
+- ✅ Complete translation of all pages (index.html, cart.html, shop.html, contact.html, about.html, product.html, perruques.html, sacs.html)
+- ✅ French navigation menus, buttons, and form labels
+- ✅ French product descriptions and category names
+- ✅ French payment flow and confirmation messages
+
+### Email-Based Payment System
+- ✅ Integrated Replit Mail service for email functionality
+- ✅ Custom verification code system (simulating SMS verification like 1xbet)
+- ✅ Customer email and phone number collection during payment
+- ✅ Email verification codes sent to customer
+- ✅ Order confirmation emails with detailed invoice
+- ✅ Support for Airtel Money and Orange Money payment methods
+
+### Technical Improvements
+- ✅ ES6 modules implementation (js/utils/email.js)
+- ✅ Updated all HTML files to support ES6 module imports
+- ✅ Configured for Replit's static web server on port 5000
+- ✅ Production deployment configuration (autoscale)
+
 ## User Preferences
 
 Preferred communication style: Simple, everyday language.
@@ -12,9 +36,11 @@ Preferred communication style: Simple, everyday language.
 
 ### Frontend Architecture
 - **Pure Vanilla Stack**: Built entirely with HTML5, CSS3, and ES6+ JavaScript without any frameworks or libraries
+- **ES6 Modules**: Modular JavaScript architecture with ES6 import/export for email functionality
 - **Responsive Design**: Uses CSS Flexbox and Grid for layout with mobile-first approach
 - **Component-Based Structure**: Modular CSS and JavaScript organized by functionality
 - **Modern CSS Features**: Custom properties, animations, and transitions for smooth user experience
+- **Replit Integration**: Email service integration for payment verification and order confirmations
 
 ### Page Structure
 - **Multi-page Application**: Five main pages (index.html, shop.html, product.html, cart.html, contact.html)
