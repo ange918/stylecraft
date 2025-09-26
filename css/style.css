@@ -96,6 +96,20 @@ input, textarea, select {
     transform: translateY(-2px);
 }
 
+/* Hero specific button styling */
+.hero .btn-secondary {
+    background: transparent;
+    color: white;
+    border: 2px solid white;
+}
+
+.hero .btn-secondary:hover {
+    background: white;
+    color: #2563eb;
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(255, 255, 255, 0.3);
+}
+
 .btn-accent {
     background: #f59e0b;
     color: white;
@@ -413,38 +427,73 @@ input, textarea, select {
 
 /* Hero Section */
 .hero {
-    background: linear-gradient(135deg, #f8fafc 0%, #ffffff 100%);
-    padding: 80px 0;
+    position: relative;
+    background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.3)), url('../attached_assets/stock_images/modern_fashion_works_9e59220d.jpg');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    padding: 120px 0;
+    color: white;
+    text-align: center;
+    min-height: 600px;
+    display: flex;
+    align-items: center;
+}
+
+.hero-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(135deg, rgba(37, 99, 235, 0.8) 0%, rgba(29, 78, 216, 0.6) 100%);
+    z-index: 1;
 }
 
 .hero-content {
+    position: relative;
+    z-index: 2;
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 80px;
     align-items: center;
+    width: 100%;
+}
+
+.hero-text {
+    text-align: left;
 }
 
 .hero-text h1 {
     font-size: 56px;
     font-weight: 700;
-    color: #1f2937;
+    color: white;
     line-height: 1.1;
     margin-bottom: 24px;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
 }
 
 .hero-text p {
     font-size: 20px;
-    color: #6b7280;
+    color: rgba(255, 255, 255, 0.9);
     margin-bottom: 32px;
     max-width: 500px;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
+}
+
+.hero-buttons {
+    display: flex;
+    gap: 16px;
+    flex-wrap: wrap;
 }
 
 .hero-image img {
     border-radius: 16px;
-    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.4);
     width: 100%;
     max-width: 400px;
     margin: 0 auto;
+    border: 3px solid rgba(255, 255, 255, 0.2);
 }
 
 /* Section Headers */
@@ -2956,6 +3005,59 @@ input, textarea, select {
     line-height: 1.6;
 }
 
+/* About Hero Section */
+.about-hero {
+    position: relative;
+    background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.3)), url('../attached_assets/stock_images/fashion_boutique_int_390ef7ed.jpg');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    padding: 120px 0;
+    color: white;
+    text-align: center;
+    min-height: 500px;
+    display: flex;
+    align-items: center;
+}
+
+.about-hero-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(135deg, rgba(139, 69, 19, 0.7) 0%, rgba(101, 67, 33, 0.5) 100%);
+    z-index: 1;
+}
+
+.about-hero-content {
+    position: relative;
+    z-index: 2;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.about-hero-content h1 {
+    font-size: 48px;
+    font-weight: 700;
+    color: white;
+    line-height: 1.2;
+    margin-bottom: 24px;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+.about-hero-content p {
+    font-size: 18px;
+    color: rgba(255, 255, 255, 0.9);
+    margin-bottom: 32px;
+    line-height: 1.6;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
+}
+
+.about-hero-content .btn {
+    margin-top: 16px;
+}
+
 /* Responsive Design for Perruques Page */
 @media (max-width: 768px) {
     .category-hero-content h1 {
@@ -2970,6 +3072,48 @@ input, textarea, select {
     .benefits-grid {
         grid-template-columns: 1fr;
         gap: 1.5rem;
+    }
+
+    .hero {
+        padding: 80px 0;
+        min-height: 400px;
+        background-attachment: scroll;
+    }
+    
+    .hero-content {
+        grid-template-columns: 1fr;
+        gap: 40px;
+        text-align: center;
+    }
+    
+    .hero-text {
+        text-align: center;
+    }
+    
+    .hero-text h1 {
+        font-size: 36px;
+    }
+    
+    .hero-text p {
+        font-size: 18px;
+    }
+    
+    .hero-buttons {
+        justify-content: center;
+    }
+    
+    .about-hero {
+        padding: 80px 0;
+        min-height: 350px;
+        background-attachment: scroll;
+    }
+    
+    .about-hero-content h1 {
+        font-size: 32px;
+    }
+    
+    .about-hero-content p {
+        font-size: 16px;
     }
 }
 
