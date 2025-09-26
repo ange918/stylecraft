@@ -1167,6 +1167,11 @@ input, textarea, select {
     min-height: 600px;
 }
 
+.products-section-full {
+    min-height: 600px;
+    width: 100%;
+}
+
 .products-header {
     display: flex;
     align-items: center;
