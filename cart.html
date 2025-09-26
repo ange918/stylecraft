@@ -294,7 +294,14 @@
             <div class="modal-body">
                 <form id="mobilePaymentForm" data-testid="mobile-payment-form">
                     <div class="form-group">
-                        <label for="phoneNumber">Numéro de téléphone</label>
+                        <label for="customerEmail">Adresse email *</label>
+                        <input type="email" id="customerEmail" name="customerEmail" required 
+                               placeholder="votre.email@exemple.com" data-testid="customer-email-input">
+                        <small>Votre email pour recevoir la confirmation de commande</small>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="phoneNumber">Numéro de téléphone *</label>
                         <input type="tel" id="phoneNumber" name="phoneNumber" required 
                                placeholder="ex: +225 07 XX XX XX XX" data-testid="phone-number-input">
                         <small>Entrez le numéro associé à votre compte mobile money</small>
@@ -314,7 +321,7 @@
                             Annuler
                         </button>
                         <button type="submit" class="btn btn-primary" data-testid="confirm-payment">
-                            Confirmer le paiement
+                            Envoyer le code de vérification
                         </button>
                     </div>
                 </form>
@@ -323,6 +330,6 @@
     </div>
 
     <!-- JavaScript -->
-    <script src="js/script.js"></script>
+    <script type="module" src="js/script.js"></script>
 </body>
 </html>

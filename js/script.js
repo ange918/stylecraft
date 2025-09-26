@@ -2,6 +2,9 @@
 //   StyleCraft - E-commerce JavaScript
 // =============================================
 
+// Import email utility for payment confirmations
+import { sendEmail, sendPaymentConfirmationEmail, sendPaymentVerificationCode } from './utils/email.js';
+
 // Global Variables
 let cart = JSON.parse(localStorage.getItem('stylecraft-cart')) || [];
 let products = [];
@@ -11,6 +14,16 @@ let currentFilters = {
     category: [],
     price: '',
     sale: false
+};
+
+// Payment verification variables
+let currentPaymentData = {
+    customerEmail: '',
+    phoneNumber: '',
+    paymentMethod: '',
+    verificationCode: '',
+    orderNumber: '',
+    orderDetails: null
 };
 
 // Sample Products Data
@@ -1201,6 +1214,26 @@ function proceedToCheckout() {
         return;
     }
     
+    // Generate order number
+    currentPaymentData.orderNumber = 'SC' + Date.now().toString().slice(-8);
+    
+    // Prepare order details
+    const total = calculateCartTotal();
+    currentPaymentData.orderDetails = {
+        orderNumber: currentPaymentData.orderNumber,
+        items: cart.map(item => ({
+            name: item.name,
+            size: item.size,
+            color: item.color,
+            quantity: item.quantity,
+            price: (item.price * item.quantity).toFixed(2)
+        })),
+        subtotal: total.subtotal.toFixed(2),
+        shipping: total.shipping.toFixed(2),
+        tax: total.tax.toFixed(2),
+        total: total.total.toFixed(2)
+    };
+    
     // Open payment method selection modal
     openPaymentModal();
 }
@@ -1636,6 +1669,7 @@ function closePaymentModal() {
 // Select payment method
 function selectPaymentMethod(method) {
     selectedPaymentMethod = method;
+    currentPaymentData.paymentMethod = method;
     
     if (method === 'airtel' || method === 'orange') {
         closePaymentModal();
@@ -1733,9 +1767,15 @@ function setupMobilePaymentForm(method) {
     });
 }
 
-// Process mobile payment
-function processMobilePayment(method) {
+// Process mobile payment - Step 1: Generate and send verification code
+async function processMobilePayment(method) {
     const phoneNumber = document.getElementById('phoneNumber').value;
+    const customerEmail = document.getElementById('customerEmail').value;
+    
+    if (!customerEmail || !validateEmail(customerEmail)) {
+        showToast('Veuillez entrer une adresse email valide', 'error');
+        return;
+    }
     
     if (!phoneNumber) {
         showToast('Veuillez entrer votre numéro de téléphone', 'error');
@@ -1748,44 +1788,183 @@ function processMobilePayment(method) {
         return;
     }
     
+    // Store payment data
+    currentPaymentData.customerEmail = customerEmail;
+    currentPaymentData.phoneNumber = phoneNumber;
+    
     // Show processing state
     const submitBtn = document.querySelector('#mobilePaymentForm button[type="submit"]');
     const originalText = submitBtn.textContent;
-    submitBtn.textContent = 'Traitement en cours...';
+    submitBtn.textContent = 'Envoi du code...';
     submitBtn.disabled = true;
     
-    // Simulate payment processing
-    setTimeout(() => {
+    try {
+        // Generate verification code
+        const verificationCode = generateVerificationCode();
+        currentPaymentData.verificationCode = verificationCode;
+        
+        // Send verification code via email (simulating SMS)
+        const methodName = method === 'airtel' ? 'Airtel Money' : 'Orange Money';
+        await sendPaymentVerificationCode(customerEmail, phoneNumber, verificationCode, methodName);
+        
+        showToast(`Code de vérification envoyé à ${customerEmail}`, 'success');
+        
+        // Show verification code input
+        showVerificationCodeForm();
+        
+    } catch (error) {
+        console.error('Error sending verification code:', error);
+        showToast('Erreur lors de l\'envoi du code. Veuillez réessayer.', 'error');
+    } finally {
         // Reset button
         submitBtn.textContent = originalText;
         submitBtn.disabled = false;
+    }
+}
+
+// Generate random 6-digit verification code
+function generateVerificationCode() {
+    return Math.floor(100000 + Math.random() * 900000).toString();
+}
+
+// Validate email address
+function validateEmail(email) {
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    return emailRegex.test(email);
+}
+
+// Show verification code input form
+function showVerificationCodeForm() {
+    const modalBody = document.querySelector('#mobilePaymentModal .modal-body');
+    if (!modalBody) return;
+    
+    modalBody.innerHTML = `
+        <form id="verificationForm">
+            <div class="verification-step">
+                <div class="step-icon">
+                    <i class="fas fa-mobile-alt"></i>
+                </div>
+                <h3>Code de vérification envoyé</h3>
+                <p>Un code de vérification a été envoyé à <strong>${currentPaymentData.customerEmail}</strong></p>
+                <p>Entrez le code reçu pour confirmer votre paiement :</p>
+            </div>
+            
+            <div class="form-group">
+                <label for="verificationCode">Code de vérification *</label>
+                <input type="text" id="verificationCode" name="verificationCode" required 
+                       placeholder="123456" maxlength="6" class="verification-input">
+                <small>Le code est valide pendant 10 minutes</small>
+            </div>
+            
+            <div class="payment-summary">
+                <h4>Résumé du paiement</h4>
+                <div class="summary-row">
+                    <span>Méthode :</span>
+                    <span>${currentPaymentData.paymentMethod === 'airtel' ? 'Airtel Money' : 'Orange Money'}</span>
+                </div>
+                <div class="summary-row">
+                    <span>Numéro :</span>
+                    <span>${currentPaymentData.phoneNumber}</span>
+                </div>
+                <div class="summary-row">
+                    <span>Montant :</span>
+                    <span>${currentPaymentData.orderDetails.total}€</span>
+                </div>
+            </div>
+            
+            <div class="form-actions">
+                <button type="button" class="btn btn-secondary" onclick="goBackToPaymentForm()">
+                    Retour
+                </button>
+                <button type="submit" class="btn btn-primary">
+                    Valider le paiement
+                </button>
+            </div>
+        </form>
+    `;
+    
+    // Setup verification form
+    const verificationForm = document.getElementById('verificationForm');
+    if (verificationForm) {
+        verificationForm.addEventListener('submit', function(e) {
+            e.preventDefault();
+            verifyPaymentCode();
+        });
+    }
+}
+
+// Verify payment code
+async function verifyPaymentCode() {
+    const enteredCode = document.getElementById('verificationCode').value;
+    
+    if (!enteredCode || enteredCode.length !== 6) {
+        showToast('Veuillez entrer un code à 6 chiffres', 'error');
+        return;
+    }
+    
+    if (enteredCode !== currentPaymentData.verificationCode) {
+        showToast('Code de vérification incorrect', 'error');
+        return;
+    }
+    
+    const submitBtn = document.querySelector('#verificationForm button[type="submit"]');
+    const originalText = submitBtn.textContent;
+    submitBtn.textContent = 'Finalisation...';
+    submitBtn.disabled = true;
+    
+    try {
+        // Send payment confirmation email
+        const methodName = currentPaymentData.paymentMethod === 'airtel' ? 'Airtel Money' : 'Orange Money';
+        await sendPaymentConfirmationEmail(
+            currentPaymentData.customerEmail,
+            currentPaymentData.orderDetails,
+            methodName
+        );
         
-        // Show success
-        showPaymentSuccess(method, phoneNumber);
+        // Show success and finish payment
+        showPaymentSuccess();
         
-        // Clear cart after successful payment
-        clearCart();
+        // Clear cart and redirect
+        setTimeout(() => {
+            finishPayment();
+        }, 3000);
         
-    }, 3000);
+    } catch (error) {
+        console.error('Error sending confirmation email:', error);
+        showToast('Paiement confirmé ! Un email de confirmation suivra.', 'success');
+        
+        setTimeout(() => {
+            finishPayment();
+        }, 3000);
+    } finally {
+        submitBtn.textContent = originalText;
+        submitBtn.disabled = false;
+    }
+}
+
+// Go back to payment form
+function goBackToPaymentForm() {
+    const method = currentPaymentData.paymentMethod;
+    openMobilePaymentModal(method);
 }
 
 // Show payment success
-function showPaymentSuccess(method, phoneNumber) {
+function showPaymentSuccess() {
     const modal = document.getElementById('mobilePaymentModal');
     const modalBody = modal.querySelector('.modal-body');
     
-    const paymentMethod = method === 'airtel' ? 'Airtel Money' : 'Orange Money';
-    const total = calculateCartTotal();
+    const paymentMethod = currentPaymentData.paymentMethod === 'airtel' ? 'Airtel Money' : 'Orange Money';
     
     modalBody.innerHTML = `
         <div class="payment-success">
             <div class="success-icon">
                 <i class="fas fa-check"></i>
             </div>
-            <h3>Paiement Réussi!</h3>
-            <p>Votre paiement de <strong>$${total.total.toFixed(2)}</strong> via ${paymentMethod} a été traité avec succès.</p>
-            <p>Numéro de téléphone: <strong>${phoneNumber}</strong></p>
-            <p>Un SMS de confirmation vous sera envoyé prochainement.</p>
+            <h3>Paiement Confirmé !</h3>
+            <p>Votre paiement de <strong>${currentPaymentData.orderDetails.total}€</strong> via ${paymentMethod} a été traité avec succès.</p>
+            <p>Commande N° : <strong>${currentPaymentData.orderNumber}</strong></p>
+            <p>Email : <strong>${currentPaymentData.customerEmail}</strong></p>
+            <p>Un email de confirmation détaillé a été envoyé à votre adresse.</p>
             <div class="form-actions">
                 <button type="button" class="btn btn-primary" onclick="finishPayment()">
                     Continuer
