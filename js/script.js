@@ -2535,7 +2535,7 @@ function showVerificationCodeForm() {
                     Retour
                 </button>
                 <button type="submit" class="btn btn-primary">
-                    Valider le paiement
+                    Confirmer
                 </button>
             </div>
         </form>
