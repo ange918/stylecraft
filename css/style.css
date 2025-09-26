@@ -3230,3 +3230,118 @@ input, textarea, select {
     background: #f8f9fa;
     padding: 4rem 0;
 }
+
+/* =============================================
+   Styles pour le système de paiement mobile
+   ============================================= */
+
+/* Compte de réception */
+.receiving-account {
+    background: linear-gradient(135deg, #f8f9fa, #e9ecef);
+    border: 2px solid #28a745;
+    border-radius: 12px;
+    padding: 20px;
+    margin: 15px 0;
+    text-align: center;
+}
+
+.receiving-account h5 {
+    color: #28a745;
+    margin-bottom: 10px;
+    font-weight: 600;
+}
+
+.account-number {
+    font-size: 1.4em;
+    font-weight: bold;
+    color: #2563eb;
+    background: white;
+    padding: 10px 15px;
+    border-radius: 8px;
+    display: inline-block;
+    margin: 10px 0;
+    border: 2px dashed #2563eb;
+    letter-spacing: 1px;
+}
+
+.backup-number {
+    color: #6c757d;
+    font-size: 0.9em;
+    margin-top: 8px;
+    font-style: italic;
+}
+
+/* Étapes de paiement */
+.payment-steps {
+    background: #f8f9fa;
+    border-radius: 8px;
+    padding: 20px;
+    margin: 15px 0;
+}
+
+.payment-steps h5 {
+    color: #2563eb;
+    margin-bottom: 15px;
+    font-weight: 600;
+}
+
+.payment-steps ol {
+    margin: 0;
+    padding-left: 20px;
+}
+
+.payment-steps li {
+    margin-bottom: 8px;
+    line-height: 1.5;
+    color: #495057;
+}
+
+/* Note de paiement */
+.payment-note {
+    background: linear-gradient(135deg, #fff3cd, #ffeeba);
+    border: 1px solid #ffeaa7;
+    border-radius: 8px;
+    padding: 15px;
+    margin: 15px 0;
+}
+
+.payment-note p {
+    margin: 0;
+    color: #856404;
+    font-weight: 500;
+}
+
+.payment-note i {
+    color: #f39c12;
+    margin-right: 8px;
+}
+
+/* Amélioration des boutons de méthode de paiement */
+.payment-option {
+    transition: all 0.3s ease;
+    cursor: pointer;
+}
+
+.payment-option:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+}
+
+.payment-option.selected {
+    border-color: #28a745;
+    background: linear-gradient(135deg, #d4edda, #c3e6cb);
+}
+
+/* Styles pour les icônes de méthodes */
+.payment-option .method-icon {
+    font-size: 2em;
+    margin-bottom: 10px;
+}
+
+.payment-option[data-payment="airtel"] .method-icon {
+    color: #ff0000;
+}
+
+.payment-option[data-payment="orange"] .method-icon {
+    color: #ff8c00;
+}

@@ -5,6 +5,9 @@
 // Import email utility for payment confirmations
 import { sendEmail, sendPaymentConfirmationEmail, sendPaymentVerificationCode } from './utils/email.js';
 
+// Import payment configuration
+import { PAYMENT_CONFIG, PHONE_PATTERNS, getReceivingNumber, PAYMENT_INSTRUCTIONS } from './payment-config.js';
+
 // Global Variables
 let cart = JSON.parse(localStorage.getItem('stylecraft-cart')) || [];
 let products = [];
@@ -2381,8 +2384,8 @@ function openMobilePaymentModal(method) {
     
     amountEl.value = `$${total.total.toFixed(2)}`;    
     
-    // Set payment instructions
-    instructionsEl.innerHTML = generatePaymentInstructions(method);
+    // Set payment instructions with amount info
+    instructionsEl.innerHTML = generatePaymentInstructions(method, '', total.total);
     
     // Setup form submission
     setupMobilePaymentForm(method);
@@ -2404,15 +2407,39 @@ function closeMobilePaymentModal() {
     }
 }
 
-// Generate payment instructions
-function generatePaymentInstructions(method) {
-    const methodName = method === 'airtel' ? 'Airtel Money' : 'Orange Money';
+// Generate payment instructions with receiving numbers
+function generatePaymentInstructions(method, customerPhone = '', amount = 0) {
+    const instructions = PAYMENT_INSTRUCTIONS[method];
+    if (!instructions) return '';
+    
+    // Obtenir le numéro de réception selon le pays du client
+    const receivingData = getReceivingNumber(method, customerPhone || '+243800000000');
+    
+    const stepsList = instructions.steps
+        .map(step => {
+            return step
+                .replace('{receivingNumber}', receivingData.number)
+                .replace('{amount}', amount + ' USD');
+        })
+        .map(step => `<li>${step}</li>`)
+        .join('');
+    
     return `
         <div class="payment-info">
-            <h4><i class="fas fa-credit-card"></i> Paiement ${methodName}</h4>
-            <p class="payment-description">
-                Renseignez vos informations ci-dessous pour finaliser votre paiement de manière sécurisée.
-            </p>
+            <h4>${instructions.title}</h4>
+            <div class="receiving-account">
+                <h5><i class="fas fa-user"></i> Compte de réception :</h5>
+                <div class="account-number">${receivingData.number}</div>
+                <small>Pays détecté: ${receivingData.country}</small>
+                ${receivingData.backup ? `<div class="backup-number">Numéro alternatif: ${receivingData.backup}</div>` : ''}
+            </div>
+            <div class="payment-steps">
+                <h5><i class="fas fa-list"></i> Étapes à suivre :</h5>
+                <ol>${stepsList}</ol>
+            </div>
+            <div class="payment-note">
+                <p><i class="fas fa-info-circle"></i> ${instructions.note}</p>
+            </div>
         </div>
     `;
 }
@@ -2426,11 +2453,34 @@ function setupMobilePaymentForm(method) {
     const newForm = form.cloneNode(true);
     form.parentNode.replaceChild(newForm, form);
     
-    // Add new event listener
+    // Add new event listener for form submission
     newForm.addEventListener('submit', function(e) {
         e.preventDefault();
         processMobilePayment(method);
     });
+    
+    // Add real-time phone number detection
+    const phoneInput = newForm.querySelector('#phoneNumber');
+    if (phoneInput) {
+        phoneInput.addEventListener('input', function() {
+            updatePaymentInstructions(method, this.value);
+        });
+        
+        phoneInput.addEventListener('blur', function() {
+            updatePaymentInstructions(method, this.value);
+        });
+    }
+}
+
+// Update payment instructions when phone number changes
+function updatePaymentInstructions(method, phoneNumber) {
+    const instructionsEl = document.getElementById('paymentInstructions');
+    if (!instructionsEl) return;
+    
+    const total = calculateCartTotal();
+    
+    // Update instructions with current phone number
+    instructionsEl.innerHTML = generatePaymentInstructions(method, phoneNumber, total.total);
 }
 
 // Process mobile payment - Step 1: Generate and send verification code
@@ -2651,23 +2701,31 @@ function finishPayment() {
     }, 2000);
 }
 
-// Validate phone number (basic validation for African numbers)
+// Validate phone number (étendu pour tous les pays Airtel et Orange)
 function isValidPhoneNumber(phone) {
     // Remove all non-numeric characters except +
     const cleaned = phone.replace(/[^\d+]/g, '');
     
-    // Check for various African phone number formats
-    const patterns = [
-        /^\+225\d{8,10}$/,  // Côte d'Ivoire
-        /^\+221\d{7,9}$/,   // Sénégal
-        /^\+226\d{8}$/,     // Burkina Faso
-        /^\+223\d{8}$/,     // Mali
-        /^\+227\d{8}$/,     // Niger
-        /^(05|06|07|08|09)\d{8}$/,  // Local format
-        /^\d{8,10}$/        // Simple 8-10 digit format
+    // Vérifier tous les formats Airtel et Orange
+    const allPatterns = [
+        ...PHONE_PATTERNS.airtel,
+        ...PHONE_PATTERNS.orange,
+        ...PHONE_PATTERNS.local
     ];
     
-    return patterns.some(pattern => pattern.test(cleaned));
+    return allPatterns.some(pattern => pattern.test(cleaned));
+}
+
+// Détecter le type de réseau (Airtel ou Orange) selon le numéro
+function detectNetworkType(phone) {
+    const cleaned = phone.replace(/[^\d+]/g, '');
+    
+    const isAirtel = PHONE_PATTERNS.airtel.some(pattern => pattern.test(cleaned));
+    const isOrange = PHONE_PATTERNS.orange.some(pattern => pattern.test(cleaned));
+    
+    if (isAirtel) return 'airtel';
+    if (isOrange) return 'orange';
+    return 'unknown';
 }
 
 // Calculate cart total (enhanced version)
