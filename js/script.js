@@ -2035,22 +2035,25 @@ function submitContactForm(name, email, message) {
 // Utility Functions
 function createProductCard(product) {
     const salePrice = product.originalPrice ? 
-        `<span class="original-price">$${product.originalPrice.toFixed(2)}</span>` : '';
-    const saleBadge = product.sale ? '<div class="sale-badge">Sale!</div>' : '';
+        `<span class="original-price">${product.originalPrice.toFixed(2)}€</span>` : '';
+    const saleBadge = product.sale ? '<div class="sale-badge">Promo!</div>' : '';
     
     return `
         <div class="product-card" data-product-id="${product.id}">
             <div class="product-image">
                 <img src="${product.image}" alt="${product.name}">
                 ${saleBadge}
-                <button class="quick-view-btn" onclick="openQuickView(${product.id})">Quick View</button>
+                <button class="quick-view-btn" onclick="openQuickView(${product.id})">Aperçu rapide</button>
             </div>
             <div class="product-info">
                 <h3>${product.name}</h3>
                 <div class="product-price">
-                    <span class="price">$${product.price.toFixed(2)}</span>
+                    <span class="price">${product.price.toFixed(2)}€</span>
                     ${salePrice}
                 </div>
+                <button class="btn btn-primary add-to-cart-btn" onclick="addToCartFromCard(${product.id})" data-product-id="${product.id}">
+                    <i class="fas fa-shopping-cart"></i> Ajouter au panier
+                </button>
             </div>
         </div>
     `;
@@ -2060,13 +2063,34 @@ function setupProductCardEvents(container) {
     const productCards = container.querySelectorAll('.product-card');
     productCards.forEach(card => {
         card.addEventListener('click', (event) => {
-            // Don't navigate if clicking quick view button
-            if (event.target.classList.contains('quick-view-btn')) return;
+            // Don't navigate if clicking quick view button or add to cart button
+            if (event.target.classList.contains('quick-view-btn') || 
+                event.target.classList.contains('add-to-cart-btn') ||
+                event.target.closest('.add-to-cart-btn')) return;
             
             const productId = card.dataset.productId;
             window.location.href = `product.html?id=${productId}`;
         });
     });
+}
+
+// Function to add product to cart from product card
+function addToCartFromCard(productId) {
+    const product = products.find(p => p.id === productId);
+    if (!product) return;
+    
+    const cartItem = {
+        id: product.id,
+        name: product.name,
+        price: product.price,
+        image: product.image,
+        size: product.sizes[0], // Default to first available size
+        color: product.colors[0], // Default to first available color
+        quantity: 1
+    };
+    
+    addToCart(cartItem);
+    showToast(`${product.name} ajouté au panier !`, 'success');
 }
 
 // Quick View Modal Functions

@@ -603,6 +603,25 @@ input, textarea, select {
     margin-bottom: 8px;
 }
 
+.add-to-cart-btn {
+    width: 100%;
+    margin-top: 12px;
+    padding: 10px 16px;
+    font-size: 14px;
+    font-weight: 600;
+    border-radius: 6px;
+    transition: all 0.3s ease;
+}
+
+.add-to-cart-btn:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 4px 12px rgba(37, 99, 235, 0.3);
+}
+
+.add-to-cart-btn i {
+    margin-right: 8px;
+}
+
 .product-price {
     display: flex;
     align-items: center;
