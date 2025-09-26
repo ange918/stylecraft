@@ -151,6 +151,110 @@ const sampleProducts = [
         bestseller: false,
         sale: false
     },
+    // Nouveaux vêtements femme
+    {
+        id: 203,
+        name: "Jupe Plissée Moderne",
+        price: 49.99,
+        originalPrice: 65.99,
+        category: "vetements",
+        image: "attached_assets/vetement/jupe-plissee-moderne.jpg",
+        images: [
+            "attached_assets/vetement/jupe-plissee-moderne.jpg"
+        ],
+        description: "Jupe plissée élégante, parfaite pour le bureau ou les sorties.",
+        sizes: ["XS", "S", "M", "L", "XL"],
+        colors: ["Noir", "Beige", "Marine"],
+        featured: true,
+        bestseller: false,
+        sale: true
+    },
+    {
+        id: 204,
+        name: "Blazer Professionnel Femme",
+        price: 89.99,
+        originalPrice: null,
+        category: "vetements",
+        image: "attached_assets/vetement/blazer-professionnel-femme.jpg",
+        images: [
+            "attached_assets/vetement/blazer-professionnel-femme.jpg"
+        ],
+        description: "Blazer moderne et professionnel, coupe ajustée et élégante.",
+        sizes: ["XS", "S", "M", "L", "XL"],
+        colors: ["Noir", "Gris", "Marine"],
+        featured: false,
+        bestseller: true,
+        sale: false
+    },
+    {
+        id: 205,
+        name: "Pantalon Décontracté Femme",
+        price: 42.99,
+        originalPrice: 59.99,
+        category: "vetements",
+        image: "attached_assets/vetement/pantalon-decontracte-femme.jpg",
+        images: [
+            "attached_assets/vetement/pantalon-decontracte-femme.jpg"
+        ],
+        description: "Pantalon confortable en coton stretch, idéal pour tous les jours.",
+        sizes: ["XS", "S", "M", "L", "XL"],
+        colors: ["Noir", "Blanc", "Kaki"],
+        featured: true,
+        bestseller: true,
+        sale: true
+    },
+    // Nouveaux vêtements enfant
+    {
+        id: 303,
+        name: "Ensemble Sport Enfant",
+        price: 32.99,
+        originalPrice: null,
+        category: "vetements",
+        image: "attached_assets/vetement/ensemble-sport-enfant.jpg",
+        images: [
+            "attached_assets/vetement/ensemble-sport-enfant.jpg"
+        ],
+        description: "Ensemble de sport confortable pour enfant, jogging et sweat-shirt.",
+        sizes: ["2T", "3T", "4T", "5T", "6T"],
+        colors: ["Bleu", "Rose", "Gris"],
+        featured: false,
+        bestseller: false,
+        sale: false
+    },
+    {
+        id: 304,
+        name: "Robe Estivale Enfant",
+        price: 24.99,
+        originalPrice: 34.99,
+        category: "vetements",
+        image: "attached_assets/vetement/robe-estivale-enfant.jpg",
+        images: [
+            "attached_assets/vetement/robe-estivale-enfant.jpg"
+        ],
+        description: "Robe légère et colorée parfaite pour l'été.",
+        sizes: ["2T", "3T", "4T", "5T", "6T"],
+        colors: ["Jaune", "Vert", "Orange"],
+        featured: true,
+        bestseller: false,
+        sale: true
+    },
+    {
+        id: 305,
+        name: "Pantalon École Enfant",
+        price: 29.99,
+        originalPrice: null,
+        category: "vetements",
+        image: "attached_assets/vetement/pantalon-ecole-enfant.jpg",
+        images: [
+            "attached_assets/vetement/pantalon-ecole-enfant.jpg"
+        ],
+        description: "Pantalon résistant et confortable pour l'école.",
+        sizes: ["2T", "3T", "4T", "5T", "6T"],
+        colors: ["Marine", "Gris", "Noir"],
+        featured: false,
+        bestseller: true,
+        sale: false
+    },
     // Sacs
     {
         id: 401,
