@@ -1827,32 +1827,15 @@ function closeMobilePaymentModal() {
 
 // Generate payment instructions
 function generatePaymentInstructions(method) {
-    if (method === 'airtel') {
-        return `
-            <h4><i class="fas fa-info-circle"></i> Instructions de paiement Airtel Money</h4>
-            <ol>
-                <li>Composez <strong>#123#</strong> sur votre téléphone Airtel</li>
-                <li>Sélectionnez <strong>Paiement Marchand</strong></li>
-                <li>Entrez le code marchand : <strong>StyleCraft001</strong></li>
-                <li>Entrez le montant affiché ci-dessus</li>
-                <li>Confirmez avec votre code PIN Airtel Money</li>
-                <li>Cliquez sur "Confirmer le paiement" après avoir reçu le SMS de confirmation</li>
-            </ol>
-        `;
-    } else if (method === 'orange') {
-        return `
-            <h4><i class="fas fa-info-circle"></i> Instructions de paiement Orange Money</h4>
-            <ol>
-                <li>Composez <strong>#144#</strong> sur votre téléphone Orange</li>
-                <li>Sélectionnez <strong>Paiement Marchand</strong></li>
-                <li>Entrez le code marchand : <strong>StyleCraft002</strong></li>
-                <li>Entrez le montant affiché ci-dessus</li>
-                <li>Confirmez avec votre code PIN Orange Money</li>
-                <li>Cliquez sur "Confirmer le paiement" après avoir reçu le SMS de confirmation</li>
-            </ol>
-        `;
-    }
-    return '';
+    const methodName = method === 'airtel' ? 'Airtel Money' : 'Orange Money';
+    return `
+        <div class="payment-info">
+            <h4><i class="fas fa-credit-card"></i> Paiement ${methodName}</h4>
+            <p class="payment-description">
+                Renseignez vos informations ci-dessous pour finaliser votre paiement de manière sécurisée.
+            </p>
+        </div>
+    `;
 }
 
 // Setup mobile payment form
