@@ -568,6 +568,553 @@ const sampleProducts = [
         featured: false,
         bestseller: true,
         sale: false
+    },
+    // Nouvelles perruques pour avoir au moins 18 articles
+    {
+        id: 501,
+        name: "Perruque Mi-Longue Naturelle",
+        price: 149.99,
+        originalPrice: 189.99,
+        category: "perruques",
+        image: "attached_assets/sacs/cas.jpg",
+        images: [
+            "attached_assets/sacs/cas.jpg"
+        ],
+        description: "Perruque mi-longue aux reflets naturels, parfaite pour un look sophistiqué.",
+        sizes: ["One Size"],
+        colors: ["Châtain", "Brun", "Blond"],
+        featured: true,
+        bestseller: false,
+        sale: true
+    },
+    {
+        id: 502,
+        name: "Perruque Courte Moderne",
+        price: 89.99,
+        originalPrice: null,
+        category: "perruques",
+        image: "attached_assets/sacs/eram.webp",
+        images: [
+            "attached_assets/sacs/eram.webp"
+        ],
+        description: "Coupe courte tendance pour un style moderne et dynamique.",
+        sizes: ["One Size"],
+        colors: ["Noir", "Brun", "Blond Platine"],
+        featured: false,
+        bestseller: true,
+        sale: false
+    },
+    {
+        id: 503,
+        name: "Perruque Longue Ondulée",
+        price: 199.99,
+        originalPrice: 249.99,
+        category: "perruques",
+        image: "attached_assets/sacs/fave.jfif",
+        images: [
+            "attached_assets/sacs/fave.jfif"
+        ],
+        description: "Perruque longue aux ondulations parfaites pour un effet glamour.",
+        sizes: ["One Size"],
+        colors: ["Roux", "Brun Doré", "Noir"],
+        featured: true,
+        bestseller: true,
+        sale: true
+    },
+    {
+        id: 504,
+        name: "Perruque Bob Élégante",
+        price: 119.99,
+        originalPrice: 149.99,
+        category: "perruques",
+        image: "attached_assets/sacs/jane.jpg",
+        images: [
+            "attached_assets/sacs/jane.jpg"
+        ],
+        description: "Coupe bob classique et élégante pour un look intemporel.",
+        sizes: ["One Size"],
+        colors: ["Noir", "Brun", "Blond Cendré"],
+        featured: true,
+        bestseller: false,
+        sale: true
+    },
+    {
+        id: 505,
+        name: "Perruque Pixie Moderne",
+        price: 79.99,
+        originalPrice: null,
+        category: "perruques",
+        image: "attached_assets/sacs/sac.webp",
+        images: [
+            "attached_assets/sacs/sac.webp"
+        ],
+        description: "Coupe pixie audacieuse pour un style moderne et affirmé.",
+        sizes: ["One Size"],
+        colors: ["Blond", "Brun", "Noir"],
+        featured: false,
+        bestseller: false,
+        sale: false
+    },
+    {
+        id: 506,
+        name: "Perruque Frisée Voluptueuse",
+        price: 169.99,
+        originalPrice: 199.99,
+        category: "perruques",
+        image: "attached_assets/sacs/sacs.webp",
+        images: [
+            "attached_assets/sacs/sacs.webp"
+        ],
+        description: "Perruque aux boucles voluptueuses pour un style afro-caribéen.",
+        sizes: ["One Size"],
+        colors: ["Noir", "Brun Foncé", "Auburn"],
+        featured: true,
+        bestseller: true,
+        sale: true
+    },
+    {
+        id: 507,
+        name: "Perruque Dégradée Tendance",
+        price: 139.99,
+        originalPrice: null,
+        category: "perruques",
+        image: "attached_assets/sacs/sak.jfif",
+        images: [
+            "attached_assets/sacs/sak.jfif"
+        ],
+        description: "Perruque avec dégradé moderne pour un look branché.",
+        sizes: ["One Size"],
+        colors: ["Brun à Blond", "Noir à Gris", "Roux à Cuivré"],
+        featured: false,
+        bestseller: true,
+        sale: false
+    },
+    {
+        id: 508,
+        name: "Perruque Vintage Rétro",
+        price: 159.99,
+        originalPrice: 189.99,
+        category: "perruques",
+        image: "attached_assets/sacs/ssaak.png",
+        images: [
+            "attached_assets/sacs/ssaak.png"
+        ],
+        description: "Style vintage des années 50 pour un look rétro chic.",
+        sizes: ["One Size"],
+        colors: ["Blond Platine", "Roux", "Noir"],
+        featured: true,
+        bestseller: false,
+        sale: true
+    },
+    {
+        id: 509,
+        name: "Perruque Asymétrique Creative",
+        price: 129.99,
+        originalPrice: null,
+        category: "perruques",
+        image: "attached_assets/sacs/tods.webp",
+        images: [
+            "attached_assets/sacs/tods.webp"
+        ],
+        description: "Coupe asymétrique créative pour un style unique et original.",
+        sizes: ["One Size"],
+        colors: ["Noir", "Blond", "Brun"],
+        featured: false,
+        bestseller: false,
+        sale: false
+    },
+    {
+        id: 510,
+        name: "Perruque Lace Front Premium",
+        price: 299.99,
+        originalPrice: 399.99,
+        category: "perruques",
+        image: "attached_assets/1.jpg",
+        images: [
+            "attached_assets/1.jpg"
+        ],
+        description: "Perruque lace front haut de gamme pour un rendu ultra-naturel.",
+        sizes: ["One Size"],
+        colors: ["Brun Naturel", "Noir", "Blond Miel"],
+        featured: true,
+        bestseller: true,
+        sale: true
+    },
+    {
+        id: 511,
+        name: "Perruque Wavy Bohème",
+        price: 179.99,
+        originalPrice: null,
+        category: "perruques",
+        image: "attached_assets/2.jpg",
+        images: [
+            "attached_assets/2.jpg"
+        ],
+        description: "Ondulations bohèmes pour un style décontracté et naturel.",
+        sizes: ["One Size"],
+        colors: ["Brun Chocolat", "Blond Sable", "Auburn"],
+        featured: true,
+        bestseller: true,
+        sale: false
+    },
+    {
+        id: 512,
+        name: "Perruque Straight Sophistiquée",
+        price: 189.99,
+        originalPrice: 229.99,
+        category: "perruques",
+        image: "attached_assets/3.jpg",
+        images: [
+            "attached_assets/3.jpg"
+        ],
+        description: "Perruque lisse sophistiquée pour un look professionnel.",
+        sizes: ["One Size"],
+        colors: ["Noir Intense", "Brun Espresso", "Blond Foncé"],
+        featured: false,
+        bestseller: true,
+        sale: true
+    },
+    {
+        id: 513,
+        name: "Perruque Curly Glamour",
+        price: 219.99,
+        originalPrice: null,
+        category: "perruques",
+        image: "attached_assets/4.jpg",
+        images: [
+            "attached_assets/4.jpg"
+        ],
+        description: "Boucles glamour pour un effet red carpet saisissant.",
+        sizes: ["One Size"],
+        colors: ["Brun Hollywood", "Blond Star", "Noir Velours"],
+        featured: true,
+        bestseller: false,
+        sale: false
+    },
+    {
+        id: 514,
+        name: "Perruque Beach Waves",
+        price: 149.99,
+        originalPrice: 179.99,
+        category: "perruques",
+        image: "attached_assets/5.jpg",
+        images: [
+            "attached_assets/5.jpg"
+        ],
+        description: "Effet beach waves naturel pour un look décontracté.",
+        sizes: ["One Size"],
+        colors: ["Blond Plage", "Brun Ensoleillé", "Châtain Doré"],
+        featured: true,
+        bestseller: true,
+        sale: true
+    },
+    {
+        id: 515,
+        name: "Perruque Layered Dynamique",
+        price: 169.99,
+        originalPrice: null,
+        category: "perruques",
+        image: "attached_assets/6.jpg",
+        images: [
+            "attached_assets/6.jpg"
+        ],
+        description: "Coupe en dégradé dynamique pour un mouvement naturel.",
+        sizes: ["One Size"],
+        colors: ["Brun Caramel", "Noir Profond", "Blond Cuivré"],
+        featured: false,
+        bestseller: false,
+        sale: false
+    },
+    {
+        id: 516,
+        name: "Perruque Shag Moderne",
+        price: 139.99,
+        originalPrice: 169.99,
+        category: "perruques",
+        image: "attached_assets/7.jpg",
+        images: [
+            "attached_assets/7.jpg"
+        ],
+        description: "Coupe shag moderne pour un style rock et tendance.",
+        sizes: ["One Size"],
+        colors: ["Brun Rock", "Blond Rebelle", "Noir Intense"],
+        featured: true,
+        bestseller: true,
+        sale: true
+    },
+    {
+        id: 517,
+        name: "Perruque Textured Chic",
+        price: 159.99,
+        originalPrice: null,
+        category: "perruques",
+        image: "attached_assets/8.jpg",
+        images: [
+            "attached_assets/8.jpg"
+        ],
+        description: "Texture sophistiquée pour un look chic et moderne.",
+        sizes: ["One Size"],
+        colors: ["Brun Texture", "Blond Naturel", "Noir Soyeux"],
+        featured: false,
+        bestseller: true,
+        sale: false
+    },
+    {
+        id: 518,
+        name: "Perruque Volume Luxe",
+        price: 249.99,
+        originalPrice: 299.99,
+        category: "perruques",
+        image: "attached_assets/9.jpg",
+        images: [
+            "attached_assets/9.jpg"
+        ],
+        description: "Volume luxueux pour un effet spectaculaire et glamour.",
+        sizes: ["One Size"],
+        colors: ["Brun Luxe", "Blond Prestige", "Noir Royal"],
+        featured: true,
+        bestseller: true,
+        sale: true
+    },
+    // Nouveaux sacs pour avoir au moins 18 articles
+    {
+        id: 601,
+        name: "Sac Voyage Premium",
+        price: 199.99,
+        originalPrice: 249.99,
+        category: "sacs",
+        image: "attached_assets/10.jpg",
+        images: [
+            "attached_assets/10.jpg"
+        ],
+        description: "Sac de voyage spacieux et élégant pour vos déplacements.",
+        sizes: ["One Size"],
+        colors: ["Noir", "Marron", "Marine"],
+        featured: true,
+        bestseller: false,
+        sale: true
+    },
+    {
+        id: 602,
+        name: "Pochette Soirée Brillante",
+        price: 79.99,
+        originalPrice: null,
+        category: "sacs",
+        image: "attached_assets/hero.jpg",
+        images: [
+            "attached_assets/hero.jpg"
+        ],
+        description: "Pochette élégante avec finitions brillantes pour vos soirées.",
+        sizes: ["One Size"],
+        colors: ["Or", "Argent", "Rose Gold"],
+        featured: true,
+        bestseller: true,
+        sale: false
+    },
+    {
+        id: 603,
+        name: "Sac Business Professionnel",
+        price: 149.99,
+        originalPrice: 189.99,
+        category: "sacs",
+        image: "attached_assets/image.jpeg",
+        images: [
+            "attached_assets/image.jpeg"
+        ],
+        description: "Sac professionnel parfait pour le bureau et les rendez-vous.",
+        sizes: ["One Size"],
+        colors: ["Noir", "Gris", "Bordeaux"],
+        featured: false,
+        bestseller: true,
+        sale: true
+    },
+    {
+        id: 604,
+        name: "Sac Week-end Décontracté",
+        price: 119.99,
+        originalPrice: null,
+        category: "sacs",
+        image: "attached_assets/images.jpeg",
+        images: [
+            "attached_assets/images.jpeg"
+        ],
+        description: "Sac parfait pour les escapades de week-end.",
+        sizes: ["One Size"],
+        colors: ["Beige", "Kaki", "Marine"],
+        featured: true,
+        bestseller: false,
+        sale: false
+    },
+    {
+        id: 605,
+        name: "Sac Bandoulière Moderne",
+        price: 89.99,
+        originalPrice: 109.99,
+        category: "sacs",
+        image: "attached_assets/stock_images/fashion_boutique_int_390ef7ed.jpg",
+        images: [
+            "attached_assets/stock_images/fashion_boutique_int_390ef7ed.jpg"
+        ],
+        description: "Sac bandoulière au design moderne et fonctionnel.",
+        sizes: ["One Size"],
+        colors: ["Camel", "Noir", "Bordeaux"],
+        featured: true,
+        bestseller: true,
+        sale: true
+    },
+    {
+        id: 606,
+        name: "Sac Hobo Bohème",
+        price: 99.99,
+        originalPrice: null,
+        category: "sacs",
+        image: "attached_assets/stock_images/modern_fashion_works_9e59220d.jpg",
+        images: [
+            "attached_assets/stock_images/modern_fashion_works_9e59220d.jpg"
+        ],
+        description: "Sac hobo au style bohème pour un look décontracté.",
+        sizes: ["One Size"],
+        colors: ["Cognac", "Taupe", "Olive"],
+        featured: false,
+        bestseller: false,
+        sale: false
+    },
+    {
+        id: 607,
+        name: "Sac Mini Tendance",
+        price: 69.99,
+        originalPrice: 89.99,
+        category: "sacs",
+        image: "attached_assets/vetement/enfan.jfif",
+        images: [
+            "attached_assets/vetement/enfan.jfif"
+        ],
+        description: "Mini sac tendance pour un look moderne et chic.",
+        sizes: ["One Size"],
+        colors: ["Rose", "Noir", "Blanc"],
+        featured: true,
+        bestseller: true,
+        sale: true
+    },
+    {
+        id: 608,
+        name: "Sac Besace Vintage",
+        price: 129.99,
+        originalPrice: null,
+        category: "sacs",
+        image: "attached_assets/vetement/enfant.jpg",
+        images: [
+            "attached_assets/vetement/enfant.jpg"
+        ],
+        description: "Sac besace au charme vintage pour un style rétro.",
+        sizes: ["One Size"],
+        colors: ["Marron Vintage", "Noir Classique", "Bordeaux"],
+        featured: false,
+        bestseller: true,
+        sale: false
+    },
+    {
+        id: 609,
+        name: "Sac Bucket Moderne",
+        price: 109.99,
+        originalPrice: 139.99,
+        category: "sacs",
+        image: "attached_assets/vetement/enfantt.webp",
+        images: [
+            "attached_assets/vetement/enfantt.webp"
+        ],
+        description: "Sac bucket moderne avec fermeture cordon élégante.",
+        sizes: ["One Size"],
+        colors: ["Camel", "Noir", "Marine"],
+        featured: true,
+        bestseller: false,
+        sale: true
+    },
+    {
+        id: 610,
+        name: "Sac Clutch Élégant",
+        price: 59.99,
+        originalPrice: null,
+        category: "sacs",
+        image: "attached_assets/vetement/enfanttt.jfif",
+        images: [
+            "attached_assets/vetement/enfanttt.jfif"
+        ],
+        description: "Clutch élégant pour vos événements spéciaux.",
+        sizes: ["One Size"],
+        colors: ["Noir", "Nude", "Rouge"],
+        featured: true,
+        bestseller: true,
+        sale: false
+    },
+    {
+        id: 611,
+        name: "Sac Shopping Large",
+        price: 79.99,
+        originalPrice: 99.99,
+        category: "sacs",
+        image: "attached_assets/vetement/enffant.jpg",
+        images: [
+            "attached_assets/vetement/enffant.jpg"
+        ],
+        description: "Grand sac shopping pour vos courses et sorties.",
+        sizes: ["One Size"],
+        colors: ["Beige", "Noir", "Kaki"],
+        featured: false,
+        bestseller: false,
+        sale: true
+    },
+    {
+        id: 612,
+        name: "Sac Convertible 2-en-1",
+        price: 159.99,
+        originalPrice: null,
+        category: "sacs",
+        image: "attached_assets/vetement/images (1).jfif",
+        images: [
+            "attached_assets/vetement/images (1).jfif"
+        ],
+        description: "Sac convertible qui se transforme selon vos besoins.",
+        sizes: ["One Size"],
+        colors: ["Noir", "Taupe", "Bordeaux"],
+        featured: true,
+        bestseller: true,
+        sale: false
+    },
+    // Nouveaux vêtements supplémentaires
+    {
+        id: 701,
+        name: "Chemisier Soie Luxe",
+        price: 129.99,
+        originalPrice: 159.99,
+        category: "vetements",
+        image: "attached_assets/vetement/images.jfif",
+        images: [
+            "attached_assets/vetement/images.jfif"
+        ],
+        description: "Chemisier en soie pure pour un look sophistiqué.",
+        sizes: ["XS", "S", "M", "L", "XL"],
+        colors: ["Blanc", "Beige", "Marine"],
+        featured: true,
+        bestseller: true,
+        sale: true
+    },
+    {
+        id: 702,
+        name: "Manteau Hiver Élégant",
+        price: 199.99,
+        originalPrice: null,
+        category: "vetements",
+        image: "attached_assets/vetement/OUTFITTERY_10Y_Day1_1288_9335-683x1024.jpg",
+        images: [
+            "attached_assets/vetement/OUTFITTERY_10Y_Day1_1288_9335-683x1024.jpg"
+        ],
+        description: "Manteau d'hiver élégant et chaud pour la saison froide.",
+        sizes: ["XS", "S", "M", "L", "XL"],
+        colors: ["Noir", "Camel", "Gris"],
+        featured: true,
+        bestseller: false,
+        sale: false
     }
 ];
 
