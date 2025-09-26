@@ -2022,6 +2022,11 @@ function calculateCartTotal() {
     };
 }
 
+// Expose functions to global scope for onclick handlers
+window.selectPaymentMethod = selectPaymentMethod;
+window.closePaymentModal = closePaymentModal;
+window.closeMobilePaymentModal = closeMobilePaymentModal;
+
 // Initialize payment modal event listeners
 document.addEventListener('DOMContentLoaded', function() {
     // Setup checkout button
