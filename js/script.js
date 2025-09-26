@@ -2079,19 +2079,27 @@ function addToCartFromCard(productId) {
     const product = products.find(p => p.id === productId);
     if (!product) return;
     
+    // Simplified cart item - no size/color selection, just add directly
     const cartItem = {
         id: product.id,
         name: product.name,
         price: product.price,
         image: product.image,
-        size: product.sizes[0], // Default to first available size
-        color: product.colors[0], // Default to first available color
+        size: 'Standard', // Default size for all products
+        color: 'Standard', // Default color for all products
         quantity: 1
     };
     
     addToCart(cartItem);
     showToast(`${product.name} ajouté au panier !`, 'success');
 }
+
+// Make the function globally accessible for onclick handlers
+window.addToCartFromCard = addToCartFromCard;
+window.openQuickView = openQuickView;
+window.closePaymentModal = closePaymentModal;
+window.selectPaymentMethod = selectPaymentMethod;
+window.closeMobilePaymentModal = closeMobilePaymentModal;
 
 // Quick View Modal Functions
 function openQuickView(productId) {
