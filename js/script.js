@@ -31,7 +31,59 @@ let currentPaymentData = {
 
 // Sample Products Data
 const sampleProducts = [
-    // Perruques
+    // Nouveaux produits avec vraies images en premier
+    {
+        id: 703,
+        name: "Sac Tendance Moderne",
+        price: 89.99,
+        originalPrice: 119.99,
+        category: "sacs",
+        image: "sacs complement/4c06f44a4faa4648b6fd82845af64147.jpg",
+        images: [
+            "sacs complement/4c06f44a4faa4648b6fd82845af64147.jpg"
+        ],
+        description: "Sac moderne au design contemporain, parfait pour un look tendance.",
+        sizes: ["One Size"],
+        colors: ["Marron", "Noir", "Beige"],
+        featured: true,
+        bestseller: true,
+        sale: true
+    },
+    {
+        id: 801,
+        name: "Accessoire Style Unique",
+        price: 45.99,
+        originalPrice: 65.99,
+        category: "perruques",
+        image: "accesoires/2e786e3df02c4f55b539145ff0e292c5.jpg",
+        images: [
+            "accesoires/2e786e3df02c4f55b539145ff0e292c5.jpg"
+        ],
+        description: "Accessoire capillaire au style unique et moderne.",
+        sizes: ["One Size"],
+        colors: ["Naturel", "Brun", "Noir"],
+        featured: true,
+        bestseller: false,
+        sale: true
+    },
+    {
+        id: 806,
+        name: "Vêtement Style Contemporain",
+        price: 79.99,
+        originalPrice: 99.99,
+        category: "vetements",
+        image: "vetement complement/1cd07605183b491a8540c9fcd7e328e4.jpg",
+        images: [
+            "vetement complement/1cd07605183b491a8540c9fcd7e328e4.jpg"
+        ],
+        description: "Vêtement au style contemporain et moderne.",
+        sizes: ["XS", "S", "M", "L", "XL"],
+        colors: ["Noir", "Blanc", "Gris"],
+        featured: true,
+        bestseller: false,
+        sale: true
+    },
+    // Perruques originales
     {
         id: 101,
         name: "Perruque Cheveux Naturels Longs",
@@ -1118,6 +1170,247 @@ const sampleProducts = [
         featured: true,
         bestseller: false,
         sale: false
+    },
+    // Nouveaux sacs avec images du dossier "sacs complement"
+    {
+        id: 703,
+        name: "Sac Tendance Moderne",
+        price: 89.99,
+        originalPrice: 119.99,
+        category: "sacs",
+        image: "sacs complement/4c06f44a4faa4648b6fd82845af64147.jpg",
+        images: [
+            "sacs complement/4c06f44a4faa4648b6fd82845af64147.jpg"
+        ],
+        description: "Sac moderne au design contemporain, parfait pour un look tendance.",
+        sizes: ["One Size"],
+        colors: ["Marron", "Noir", "Beige"],
+        featured: true,
+        bestseller: true,
+        sale: true
+    },
+    {
+        id: 704,
+        name: "Sac Élégant Premium",
+        price: 125.99,
+        originalPrice: null,
+        category: "sacs",
+        image: "sacs complement/574797bbd0e243b2b5e36fd3f407588e.jpg",
+        images: [
+            "sacs complement/574797bbd0e243b2b5e36fd3f407588e.jpg"
+        ],
+        description: "Sac premium avec finitions de qualité supérieure.",
+        sizes: ["One Size"],
+        colors: ["Noir", "Cognac", "Marine"],
+        featured: true,
+        bestseller: false,
+        sale: false
+    },
+    {
+        id: 705,
+        name: "Sac Chic Collection",
+        price: 95.99,
+        originalPrice: 129.99,
+        category: "sacs",
+        image: "sacs complement/764b7ee3954a46999a877c6a78cedb61.jpg",
+        images: [
+            "sacs complement/764b7ee3954a46999a877c6a78cedb61.jpg"
+        ],
+        description: "Sac de la collection chic pour toutes les occasions spéciales.",
+        sizes: ["One Size"],
+        colors: ["Rouge", "Noir", "Taupe"],
+        featured: false,
+        bestseller: true,
+        sale: true
+    },
+    {
+        id: 706,
+        name: "Sac Luxe Sophistiqué",
+        price: 149.99,
+        originalPrice: null,
+        category: "sacs",
+        image: "sacs complement/8effcdfb7a0d47de97a3901f43f27a87.jpg",
+        images: [
+            "sacs complement/8effcdfb7a0d47de97a3901f43f27a87.jpg"
+        ],
+        description: "Sac luxueux au design sophistiqué et raffiné.",
+        sizes: ["One Size"],
+        colors: ["Bordeaux", "Noir", "Camel"],
+        featured: true,
+        bestseller: true,
+        sale: false
+    },
+    // Nouveaux accessoires avec images du dossier "accesoires"
+    {
+        id: 801,
+        name: "Accessoire Style Unique",
+        price: 45.99,
+        originalPrice: 65.99,
+        category: "perruques",
+        image: "accesoires/2e786e3df02c4f55b539145ff0e292c5.jpg",
+        images: [
+            "accesoires/2e786e3df02c4f55b539145ff0e292c5.jpg"
+        ],
+        description: "Accessoire capillaire au style unique et moderne.",
+        sizes: ["One Size"],
+        colors: ["Naturel", "Brun", "Noir"],
+        featured: true,
+        bestseller: false,
+        sale: true
+    },
+    {
+        id: 802,
+        name: "Perruque Exclusive Design",
+        price: 199.99,
+        originalPrice: null,
+        category: "perruques",
+        image: "accesoires/52ea9b884c4c4dde9b30d17b4c9cc649.jpg",
+        images: [
+            "accesoires/52ea9b884c4c4dde9b30d17b4c9cc649.jpg"
+        ],
+        description: "Perruque au design exclusif pour un look exceptionnel.",
+        sizes: ["One Size"],
+        colors: ["Châtain", "Blond", "Roux"],
+        featured: true,
+        bestseller: true,
+        sale: false
+    },
+    {
+        id: 803,
+        name: "Accessoire Premium Quality",
+        price: 85.99,
+        originalPrice: 110.99,
+        category: "perruques",
+        image: "accesoires/643ffa375e9d42bea6871070b57488bc.jpg",
+        images: [
+            "accesoires/643ffa375e9d42bea6871070b57488bc.jpg"
+        ],
+        description: "Accessoire de qualité premium pour un rendu parfait.",
+        sizes: ["One Size"],
+        colors: ["Noir", "Brun", "Miel"],
+        featured: false,
+        bestseller: true,
+        sale: true
+    },
+    {
+        id: 804,
+        name: "Style Capillaire Moderne",
+        price: 129.99,
+        originalPrice: null,
+        category: "perruques",
+        image: "accesoires/78e19addb8eb48c09d928574e7c14e9c.jpg",
+        images: [
+            "accesoires/78e19addb8eb48c09d928574e7c14e9c.jpg"
+        ],
+        description: "Style capillaire moderne et tendance.",
+        sizes: ["One Size"],
+        colors: ["Blond Platine", "Noir", "Auburn"],
+        featured: true,
+        bestseller: false,
+        sale: false
+    },
+    {
+        id: 805,
+        name: "Perruque Collection Elite",
+        price: 175.99,
+        originalPrice: 229.99,
+        category: "perruques",
+        image: "accesoires/81f29e4a500e466a92f9515b3b1e7fcd.jpg",
+        images: [
+            "accesoires/81f29e4a500e466a92f9515b3b1e7fcd.jpg"
+        ],
+        description: "Perruque de la collection élite avec finition impeccable.",
+        sizes: ["One Size"],
+        colors: ["Brun Doré", "Noir Jais", "Blond Cendré"],
+        featured: true,
+        bestseller: true,
+        sale: true
+    },
+    // Nouveaux vêtements avec images du dossier "vetement complement"
+    {
+        id: 806,
+        name: "Vêtement Style Contemporain",
+        price: 79.99,
+        originalPrice: 99.99,
+        category: "vetements",
+        image: "vetement complement/1cd07605183b491a8540c9fcd7e328e4.jpg",
+        images: [
+            "vetement complement/1cd07605183b491a8540c9fcd7e328e4.jpg"
+        ],
+        description: "Vêtement au style contemporain et moderne.",
+        sizes: ["XS", "S", "M", "L", "XL"],
+        colors: ["Noir", "Blanc", "Gris"],
+        featured: true,
+        bestseller: false,
+        sale: true
+    },
+    {
+        id: 807,
+        name: "Tenue Élégante Moderne",
+        price: 119.99,
+        originalPrice: null,
+        category: "vetements",
+        image: "vetement complement/3a3baee4a2d5434f8eecfff1126640dc.jpg",
+        images: [
+            "vetement complement/3a3baee4a2d5434f8eecfff1126640dc.jpg"
+        ],
+        description: "Tenue élégante au design moderne et raffiné.",
+        sizes: ["XS", "S", "M", "L", "XL"],
+        colors: ["Marine", "Noir", "Bordeaux"],
+        featured: true,
+        bestseller: true,
+        sale: false
+    },
+    {
+        id: 808,
+        name: "Mode Avant-garde",
+        price: 95.99,
+        originalPrice: 129.99,
+        category: "vetements",
+        image: "vetement complement/4e29e6eeaae547ef89a4a579c6562f55.jpg",
+        images: [
+            "vetement complement/4e29e6eeaae547ef89a4a579c6562f55.jpg"
+        ],
+        description: "Vêtement avant-garde pour un look unique.",
+        sizes: ["XS", "S", "M", "L", "XL"],
+        colors: ["Kaki", "Noir", "Beige"],
+        featured: false,
+        bestseller: true,
+        sale: true
+    },
+    {
+        id: 809,
+        name: "Collection Premium Style",
+        price: 149.99,
+        originalPrice: null,
+        category: "vetements",
+        image: "vetement complement/5a607210b5b04572acd7e8fc4a787eca.jpg",
+        images: [
+            "vetement complement/5a607210b5b04572acd7e8fc4a787eca.jpg"
+        ],
+        description: "Pièce de la collection premium au style sophistiqué.",
+        sizes: ["XS", "S", "M", "L", "XL"],
+        colors: ["Noir", "Blanc Cassé", "Taupe"],
+        featured: true,
+        bestseller: true,
+        sale: false
+    },
+    {
+        id: 810,
+        name: "Vêtement Sophistiqué",
+        price: 89.99,
+        originalPrice: 115.99,
+        category: "vetements",
+        image: "vetement complement/8c848ede7f1346edbe4a504f52bbef04.jpg",
+        images: [
+            "vetement complement/8c848ede7f1346edbe4a504f52bbef04.jpg"
+        ],
+        description: "Vêtement sophistiqué pour toutes les occasions.",
+        sizes: ["XS", "S", "M", "L", "XL"],
+        colors: ["Bleu Nuit", "Noir", "Gris Anthracite"],
+        featured: true,
+        bestseller: false,
+        sale: true
     }
 ];
 
