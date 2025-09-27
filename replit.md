@@ -22,6 +22,13 @@ StyleCraft is a modern, responsive e-commerce website for a premium fashion bran
 - ✅ Order confirmation emails with detailed invoice
 - ✅ Support for Airtel Money and Orange Money payment methods
 
+### Image Gallery Expansion (September 27, 2025)
+- ✅ Added 4 new bag images from "sacs complement/" folder to sacs.html showcase section
+- ✅ Added 11 new accessory images from "accesoires/" folder to perruques.html showcase section
+- ✅ Added 10 new clothing images from "vetement complement/" folder to product.html as "Vêtements Similaires" section
+- ✅ All 25 new images load successfully and integrate seamlessly with existing design
+- ✅ Maintained consistent HTML structure and French descriptions for all new items
+
 ### Technical Improvements
 - ✅ ES6 modules implementation (js/utils/email.js)
 - ✅ Updated all HTML files to support ES6 module imports
