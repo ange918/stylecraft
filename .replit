@@ -14,18 +14,6 @@ run = ["python", "-m", "http.server", "5000", "--bind", "0.0.0.0"]
 localPort = 5000
 externalPort = 80
 
-[[ports]]
-localPort = 39029
-externalPort = 3002
-
-[[ports]]
-localPort = 43805
-externalPort = 3001
-
-[[ports]]
-localPort = 46157
-externalPort = 3000
-
 [env]
 PORT = "5000"
 
