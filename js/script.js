@@ -3099,7 +3099,7 @@ const FLUTTERWAVE_CONFIG = {
     }
 };
 
-// Flutterwave Payment Function
+// Flutterwave Payment Function - Airtel et Orange uniquement
 function payWithFlutterwave() {
     // Vérifier que le panier n'est pas vide
     if (cart.length === 0) {
@@ -3114,7 +3114,7 @@ function payWithFlutterwave() {
     // Générer une référence de transaction unique
     const txRef = 'stylecraft_' + Date.now() + '_' + Math.random().toString(36).substring(7);
     
-    // Configuration de paiement
+    // Configuration de paiement - Airtel et Orange pour tous les pays
     const paymentConfig = {
         ...FLUTTERWAVE_CONFIG,
         tx_ref: txRef,
@@ -3125,10 +3125,13 @@ function payWithFlutterwave() {
             name: "Client StyleCraft"
         },
         payment_options: "mobilemoney",
+        payment_plan: null,
+        payment_methods: ["airtel", "orange"], // Seulement Airtel et Orange
         meta: {
             cart_id: Date.now().toString(),
             order_id: 'SC' + Date.now().toString().slice(-8),
-            items_count: cart.length
+            items_count: cart.length,
+            payment_methods: "airtel_orange_only"
         },
         callback: function (data) {
             console.log("Paiement réussi:", data);
@@ -3165,16 +3168,10 @@ window.payWithFlutterwave = payWithFlutterwave;
 
 // Initialize payment modal event listeners
 document.addEventListener('DOMContentLoaded', function() {
-    // Setup checkout button
+    // Setup checkout button - lié directement à Flutterwave
     const checkoutBtn = document.querySelector('[data-testid="checkout-btn"]');
     if (checkoutBtn) {
-        checkoutBtn.addEventListener('click', proceedToCheckout);
-    }
-    
-    // Setup Flutterwave payment button
-    const flutterwaveBtn = document.getElementById('flutterwavePayBtn');
-    if (flutterwaveBtn) {
-        flutterwaveBtn.addEventListener('click', payWithFlutterwave);
+        checkoutBtn.addEventListener('click', payWithFlutterwave);
     }
     
     
