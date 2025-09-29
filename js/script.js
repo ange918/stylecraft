@@ -2045,6 +2045,8 @@ function addToCartFromProduct(product) {
 
 // Cart Functions
 function loadCartPage() {
+    // TEST: Ajouter des produits de test si le panier est vide
+    addTestItemsToCart();
     renderCartItems();
     updateCartSummary();
     setupCartEvents();
@@ -3162,6 +3164,43 @@ window.closePaymentModal = closePaymentModal;
 window.closeMobilePaymentModal = closeMobilePaymentModal;
 window.payWithFlutterwave = payWithFlutterwave;
 
+// TEST: Ajouter des produits au panier pour tester Flutterwave (à supprimer en prod)
+function addTestItemsToCart() {
+    // Ajouter quelques produits de test
+    const testItems = [
+        {
+            id: 101,
+            name: "Perruque Cheveux Naturels Longs",
+            price: 189.99,
+            originalPrice: 249.99,
+            category: "perruques",
+            image: "src/assets/perruque-cheveux-naturels-1.jpg",
+            size: "One Size",
+            color: "Brun",
+            quantity: 1
+        },
+        {
+            id: 703,
+            name: "Sac Tendance Moderne",
+            price: 89.99,
+            originalPrice: 119.99,
+            category: "sacs",
+            image: "sacs complement/4c06f44a4faa4648b6fd82845af64147.jpg",
+            size: "One Size",
+            color: "Marron",
+            quantity: 2
+        }
+    ];
+    
+    // Ajouter les articles au panier seulement s'il est vide (pour les tests)
+    if (cart.length === 0) {
+        cart = testItems;
+        localStorage.setItem('stylecraft-cart', JSON.stringify(cart));
+        updateCartCount();
+        console.log('Produits de test ajoutés au panier:', cart);
+    }
+}
+
 // Initialize payment modal event listeners
 document.addEventListener('DOMContentLoaded', function() {
     // Setup checkout button
@@ -3174,6 +3213,12 @@ document.addEventListener('DOMContentLoaded', function() {
     const flutterwaveBtn = document.getElementById('flutterwavePayBtn');
     if (flutterwaveBtn) {
         flutterwaveBtn.addEventListener('click', payWithFlutterwave);
+    }
+    
+    // TEST: Ajouter des produits de test et charger la page panier si nécessaire
+    if (window.location.pathname.includes('cart.html')) {
+        addTestItemsToCart();
+        loadCartPage();
     }
     
     // Setup modal close on overlay click
