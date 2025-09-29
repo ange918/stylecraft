@@ -3164,14 +3164,95 @@ window.selectPaymentMethod = selectPaymentMethod;
 window.closePaymentModal = closePaymentModal;
 window.closeMobilePaymentModal = closeMobilePaymentModal;
 window.payWithFlutterwave = payWithFlutterwave;
+window.openPaymentMethodModal = openPaymentMethodModal;
+window.closePaymentMethodModal = closePaymentMethodModal;
+window.selectPaymentAndProceed = selectPaymentAndProceed;
 
+
+// Fonction pour ouvrir la modal de sélection de paiement
+function openPaymentMethodModal() {
+    // Vérifier que le panier n'est pas vide
+    if (cart.length === 0) {
+        alert('Votre panier est vide');
+        return;
+    }
+    
+    const modal = document.getElementById('paymentMethodModal');
+    if (modal) {
+        modal.style.display = 'block';
+    }
+}
+
+// Fonction pour fermer la modal de sélection de paiement
+function closePaymentMethodModal() {
+    const modal = document.getElementById('paymentMethodModal');
+    if (modal) {
+        modal.style.display = 'none';
+    }
+}
+
+// Fonction pour sélectionner le paiement et procéder
+function selectPaymentAndProceed(paymentMethod) {
+    closePaymentMethodModal();
+    
+    // Calculer le montant total
+    const cartTotal = calculateCartTotal();
+    const totalAmount = cartTotal.total;
+
+    // Générer une référence de transaction unique
+    const txRef = 'stylecraft_' + Date.now() + '_' + Math.random().toString(36).substring(7);
+    
+    // Configuration de paiement selon le choix
+    const paymentConfig = {
+        ...FLUTTERWAVE_CONFIG,
+        tx_ref: txRef,
+        amount: totalAmount,
+        customer: {
+            email: "customer@stylecraft.com",
+            phone_number: "+225 07 00 00 00 00",
+            name: "Client StyleCraft"
+        },
+        payment_options: "mobilemoney",
+        payment_plan: null,
+        payment_methods: [paymentMethod], // Seulement le moyen choisi
+        meta: {
+            cart_id: Date.now().toString(),
+            order_id: 'SC' + Date.now().toString().slice(-8),
+            items_count: cart.length,
+            selected_payment_method: paymentMethod
+        },
+        callback: function (data) {
+            console.log("Paiement réussi:", data);
+            
+            if (data.status === "successful") {
+                // Afficher l'alerte de succès avec la référence
+                alert(`Paiement réussi ! \nRéférence de transaction: ${data.tx_ref}\nMontant: $${data.amount}`);
+                
+                // Vider le panier et rediriger
+                setTimeout(() => {
+                    cart = [];
+                    localStorage.setItem('stylecraft-cart', JSON.stringify(cart));
+                    updateCartCount();
+                    window.location.href = 'index.html';
+                }, 2000);
+            }
+        },
+        onclose: function () {
+            // L'utilisateur a fermé la fenêtre sans payer
+            alert("Fenêtre de paiement fermée.");
+        }
+    };
+
+    // Ouvrir le checkout Flutterwave
+    FlutterwaveCheckout(paymentConfig);
+}
 
 // Initialize payment modal event listeners
 document.addEventListener('DOMContentLoaded', function() {
-    // Setup checkout button - lié directement à Flutterwave
+    // Setup checkout button - ouvre maintenant la modal de sélection
     const checkoutBtn = document.querySelector('[data-testid="checkout-btn"]');
     if (checkoutBtn) {
-        checkoutBtn.addEventListener('click', payWithFlutterwave);
+        checkoutBtn.addEventListener('click', openPaymentMethodModal);
     }
     
     

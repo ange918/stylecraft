@@ -14,13 +14,13 @@ StyleCraft is a modern, responsive e-commerce website for a premium fashion bran
 - ✅ French product descriptions and category names
 - ✅ French payment flow and confirmation messages
 
-### Email-Based Payment System
-- ✅ Integrated Replit Mail service for email functionality
-- ✅ Custom verification code system (simulating SMS verification like 1xbet)
-- ✅ Customer email and phone number collection during payment
-- ✅ Email verification codes sent to customer
-- ✅ Order confirmation emails with detailed invoice
-- ✅ Support for Airtel Money and Orange Money payment methods
+### Flutterwave Payment Integration (September 2025)
+- ✅ Integrated Flutterwave payment gateway with test environment
+- ✅ Mobile Money support: Airtel Money and Orange Money only
+- ✅ Two-step payment process: Customer selects payment method → Flutterwave checkout
+- ✅ Support for all countries using Airtel Money and Orange Money services
+- ✅ Success/failure handling with transaction references
+- ✅ Automatic cart clearing after successful payment
 
 ### Image Gallery Expansion (September 27, 2025)
 - ✅ Added 4 new bag images from "sacs complement/" folder to sacs.html showcase section
