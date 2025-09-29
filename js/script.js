@@ -3072,10 +3072,95 @@ function calculateCartTotal() {
     };
 }
 
+// ============================================= 
+//   FLUTTERWAVE PAYMENT INTEGRATION
+// =============================================
+
+// Flutterwave Configuration
+const FLUTTERWAVE_CONFIG = {
+    public_key: "FLWPUBK_TEST-xxxxxxxxxxxxxxxxxxxxxx", // Clé publique de test
+    tx_ref: "", // Will be generated dynamically
+    amount: 0, // Will be calculated from cart
+    currency: "USD",
+    payment_options: "mobilemoney",
+    customer: {
+        email: "",
+        phone_number: "",
+        name: ""
+    },
+    customizations: {
+        title: "StyleCraft - Paiement Mobile Money",
+        description: "Achat de vêtements premium",
+        logo: "https://via.placeholder.com/100",
+    },
+    meta: {
+        cart_id: "",
+        order_id: ""
+    }
+};
+
+// Flutterwave Payment Function
+function payWithFlutterwave() {
+    // Vérifier que le panier n'est pas vide
+    if (cart.length === 0) {
+        alert('Votre panier est vide');
+        return;
+    }
+
+    // Calculer le montant total
+    const cartTotal = calculateCartTotal();
+    const totalAmount = cartTotal.total;
+
+    // Générer une référence de transaction unique
+    const txRef = 'stylecraft_' + Date.now() + '_' + Math.random().toString(36).substring(7);
+    
+    // Configuration de paiement
+    const paymentConfig = {
+        ...FLUTTERWAVE_CONFIG,
+        tx_ref: txRef,
+        amount: totalAmount,
+        customer: {
+            email: "customer@stylecraft.com",
+            phone_number: "+225 07 00 00 00 00",
+            name: "Client StyleCraft"
+        },
+        payment_options: "mobilemoney",
+        meta: {
+            cart_id: Date.now().toString(),
+            order_id: 'SC' + Date.now().toString().slice(-8),
+            items_count: cart.length
+        },
+        callback: function (data) {
+            console.log("Paiement réussi:", data);
+            
+            if (data.status === "successful") {
+                // Afficher l'alerte de succès avec la référence
+                alert(`Paiement réussi ! \nRéférence de transaction: ${data.tx_ref}\nMontant: $${data.amount}`);
+                
+                // Vider le panier et rediriger
+                setTimeout(() => {
+                    cart = [];
+                    localStorage.setItem('stylecraft-cart', JSON.stringify(cart));
+                    updateCartCount();
+                    window.location.href = 'index.html';
+                }, 2000);
+            }
+        },
+        onclose: function () {
+            // L'utilisateur a fermé la fenêtre sans payer
+            alert("Fenêtre de paiement fermée.");
+        }
+    };
+
+    // Ouvrir le checkout Flutterwave
+    FlutterwaveCheckout(paymentConfig);
+}
+
 // Expose functions to global scope for onclick handlers
 window.selectPaymentMethod = selectPaymentMethod;
 window.closePaymentModal = closePaymentModal;
 window.closeMobilePaymentModal = closeMobilePaymentModal;
+window.payWithFlutterwave = payWithFlutterwave;
 
 // Initialize payment modal event listeners
 document.addEventListener('DOMContentLoaded', function() {
@@ -3083,6 +3168,12 @@ document.addEventListener('DOMContentLoaded', function() {
     const checkoutBtn = document.querySelector('[data-testid="checkout-btn"]');
     if (checkoutBtn) {
         checkoutBtn.addEventListener('click', proceedToCheckout);
+    }
+    
+    // Setup Flutterwave payment button
+    const flutterwaveBtn = document.getElementById('flutterwavePayBtn');
+    if (flutterwaveBtn) {
+        flutterwaveBtn.addEventListener('click', payWithFlutterwave);
     }
     
     // Setup modal close on overlay click
