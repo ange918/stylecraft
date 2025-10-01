@@ -2055,11 +2055,6 @@ function setupCartEvents() {
     if (clearCartBtn) {
         clearCartBtn.addEventListener('click', clearCart);
     }
-    
-    const checkoutBtn = document.querySelector('[data-testid="checkout-btn"]');
-    if (checkoutBtn) {
-        checkoutBtn.addEventListener('click', proceedToCheckout);
-    }
 }
 
 function renderCartItems() {
