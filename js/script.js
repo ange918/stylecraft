@@ -3247,24 +3247,235 @@ function selectPaymentAndProceed(paymentMethod) {
     FlutterwaveCheckout(paymentConfig);
 }
 
-// Initialize payment modal event listeners
-document.addEventListener('DOMContentLoaded', function() {
-    // Setup checkout button - ouvre maintenant la modal de sélection
-    const checkoutBtn = document.querySelector('[data-testid="checkout-btn"]');
-    if (checkoutBtn) {
-        checkoutBtn.addEventListener('click', openPaymentMethodModal);
+// Nouveau système de commande
+const ADMIN_EMAIL = 'cardinalpower006@gmail.com';
+
+// Ouvrir le formulaire de commande
+function openOrderFormModal() {
+    if (cart.length === 0) {
+        alert('Votre panier est vide');
+        return;
     }
     
+    const modal = document.getElementById('orderFormModal');
+    if (modal) {
+        modal.style.display = 'block';
+        document.body.style.overflow = 'hidden';
+    }
+}
+
+// Fermer le formulaire de commande
+function closeOrderFormModal() {
+    const modal = document.getElementById('orderFormModal');
+    if (modal) {
+        modal.style.display = 'none';
+        document.body.style.overflow = 'auto';
+    }
+}
+
+// Envoyer la commande par email
+async function sendOrderEmail(orderData) {
+    const orderNumber = 'SC' + Date.now();
+    const orderDate = new Date().toLocaleDateString('fr-FR');
+    
+    const cartItems = cart.map(item => 
+        `• ${item.name}\n  Taille: ${item.size} | Couleur: ${item.color} | Quantité: ${item.quantity}\n  Prix unitaire: $${item.price} | Total: $${(item.price * item.quantity).toFixed(2)}`
+    ).join('\n\n');
+    
+    const totals = calculateCartTotal();
+    
+    const emailContent = `
+NOUVELLE COMMANDE STYLECRAFT
+=============================
+
+NUMÉRO DE COMMANDE: ${orderNumber}
+DATE: ${orderDate}
+
+INFORMATIONS CLIENT:
+--------------------
+Nom: ${orderData.firstName} ${orderData.lastName}
+Email: ${orderData.email}
+Pays: ${orderData.country}
+Ville: ${orderData.city}
+Adresse: ${orderData.address}
+
+PRODUITS COMMANDÉS:
+-------------------
+${cartItems}
+
+RÉSUMÉ FINANCIER:
+-----------------
+Sous-total: $${totals.subtotal}
+Livraison: $${totals.shipping}
+Taxes: $${totals.tax}
+TOTAL: $${totals.total}
+
+Cette commande est en attente de paiement. Veuillez contacter le client pour finaliser le paiement.
+    `.trim();
+
+    const htmlContent = `
+<div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto; padding: 20px; color: #333;">
+    <div style="background: #2563eb; color: white; padding: 20px; text-align: center; border-radius: 8px 8px 0 0;">
+        <h1 style="margin: 0;">NOUVELLE COMMANDE</h1>
+        <p style="margin: 5px 0 0 0;">StyleCraft</p>
+    </div>
+    
+    <div style="background: #f8f9fa; padding: 15px; margin-top: 20px; border-radius: 8px;">
+        <p><strong>N° de commande:</strong> ${orderNumber}</p>
+        <p><strong>Date:</strong> ${orderDate}</p>
+    </div>
+    
+    <div style="margin-top: 20px;">
+        <h2 style="color: #2563eb; border-bottom: 2px solid #2563eb; padding-bottom: 5px;">Informations Client</h2>
+        <p><strong>Nom:</strong> ${orderData.firstName} ${orderData.lastName}</p>
+        <p><strong>Email:</strong> ${orderData.email}</p>
+        <p><strong>Pays:</strong> ${orderData.country}</p>
+        <p><strong>Ville:</strong> ${orderData.city}</p>
+        <p><strong>Adresse:</strong> ${orderData.address}</p>
+    </div>
+    
+    <div style="margin-top: 20px;">
+        <h2 style="color: #2563eb; border-bottom: 2px solid #2563eb; padding-bottom: 5px;">Produits Commandés</h2>
+        ${cart.map(item => `
+            <div style="border: 1px solid #e0e0e0; border-radius: 5px; padding: 10px; margin-bottom: 10px;">
+                <p style="margin: 0; font-weight: 500;">${item.name}</p>
+                <p style="margin: 5px 0; color: #666; font-size: 14px;">
+                    Taille: ${item.size} | Couleur: ${item.color} | Quantité: ${item.quantity}
+                </p>
+                <p style="margin: 0; font-weight: 500; color: #2563eb;">$${item.price} × ${item.quantity} = $${(item.price * item.quantity).toFixed(2)}</p>
+            </div>
+        `).join('')}
+    </div>
+    
+    <div style="background: #f8f9fa; border-radius: 8px; padding: 15px; margin-top: 20px;">
+        <h3 style="color: #333; margin-top: 0;">Résumé Financier</h3>
+        <div style="display: flex; justify-content: space-between; margin-bottom: 5px;">
+            <span>Sous-total:</span><span>$${totals.subtotal}</span>
+        </div>
+        <div style="display: flex; justify-content: space-between; margin-bottom: 5px;">
+            <span>Livraison:</span><span>$${totals.shipping}</span>
+        </div>
+        <div style="display: flex; justify-content: space-between; margin-bottom: 10px;">
+            <span>Taxes:</span><span>$${totals.tax}</span>
+        </div>
+        <div style="display: flex; justify-content: space-between; font-weight: bold; font-size: 18px; color: #2563eb; border-top: 1px solid #ddd; padding-top: 10px;">
+            <span>TOTAL:</span><span>$${totals.total}</span>
+        </div>
+    </div>
+    
+    <div style="background: #fff3cd; border: 1px solid #ffeaa7; border-radius: 8px; padding: 15px; margin-top: 20px;">
+        <p style="margin: 0; color: #856404;">
+            <strong>⚠️ Action requise:</strong> Cette commande est en attente de paiement. Veuillez contacter le client pour finaliser le paiement.
+        </p>
+    </div>
+</div>
+    `.trim();
+
+    try {
+        const response = await sendEmail({
+            to: ADMIN_EMAIL,
+            subject: `Nouvelle commande StyleCraft - ${orderNumber}`,
+            text: emailContent,
+            html: htmlContent
+        });
+        
+        return { success: true, orderNumber, totals };
+    } catch (error) {
+        console.error('Erreur envoi email:', error);
+        return { success: false, error: error.message };
+    }
+}
+
+// Afficher la confirmation de commande
+function showOrderConfirmation(orderNumber, orderData, totals) {
+    closeOrderFormModal();
+    
+    const confirmationModal = document.getElementById('confirmationModal');
+    const summaryDisplay = document.getElementById('orderSummaryDisplay');
+    
+    if (summaryDisplay) {
+        summaryDisplay.innerHTML = `
+            <div class="order-details" style="background: #f8f9fa; padding: 15px; border-radius: 8px; margin: 20px 0;">
+                <p><strong>N° de commande:</strong> ${orderNumber}</p>
+                <p><strong>Nom:</strong> ${orderData.firstName} ${orderData.lastName}</p>
+                <p><strong>Email:</strong> ${orderData.email}</p>
+                <p><strong>Adresse:</strong> ${orderData.address}, ${orderData.city}, ${orderData.country}</p>
+                
+                <div style="margin-top: 15px; padding-top: 15px; border-top: 1px solid #ddd;">
+                    <p><strong>Articles:</strong> ${cart.length}</p>
+                    <p><strong>Total:</strong> $${totals.total}</p>
+                </div>
+            </div>
+        `;
+    }
+    
+    if (confirmationModal) {
+        confirmationModal.style.display = 'block';
+        document.body.style.overflow = 'hidden';
+    }
+    
+    // Vider le panier
+    cart = [];
+    localStorage.setItem('stylecraft-cart', JSON.stringify(cart));
+    updateCartCount();
+}
+
+// Initialize order form event listeners
+document.addEventListener('DOMContentLoaded', function() {
+    // Setup checkout button - ouvre le formulaire de commande
+    const checkoutBtn = document.querySelector('[data-testid="checkout-btn"]');
+    if (checkoutBtn) {
+        checkoutBtn.addEventListener('click', openOrderFormModal);
+    }
+    
+    // Setup order form submission
+    const orderForm = document.getElementById('orderForm');
+    if (orderForm) {
+        orderForm.addEventListener('submit', async function(e) {
+            e.preventDefault();
+            
+            const formData = new FormData(orderForm);
+            const orderData = {
+                firstName: formData.get('firstName'),
+                lastName: formData.get('lastName'),
+                email: formData.get('customerEmail'),
+                country: formData.get('country'),
+                city: formData.get('city'),
+                address: formData.get('address')
+            };
+            
+            // Désactiver le bouton pendant l'envoi
+            const submitBtn = orderForm.querySelector('button[type="submit"]');
+            const originalText = submitBtn.textContent;
+            submitBtn.textContent = 'Envoi en cours...';
+            submitBtn.disabled = true;
+            
+            try {
+                const result = await sendOrderEmail(orderData);
+                
+                if (result.success) {
+                    showOrderConfirmation(result.orderNumber, orderData, result.totals);
+                    orderForm.reset();
+                } else {
+                    alert('Erreur lors de l\'envoi de la commande. Veuillez réessayer.');
+                    submitBtn.textContent = originalText;
+                    submitBtn.disabled = false;
+                }
+            } catch (error) {
+                alert('Erreur lors de l\'envoi de la commande. Veuillez réessayer.');
+                submitBtn.textContent = originalText;
+                submitBtn.disabled = false;
+            }
+        });
+    }
     
     // Setup modal close on overlay click
     document.addEventListener('click', function(e) {
         if (e.target.classList.contains('modal-overlay')) {
             const modal = e.target.closest('.modal');
             if (modal) {
-                if (modal.id === 'paymentModal') {
-                    closePaymentModal();
-                } else if (modal.id === 'mobilePaymentModal') {
-                    closeMobilePaymentModal();
+                if (modal.id === 'orderFormModal') {
+                    closeOrderFormModal();
                 }
             }
         }
@@ -3273,14 +3484,15 @@ document.addEventListener('DOMContentLoaded', function() {
     // Setup ESC key to close modals
     document.addEventListener('keydown', function(e) {
         if (e.key === 'Escape') {
-            const paymentModal = document.getElementById('paymentModal');
-            const mobileModal = document.getElementById('mobilePaymentModal');
+            const orderModal = document.getElementById('orderFormModal');
             
-            if (paymentModal && paymentModal.classList.contains('active')) {
-                closePaymentModal();
-            } else if (mobileModal && mobileModal.classList.contains('active')) {
-                closeMobilePaymentModal();
+            if (orderModal && orderModal.style.display === 'block') {
+                closeOrderFormModal();
             }
         }
     });
 });
+
+// Expose functions to global scope
+window.openOrderFormModal = openOrderFormModal;
+window.closeOrderFormModal = closeOrderFormModal;

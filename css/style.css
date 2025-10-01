@@ -3408,3 +3408,88 @@ input, textarea, select {
 .payment-simple-note small {
     color: #555;
 }
+
+/* Nouveau système de commande - Styles additionnels */
+.form-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 15px;
+    margin-bottom: 15px;
+}
+
+@media (max-width: 768px) {
+    .form-row {
+        grid-template-columns: 1fr;
+    }
+}
+
+.confirmation-content {
+    text-align: center;
+    padding: 20px;
+}
+
+.success-icon {
+    font-size: 64px;
+    color: #28a745;
+    margin: 20px 0;
+}
+
+.success-icon i {
+    animation: scaleIn 0.5s ease-out;
+}
+
+@keyframes scaleIn {
+    from {
+        transform: scale(0);
+    }
+    to {
+        transform: scale(1);
+    }
+}
+
+.confirmation-content h3 {
+    color: #2563eb;
+    margin: 15px 0;
+    font-size: 24px;
+}
+
+.confirmation-content > p {
+    color: #666;
+    margin-bottom: 20px;
+}
+
+.order-summary {
+    margin: 20px 0;
+}
+
+.order-details p {
+    margin: 8px 0;
+    text-align: left;
+}
+
+.order-details strong {
+    color: #2563eb;
+}
+
+.confirmation-message {
+    background: #e8f4f8;
+    padding: 20px;
+    border-radius: 8px;
+    margin: 20px 0;
+    border-left: 4px solid #2563eb;
+}
+
+.confirmation-message i {
+    font-size: 32px;
+    color: #2563eb;
+    margin-bottom: 15px;
+}
+
+.confirmation-message p {
+    margin: 8px 0;
+    color: #333;
+}
+
+.confirmation-message strong {
+    color: #2563eb;
+}
