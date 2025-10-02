@@ -167,10 +167,37 @@ try {
                     
                     <!-- Delivery Info -->
                     <tr>
-                        <td style="padding: 0 30px 30px;">
+                        <td style="padding: 0 30px 20px;">
                             <div style="background: #e8f4f8; border-radius: 8px; padding: 20px;">
                                 <h3 style="color: #2563eb; margin: 0 0 10px 0;">📦 Livraison</h3>
                                 <p style="margin: 0; color: #666;">Votre commande sera traitée sous 24h et vous recevrez un email de suivi d\'expédition.</p>
+                            </div>
+                        </td>
+                    </tr>
+                    
+                    <!-- Payment Info -->
+                    <tr>
+                        <td style="padding: 0 30px 30px;">
+                            <div style="background: #fff3cd; border: 2px solid #ffc107; border-radius: 8px; padding: 20px;">
+                                <h3 style="color: #856404; margin: 0 0 15px 0;">💳 Informations de paiement</h3>
+                                <p style="margin: 0 0 15px 0; color: #856404; font-weight: bold;">Utilisez le numéro de commande comme référence : ' . htmlspecialchars($orderDetails['orderNumber']) . '</p>
+                                
+                                <div style="background: white; border-radius: 6px; padding: 15px; margin-bottom: 15px;">
+                                    <p style="margin: 0 0 10px 0; font-weight: bold; color: #e74c3c;">📱 Airtel Money (Congo Kinshasa 🇨🇩)</p>
+                                    <p style="margin: 5px 0; color: #333;">Numéro : <strong>+243 980137154</strong></p>
+                                    <p style="margin: 5px 0; color: #666; font-size: 14px;">Nom : Dinango Kambala Abraham</p>
+                                </div>
+                                
+                                <div style="background: white; border-radius: 6px; padding: 15px; margin-bottom: 15px;">
+                                    <p style="margin: 0 0 10px 0; font-weight: bold; color: #ff6600;">📱 Orange Money (Congo Kinshasa 🇨🇩)</p>
+                                    <p style="margin: 5px 0; color: #333;">Numéro : <strong>+243 840574411</strong></p>
+                                    <p style="margin: 5px 0; color: #666; font-size: 14px;">Nom : Kalu Busalu</p>
+                                </div>
+                                
+                                <div style="background: #d1ecf1; border-left: 4px solid #0c5460; padding: 12px; margin-top: 15px;">
+                                    <p style="margin: 0; color: #0c5460; font-size: 14px;"><strong>⚠️ Important :</strong></p>
+                                    <p style="margin: 5px 0 0 0; color: #0c5460; font-size: 13px;">Après le paiement, envoyez votre preuve (capture d\'écran) ou votre ID de transaction avec le numéro de commande à : <strong>contact@stylecraft.com</strong></p>
+                                </div>
                             </div>
                         </td>
                     </tr>
@@ -182,7 +209,8 @@ try {
                             <p style="margin: 0 0 15px 0; color: #2563eb; font-weight: 500; font-size: 16px;">L\'équipe StyleCraft</p>
                             <div style="margin-top: 20px;">
                                 <p style="margin: 5px 0; color: #666;">📧 contact@stylecraft.com</p>
-                                <p style="margin: 5px 0; color: #666;">📞 +33 1 23 45 67 89</p>
+                                <p style="margin: 5px 0; color: #666;">📱 Airtel Money: +243 980137154</p>
+                                <p style="margin: 5px 0; color: #666;">📱 Orange Money: +243 840574411</p>
                             </div>
                         </td>
                     </tr>
@@ -213,11 +241,28 @@ try {
     $textBody .= "Livraison : " . number_format($orderDetails['shipping'], 2) . " €\n";
     $textBody .= "Taxes : " . number_format($orderDetails['tax'], 2) . " €\n";
     $textBody .= "TOTAL : " . number_format($orderDetails['total'], 2) . " €\n\n";
-    $textBody .= "Votre commande sera traitée sous 24h.\n\n";
+    $textBody .= str_repeat("=", 50) . "\n";
+    $textBody .= "💳 INFORMATIONS DE PAIEMENT\n";
+    $textBody .= str_repeat("=", 50) . "\n\n";
+    $textBody .= "Utilisez ce numéro de commande comme référence :\n";
+    $textBody .= "➡️  " . $orderDetails['orderNumber'] . "\n\n";
+    $textBody .= "📱 AIRTEL MONEY (Congo Kinshasa 🇨🇩)\n";
+    $textBody .= "   Numéro : +243 980137154\n";
+    $textBody .= "   Nom : Dinango Kambala Abraham\n\n";
+    $textBody .= "📱 ORANGE MONEY (Congo Kinshasa 🇨🇩)\n";
+    $textBody .= "   Numéro : +243 840574411\n";
+    $textBody .= "   Nom : Kalu Busalu\n\n";
+    $textBody .= "⚠️ IMPORTANT :\n";
+    $textBody .= "Après le paiement, envoyez votre preuve (capture d'écran)\n";
+    $textBody .= "ou votre ID de transaction avec le numéro de commande à :\n";
+    $textBody .= "contact@stylecraft.com\n\n";
+    $textBody .= str_repeat("=", 50) . "\n\n";
+    $textBody .= "📦 Votre commande sera traitée sous 24h.\n\n";
     $textBody .= "Merci pour votre confiance !\n";
-    $textBody .= "L'équipe StyleCraft\n";
-    $textBody .= "📧 contact@stylecraft.com\n";
-    $textBody .= "📞 +33 1 23 45 67 89";
+    $textBody .= "L'équipe StyleCraft\n\n";
+    $textBody .= "📧 Email : contact@stylecraft.com\n";
+    $textBody .= "📱 Airtel Money : +243 980137154\n";
+    $textBody .= "📱 Orange Money : +243 840574411";
 
     $emailPayload = [
         'to' => $customerEmail,
