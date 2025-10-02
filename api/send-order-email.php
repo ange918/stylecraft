@@ -15,18 +15,10 @@ if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
     exit();
 }
 
-function getReplitAuthToken() {
-    $replIdentity = getenv('REPL_IDENTITY');
-    $webReplRenewal = getenv('WEB_REPL_RENEWAL');
-    
-    if ($replIdentity) {
-        return 'repl ' . $replIdentity;
-    } elseif ($webReplRenewal) {
-        return 'depl ' . $webReplRenewal;
-    }
-    
-    return null;
-}
+require_once __DIR__ . '/../vendor/autoload.php';
+
+use PHPMailer\PHPMailer\PHPMailer;
+use PHPMailer\PHPMailer\Exception;
 
 $data = json_decode(file_get_contents('php://input'), true);
 
@@ -46,12 +38,16 @@ if (!filter_var($customerEmail, FILTER_VALIDATE_EMAIL)) {
     exit();
 }
 
-$authToken = getReplitAuthToken();
-if (!$authToken) {
+$smtpUser = getenv('SMTP_USER');
+$smtpPassword = getenv('SMTP_PASSWORD');
+$smtpHost = getenv('SMTP_HOST') ?: 'smtp.gmail.com';
+$smtpPort = getenv('SMTP_PORT') ?: 587;
+
+if (!$smtpUser || !$smtpPassword) {
     http_response_code(500);
     echo json_encode([
-        'error' => 'Token Replit manquant',
-        'message' => 'Impossible de récupérer le token d\'authentification Replit'
+        'error' => 'Configuration SMTP manquante',
+        'message' => 'Veuillez configurer SMTP_USER et SMTP_PASSWORD dans les Secrets de Replit'
     ]);
     exit();
 }
@@ -264,42 +260,32 @@ try {
     $textBody .= "📱 Airtel Money : +243 980137154\n";
     $textBody .= "📱 Orange Money : +243 840574411";
 
-    $emailPayload = [
-        'to' => $customerEmail,
-        'subject' => $subject,
-        'html' => $htmlBody,
-        'text' => $textBody
-    ];
+    $mail = new PHPMailer(true);
     
-    $ch = curl_init('https://connectors.replit.com/api/v2/mailer/send');
-    curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
-    curl_setopt($ch, CURLOPT_POST, true);
-    curl_setopt($ch, CURLOPT_POSTFIELDS, json_encode($emailPayload));
-    curl_setopt($ch, CURLOPT_HTTPHEADER, [
-        'Content-Type: application/json',
-        'X_REPLIT_TOKEN: ' . $authToken
+    $mail->isSMTP();
+    $mail->Host = $smtpHost;
+    $mail->SMTPAuth = true;
+    $mail->Username = $smtpUser;
+    $mail->Password = $smtpPassword;
+    $mail->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS;
+    $mail->Port = $smtpPort;
+    $mail->CharSet = 'UTF-8';
+    
+    $mail->setFrom($smtpUser, 'StyleCraft');
+    $mail->addAddress($customerEmail, $customerName);
+    
+    $mail->isHTML(true);
+    $mail->Subject = $subject;
+    $mail->Body = $htmlBody;
+    $mail->AltBody = $textBody;
+    
+    $mail->send();
+    
+    http_response_code(200);
+    echo json_encode([
+        'success' => true,
+        'message' => 'Email envoyé avec succès via SMTP'
     ]);
-    
-    $response = curl_exec($ch);
-    $httpCode = curl_getinfo($ch, CURLINFO_HTTP_CODE);
-    curl_close($ch);
-    
-    if ($httpCode === 200) {
-        $result = json_decode($response, true);
-        http_response_code(200);
-        echo json_encode([
-            'success' => true,
-            'message' => 'Email envoyé avec succès via Replit Mail',
-            'messageId' => $result['messageId'] ?? 'unknown'
-        ]);
-    } else {
-        $error = json_decode($response, true);
-        http_response_code(500);
-        echo json_encode([
-            'error' => 'Erreur lors de l\'envoi de l\'email',
-            'details' => $error['message'] ?? 'Erreur inconnue'
-        ]);
-    }
 
 } catch (Exception $e) {
     http_response_code(500);
