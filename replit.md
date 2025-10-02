@@ -8,12 +8,23 @@ StyleCraft is a modern, responsive e-commerce website for a premium fashion bran
 
 ## Recent Changes (October 2025)
 
+### SMTP Email Integration (October 2, 2025)
+- ✅ Integrated PHP 8.4 for server-side functionality
+- ✅ Installed PHPMailer for professional SMTP email sending
+- ✅ Created secure email API (`api/send-order-email.php`) using Replit Secrets for SMTP credentials
+- ✅ Updated frontend to send order details via PHP instead of simulation
+- ✅ Professional HTML email templates with order details, pricing breakdown, and branding
+- ✅ Automatic email confirmation sent to customers after placing orders
+- ✅ Secure secret management for SMTP credentials (SMTP_USER, SMTP_PASSWORD)
+- ✅ Server migrated from Python to PHP built-in server for full PHP support
+- ✅ Updated .gitignore to exclude PHP dependencies (vendor/, composer.lock)
+
 ### GitHub Import Setup (October 1, 2025)
 - ✅ Successfully imported and configured from GitHub to run in Replit environment
-- ✅ Static web server workflow configured on port 5000 using Python's http.server
+- ✅ Web server workflow configured on port 5000 using PHP built-in server
 - ✅ All pages verified and working correctly (index, shop, cart, contact, etc.)
 - ✅ All assets and images loading properly from multiple directories
-- ✅ Production deployment configured with autoscale target for static hosting
+- ✅ Production deployment configured with autoscale target
 - ✅ French e-commerce site with Airtel Money and Orange Money payment integration
 
 ## Recent Changes (September 2025)
