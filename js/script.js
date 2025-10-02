@@ -3268,113 +3268,46 @@ function closeOrderFormModal() {
     }
 }
 
-// Envoyer la commande par email
 async function sendOrderEmail(orderData) {
     const orderNumber = 'SC' + Date.now();
-    const orderDate = new Date().toLocaleDateString('fr-FR');
-    
-    const cartItems = cart.map(item => 
-        `• ${item.name}\n  Taille: ${item.size} | Couleur: ${item.color} | Quantité: ${item.quantity}\n  Prix unitaire: $${item.price} | Total: $${(item.price * item.quantity).toFixed(2)}`
-    ).join('\n\n');
-    
     const totals = calculateCartTotal();
     
-    const emailContent = `
-NOUVELLE COMMANDE STYLECRAFT
-=============================
-
-NUMÉRO DE COMMANDE: ${orderNumber}
-DATE: ${orderDate}
-
-INFORMATIONS CLIENT:
---------------------
-Nom: ${orderData.firstName} ${orderData.lastName}
-Email: ${orderData.email}
-Pays: ${orderData.country}
-Ville: ${orderData.city}
-Adresse: ${orderData.address}
-
-PRODUITS COMMANDÉS:
--------------------
-${cartItems}
-
-RÉSUMÉ FINANCIER:
------------------
-Sous-total: $${totals.subtotal}
-Livraison: $${totals.shipping}
-Taxes: $${totals.tax}
-TOTAL: $${totals.total}
-
-Cette commande est en attente de paiement. Veuillez contacter le client pour finaliser le paiement.
-    `.trim();
-
-    const htmlContent = `
-<div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto; padding: 20px; color: #333;">
-    <div style="background: #2563eb; color: white; padding: 20px; text-align: center; border-radius: 8px 8px 0 0;">
-        <h1 style="margin: 0;">NOUVELLE COMMANDE</h1>
-        <p style="margin: 5px 0 0 0;">StyleCraft</p>
-    </div>
+    const orderDetails = {
+        orderNumber: orderNumber,
+        items: cart.map(item => ({
+            name: item.name,
+            size: item.size,
+            color: item.color,
+            quantity: item.quantity,
+            price: item.price
+        })),
+        subtotal: totals.subtotal,
+        shipping: totals.shipping,
+        tax: totals.tax,
+        total: totals.total
+    };
     
-    <div style="background: #f8f9fa; padding: 15px; margin-top: 20px; border-radius: 8px;">
-        <p><strong>N° de commande:</strong> ${orderNumber}</p>
-        <p><strong>Date:</strong> ${orderDate}</p>
-    </div>
-    
-    <div style="margin-top: 20px;">
-        <h2 style="color: #2563eb; border-bottom: 2px solid #2563eb; padding-bottom: 5px;">Informations Client</h2>
-        <p><strong>Nom:</strong> ${orderData.firstName} ${orderData.lastName}</p>
-        <p><strong>Email:</strong> ${orderData.email}</p>
-        <p><strong>Pays:</strong> ${orderData.country}</p>
-        <p><strong>Ville:</strong> ${orderData.city}</p>
-        <p><strong>Adresse:</strong> ${orderData.address}</p>
-    </div>
-    
-    <div style="margin-top: 20px;">
-        <h2 style="color: #2563eb; border-bottom: 2px solid #2563eb; padding-bottom: 5px;">Produits Commandés</h2>
-        ${cart.map(item => `
-            <div style="border: 1px solid #e0e0e0; border-radius: 5px; padding: 10px; margin-bottom: 10px;">
-                <p style="margin: 0; font-weight: 500;">${item.name}</p>
-                <p style="margin: 5px 0; color: #666; font-size: 14px;">
-                    Taille: ${item.size} | Couleur: ${item.color} | Quantité: ${item.quantity}
-                </p>
-                <p style="margin: 0; font-weight: 500; color: #2563eb;">$${item.price} × ${item.quantity} = $${(item.price * item.quantity).toFixed(2)}</p>
-            </div>
-        `).join('')}
-    </div>
-    
-    <div style="background: #f8f9fa; border-radius: 8px; padding: 15px; margin-top: 20px;">
-        <h3 style="color: #333; margin-top: 0;">Résumé Financier</h3>
-        <div style="display: flex; justify-content: space-between; margin-bottom: 5px;">
-            <span>Sous-total:</span><span>$${totals.subtotal}</span>
-        </div>
-        <div style="display: flex; justify-content: space-between; margin-bottom: 5px;">
-            <span>Livraison:</span><span>$${totals.shipping}</span>
-        </div>
-        <div style="display: flex; justify-content: space-between; margin-bottom: 10px;">
-            <span>Taxes:</span><span>$${totals.tax}</span>
-        </div>
-        <div style="display: flex; justify-content: space-between; font-weight: bold; font-size: 18px; color: #2563eb; border-top: 1px solid #ddd; padding-top: 10px;">
-            <span>TOTAL:</span><span>$${totals.total}</span>
-        </div>
-    </div>
-    
-    <div style="background: #fff3cd; border: 1px solid #ffeaa7; border-radius: 8px; padding: 15px; margin-top: 20px;">
-        <p style="margin: 0; color: #856404;">
-            <strong>⚠️ Action requise:</strong> Cette commande est en attente de paiement. Veuillez contacter le client pour finaliser le paiement.
-        </p>
-    </div>
-</div>
-    `.trim();
-
     try {
-        const response = await sendEmail({
-            to: ADMIN_EMAIL,
-            subject: `Nouvelle commande StyleCraft - ${orderNumber}`,
-            text: emailContent,
-            html: htmlContent
+        const response = await fetch('/api/send-order-email.php', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({
+                customerEmail: orderData.email,
+                customerName: `${orderData.firstName} ${orderData.lastName}`,
+                orderDetails: orderDetails
+            })
         });
         
-        return { success: true, orderNumber, totals };
+        const result = await response.json();
+        
+        if (response.ok && result.success) {
+            return { success: true, orderNumber, totals };
+        } else {
+            console.error('Erreur serveur:', result);
+            return { success: false, error: result.error || 'Erreur inconnue' };
+        }
     } catch (error) {
         console.error('Erreur envoi email:', error);
         return { success: false, error: error.message };
