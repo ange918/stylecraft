@@ -15,10 +15,18 @@ if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
     exit();
 }
 
-require __DIR__ . '/../vendor/autoload.php';
-
-use PHPMailer\PHPMailer\PHPMailer;
-use PHPMailer\PHPMailer\Exception;
+function getReplitAuthToken() {
+    $replIdentity = getenv('REPL_IDENTITY');
+    $webReplRenewal = getenv('WEB_REPL_RENEWAL');
+    
+    if ($replIdentity) {
+        return 'repl ' . $replIdentity;
+    } elseif ($webReplRenewal) {
+        return 'depl ' . $webReplRenewal;
+    }
+    
+    return null;
+}
 
 $data = json_decode(file_get_contents('php://input'), true);
 
@@ -38,37 +46,18 @@ if (!filter_var($customerEmail, FILTER_VALIDATE_EMAIL)) {
     exit();
 }
 
-$smtpHost = getenv('SMTP_HOST') ?: 'smtp.gmail.com';
-$smtpPort = getenv('SMTP_PORT') ?: 587;
-$smtpUser = getenv('SMTP_USER');
-$smtpPassword = getenv('SMTP_PASSWORD');
-
-if (!$smtpUser || !$smtpPassword) {
+$authToken = getReplitAuthToken();
+if (!$authToken) {
     http_response_code(500);
     echo json_encode([
-        'error' => 'Configuration SMTP manquante',
-        'message' => 'Veuillez configurer les secrets SMTP_USER et SMTP_PASSWORD dans Replit'
+        'error' => 'Token Replit manquant',
+        'message' => 'Impossible de récupérer le token d\'authentification Replit'
     ]);
     exit();
 }
 
-$mail = new PHPMailer(true);
-
 try {
-    $mail->isSMTP();
-    $mail->Host = $smtpHost;
-    $mail->SMTPAuth = true;
-    $mail->Username = $smtpUser;
-    $mail->Password = $smtpPassword;
-    $mail->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS;
-    $mail->Port = $smtpPort;
-    $mail->CharSet = 'UTF-8';
-
-    $mail->setFrom($smtpUser, 'StyleCraft');
-    $mail->addAddress($customerEmail, $customerName);
-
-    $mail->isHTML(true);
-    $mail->Subject = 'StyleCraft - Confirmation de commande #' . $orderDetails['orderNumber'];
+    $subject = 'StyleCraft - Confirmation de commande #' . $orderDetails['orderNumber'];
 
     $itemsList = '';
     $itemsTotal = 0;
@@ -230,22 +219,47 @@ try {
     $textBody .= "📧 contact@stylecraft.com\n";
     $textBody .= "📞 +33 1 23 45 67 89";
 
-    $mail->Body = $htmlBody;
-    $mail->AltBody = $textBody;
-
-    $mail->send();
+    $emailPayload = [
+        'to' => $customerEmail,
+        'subject' => $subject,
+        'html' => $htmlBody,
+        'text' => $textBody
+    ];
     
-    http_response_code(200);
-    echo json_encode([
-        'success' => true,
-        'message' => 'Email envoyé avec succès',
-        'messageId' => $mail->getLastMessageID()
+    $ch = curl_init('https://connectors.replit.com/api/v2/mailer/send');
+    curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+    curl_setopt($ch, CURLOPT_POST, true);
+    curl_setopt($ch, CURLOPT_POSTFIELDS, json_encode($emailPayload));
+    curl_setopt($ch, CURLOPT_HTTPHEADER, [
+        'Content-Type: application/json',
+        'X_REPLIT_TOKEN: ' . $authToken
     ]);
+    
+    $response = curl_exec($ch);
+    $httpCode = curl_getinfo($ch, CURLINFO_HTTP_CODE);
+    curl_close($ch);
+    
+    if ($httpCode === 200) {
+        $result = json_decode($response, true);
+        http_response_code(200);
+        echo json_encode([
+            'success' => true,
+            'message' => 'Email envoyé avec succès via Replit Mail',
+            'messageId' => $result['messageId'] ?? 'unknown'
+        ]);
+    } else {
+        $error = json_decode($response, true);
+        http_response_code(500);
+        echo json_encode([
+            'error' => 'Erreur lors de l\'envoi de l\'email',
+            'details' => $error['message'] ?? 'Erreur inconnue'
+        ]);
+    }
 
 } catch (Exception $e) {
     http_response_code(500);
     echo json_encode([
         'error' => 'Erreur lors de l\'envoi de l\'email',
-        'details' => $mail->ErrorInfo
+        'details' => $e->getMessage()
     ]);
 }
