@@ -30,1388 +30,344 @@ let currentPaymentData = {
 };
 
 // Sample Products Data
+// Sample Products Data
 const sampleProducts = [
-    // Nouveaux produits avec vraies images en premier
-    {
-        id: 703,
-        name: "Sac Tendance Moderne",
-        price: 89.99,
-        originalPrice: 119.99,
-        category: "sacs",
-        image: "sacs complement/4c06f44a4faa4648b6fd82845af64147.jpg",
-        images: [
-            "sacs complement/4c06f44a4faa4648b6fd82845af64147.jpg"
-        ],
-        description: "Sac moderne au design contemporain, parfait pour un look tendance.",
-        sizes: ["One Size"],
-        colors: ["Marron", "Noir", "Beige"],
-        featured: true,
-        bestseller: true,
-        sale: true
-    },
-    {
-        id: 801,
-        name: "Accessoire Style Unique",
-        price: 45.99,
-        originalPrice: 65.99,
-        category: "perruques",
-        image: "accesoires/2e786e3df02c4f55b539145ff0e292c5.jpg",
-        images: [
-            "accesoires/2e786e3df02c4f55b539145ff0e292c5.jpg"
-        ],
-        description: "Accessoire capillaire au style unique et moderne.",
-        sizes: ["One Size"],
-        colors: ["Naturel", "Brun", "Noir"],
-        featured: true,
-        bestseller: false,
-        sale: true
-    },
-    {
-        id: 806,
-        name: "Vêtement Style Contemporain",
-        price: 79.99,
-        originalPrice: 99.99,
-        category: "vetements",
-        image: "vetement complement/1cd07605183b491a8540c9fcd7e328e4.jpg",
-        images: [
-            "vetement complement/1cd07605183b491a8540c9fcd7e328e4.jpg"
-        ],
-        description: "Vêtement au style contemporain et moderne.",
-        sizes: ["XS", "S", "M", "L", "XL"],
-        colors: ["Noir", "Blanc", "Gris"],
-        featured: true,
-        bestseller: false,
-        sale: true
-    },
-    // Perruques originales
-    {
-        id: 101,
-        name: "Perruque Cheveux Naturels Longs",
-        price: 189.99,
-        originalPrice: 249.99,
-        category: "perruques",
-        image: "src/assets/perruque-cheveux-naturels-1.jpg",
-        images: [
-            "src/assets/perruque-cheveux-naturels-1.jpg",
-            "src/assets/perruque-cheveux-naturels-2.jpg"
-        ],
-        description: "Perruque en cheveux naturels 100% humains, longueur 50cm. Qualité premium pour un rendu naturel exceptionnel.",
-        sizes: ["One Size"],
-        colors: ["Brun", "Blond", "Roux", "Noir"],
-        featured: true,
-        bestseller: true,
-        sale: true
-    },
-    {
-        id: 102,
-        name: "Perruque Synthétique Ondulée",
-        price: 55.99,
-        originalPrice: 79.99,
-        category: "perruques",
-        image: "src/assets/perruque-synthetique-1.jpg",
-        images: [
-            "src/assets/perruque-synthetique-1.jpg"
-        ],
-        description: "Perruque synthétique avec ondulations naturelles. Facile à coiffer et à entretenir.",
-        sizes: ["One Size"],
-        colors: ["Blond", "Brun", "Roux"],
-        featured: true,
-        bestseller: false,
-        sale: true
-    },
-    {
-        id: 103,
-        name: "Perruque Court Moderne",
-        price: 95.99,
-        originalPrice: null,
-        category: "perruques",
-        image: "src/assets/perruque-court-1.jpg",
-        images: [
-            "src/assets/perruque-court-1.jpg"
-        ],
-        description: "Coupe moderne et tendance, parfaite pour un look contemporain.",
-        sizes: ["One Size"],
-        colors: ["Noir", "Brun", "Blond"],
-        featured: false,
-        bestseller: true,
-        sale: false
-    },
-    // Vêtements Femme
-    {
-        id: 201,
-        name: "Robe Élégante Soirée",
-        price: 125.99,
-        originalPrice: 159.99,
-        category: "vetements",
-        image: "attached_assets/vetement/robe-longue-grande-taille-femme.jpg",
-        images: [
-            "attached_assets/vetement/robe-longue-grande-taille-femme.jpg"
-        ],
-        description: "Robe de soirée sophistiquée en soie, coupe ajustée et élégante.",
-        sizes: ["XS", "S", "M", "L", "XL"],
-        colors: ["Noir", "Rouge", "Bleu"],
-        featured: true,
-        bestseller: true,
-        sale: true
-    },
-    {
-        id: 202,
-        name: "Top Décontracté Femme",
-        price: 35.99,
-        originalPrice: null,
-        category: "vetements",
-        image: "attached_assets/vetement/OUTFITTERY_10Y_Day1_1288_9335-683x1024.jpg",
-        images: [
-            "attached_assets/vetement/OUTFITTERY_10Y_Day1_1288_9335-683x1024.jpg"
-        ],
-        description: "Top confortable en coton bio, parfait pour le quotidien.",
-        sizes: ["XS", "S", "M", "L", "XL"],
-        colors: ["Blanc", "Gris", "Rose"],
-        featured: true,
-        bestseller: false,
-        sale: false
-    },
-    // Vêtements Enfant
-    {
-        id: 301,
-        name: "Robe Princesse Enfant",
-        price: 28.99,
-        originalPrice: 39.99,
-        category: "vetements",
-        image: "attached_assets/vetement/enfant.jpg",
-        images: [
-            "attached_assets/vetement/enfant.jpg"
-        ],
-        description: "Robe de princesse pour enfant, tissu doux et confortable.",
-        sizes: ["2T", "3T", "4T", "5T", "6T"],
-        colors: ["Rose", "Bleu", "Violet"],
-        featured: true,
-        bestseller: true,
-        sale: true
-    },
-    {
-        id: 302,
-        name: "T-shirt Enfant Graphique",
-        price: 18.99,
-        originalPrice: null,
-        category: "vetements",
-        image: "attached_assets/vetement/enffant.jpg",
-        images: [
-            "attached_assets/vetement/enffant.jpg"
-        ],
-        description: "T-shirt amusant avec motif graphique, coton 100%.",
-        sizes: ["2T", "3T", "4T", "5T", "6T"],
-        colors: ["Bleu", "Rouge", "Vert"],
-        featured: false,
-        bestseller: false,
-        sale: false
-    },
-    // Nouveaux vêtements femme
-    {
-        id: 203,
-        name: "Jupe Plissée Moderne",
-        price: 49.99,
-        originalPrice: 65.99,
-        category: "vetements",
-        image: "attached_assets/vetement/jupe-plissee-moderne.jpg",
-        images: [
-            "attached_assets/vetement/jupe-plissee-moderne.jpg"
-        ],
-        description: "Jupe plissée élégante, parfaite pour le bureau ou les sorties.",
-        sizes: ["XS", "S", "M", "L", "XL"],
-        colors: ["Noir", "Beige", "Marine"],
-        featured: true,
-        bestseller: false,
-        sale: true
-    },
-    {
-        id: 204,
-        name: "Blazer Professionnel Femme",
-        price: 89.99,
-        originalPrice: null,
-        category: "vetements",
-        image: "attached_assets/vetement/blazer-professionnel-femme.jpg",
-        images: [
-            "attached_assets/vetement/blazer-professionnel-femme.jpg"
-        ],
-        description: "Blazer moderne et professionnel, coupe ajustée et élégante.",
-        sizes: ["XS", "S", "M", "L", "XL"],
-        colors: ["Noir", "Gris", "Marine"],
-        featured: false,
-        bestseller: true,
-        sale: false
-    },
-    {
-        id: 205,
-        name: "Pantalon Décontracté Femme",
-        price: 42.99,
-        originalPrice: 59.99,
-        category: "vetements",
-        image: "attached_assets/vetement/pantalon-decontracte-femme.jpg",
-        images: [
-            "attached_assets/vetement/pantalon-decontracte-femme.jpg"
-        ],
-        description: "Pantalon confortable en coton stretch, idéal pour tous les jours.",
-        sizes: ["XS", "S", "M", "L", "XL"],
-        colors: ["Noir", "Blanc", "Kaki"],
-        featured: true,
-        bestseller: true,
-        sale: true
-    },
-    // Nouveaux vêtements enfant
-    {
-        id: 303,
-        name: "Ensemble Sport Enfant",
-        price: 32.99,
-        originalPrice: null,
-        category: "vetements",
-        image: "attached_assets/vetement/ensemble-sport-enfant.jpg",
-        images: [
-            "attached_assets/vetement/ensemble-sport-enfant.jpg"
-        ],
-        description: "Ensemble de sport confortable pour enfant, jogging et sweat-shirt.",
-        sizes: ["2T", "3T", "4T", "5T", "6T"],
-        colors: ["Bleu", "Rose", "Gris"],
-        featured: false,
-        bestseller: false,
-        sale: false
-    },
-    {
-        id: 304,
-        name: "Robe Estivale Enfant",
-        price: 24.99,
-        originalPrice: 34.99,
-        category: "vetements",
-        image: "attached_assets/vetement/robe-estivale-enfant.jpg",
-        images: [
-            "attached_assets/vetement/robe-estivale-enfant.jpg"
-        ],
-        description: "Robe légère et colorée parfaite pour l'été.",
-        sizes: ["2T", "3T", "4T", "5T", "6T"],
-        colors: ["Jaune", "Vert", "Orange"],
-        featured: true,
-        bestseller: false,
-        sale: true
-    },
-    {
-        id: 305,
-        name: "Pantalon École Enfant",
-        price: 29.99,
-        originalPrice: null,
-        category: "vetements",
-        image: "attached_assets/vetement/pantalon-ecole-enfant.jpg",
-        images: [
-            "attached_assets/vetement/pantalon-ecole-enfant.jpg"
-        ],
-        description: "Pantalon résistant et confortable pour l'école.",
-        sizes: ["2T", "3T", "4T", "5T", "6T"],
-        colors: ["Marine", "Gris", "Noir"],
-        featured: false,
-        bestseller: true,
-        sale: false
-    },
-    // Sacs
-    {
-        id: 401,
-        name: "Sac à Main Cuir Premium",
-        price: 179.99,
-        originalPrice: 229.99,
-        category: "sacs",
-        image: "src/assets/sac-main-cuir-premium-1.jpg",
-        images: [
-            "src/assets/sac-main-cuir-premium-1.jpg",
-            "src/assets/sac-main-cuir-premium-2.jpg"
-        ],
-        description: "Sac à main en cuir véritable, fabrication artisanale de qualité supérieure.",
-        sizes: ["One Size"],
-        colors: ["Noir", "Marron", "Rouge"],
-        featured: true,
-        bestseller: true,
-        sale: true
-    },
-    {
-        id: 402,
-        name: "Sac à Dos Tendance",
-        price: 65.99,
-        originalPrice: null,
-        category: "sacs",
-        image: "src/assets/sac-dos-tendance-1.jpg",
-        images: [
-            "src/assets/sac-dos-tendance-1.jpg"
-        ],
-        description: "Sac à dos moderne et fonctionnel, parfait pour le quotidien.",
-        sizes: ["One Size"],
-        colors: ["Noir", "Gris", "Bleu"],
-        featured: true,
-        bestseller: false,
-        sale: false
-    },
-    {
-        id: 403,
-        name: "Sac de Soirée Élégant",
-        price: 55.99,
-        originalPrice: 69.99,
-        category: "sacs",
-        image: "src/assets/sac-soiree-elegant-1.jpg",
-        images: [
-            "src/assets/sac-soiree-elegant-1.jpg"
-        ],
-        description: "Petit sac de soirée raffiné, idéal pour les occasions spéciales.",
-        sizes: ["One Size"],
-        colors: ["Noir", "Or", "Argent"],
-        featured: false,
-        bestseller: true,
-        sale: true
-    },
-    // Nouveaux sacs ajoutés
-    {
-        id: 406,
-        name: "Sac Cabas Moderne",
-        price: 89.99,
-        originalPrice: 119.99,
-        category: "sacs",
-        image: "src/assets/sac-cabas-moderne-1.jpg",
-        images: [
-            "src/assets/sac-cabas-moderne-1.jpg"
-        ],
-        description: "Sac cabas spacieux et moderne, parfait pour le quotidien et le travail.",
-        sizes: ["One Size"],
-        colors: ["Noir", "Beige", "Marine"],
-        featured: true,
-        bestseller: false,
-        sale: true
-    },
-    {
-        id: 407,
-        name: "Sac Sport Élégant",
-        price: 75.99,
-        originalPrice: null,
-        category: "sacs",
-        image: "src/assets/sac-sport-elegant-1.jpg",
-        images: [
-            "src/assets/sac-sport-elegant-1.jpg"
-        ],
-        description: "Sac de sport élégant alliant fonctionnalité et style urbain.",
-        sizes: ["One Size"],
-        colors: ["Noir", "Gris", "Bleu"],
-        featured: true,
-        bestseller: true,
-        sale: false
-    },
-    {
-        id: 408,
-        name: "Sac Luxe Premium",
-        price: 299.99,
-        originalPrice: 399.99,
-        category: "sacs",
-        image: "src/assets/sac-luxe-premium-1.jpg",
-        images: [
-            "src/assets/sac-luxe-premium-1.jpg"
-        ],
-        description: "Sac de luxe en cuir véritable, design intemporel et finitions exceptionnelles.",
-        sizes: ["One Size"],
-        colors: ["Camel", "Noir", "Cognac"],
-        featured: true,
-        bestseller: true,
-        sale: true
-    },
-    // Nouvelles perruques ajoutées
-    {
-        id: 404,
-        name: "Perruque Lisse Élégante",
-        price: 129.99,
-        originalPrice: 169.99,
-        category: "perruques",
-        image: "src/assets/perruque-lisse-1.jpg",
-        images: [
-            "src/assets/perruque-lisse-1.jpg"
-        ],
-        description: "Perruque lisse d'une élégance exceptionnelle, parfaite pour un look sophistiqué.",
-        sizes: ["One Size"],
-        colors: ["Noir", "Brun", "Blond"],
-        featured: true,
-        bestseller: false,
-        sale: true
-    },
-    {
-        id: 405,
-        name: "Perruque Bouclée Volume",
-        price: 139.99,
-        originalPrice: null,
-        category: "perruques",
-        image: "src/assets/perruque-bouclees-1.jpg",
-        images: [
-            "src/assets/perruque-bouclees-1.jpg"
-        ],
-        description: "Perruque bouclée avec un volume naturel parfait pour un style glamour.",
-        sizes: ["One Size"],
-        colors: ["Brun", "Noir", "Blond Vénitien"],
-        featured: true,
-        bestseller: true,
-        sale: false
-    },
-    // Produits existants (gardés pour compatibilité)
-    {
-        id: 1,
-        name: "Classic White Button-Down Shirt",
-        price: 65.99,
-        originalPrice: 85.99,
-        category: "vetements",
-        image: "attached_assets/vetement/51WxBImyzpL._AC_SX522_.jpg",
-        images: [
-            "attached_assets/vetement/51WxBImyzpL._AC_SX522_.jpg"
-        ],
-        description: "A timeless classic that belongs in every wardrobe. Made from premium cotton with a perfect fit.",
-        sizes: ["XS", "S", "M", "L", "XL"],
-        colors: ["White", "Light Blue"],
-        featured: true,
-        bestseller: true,
-        sale: true
-    },
-    {
-        id: 2,
-        name: "Elegant Black Dress",
-        price: 109.99,
-        originalPrice: null,
-        category: "vetements",
-        image: "attached_assets/vetement/613+tot5pML._AC_SL1200_.jpg",
-        images: [
-            "attached_assets/vetement/613+tot5pML._AC_SL1200_.jpg"
-        ],
-        description: "Sophisticated and versatile dress perfect for any occasion. Crafted with attention to detail.",
-        sizes: ["XS", "S", "M", "L", "XL"],
-        colors: ["Black", "Navy"],
-        featured: true,
-        bestseller: false,
-        sale: false
-    },
-    {
-        id: 3,
-        name: "Premium Denim Jeans",
-        price: 85.99,
-        originalPrice: 115.99,
-        category: "vetements",
-        image: "attached_assets/vetement/61KkAWEFzuL._AC_SL1500_.jpg",
-        images: [
-            "attached_assets/vetement/61KkAWEFzuL._AC_SL1500_.jpg",
-            "src/assets/jean-premium-homme-2.jpg"
-        ],
-        description: "High-quality denim with a modern fit. Durable construction and timeless style.",
-        sizes: ["28", "30", "32", "34", "36", "38"],
-        colors: ["Dark Blue", "Light Blue"],
-        featured: false,
-        bestseller: true,
-        sale: true
-    },
-    {
-        id: 4,
-        name: "Cozy Knit Sweater",
-        price: 58.99,
-        originalPrice: null,
-        category: "vetements",
-        image: "attached_assets/vetement/613uQE 56VL._AC_UY350_.jpg",
-        images: [
-            "attached_assets/vetement/613uQE 56VL._AC_UY350_.jpg",
-            "src/assets/pull-tricot-femme-2.jpg"
-        ],
-        description: "Soft and comfortable sweater perfect for cooler days. Made from premium wool blend.",
-        sizes: ["XS", "S", "M", "L", "XL"],
-        colors: ["Cream", "Gray", "Navy"],
-        featured: true,
-        bestseller: false,
-        sale: false
-    },
-    {
-        id: 5,
-        name: "Kids Adventure T-Shirt",
-        price: 22.99,
-        originalPrice: 29.99,
-        category: "vetements",
-        image: "attached_assets/vetement/enfanttt.jfif",
-        images: [
-            "attached_assets/vetement/enfanttt.jfif"
-        ],
-        description: "Fun and colorful t-shirt designed for active children. Comfortable cotton fabric.",
-        sizes: ["2T", "3T", "4T", "5T", "6T"],
-        colors: ["Blue", "Green", "Red"],
-        featured: false,
-        bestseller: false,
-        sale: true
-    },
-    {
-        id: 6,
-        name: "Leather Crossbody Bag",
-        price: 145.99,
-        originalPrice: null,
-        category: "perruques",
-        image: "src/assets/sac-bandouliere-cuir-1.jpg",
-        images: [
-            "src/assets/sac-bandouliere-cuir-1.jpg",
-            "src/assets/sac-bandouliere-cuir-2.jpg"
-        ],
-        description: "Handcrafted leather bag with multiple compartments. Perfect for everyday use.",
-        sizes: ["One Size"],
-        colors: ["Brown", "Black", "Tan"],
-        featured: false,
-        bestseller: true,
-        sale: false
-    },
-    {
-        id: 7,
-        name: "Cotton Polo Shirt",
-        price: 42.99,
-        originalPrice: 55.99,
-        category: "vetements",
-        image: "attached_assets/vetement/61Zw7NrauNL._AC_SL1500_.jpg",
-        images: [
-            "attached_assets/vetement/61Zw7NrauNL._AC_SL1500_.jpg"
-        ],
-        description: "Classic polo shirt made from 100% cotton. Perfect for casual or business casual wear.",
-        sizes: ["S", "M", "L", "XL", "XXL"],
-        colors: ["Navy", "White", "Gray"],
-        featured: false,
-        bestseller: false,
-        sale: true
-    },
-    {
-        id: 8,
-        name: "Flowy Summer Dress",
-        price: 64.99,
-        originalPrice: null,
-        category: "vetements",
-        image: "attached_assets/vetement/images.jfif",
-        images: [
-            "attached_assets/vetement/images.jfif"
-        ],
-        description: "Light and airy dress perfect for warm weather. Features a flattering silhouette.",
-        sizes: ["XS", "S", "M", "L", "XL"],
-        colors: ["Floral", "Solid Blue"],
-        featured: true,
-        bestseller: true,
-        sale: false
-    },
-    {
-        id: 9,
-        name: "Veste Jean Enfant",
-        price: 32.99,
-        originalPrice: 45.99,
-        category: "vetements",
-        image: "attached_assets/vetement/enfantt.webp",
-        images: [
-            "attached_assets/vetement/enfantt.webp"
-        ],
-        description: "Stylish denim jacket for children. Durable and perfect for layering.",
-        sizes: ["2T", "3T", "4T", "5T", "6T"],
-        colors: ["Light Blue", "Dark Blue"],
-        featured: false,
-        bestseller: false,
-        sale: true
-    },
-    {
-        id: 10,
-        name: "Classic Watch",
-        price: 199.99,
-        originalPrice: null,
-        category: "perruques",
-        image: "src/assets/montre-classique-1.jpg",
-        images: [
-            "src/assets/montre-classique-1.jpg"
-        ],
-        description: "Elegant timepiece with classic design. Features premium materials and precise movement.",
-        sizes: ["One Size"],
-        colors: ["Silver", "Gold", "Black"],
-        featured: false,
-        bestseller: true,
-        sale: false
-    },
-    // Nouvelles perruques pour avoir au moins 18 articles
-    {
-        id: 501,
-        name: "Perruque Mi-Longue Naturelle",
-        price: 149.99,
-        originalPrice: 189.99,
-        category: "perruques",
+    // === CHAUSSURES (14 produits) ===
+    { id: 1001, name: "Basket Adidas Moderne", price: 89.99, originalPrice: 119.99, category: "chaussures",
+        image: "attached_assets/chaussures/Chaussures-basket-ADIDAS-homme-2.png",
+        images: ["attached_assets/chaussures/Chaussures-basket-ADIDAS-homme-2.png"],
+        description: "Basket Adidas confortable pour un style sportif moderne.", sizes: ["38", "39", "40", "41", "42", "43"], colors: ["Blanc", "Noir", "Bleu"],
+        featured: true, bestseller: true, sale: true },
+    { id: 1002, name: "Chaussures Sport Bleues", price: 79.99, originalPrice: null, category: "chaussures",
+        image: "attached_assets/chaussures/maite-steenhoudt-adidas-originals-adimatic-mid-victory-blue-ig8174-top.jpg",
+        images: ["attached_assets/chaussures/maite-steenhoudt-adidas-originals-adimatic-mid-victory-blue-ig8174-top.jpg"],
+        description: "Chaussures de sport bleu victoire, design contemporain.", sizes: ["38", "39", "40", "41", "42", "43"], colors: ["Bleu"], featured: true, bestseller: false, sale: false },
+    { id: 1003, name: "Sneakers Urbaines", price: 95.99, originalPrice: 125.99, category: "chaussures",
+        image: "attached_assets/chaussures/a201045f2a8c478c863e5aa19f1437d6.jpg",
+        images: ["attached_assets/chaussures/a201045f2a8c478c863e5aa19f1437d6.jpg"],
+        description: "Sneakers urbaines au style unique.", sizes: ["38", "39", "40", "41", "42", "43"], colors: ["Noir", "Gris"], featured: false, bestseller: true, sale: true },
+    { id: 1004, name: "Chaussures Casual", price: 69.99, originalPrice: null, category: "chaussures",
+        image: "attached_assets/chaussures/03737ebb03e146aeb0f943bdc0a526c3.jpg",
+        images: ["attached_assets/chaussures/03737ebb03e146aeb0f943bdc0a526c3.jpg"],
+        description: "Chaussures casual pour le quotidien.", sizes: ["38", "39", "40", "41", "42", "43"], colors: ["Beige", "Marron"], featured: true, bestseller: false, sale: false },
+    { id: 1005, name: "Basket Tendance", price: 85.99, originalPrice: 99.99, category: "chaussures",
+        image: "attached_assets/chaussures/78e19addb8eb48c09d928574e7c14e9c.jpg",
+        images: ["attached_assets/chaussures/78e19addb8eb48c09d928574e7c14e9c.jpg"],
+        description: "Basket moderne et tendance.", sizes: ["38", "39", "40", "41", "42", "43"], colors: ["Blanc", "Noir"], featured: false, bestseller: false, sale: true },
+    { id: 1006, name: "Chaussures Confort", price: 75.99, originalPrice: null, category: "chaussures",
+        image: "attached_assets/chaussures/81f29e4a500e466a92f9515b3b1e7fcd.jpg",
+        images: ["attached_assets/chaussures/81f29e4a500e466a92f9515b3b1e7fcd.jpg"],
+        description: "Chaussures confortables pour toute la journée.", sizes: ["38", "39", "40", "41", "42", "43"], colors: ["Gris", "Noir"], featured: true, bestseller: true, sale: false },
+    { id: 1007, name: "Sneakers Premium", price: 105.99, originalPrice: 139.99, category: "chaussures",
+        image: "attached_assets/chaussures/954f051d87df4422ae0da222d5ace7dc.jpg",
+        images: ["attached_assets/chaussures/954f051d87df4422ae0da222d5ace7dc.jpg"],
+        description: "Sneakers premium de haute qualité.", sizes: ["38", "39", "40", "41", "42", "43"], colors: ["Noir"], featured: true, bestseller: false, sale: true },
+    { id: 1008, name: "Chaussures Élégantes", price: 99.99, originalPrice: null, category: "chaussures",
+        image: "attached_assets/chaussures/a07036207fb94742bb1a43c65a6b566d.jpg",
+        images: ["attached_assets/chaussures/a07036207fb94742bb1a43c65a6b566d.jpg"],
+        description: "Chaussures élégantes pour occasions spéciales.", sizes: ["38", "39", "40", "41", "42", "43"], colors: ["Noir", "Marron"], featured: false, bestseller: true, sale: false },
+    { id: 1009, name: "Basket Sport Performance", price: 89.99, originalPrice: 109.99, category: "chaussures",
+        image: "attached_assets/chaussures/a6852d96238541f58e4bc315db73a88f.jpg",
+        images: ["attached_assets/chaussures/a6852d96238541f58e4bc315db73a88f.jpg"],
+        description: "Basket haute performance pour le sport.", sizes: ["38", "39", "40", "41", "42", "43"], colors: ["Blanc", "Rouge"], featured: true, bestseller: true, sale: true },
+    { id: 1010, name: "Chaussures Décontractées", price: 65.99, originalPrice: null, category: "chaussures",
+        image: "attached_assets/chaussures/a8d0f8278d0f461188759a486b71b81f.jpg",
+        images: ["attached_assets/chaussures/a8d0f8278d0f461188759a486b71b81f.jpg"],
+        description: "Chaussures décontractées pour tous les jours.", sizes: ["38", "39", "40", "41", "42", "43"], colors: ["Beige", "Gris"], featured: false, bestseller: false, sale: false },
+    { id: 1011, name: "Sneakers Style Unique", price: 119.99, originalPrice: 149.99, category: "chaussures",
+        image: "attached_assets/chaussures/m98593917987_1.jpg",
+        images: ["attached_assets/chaussures/m98593917987_1.jpg"],
+        description: "Sneakers au style unique et moderne.", sizes: ["38", "39", "40", "41", "42", "43"], colors: ["Multicolore"], featured: true, bestseller: false, sale: true },
+    { id: 1012, name: "Chaussures Mode Urbaine", price: 92.99, originalPrice: null, category: "chaussures",
+        image: "attached_assets/chaussures/images (2).jpeg",
+        images: ["attached_assets/chaussures/images (2).jpeg"],
+        description: "Chaussures mode urbaine pour un look moderne.", sizes: ["38", "39", "40", "41", "42", "43"], colors: ["Noir", "Blanc"], featured: true, bestseller: true, sale: false },
+    { id: 1013, name: "Basket Design Moderne", price: 87.99, originalPrice: 115.99, category: "chaussures",
+        image: "attached_assets/chaussures/images (3).jpeg",
+        images: ["attached_assets/chaussures/images (3).jpeg"],
+        description: "Basket au design moderne et élégant.", sizes: ["38", "39", "40", "41", "42", "43"], colors: ["Gris", "Blanc"], featured: false, bestseller: false, sale: true },
+    { id: 1014, name: "Chaussures Adimatic Mid", price: 109.99, originalPrice: null, category: "chaussures",
+        image: "attached_assets/chaussures/new-pick-up-adidas-adimatic-mid-x-maité-v0-eqkjt66za25c1.jpg",
+        images: ["attached_assets/chaussures/new-pick-up-adidas-adimatic-mid-x-maité-v0-eqkjt66za25c1.jpg"],
+        description: "Adidas Adimatic Mid pour un style sportif raffiné.", sizes: ["38", "39", "40", "41", "42", "43"], colors: ["Bleu", "Blanc"], featured: true, bestseller: true, sale: false },
+
+    // === MONTRES (6 produits) ===
+    { id: 2001, name: "Montre Élégante Classique", price: 199.99, originalPrice: 249.99, category: "montres",
+        image: "attached_assets/montres/2e786e3df02c4f55b539145ff0e292c5.jpg",
+        images: ["attached_assets/montres/2e786e3df02c4f55b539145ff0e292c5.jpg"],
+        description: "Montre classique élégante pour toutes occasions.", sizes: ["One Size"], colors: ["Or", "Argent", "Or Rose"], featured: true, bestseller: true, sale: true },
+    { id: 2002, name: "Montre Sport Moderne", price: 149.99, originalPrice: null, category: "montres",
+        image: "attached_assets/montres/52ea9b884c4c4dde9b30d17b4c9cc649.jpg",
+        images: ["attached_assets/montres/52ea9b884c4c4dde9b30d17b4c9cc649.jpg"],
+        description: "Montre sportive moderne avec fonctions avancées.", sizes: ["One Size"], colors: ["Noir", "Bleu"], featured: true, bestseller: false, sale: false },
+    { id: 2003, name: "Montre Luxury Premium", price: 299.99, originalPrice: 399.99, category: "montres",
+        image: "attached_assets/montres/643ffa375e9d42bea6871070b57488bc.jpg",
+        images: ["attached_assets/montres/643ffa375e9d42bea6871070b57488bc.jpg"],
+        description: "Montre de luxe premium avec mouvement suisse.", sizes: ["One Size"], colors: ["Or", "Platine"], featured: true, bestseller: true, sale: true },
+    { id: 2004, name: "Montre Casual Quotidien", price: 129.99, originalPrice: null, category: "montres",
+        image: "attached_assets/montres/aeaf55190d214a40ae5293f06e5dfbdf.jpg",
+        images: ["attached_assets/montres/aeaf55190d214a40ae5293f06e5dfbdf.jpg"],
+        description: "Montre casual parfaite pour le quotidien.", sizes: ["One Size"], colors: ["Marron", "Noir"], featured: false, bestseller: true, sale: false },
+    { id: 2005, name: "Montre Digitale Tendance", price: 179.99, originalPrice: 219.99, category: "montres",
+        image: "attached_assets/montres/ba183f83e5f749cbb762ff7eee61ed40.jpg",
+        images: ["attached_assets/montres/ba183f83e5f749cbb762ff7eee61ed40.jpg"],
+        description: "Montre digitale tendance avec écran tactile.", sizes: ["One Size"], colors: ["Noir", "Argent"], featured: true, bestseller: false, sale: true },
+    { id: 2006, name: "Montre Chronographe Sport", price: 249.99, originalPrice: null, category: "montres",
+        image: "attached_assets/montres/ccdc5ecd61c0484798bc871b26eb7758.jpg",
+        images: ["attached_assets/montres/ccdc5ecd61c0484798bc871b26eb7758.jpg"],
+        description: "Montre chronographe pour les sportifs exigeants.", sizes: ["One Size"], colors: ["Bleu", "Noir"], featured: true, bestseller: true, sale: false },
+
+    // === PERRUQUES (12 produits) ===
+    { id: 3001, name: "Perruque Naturelle Longue", price: 189.99, originalPrice: 249.99, category: "perruques",
+        image: "attached_assets/perruques/1.jpg",
+        images: ["attached_assets/perruques/1.jpg"],
+        description: "Perruque cheveux naturels longs pour un look élégant.", sizes: ["One Size"], colors: ["Brun", "Noir", "Blond"], featured: true, bestseller: true, sale: true },
+    { id: 3002, name: "Perruque Courte Moderne", price: 129.99, originalPrice: null, category: "perruques",
+        image: "attached_assets/perruques/2.jpg",
+        images: ["attached_assets/perruques/2.jpg"],
+        description: "Perruque courte au style moderne et dynamique.", sizes: ["One Size"], colors: ["Noir", "Brun"], featured: true, bestseller: false, sale: false },
+    { id: 3003, name: "Perruque Ondulée Glamour", price: 159.99, originalPrice: 199.99, category: "perruques",
+        image: "attached_assets/perruques/3.jpg",
+        images: ["attached_assets/perruques/3.jpg"],
+        description: "Perruque ondulée pour un look glamour.", sizes: ["One Size"], colors: ["Brun", "Blond"], featured: true, bestseller: true, sale: true },
+    { id: 3004, name: "Perruque Bouclée Volume", price: 149.99, originalPrice: null, category: "perruques",
+        image: "attached_assets/perruques/4.jpg",
+        images: ["attached_assets/perruques/4.jpg"],
+        description: "Perruque bouclée avec volume naturel.", sizes: ["One Size"], colors: ["Noir", "Brun"], featured: false, bestseller: true, sale: false },
+    { id: 3005, name: "Perruque Lisse Élégante", price: 169.99, originalPrice: 219.99, category: "perruques",
+        image: "attached_assets/perruques/5.jpg",
+        images: ["attached_assets/perruques/5.jpg"],
+        description: "Perruque lisse d'une élégance exceptionnelle.", sizes: ["One Size"], colors: ["Noir", "Brun", "Blond"], featured: true, bestseller: false, sale: true },
+    { id: 3006, name: "Perruque Mi-Longue Naturelle", price: 139.99, originalPrice: null, category: "perruques",
+        image: "attached_assets/perruques/6.jpg",
+        images: ["attached_assets/perruques/6.jpg"],
+        description: "Perruque mi-longue aux reflets naturels.", sizes: ["One Size"], colors: ["Châtain", "Brun"], featured: true, bestseller: true, sale: false },
+    { id: 3007, name: "Perruque Style Afro", price: 179.99, originalPrice: 229.99, category: "perruques",
+        image: "attached_assets/perruques/7.jpg",
+        images: ["attached_assets/perruques/7.jpg"],
+        description: "Perruque style afro volumineuse.", sizes: ["One Size"], colors: ["Noir", "Brun Foncé"], featured: true, bestseller: true, sale: true },
+    { id: 3008, name: "Perruque Tendance Colorée", price: 199.99, originalPrice: null, category: "perruques",
+        image: "attached_assets/perruques/8.jpg",
+        images: ["attached_assets/perruques/8.jpg"],
+        description: "Perruque tendance avec reflets colorés.", sizes: ["One Size"], colors: ["Multicolore"], featured: false, bestseller: false, sale: false },
+    { id: 3009, name: "Perruque Bob Chic", price: 119.99, originalPrice: 149.99, category: "perruques",
+        image: "attached_assets/perruques/9.jpg",
+        images: ["attached_assets/perruques/9.jpg"],
+        description: "Coupe bob chic et intemporelle.", sizes: ["One Size"], colors: ["Noir", "Brun"], featured: true, bestseller: false, sale: true },
+    { id: 3010, name: "Perruque Luxe Premium", price: 299.99, originalPrice: 399.99, category: "perruques",
+        image: "attached_assets/perruques/10.jpg",
+        images: ["attached_assets/perruques/10.jpg"],
+        description: "Perruque de luxe haut de gamme.", sizes: ["One Size"], colors: ["Brun Naturel", "Noir"], featured: true, bestseller: true, sale: true },
+    { id: 3011, name: "Perruque Dégradée Moderne", price: 155.99, originalPrice: null, category: "perruques",
+        image: "attached_assets/perruques/image.jpeg",
+        images: ["attached_assets/perruques/image.jpeg"],
+        description: "Perruque avec dégradé moderne.", sizes: ["One Size"], colors: ["Brun à Blond"], featured: false, bestseller: true, sale: false },
+    { id: 3012, name: "Perruque Style Unique", price: 169.99, originalPrice: 199.99, category: "perruques",
+        image: "attached_assets/perruques/images.jpeg",
+        images: ["attached_assets/perruques/images.jpeg"],
+        description: "Perruque au style unique et original.", sizes: ["One Size"], colors: ["Brun", "Noir"], featured: true, bestseller: false, sale: true },
+
+    // === SACS (17 produits) ===
+    { id: 4001, name: "Sac à Main Cuir Premium", price: 179.99, originalPrice: 229.99, category: "sacs",
+        image: "attached_assets/sacs/1000x895.jpg",
+        images: ["attached_assets/sacs/1000x895.jpg"],
+        description: "Sac à main en cuir véritable de qualité premium.", sizes: ["One Size"], colors: ["Noir", "Marron", "Rouge"], featured: true, bestseller: true, sale: true },
+    { id: 4002, name: "Sac Tendance Moderne", price: 89.99, originalPrice: 119.99, category: "sacs",
+        image: "attached_assets/sacs/4c06f44a4faa4648b6fd82845af64147.jpg",
+        images: ["attached_assets/sacs/4c06f44a4faa4648b6fd82845af64147.jpg"],
+        description: "Sac moderne au design contemporain.", sizes: ["One Size"], colors: ["Marron", "Noir"], featured: true, bestseller: false, sale: true },
+    { id: 4003, name: "Sac Élégant Soirée", price: 125.99, originalPrice: null, category: "sacs",
+        image: "attached_assets/sacs/574797bbd0e243b2b5e36fd3f407588e.jpg",
+        images: ["attached_assets/sacs/574797bbd0e243b2b5e36fd3f407588e.jpg"],
+        description: "Sac élégant pour les soirées et occasions spéciales.", sizes: ["One Size"], colors: ["Noir", "Or"], featured: true, bestseller: true, sale: false },
+    { id: 4004, name: "Sac Bandoulière Chic", price: 99.99, originalPrice: 129.99, category: "sacs",
+        image: "attached_assets/sacs/764b7ee3954a46999a877c6a78cedb61.jpg",
+        images: ["attached_assets/sacs/764b7ee3954a46999a877c6a78cedb61.jpg"],
+        description: "Sac bandoulière chic et pratique.", sizes: ["One Size"], colors: ["Beige", "Marron"], featured: false, bestseller: true, sale: true },
+    { id: 4005, name: "Sac Gucci GG Black", price: 299.99, originalPrice: 399.99, category: "sacs",
+        image: "attached_assets/sacs/792456_FADJA_1042_001_087_0000_Light-sac-a-epaule-gg-black-petit-format.jpg",
+        images: ["attached_assets/sacs/792456_FADJA_1042_001_087_0000_Light-sac-a-epaule-gg-black-petit-format.jpg"],
+        description: "Sac à épaule GG black petit format de luxe.", sizes: ["One Size"], colors: ["Noir"], featured: true, bestseller: true, sale: true },
+    { id: 4006, name: "Sac Mode Urbain", price: 79.99, originalPrice: null, category: "sacs",
+        image: "attached_assets/sacs/8effcdfb7a0d47de97a3901f43f27a87.jpg",
+        images: ["attached_assets/sacs/8effcdfb7a0d47de97a3901f43f27a87.jpg"],
+        description: "Sac mode urbain pour un style moderne.", sizes: ["One Size"], colors: ["Noir", "Gris"], featured: true, bestseller: false, sale: false },
+    { id: 4007, name: "Sac Cabas Spacieux", price: 95.99, originalPrice: 125.99, category: "sacs",
+        image: "attached_assets/sacs/9221_1144776046.jpg",
+        images: ["attached_assets/sacs/9221_1144776046.jpg"],
+        description: "Sac cabas spacieux pour le quotidien.", sizes: ["One Size"], colors: ["Beige", "Noir"], featured: false, bestseller: false, sale: true },
+    { id: 4008, name: "Sac Designer Unique", price: 249.99, originalPrice: null, category: "sacs",
+        image: "attached_assets/sacs/9276422cf5f2904dbb9b4339aadee61eacec87c6.jpg",
+        images: ["attached_assets/sacs/9276422cf5f2904dbb9b4339aadee61eacec87c6.jpg"],
+        description: "Sac designer au style unique.", sizes: ["One Size"], colors: ["Multicolore"], featured: true, bestseller: true, sale: false },
+    { id: 4009, name: "Sac Casual Pratique", price: 65.99, originalPrice: 85.99, category: "sacs",
         image: "attached_assets/sacs/cas.jpg",
-        images: [
-            "attached_assets/sacs/cas.jpg"
-        ],
-        description: "Perruque mi-longue aux reflets naturels, parfaite pour un look sophistiqué.",
-        sizes: ["One Size"],
-        colors: ["Châtain", "Brun", "Blond"],
-        featured: true,
-        bestseller: false,
-        sale: true
-    },
-    {
-        id: 502,
-        name: "Perruque Courte Moderne",
-        price: 89.99,
-        originalPrice: null,
-        category: "perruques",
+        images: ["attached_assets/sacs/cas.jpg"],
+        description: "Sac casual pratique pour tous les jours.", sizes: ["One Size"], colors: ["Marron", "Beige"], featured: true, bestseller: false, sale: true },
+    { id: 4010, name: "Sac Eram Collection", price: 115.99, originalPrice: null, category: "sacs",
         image: "attached_assets/sacs/eram.webp",
-        images: [
-            "attached_assets/sacs/eram.webp"
-        ],
-        description: "Coupe courte tendance pour un style moderne et dynamique.",
-        sizes: ["One Size"],
-        colors: ["Noir", "Brun", "Blond Platine"],
-        featured: false,
-        bestseller: true,
-        sale: false
-    },
-    {
-        id: 503,
-        name: "Perruque Longue Ondulée",
-        price: 199.99,
-        originalPrice: 249.99,
-        category: "perruques",
-        image: "attached_assets/sacs/fave.jfif",
-        images: [
-            "attached_assets/sacs/fave.jfif"
-        ],
-        description: "Perruque longue aux ondulations parfaites pour un effet glamour.",
-        sizes: ["One Size"],
-        colors: ["Roux", "Brun Doré", "Noir"],
-        featured: true,
-        bestseller: true,
-        sale: true
-    },
-    {
-        id: 504,
-        name: "Perruque Bob Élégante",
-        price: 119.99,
-        originalPrice: 149.99,
-        category: "perruques",
+        images: ["attached_assets/sacs/eram.webp"],
+        description: "Sac de la collection Eram, élégant et raffiné.", sizes: ["One Size"], colors: ["Noir"], featured: false, bestseller: true, sale: false },
+    { id: 4011, name: "Sac Moderne Tendance", price: 89.99, originalPrice: 109.99, category: "sacs",
+        image: "attached_assets/sacs/images (4).jpeg",
+        images: ["attached_assets/sacs/images (4).jpeg"],
+        description: "Sac moderne au design tendance.", sizes: ["One Size"], colors: ["Blanc", "Noir"], featured: true, bestseller: true, sale: true },
+    { id: 4012, name: "Sac Jane Élégant", price: 135.99, originalPrice: null, category: "sacs",
         image: "attached_assets/sacs/jane.jpg",
-        images: [
-            "attached_assets/sacs/jane.jpg"
-        ],
-        description: "Coupe bob classique et élégante pour un look intemporel.",
-        sizes: ["One Size"],
-        colors: ["Noir", "Brun", "Blond Cendré"],
-        featured: true,
-        bestseller: false,
-        sale: true
-    },
-    {
-        id: 505,
-        name: "Perruque Pixie Moderne",
-        price: 79.99,
-        originalPrice: null,
-        category: "perruques",
+        images: ["attached_assets/sacs/jane.jpg"],
+        description: "Sac Jane élégant pour toutes occasions.", sizes: ["One Size"], colors: ["Beige", "Marron"], featured: true, bestseller: false, sale: false },
+    { id: 4013, name: "Sac Quotidien Chic", price: 75.99, originalPrice: 95.99, category: "sacs",
         image: "attached_assets/sacs/sac.webp",
-        images: [
-            "attached_assets/sacs/sac.webp"
-        ],
-        description: "Coupe pixie audacieuse pour un style moderne et affirmé.",
-        sizes: ["One Size"],
-        colors: ["Blond", "Brun", "Noir"],
-        featured: false,
-        bestseller: false,
-        sale: false
-    },
-    {
-        id: 506,
-        name: "Perruque Frisée Voluptueuse",
-        price: 169.99,
-        originalPrice: 199.99,
-        category: "perruques",
+        images: ["attached_assets/sacs/sac.webp"],
+        description: "Sac quotidien chic et pratique.", sizes: ["One Size"], colors: ["Noir", "Gris"], featured: false, bestseller: false, sale: true },
+    { id: 4014, name: "Sac Collection Premium", price: 159.99, originalPrice: 199.99, category: "sacs",
         image: "attached_assets/sacs/sacs.webp",
-        images: [
-            "attached_assets/sacs/sacs.webp"
-        ],
-        description: "Perruque aux boucles voluptueuses pour un style afro-caribéen.",
-        sizes: ["One Size"],
-        colors: ["Noir", "Brun Foncé", "Auburn"],
-        featured: true,
-        bestseller: true,
-        sale: true
-    },
-    {
-        id: 507,
-        name: "Perruque Dégradée Tendance",
-        price: 139.99,
-        originalPrice: null,
-        category: "perruques",
-        image: "attached_assets/sacs/sak.jfif",
-        images: [
-            "attached_assets/sacs/sak.jfif"
-        ],
-        description: "Perruque avec dégradé moderne pour un look branché.",
-        sizes: ["One Size"],
-        colors: ["Brun à Blond", "Noir à Gris", "Roux à Cuivré"],
-        featured: false,
-        bestseller: true,
-        sale: false
-    },
-    {
-        id: 508,
-        name: "Perruque Vintage Rétro",
-        price: 159.99,
-        originalPrice: 189.99,
-        category: "perruques",
+        images: ["attached_assets/sacs/sacs.webp"],
+        description: "Sac de la collection premium.", sizes: ["One Size"], colors: ["Marron", "Noir"], featured: true, bestseller: true, sale: true },
+    { id: 4015, name: "Sac Luxe Designer", price: 279.99, originalPrice: null, category: "sacs",
+        image: "attached_assets/sacs/s-l1200.jpg",
+        images: ["attached_assets/sacs/s-l1200.jpg"],
+        description: "Sac de luxe designer de haute qualité.", sizes: ["One Size"], colors: ["Or", "Argent"], featured: true, bestseller: true, sale: false },
+    { id: 4016, name: "Sac Style Unique", price: 105.99, originalPrice: 139.99, category: "sacs",
         image: "attached_assets/sacs/ssaak.png",
-        images: [
-            "attached_assets/sacs/ssaak.png"
-        ],
-        description: "Style vintage des années 50 pour un look rétro chic.",
-        sizes: ["One Size"],
-        colors: ["Blond Platine", "Roux", "Noir"],
-        featured: true,
-        bestseller: false,
-        sale: true
-    },
-    {
-        id: 509,
-        name: "Perruque Asymétrique Creative",
-        price: 129.99,
-        originalPrice: null,
-        category: "perruques",
+        images: ["attached_assets/sacs/ssaak.png"],
+        description: "Sac au style unique et remarquable.", sizes: ["One Size"], colors: ["Multicolore"], featured: false, bestseller: true, sale: true },
+    { id: 4017, name: "Sac Tod's Premium", price: 249.99, originalPrice: null, category: "sacs",
         image: "attached_assets/sacs/tods.webp",
-        images: [
-            "attached_assets/sacs/tods.webp"
-        ],
-        description: "Coupe asymétrique créative pour un style unique et original.",
-        sizes: ["One Size"],
-        colors: ["Noir", "Blond", "Brun"],
-        featured: false,
-        bestseller: false,
-        sale: false
-    },
-    {
-        id: 510,
-        name: "Perruque Lace Front Premium",
-        price: 299.99,
-        originalPrice: 399.99,
-        category: "perruques",
-        image: "attached_assets/1.jpg",
-        images: [
-            "attached_assets/1.jpg"
-        ],
-        description: "Perruque lace front haut de gamme pour un rendu ultra-naturel.",
-        sizes: ["One Size"],
-        colors: ["Brun Naturel", "Noir", "Blond Miel"],
-        featured: true,
-        bestseller: true,
-        sale: true
-    },
-    {
-        id: 511,
-        name: "Perruque Wavy Bohème",
-        price: 179.99,
-        originalPrice: null,
-        category: "perruques",
-        image: "attached_assets/2.jpg",
-        images: [
-            "attached_assets/2.jpg"
-        ],
-        description: "Ondulations bohèmes pour un style décontracté et naturel.",
-        sizes: ["One Size"],
-        colors: ["Brun Chocolat", "Blond Sable", "Auburn"],
-        featured: true,
-        bestseller: true,
-        sale: false
-    },
-    {
-        id: 512,
-        name: "Perruque Straight Sophistiquée",
-        price: 189.99,
-        originalPrice: 229.99,
-        category: "perruques",
-        image: "attached_assets/3.jpg",
-        images: [
-            "attached_assets/3.jpg"
-        ],
-        description: "Perruque lisse sophistiquée pour un look professionnel.",
-        sizes: ["One Size"],
-        colors: ["Noir Intense", "Brun Espresso", "Blond Foncé"],
-        featured: false,
-        bestseller: true,
-        sale: true
-    },
-    {
-        id: 513,
-        name: "Perruque Curly Glamour",
-        price: 219.99,
-        originalPrice: null,
-        category: "perruques",
-        image: "attached_assets/4.jpg",
-        images: [
-            "attached_assets/4.jpg"
-        ],
-        description: "Boucles glamour pour un effet red carpet saisissant.",
-        sizes: ["One Size"],
-        colors: ["Brun Hollywood", "Blond Star", "Noir Velours"],
-        featured: true,
-        bestseller: false,
-        sale: false
-    },
-    {
-        id: 514,
-        name: "Perruque Beach Waves",
-        price: 149.99,
-        originalPrice: 179.99,
-        category: "perruques",
-        image: "attached_assets/5.jpg",
-        images: [
-            "attached_assets/5.jpg"
-        ],
-        description: "Effet beach waves naturel pour un look décontracté.",
-        sizes: ["One Size"],
-        colors: ["Blond Plage", "Brun Ensoleillé", "Châtain Doré"],
-        featured: true,
-        bestseller: true,
-        sale: true
-    },
-    {
-        id: 515,
-        name: "Perruque Layered Dynamique",
-        price: 169.99,
-        originalPrice: null,
-        category: "perruques",
-        image: "attached_assets/6.jpg",
-        images: [
-            "attached_assets/6.jpg"
-        ],
-        description: "Coupe en dégradé dynamique pour un mouvement naturel.",
-        sizes: ["One Size"],
-        colors: ["Brun Caramel", "Noir Profond", "Blond Cuivré"],
-        featured: false,
-        bestseller: false,
-        sale: false
-    },
-    {
-        id: 516,
-        name: "Perruque Shag Moderne",
-        price: 139.99,
-        originalPrice: 169.99,
-        category: "perruques",
-        image: "attached_assets/7.jpg",
-        images: [
-            "attached_assets/7.jpg"
-        ],
-        description: "Coupe shag moderne pour un style rock et tendance.",
-        sizes: ["One Size"],
-        colors: ["Brun Rock", "Blond Rebelle", "Noir Intense"],
-        featured: true,
-        bestseller: true,
-        sale: true
-    },
-    {
-        id: 517,
-        name: "Perruque Textured Chic",
-        price: 159.99,
-        originalPrice: null,
-        category: "perruques",
-        image: "attached_assets/8.jpg",
-        images: [
-            "attached_assets/8.jpg"
-        ],
-        description: "Texture sophistiquée pour un look chic et moderne.",
-        sizes: ["One Size"],
-        colors: ["Brun Texture", "Blond Naturel", "Noir Soyeux"],
-        featured: false,
-        bestseller: true,
-        sale: false
-    },
-    {
-        id: 518,
-        name: "Perruque Volume Luxe",
-        price: 249.99,
-        originalPrice: 299.99,
-        category: "perruques",
-        image: "attached_assets/9.jpg",
-        images: [
-            "attached_assets/9.jpg"
-        ],
-        description: "Volume luxueux pour un effet spectaculaire et glamour.",
-        sizes: ["One Size"],
-        colors: ["Brun Luxe", "Blond Prestige", "Noir Royal"],
-        featured: true,
-        bestseller: true,
-        sale: true
-    },
-    // Nouveaux sacs pour avoir au moins 18 articles
-    {
-        id: 601,
-        name: "Sac Voyage Premium",
-        price: 199.99,
-        originalPrice: 249.99,
-        category: "sacs",
-        image: "attached_assets/10.jpg",
-        images: [
-            "attached_assets/10.jpg"
-        ],
-        description: "Sac de voyage spacieux et élégant pour vos déplacements.",
-        sizes: ["One Size"],
-        colors: ["Noir", "Marron", "Marine"],
-        featured: true,
-        bestseller: false,
-        sale: true
-    },
-    {
-        id: 602,
-        name: "Pochette Soirée Brillante",
-        price: 79.99,
-        originalPrice: null,
-        category: "sacs",
-        image: "attached_assets/hero.jpg",
-        images: [
-            "attached_assets/hero.jpg"
-        ],
-        description: "Pochette élégante avec finitions brillantes pour vos soirées.",
-        sizes: ["One Size"],
-        colors: ["Or", "Argent", "Rose Gold"],
-        featured: true,
-        bestseller: true,
-        sale: false
-    },
-    {
-        id: 603,
-        name: "Sac Business Professionnel",
-        price: 149.99,
-        originalPrice: 189.99,
-        category: "sacs",
-        image: "attached_assets/image.jpeg",
-        images: [
-            "attached_assets/image.jpeg"
-        ],
-        description: "Sac professionnel parfait pour le bureau et les rendez-vous.",
-        sizes: ["One Size"],
-        colors: ["Noir", "Gris", "Bordeaux"],
-        featured: false,
-        bestseller: true,
-        sale: true
-    },
-    {
-        id: 604,
-        name: "Sac Week-end Décontracté",
-        price: 119.99,
-        originalPrice: null,
-        category: "sacs",
-        image: "attached_assets/images.jpeg",
-        images: [
-            "attached_assets/images.jpeg"
-        ],
-        description: "Sac parfait pour les escapades de week-end.",
-        sizes: ["One Size"],
-        colors: ["Beige", "Kaki", "Marine"],
-        featured: true,
-        bestseller: false,
-        sale: false
-    },
-    {
-        id: 605,
-        name: "Sac Bandoulière Moderne",
-        price: 89.99,
-        originalPrice: 109.99,
-        category: "sacs",
-        image: "attached_assets/stock_images/fashion_boutique_int_390ef7ed.jpg",
-        images: [
-            "attached_assets/stock_images/fashion_boutique_int_390ef7ed.jpg"
-        ],
-        description: "Sac bandoulière au design moderne et fonctionnel.",
-        sizes: ["One Size"],
-        colors: ["Camel", "Noir", "Bordeaux"],
-        featured: true,
-        bestseller: true,
-        sale: true
-    },
-    {
-        id: 606,
-        name: "Sac Hobo Bohème",
-        price: 99.99,
-        originalPrice: null,
-        category: "sacs",
-        image: "attached_assets/stock_images/modern_fashion_works_9e59220d.jpg",
-        images: [
-            "attached_assets/stock_images/modern_fashion_works_9e59220d.jpg"
-        ],
-        description: "Sac hobo au style bohème pour un look décontracté.",
-        sizes: ["One Size"],
-        colors: ["Cognac", "Taupe", "Olive"],
-        featured: false,
-        bestseller: false,
-        sale: false
-    },
-    {
-        id: 607,
-        name: "Sac Mini Tendance",
-        price: 69.99,
-        originalPrice: 89.99,
-        category: "sacs",
-        image: "attached_assets/vetement/enfan.jfif",
-        images: [
-            "attached_assets/vetement/enfan.jfif"
-        ],
-        description: "Mini sac tendance pour un look moderne et chic.",
-        sizes: ["One Size"],
-        colors: ["Rose", "Noir", "Blanc"],
-        featured: true,
-        bestseller: true,
-        sale: true
-    },
-    {
-        id: 608,
-        name: "Sac Besace Vintage",
-        price: 129.99,
-        originalPrice: null,
-        category: "sacs",
+        images: ["attached_assets/sacs/tods.webp"],
+        description: "Sac Tod's premium de qualité exceptionnelle.", sizes: ["One Size"], colors: ["Marron"], featured: true, bestseller: true, sale: false },
+
+    // === VÊTEMENTS (26 produits) ===
+    { id: 5001, name: "Robe Élégante Moderne", price: 125.99, originalPrice: 159.99, category: "vetements",
+        image: "attached_assets/vetement/03e65cfb06bb401bb1ea3571712476fa.jpg",
+        images: ["attached_assets/vetement/03e65cfb06bb401bb1ea3571712476fa.jpg"],
+        description: "Robe élégante au design moderne.", sizes: ["XS", "S", "M", "L", "XL"], colors: ["Noir", "Bleu"], featured: true, bestseller: true, sale: true },
+    { id: 5002, name: "Ensemble Casual Chic", price: 89.99, originalPrice: null, category: "vetements",
+        image: "attached_assets/vetement/1a69276acc68480f8a91b85151c4b300.jpg",
+        images: ["attached_assets/vetement/1a69276acc68480f8a91b85151c4b300.jpg"],
+        description: "Ensemble casual chic pour le quotidien.", sizes: ["XS", "S", "M", "L", "XL"], colors: ["Blanc", "Beige"], featured: true, bestseller: false, sale: false },
+    { id: 5003, name: "Tenue Mode Urbaine", price: 95.99, originalPrice: 125.99, category: "vetements",
+        image: "attached_assets/vetement/1cd07605183b491a8540c9fcd7e328e4.jpg",
+        images: ["attached_assets/vetement/1cd07605183b491a8540c9fcd7e328e4.jpg"],
+        description: "Tenue mode urbaine tendance.", sizes: ["XS", "S", "M", "L", "XL"], colors: ["Noir", "Gris"], featured: false, bestseller: true, sale: true },
+    { id: 5004, name: "Robe Soirée Glamour", price: 149.99, originalPrice: null, category: "vetements",
+        image: "attached_assets/vetement/3a3baee4a2d5434f8eecfff1126640dc.jpg",
+        images: ["attached_assets/vetement/3a3baee4a2d5434f8eecfff1126640dc.jpg"],
+        description: "Robe de soirée glamour et sophistiquée.", sizes: ["XS", "S", "M", "L", "XL"], colors: ["Rouge", "Noir"], featured: true, bestseller: true, sale: false },
+    { id: 5005, name: "Tenue Décontractée Femme", price: 79.99, originalPrice: 99.99, category: "vetements",
+        image: "attached_assets/vetement/3f5330b83d244b89813f126c93bc6c86.jpg",
+        images: ["attached_assets/vetement/3f5330b83d244b89813f126c93bc6c86.jpg"],
+        description: "Tenue décontractée confortable.", sizes: ["XS", "S", "M", "L", "XL"], colors: ["Bleu", "Blanc"], featured: true, bestseller: false, sale: true },
+    { id: 5006, name: "Ensemble Moderne Tendance", price: 109.99, originalPrice: null, category: "vetements",
+        image: "attached_assets/vetement/4e29e6eeaae547ef89a4a579c6562f55.jpg",
+        images: ["attached_assets/vetement/4e29e6eeaae547ef89a4a579c6562f55.jpg"],
+        description: "Ensemble moderne et tendance.", sizes: ["XS", "S", "M", "L", "XL"], colors: ["Noir", "Beige"], featured: false, bestseller: true, sale: false },
+    { id: 5007, name: "Robe Casual Élégante", price: 85.99, originalPrice: 115.99, category: "vetements",
+        image: "attached_assets/vetement/5a607210b5b04572acd7e8fc4a787eca.jpg",
+        images: ["attached_assets/vetement/5a607210b5b04572acd7e8fc4a787eca.jpg"],
+        description: "Robe casual élégante pour toutes occasions.", sizes: ["XS", "S", "M", "L", "XL"], colors: ["Beige", "Blanc"], featured: true, bestseller: true, sale: true },
+    { id: 5008, name: "Chemise Classic Homme", price: 65.99, originalPrice: null, category: "vetements",
+        image: "attached_assets/vetement/613+tot5pML._AC_SL1200_.jpg",
+        images: ["attached_assets/vetement/613+tot5pML._AC_SL1200_.jpg"],
+        description: "Chemise classique pour homme.", sizes: ["S", "M", "L", "XL", "XXL"], colors: ["Blanc", "Bleu"], featured: true, bestseller: false, sale: false },
+    { id: 5009, name: "Tenue Sport Femme", price: 75.99, originalPrice: 95.99, category: "vetements",
+        image: "attached_assets/vetement/613uQE 56VL._AC_UY350_.jpg",
+        images: ["attached_assets/vetement/613uQE 56VL._AC_UY350_.jpg"],
+        description: "Tenue sport confortable pour femme.", sizes: ["XS", "S", "M", "L", "XL"], colors: ["Rose", "Noir"], featured: false, bestseller: false, sale: true },
+    { id: 5010, name: "Pantalon Élégant Homme", price: 89.99, originalPrice: null, category: "vetements",
+        image: "attached_assets/vetement/61KkAWEFzuL._AC_SL1500_.jpg",
+        images: ["attached_assets/vetement/61KkAWEFzuL._AC_SL1500_.jpg"],
+        description: "Pantalon élégant pour homme.", sizes: ["28", "30", "32", "34", "36", "38"], colors: ["Noir", "Gris"], featured: true, bestseller: true, sale: false },
+    { id: 5011, name: "Polo Classic Homme", price: 55.99, originalPrice: 69.99, category: "vetements",
+        image: "attached_assets/vetement/61Zw7NrauNL._AC_SL1500_.jpg",
+        images: ["attached_assets/vetement/61Zw7NrauNL._AC_SL1500_.jpg"],
+        description: "Polo classique confortable.", sizes: ["S", "M", "L", "XL", "XXL"], colors: ["Bleu", "Blanc"], featured: true, bestseller: false, sale: true },
+    { id: 5012, name: "Robe Tendance Moderne", price: 99.99, originalPrice: null, category: "vetements",
+        image: "attached_assets/vetement/8c848ede7f1346edbe4a504f52bbef04.jpg",
+        images: ["attached_assets/vetement/8c848ede7f1346edbe4a504f52bbef04.jpg"],
+        description: "Robe tendance au design moderne.", sizes: ["XS", "S", "M", "L", "XL"], colors: ["Noir", "Blanc"], featured: false, bestseller: true, sale: false },
+    { id: 5013, name: "Ensemble Femme Élégant", price: 119.99, originalPrice: 149.99, category: "vetements",
+        image: "attached_assets/vetement/91886239ebab479899e424689987d560.jpg",
+        images: ["attached_assets/vetement/91886239ebab479899e424689987d560.jpg"],
+        description: "Ensemble femme élégant et raffiné.", sizes: ["XS", "S", "M", "L", "XL"], colors: ["Beige", "Noir"], featured: true, bestseller: true, sale: true },
+    { id: 5014, name: "Tenue Moderne Casual", price: 79.99, originalPrice: null, category: "vetements",
+        image: "attached_assets/vetement/c246717f079a4985b1d13ea706ce00d9.jpg",
+        images: ["attached_assets/vetement/c246717f079a4985b1d13ea706ce00d9.jpg"],
+        description: "Tenue moderne casual pour tous les jours.", sizes: ["XS", "S", "M", "L", "XL"], colors: ["Blanc", "Gris"], featured: true, bestseller: false, sale: false },
+    { id: 5015, name: "Robe Chic Femme", price: 105.99, originalPrice: 135.99, category: "vetements",
+        image: "attached_assets/vetement/d7343869fa6a4144832e09cbc2a6b257.jpg",
+        images: ["attached_assets/vetement/d7343869fa6a4144832e09cbc2a6b257.jpg"],
+        description: "Robe chic pour femme élégante.", sizes: ["XS", "S", "M", "L", "XL"], colors: ["Noir", "Rouge"], featured: false, bestseller: true, sale: true },
+    { id: 5016, name: "Ensemble Sport Moderne", price: 95.99, originalPrice: null, category: "vetements",
+        image: "attached_assets/vetement/dbf28fdf94eb4b49b29853f1a9cf4c60.jpg",
+        images: ["attached_assets/vetement/dbf28fdf94eb4b49b29853f1a9cf4c60.jpg"],
+        description: "Ensemble sport moderne et confortable.", sizes: ["XS", "S", "M", "L", "XL"], colors: ["Noir", "Bleu"], featured: true, bestseller: true, sale: false },
+    { id: 5017, name: "Tenue Élégante Soirée", price: 139.99, originalPrice: 179.99, category: "vetements",
+        image: "attached_assets/vetement/dda0c53e981946efb02608b1cf4e9aff.jpg",
+        images: ["attached_assets/vetement/dda0c53e981946efb02608b1cf4e9aff.jpg"],
+        description: "Tenue élégante pour soirée.", sizes: ["XS", "S", "M", "L", "XL"], colors: ["Noir", "Or"], featured: true, bestseller: false, sale: true },
+    { id: 5018, name: "Robe Moderne Femme", price: 89.99, originalPrice: null, category: "vetements",
+        image: "attached_assets/vetement/df9a2b2f984c47eb8f58bd328b2320b4.jpg",
+        images: ["attached_assets/vetement/df9a2b2f984c47eb8f58bd328b2320b4.jpg"],
+        description: "Robe moderne pour femme active.", sizes: ["XS", "S", "M", "L", "XL"], colors: ["Bleu", "Blanc"], featured: false, bestseller: false, sale: false },
+    { id: 5019, name: "Robe Enfant Princesse", price: 45.99, originalPrice: 59.99, category: "vetements",
         image: "attached_assets/vetement/enfant.jpg",
-        images: [
-            "attached_assets/vetement/enfant.jpg"
-        ],
-        description: "Sac besace au charme vintage pour un style rétro.",
-        sizes: ["One Size"],
-        colors: ["Marron Vintage", "Noir Classique", "Bordeaux"],
-        featured: false,
-        bestseller: true,
-        sale: false
-    },
-    {
-        id: 609,
-        name: "Sac Bucket Moderne",
-        price: 109.99,
-        originalPrice: 139.99,
-        category: "sacs",
+        images: ["attached_assets/vetement/enfant.jpg"],
+        description: "Robe princesse pour enfant.", sizes: ["2T", "3T", "4T", "5T", "6T"], colors: ["Rose", "Bleu"], featured: true, bestseller: true, sale: true },
+    { id: 5020, name: "Veste Enfant Moderne", price: 55.99, originalPrice: null, category: "vetements",
         image: "attached_assets/vetement/enfantt.webp",
-        images: [
-            "attached_assets/vetement/enfantt.webp"
-        ],
-        description: "Sac bucket moderne avec fermeture cordon élégante.",
-        sizes: ["One Size"],
-        colors: ["Camel", "Noir", "Marine"],
-        featured: true,
-        bestseller: false,
-        sale: true
-    },
-    {
-        id: 610,
-        name: "Sac Clutch Élégant",
-        price: 59.99,
-        originalPrice: null,
-        category: "sacs",
-        image: "attached_assets/vetement/enfanttt.jfif",
-        images: [
-            "attached_assets/vetement/enfanttt.jfif"
-        ],
-        description: "Clutch élégant pour vos événements spéciaux.",
-        sizes: ["One Size"],
-        colors: ["Noir", "Nude", "Rouge"],
-        featured: true,
-        bestseller: true,
-        sale: false
-    },
-    {
-        id: 611,
-        name: "Sac Shopping Large",
-        price: 79.99,
-        originalPrice: 99.99,
-        category: "sacs",
+        images: ["attached_assets/vetement/enfantt.webp"],
+        description: "Veste moderne pour enfant.", sizes: ["2T", "3T", "4T", "5T", "6T"], colors: ["Bleu", "Noir"], featured: true, bestseller: false, sale: false },
+    { id: 5021, name: "Ensemble Enfant Casual", price: 39.99, originalPrice: 49.99, category: "vetements",
         image: "attached_assets/vetement/enffant.jpg",
-        images: [
-            "attached_assets/vetement/enffant.jpg"
-        ],
-        description: "Grand sac shopping pour vos courses et sorties.",
-        sizes: ["One Size"],
-        colors: ["Beige", "Noir", "Kaki"],
-        featured: false,
-        bestseller: false,
-        sale: true
-    },
-    {
-        id: 612,
-        name: "Sac Convertible 2-en-1",
-        price: 159.99,
-        originalPrice: null,
-        category: "sacs",
-        image: "attached_assets/vetement/images (1).jfif",
-        images: [
-            "attached_assets/vetement/images (1).jfif"
-        ],
-        description: "Sac convertible qui se transforme selon vos besoins.",
-        sizes: ["One Size"],
-        colors: ["Noir", "Taupe", "Bordeaux"],
-        featured: true,
-        bestseller: true,
-        sale: false
-    },
-    // Nouveaux vêtements supplémentaires
-    {
-        id: 701,
-        name: "Chemisier Soie Luxe",
-        price: 129.99,
-        originalPrice: 159.99,
-        category: "vetements",
-        image: "attached_assets/vetement/images.jfif",
-        images: [
-            "attached_assets/vetement/images.jfif"
-        ],
-        description: "Chemisier en soie pure pour un look sophistiqué.",
-        sizes: ["XS", "S", "M", "L", "XL"],
-        colors: ["Blanc", "Beige", "Marine"],
-        featured: true,
-        bestseller: true,
-        sale: true
-    },
-    {
-        id: 702,
-        name: "Manteau Hiver Élégant",
-        price: 199.99,
-        originalPrice: null,
-        category: "vetements",
+        images: ["attached_assets/vetement/enffant.jpg"],
+        description: "Ensemble casual pour enfant.", sizes: ["2T", "3T", "4T", "5T", "6T"], colors: ["Blanc", "Gris"], featured: false, bestseller: true, sale: true },
+    { id: 5022, name: "Tenue Style Professionnel", price: 129.99, originalPrice: null, category: "vetements",
+        image: "attached_assets/vetement/f906f1f7c3f547289139f0bd12f4d4b6.jpg",
+        images: ["attached_assets/vetement/f906f1f7c3f547289139f0bd12f4d4b6.jpg"],
+        description: "Tenue style professionnel élégant.", sizes: ["XS", "S", "M", "L", "XL"], colors: ["Noir", "Marine"], featured: true, bestseller: true, sale: false },
+    { id: 5023, name: "Robe Casual Quotidien", price: 69.99, originalPrice: 89.99, category: "vetements",
+        image: "attached_assets/vetement/fd8633ce850b4eccac8eb2f73eaabff2.jpg",
+        images: ["attached_assets/vetement/fd8633ce850b4eccac8eb2f73eaabff2.jpg"],
+        description: "Robe casual pour le quotidien.", sizes: ["XS", "S", "M", "L", "XL"], colors: ["Beige", "Blanc"], featured: true, bestseller: false, sale: true },
+    { id: 5024, name: "Ensemble Homme Tendance", price: 115.99, originalPrice: 145.99, category: "vetements",
         image: "attached_assets/vetement/OUTFITTERY_10Y_Day1_1288_9335-683x1024.jpg",
-        images: [
-            "attached_assets/vetement/OUTFITTERY_10Y_Day1_1288_9335-683x1024.jpg"
-        ],
-        description: "Manteau d'hiver élégant et chaud pour la saison froide.",
-        sizes: ["XS", "S", "M", "L", "XL"],
-        colors: ["Noir", "Camel", "Gris"],
-        featured: true,
-        bestseller: false,
-        sale: false
-    },
-    // Nouveaux sacs avec images du dossier "sacs complement"
-    {
-        id: 703,
-        name: "Sac Tendance Moderne",
-        price: 89.99,
-        originalPrice: 119.99,
-        category: "sacs",
-        image: "sacs complement/4c06f44a4faa4648b6fd82845af64147.jpg",
-        images: [
-            "sacs complement/4c06f44a4faa4648b6fd82845af64147.jpg"
-        ],
-        description: "Sac moderne au design contemporain, parfait pour un look tendance.",
-        sizes: ["One Size"],
-        colors: ["Marron", "Noir", "Beige"],
-        featured: true,
-        bestseller: true,
-        sale: true
-    },
-    {
-        id: 704,
-        name: "Sac Élégant Premium",
-        price: 125.99,
-        originalPrice: null,
-        category: "sacs",
-        image: "sacs complement/574797bbd0e243b2b5e36fd3f407588e.jpg",
-        images: [
-            "sacs complement/574797bbd0e243b2b5e36fd3f407588e.jpg"
-        ],
-        description: "Sac premium avec finitions de qualité supérieure.",
-        sizes: ["One Size"],
-        colors: ["Noir", "Cognac", "Marine"],
-        featured: true,
-        bestseller: false,
-        sale: false
-    },
-    {
-        id: 705,
-        name: "Sac Chic Collection",
-        price: 95.99,
-        originalPrice: 129.99,
-        category: "sacs",
-        image: "sacs complement/764b7ee3954a46999a877c6a78cedb61.jpg",
-        images: [
-            "sacs complement/764b7ee3954a46999a877c6a78cedb61.jpg"
-        ],
-        description: "Sac de la collection chic pour toutes les occasions spéciales.",
-        sizes: ["One Size"],
-        colors: ["Rouge", "Noir", "Taupe"],
-        featured: false,
-        bestseller: true,
-        sale: true
-    },
-    {
-        id: 706,
-        name: "Sac Luxe Sophistiqué",
-        price: 149.99,
-        originalPrice: null,
-        category: "sacs",
-        image: "sacs complement/8effcdfb7a0d47de97a3901f43f27a87.jpg",
-        images: [
-            "sacs complement/8effcdfb7a0d47de97a3901f43f27a87.jpg"
-        ],
-        description: "Sac luxueux au design sophistiqué et raffiné.",
-        sizes: ["One Size"],
-        colors: ["Bordeaux", "Noir", "Camel"],
-        featured: true,
-        bestseller: true,
-        sale: false
-    },
-    // Nouveaux accessoires avec images du dossier "accesoires"
-    {
-        id: 801,
-        name: "Accessoire Style Unique",
-        price: 45.99,
-        originalPrice: 65.99,
-        category: "perruques",
-        image: "accesoires/2e786e3df02c4f55b539145ff0e292c5.jpg",
-        images: [
-            "accesoires/2e786e3df02c4f55b539145ff0e292c5.jpg"
-        ],
-        description: "Accessoire capillaire au style unique et moderne.",
-        sizes: ["One Size"],
-        colors: ["Naturel", "Brun", "Noir"],
-        featured: true,
-        bestseller: false,
-        sale: true
-    },
-    {
-        id: 802,
-        name: "Perruque Exclusive Design",
-        price: 199.99,
-        originalPrice: null,
-        category: "perruques",
-        image: "accesoires/52ea9b884c4c4dde9b30d17b4c9cc649.jpg",
-        images: [
-            "accesoires/52ea9b884c4c4dde9b30d17b4c9cc649.jpg"
-        ],
-        description: "Perruque au design exclusif pour un look exceptionnel.",
-        sizes: ["One Size"],
-        colors: ["Châtain", "Blond", "Roux"],
-        featured: true,
-        bestseller: true,
-        sale: false
-    },
-    {
-        id: 803,
-        name: "Accessoire Premium Quality",
-        price: 85.99,
-        originalPrice: 110.99,
-        category: "perruques",
-        image: "accesoires/643ffa375e9d42bea6871070b57488bc.jpg",
-        images: [
-            "accesoires/643ffa375e9d42bea6871070b57488bc.jpg"
-        ],
-        description: "Accessoire de qualité premium pour un rendu parfait.",
-        sizes: ["One Size"],
-        colors: ["Noir", "Brun", "Miel"],
-        featured: false,
-        bestseller: true,
-        sale: true
-    },
-    {
-        id: 804,
-        name: "Style Capillaire Moderne",
-        price: 129.99,
-        originalPrice: null,
-        category: "perruques",
-        image: "accesoires/78e19addb8eb48c09d928574e7c14e9c.jpg",
-        images: [
-            "accesoires/78e19addb8eb48c09d928574e7c14e9c.jpg"
-        ],
-        description: "Style capillaire moderne et tendance.",
-        sizes: ["One Size"],
-        colors: ["Blond Platine", "Noir", "Auburn"],
-        featured: true,
-        bestseller: false,
-        sale: false
-    },
-    {
-        id: 805,
-        name: "Perruque Collection Elite",
-        price: 175.99,
-        originalPrice: 229.99,
-        category: "perruques",
-        image: "accesoires/81f29e4a500e466a92f9515b3b1e7fcd.jpg",
-        images: [
-            "accesoires/81f29e4a500e466a92f9515b3b1e7fcd.jpg"
-        ],
-        description: "Perruque de la collection élite avec finition impeccable.",
-        sizes: ["One Size"],
-        colors: ["Brun Doré", "Noir Jais", "Blond Cendré"],
-        featured: true,
-        bestseller: true,
-        sale: true
-    },
-    // Nouveaux vêtements avec images du dossier "vetement complement"
-    {
-        id: 806,
-        name: "Vêtement Style Contemporain",
-        price: 79.99,
-        originalPrice: 99.99,
-        category: "vetements",
-        image: "vetement complement/1cd07605183b491a8540c9fcd7e328e4.jpg",
-        images: [
-            "vetement complement/1cd07605183b491a8540c9fcd7e328e4.jpg"
-        ],
-        description: "Vêtement au style contemporain et moderne.",
-        sizes: ["XS", "S", "M", "L", "XL"],
-        colors: ["Noir", "Blanc", "Gris"],
-        featured: true,
-        bestseller: false,
-        sale: true
-    },
-    {
-        id: 807,
-        name: "Tenue Élégante Moderne",
-        price: 119.99,
-        originalPrice: null,
-        category: "vetements",
-        image: "vetement complement/3a3baee4a2d5434f8eecfff1126640dc.jpg",
-        images: [
-            "vetement complement/3a3baee4a2d5434f8eecfff1126640dc.jpg"
-        ],
-        description: "Tenue élégante au design moderne et raffiné.",
-        sizes: ["XS", "S", "M", "L", "XL"],
-        colors: ["Marine", "Noir", "Bordeaux"],
-        featured: true,
-        bestseller: true,
-        sale: false
-    },
-    {
-        id: 808,
-        name: "Mode Avant-garde",
-        price: 95.99,
-        originalPrice: 129.99,
-        category: "vetements",
-        image: "vetement complement/4e29e6eeaae547ef89a4a579c6562f55.jpg",
-        images: [
-            "vetement complement/4e29e6eeaae547ef89a4a579c6562f55.jpg"
-        ],
-        description: "Vêtement avant-garde pour un look unique.",
-        sizes: ["XS", "S", "M", "L", "XL"],
-        colors: ["Kaki", "Noir", "Beige"],
-        featured: false,
-        bestseller: true,
-        sale: true
-    },
-    {
-        id: 809,
-        name: "Collection Premium Style",
-        price: 149.99,
-        originalPrice: null,
-        category: "vetements",
-        image: "vetement complement/5a607210b5b04572acd7e8fc4a787eca.jpg",
-        images: [
-            "vetement complement/5a607210b5b04572acd7e8fc4a787eca.jpg"
-        ],
-        description: "Pièce de la collection premium au style sophistiqué.",
-        sizes: ["XS", "S", "M", "L", "XL"],
-        colors: ["Noir", "Blanc Cassé", "Taupe"],
-        featured: true,
-        bestseller: true,
-        sale: false
-    },
-    {
-        id: 810,
-        name: "Vêtement Sophistiqué",
-        price: 89.99,
-        originalPrice: 115.99,
-        category: "vetements",
-        image: "vetement complement/8c848ede7f1346edbe4a504f52bbef04.jpg",
-        images: [
-            "vetement complement/8c848ede7f1346edbe4a504f52bbef04.jpg"
-        ],
-        description: "Vêtement sophistiqué pour toutes les occasions.",
-        sizes: ["XS", "S", "M", "L", "XL"],
-        colors: ["Bleu Nuit", "Noir", "Gris Anthracite"],
-        featured: true,
-        bestseller: false,
-        sale: true
-    }
+        images: ["attached_assets/vetement/OUTFITTERY_10Y_Day1_1288_9335-683x1024.jpg"],
+        description: "Ensemble homme tendance et moderne.", sizes: ["S", "M", "L", "XL", "XXL"], colors: ["Bleu", "Gris"], featured: false, bestseller: true, sale: true },
+    { id: 5025, name: "Tenue Femme Chic", price: 105.99, originalPrice: null, category: "vetements",
+        image: "attached_assets/vetement/51WxBImyzpL._AC_SX522_.jpg",
+        images: ["attached_assets/vetement/51WxBImyzpL._AC_SX522_.jpg"],
+        description: "Tenue femme chic et élégante.", sizes: ["XS", "S", "M", "L", "XL"], colors: ["Blanc", "Noir"], featured: true, bestseller: true, sale: false },
+    { id: 5026, name: "Robe Longue Grande Taille", price: 135.99, originalPrice: 169.99, category: "vetements",
+        image: "attached_assets/vetement/robe-longue-grande-taille-femme.jpg",
+        images: ["attached_assets/vetement/robe-longue-grande-taille-femme.jpg"],
+        description: "Robe longue grande taille élégante.", sizes: ["L", "XL", "XXL", "XXXL"], colors: ["Noir", "Bleu"], featured: true, bestseller: true, sale: true },
+
+    // === ÉLECTROMÉNAGER (6 produits - pour les cards surplus) ===
+    { id: 6001, name: "Appareil Cuisine Premium", price: 249.99, originalPrice: 299.99, category: "electromenager",
+        image: "attached_assets/électroménager/2982505-1_1.jpg",
+        images: ["attached_assets/électroménager/2982505-1_1.jpg"],
+        description: "Appareil de cuisine premium haute performance.", sizes: ["One Size"], colors: ["Inox", "Noir"], featured: true, bestseller: true, sale: true },
+    { id: 6002, name: "Électroménager Moderne", price: 199.99, originalPrice: null, category: "electromenager",
+        image: "attached_assets/électroménager/ASSET_MMS_104162091.webp",
+        images: ["attached_assets/électroménager/ASSET_MMS_104162091.webp"],
+        description: "Électroménager moderne pour cuisine équipée.", sizes: ["One Size"], colors: ["Blanc", "Inox"], featured: true, bestseller: false, sale: false },
+    { id: 6003, name: "Appareil Digital Premium", price: 179.99, originalPrice: 229.99, category: "electromenager",
+        image: "attached_assets/électroménager/Digital-MLX_LM4305_7211003233_H1.png",
+        images: ["attached_assets/électroménager/Digital-MLX_LM4305_7211003233_H1.png"],
+        description: "Appareil digital avec fonctions avancées.", sizes: ["One Size"], colors: ["Inox"], featured: true, bestseller: true, sale: true },
+    { id: 6004, name: "Électroménager Économique", price: 149.99, originalPrice: null, category: "electromenager",
+        image: "attached_assets/électroménager/electromenager-energivore.jpg",
+        images: ["attached_assets/électroménager/electromenager-energivore.jpg"],
+        description: "Électroménager économique et performant.", sizes: ["One Size"], colors: ["Blanc"], featured: false, bestseller: true, sale: false },
+    { id: 6005, name: "Appareil Entretien Pro", price: 189.99, originalPrice: 239.99, category: "electromenager",
+        image: "attached_assets/électroménager/entretien_appareils.jpg",
+        images: ["attached_assets/électroménager/entretien_appareils.jpg"],
+        description: "Appareil d'entretien professionnel.", sizes: ["One Size"], colors: ["Gris", "Noir"], featured: true, bestseller: false, sale: true },
+    { id: 6006, name: "Électroménager Multifonction", price: 229.99, originalPrice: null, category: "electromenager",
+        image: "attached_assets/électroménager/images (1).jpeg",
+        images: ["attached_assets/électroménager/images (1).jpeg"],
+        description: "Électroménager multifonction pour cuisine moderne.", sizes: ["One Size"], colors: ["Inox", "Blanc"], featured: true, bestseller: true, sale: false }
 ];
 
 // Initialize products
