@@ -8,6 +8,21 @@ StyleCraft is a modern, responsive e-commerce website for a premium fashion bran
 
 ## Recent Changes (October 2025)
 
+### Product Reorganization & UI Improvements (October 3, 2025)
+- ✅ Reorganized all products to use images from attached_assets subfolders (chaussures, électroménager, montres, perruques, sacs, vêtements)
+- ✅ Updated 81 products with category-specific images matching their subfolder names
+- ✅ Removed search and user/registration icons from header across all 8 HTML pages
+- ✅ Created three comprehensive blog pages:
+  - guide-tailles.html (Size guide with detailed tables for clothing, children's wear, and shoes)
+  - livraison.html (Shipping information, delivery times, and tracking)
+  - retours.html (Returns policy, exchange process, and FAQs)
+- ✅ Updated footer links across all HTML files to point to new blog pages
+- ✅ Fixed JavaScript error (updateCartCount → updateCartUI)
+- ✅ Updated Mobile Money payment configuration with actual numbers:
+  - Airtel Money: +243 980137154 (Dinango Kambala Abraham)
+  - Orange Money: +243 840574411 (Kalu Busalu)
+- ✅ Verified website functionality with clean header design
+
 ### SMTP Email Integration (October 2, 2025)
 - ✅ Integrated PHP 8.4 for server-side functionality
 - ✅ Installed PHPMailer for professional SMTP email sending
@@ -71,7 +86,8 @@ Preferred communication style: Simple, everyday language.
 - **Replit Integration**: Email service integration for payment verification and order confirmations
 
 ### Page Structure
-- **Multi-page Application**: Five main pages (index.html, shop.html, product.html, cart.html, contact.html)
+- **Multi-page Application**: 8 main pages (index.html, shop.html, product.html, cart.html, contact.html, about.html, perruques.html, sacs.html)
+- **Blog Pages**: 3 informational pages (guide-tailles.html, livraison.html, retours.html)
 - **Consistent Navigation**: Shared header/footer structure across all pages with responsive menu
 - **SEO Optimized**: Proper meta tags, semantic HTML, and descriptive titles for each page
 
@@ -87,9 +103,16 @@ Preferred communication style: Simple, everyday language.
 - **Modal System**: JavaScript-powered modals for quick product views
 
 ### Data Architecture
-- **Static Product Data**: Hardcoded product information in JavaScript objects
+- **Static Product Data**: 81 products organized by category in JavaScript objects
 - **JSON Structure**: Products stored as JavaScript arrays with detailed metadata
-- **Image Handling**: External image URLs (Unsplash) for product photography
+- **Image Handling**: Local images from attached_assets subfolders organized by category:
+  - chaussures/ (14 images)
+  - montres/ (6 images)
+  - perruques/ (12 images)
+  - sacs/ (17 images)
+  - vêtements/ (26 images)
+  - électroménager/ (6 images)
+- **Category Matching**: Each product's image corresponds to its category folder
 
 ## External Dependencies
 
