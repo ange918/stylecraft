@@ -12,8 +12,8 @@ export const PAYMENT_CONFIG = {
             country: "Congo RDC",
             code: "+243",
             numbers: [
-                "+243800000000", // Remplacez par vos vrais numéros
-                "+243900000000"  // Numéro de backup
+                "+243980137154", // Airtel Money - Dinango Kambala Abraham
+                "+243980137154"  // Numéro principal
             ]
         },
         // Congo (République)
@@ -87,8 +87,8 @@ export const PAYMENT_CONFIG = {
             country: "Congo RDC",
             code: "+243",
             numbers: [
-                "+243840000000", // Remplacez par vos vrais numéros
-                "+243890000000"  // Numéro de backup
+                "+243840574411", // Orange Money - Kalu Busalu
+                "+243840574411"  // Numéro principal
             ]
         },
         // Côte d'Ivoire

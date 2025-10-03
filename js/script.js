@@ -2095,7 +2095,7 @@ function payWithFlutterwave() {
                 setTimeout(() => {
                     cart = [];
                     localStorage.setItem('stylecraft-cart', JSON.stringify(cart));
-                    updateCartCount();
+                    updateCartUI();
                     window.location.href = 'index.html';
                 }, 2000);
             }
@@ -2183,7 +2183,7 @@ function selectPaymentAndProceed(paymentMethod) {
                 setTimeout(() => {
                     cart = [];
                     localStorage.setItem('stylecraft-cart', JSON.stringify(cart));
-                    updateCartCount();
+                    updateCartUI();
                     window.location.href = 'index.html';
                 }, 2000);
             }
