@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Informations de livraison - StyleCraft</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <div class="promo-banner">
+        <p><i class="fas fa-gift"></i> -15% sur votre première commande - Code : WELCOME15</p>
+    </div>
+
+    <header class="header">
+        <div class="container">
+            <div class="header-content">
+                <div class="logo">
+                    <a href="index.html"><h1>StyleCraft</h1></a>
+                </div>
+                <nav class="nav-desktop">
+                    <ul>
+                        <li><a href="index.html">Accueil</a></li>
+                        <li><a href="shop.html">Boutique</a></li>
+                        <li><a href="about.html">À propos</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </nav>
+                <div class="header-icons">
+                    <button class="icon-btn cart-btn" onclick="window.location.href='cart.html'">
+                        <i class="fas fa-shopping-bag"></i>
+                        <span class="cart-count">0</span>
+                    </button>
+                    <button class="mobile-menu-btn">
+                        <i class="fas fa-bars"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+        <div class="mobile-menu">
+            <div class="mobile-menu-header">
+                <h2>StyleCraft</h2>
+                <button class="mobile-menu-close"><i class="fas fa-times"></i></button>
+            </div>
+            <nav class="mobile-nav">
+                <ul>
+                    <li><a href="index.html">Accueil</a></li>
+                    <li><a href="shop.html">Boutique</a></li>
+                    <li><a href="about.html">À propos</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+        <div class="mobile-menu-overlay"></div>
+    </header>
+
+    <main class="about-page">
+        <div class="container">
+            <div class="about-content">
+                <section class="about-story">
+                    <h1><i class="fas fa-shipping-fast"></i> Informations de livraison</h1>
+                    <p>Chez StyleCraft, nous nous efforçons de livrer vos commandes rapidement et en toute sécurité. Découvrez nos options de livraison et nos délais.</p>
+
+                    <h2><i class="fas fa-gift"></i> Livraison gratuite</h2>
+                    <div style="background: #e3f2fd; padding: 20px; border-radius: 8px; border-left: 4px solid #2196f3; margin: 20px 0;">
+                        <p><strong>Profitez de la livraison gratuite pour toutes les commandes de plus de 50 €</strong></p>
+                        <p>Pour les commandes inférieures à 50 €, les frais de livraison standard sont de 5,90 €.</p>
+                    </div>
+
+                    <h2><i class="fas fa-clock"></i> Délais de livraison</h2>
+                    <div style="overflow-x: auto; margin: 20px 0;">
+                        <table style="width: 100%; border-collapse: collapse; background: white; border-radius: 8px; overflow: hidden;">
+                            <thead style="background: #2c3e50; color: white;">
+                                <tr>
+                                    <th style="padding: 15px; text-align: left; border-bottom: 2px solid #ddd;">Mode de livraison</th>
+                                    <th style="padding: 15px; text-align: center; border-bottom: 2px solid #ddd;">Délai</th>
+                                    <th style="padding: 15px; text-align: center; border-bottom: 2px solid #ddd;">Tarif</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr style="background: #f8f9fa;">
+                                    <td style="padding: 12px; border-bottom: 1px solid #eee;"><strong>Livraison Standard</strong></td>
+                                    <td style="padding: 12px; text-align: center; border-bottom: 1px solid #eee;">3-5 jours ouvrables</td>
+                                    <td style="padding: 12px; text-align: center; border-bottom: 1px solid #eee;">5,90 € (Gratuit dès 50€)</td>
+                                </tr>
+                                <tr>
+                                    <td style="padding: 12px; border-bottom: 1px solid #eee;"><strong>Livraison Express</strong></td>
+                                    <td style="padding: 12px; text-align: center; border-bottom: 1px solid #eee;">1-2 jours ouvrables</td>
+                                    <td style="padding: 12px; text-align: center; border-bottom: 1px solid #eee;">12,90 €</td>
+                                </tr>
+                                <tr style="background: #f8f9fa;">
+                                    <td style="padding: 12px;"><strong>Livraison Point Relais</strong></td>
+                                    <td style="padding: 12px; text-align: center;">3-4 jours ouvrables</td>
+                                    <td style="padding: 12px; text-align: center;">3,90 €</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <h2><i class="fas fa-map-marker-alt"></i> Zones de livraison</h2>
+                    <p>Nous livrons dans les pays suivants :</p>
+                    <ul style="list-style: none; padding: 0;">
+                        <li style="padding: 8px 0; border-bottom: 1px solid #eee;"><i class="fas fa-check" style="color: #4caf50; margin-right: 10px;"></i> France métropolitaine</li>
+                        <li style="padding: 8px 0; border-bottom: 1px solid #eee;"><i class="fas fa-check" style="color: #4caf50; margin-right: 10px;"></i> Belgique</li>
+                        <li style="padding: 8px 0; border-bottom: 1px solid #eee;"><i class="fas fa-check" style="color: #4caf50; margin-right: 10px;"></i> Luxembourg</li>
+                        <li style="padding: 8px 0; border-bottom: 1px solid #eee;"><i class="fas fa-check" style="color: #4caf50; margin-right: 10px;"></i> Suisse</li>
+                        <li style="padding: 8px 0; border-bottom: 1px solid #eee;"><i class="fas fa-check" style="color: #4caf50; margin-right: 10px;"></i> Monaco</li>
+                        <li style="padding: 8px 0;"><i class="fas fa-check" style="color: #4caf50; margin-right: 10px;"></i> Union Européenne</li>
+                    </ul>
+
+                    <h2><i class="fas fa-box"></i> Suivi de commande</h2>
+                    <div style="background: #f8f9fa; padding: 20px; border-radius: 8px; margin: 20px 0;">
+                        <p>Dès l'expédition de votre commande, vous recevrez un email de confirmation contenant :</p>
+                        <ul>
+                            <li>Un numéro de suivi</li>
+                            <li>Un lien vers le site du transporteur</li>
+                            <li>Les informations de livraison</li>
+                        </ul>
+                        <p>Vous pourrez suivre votre colis en temps réel depuis votre espace client ou directement sur le site du transporteur.</p>
+                    </div>
+
+                    <h2><i class="fas fa-truck"></i> Processus de livraison</h2>
+                    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px; margin: 20px 0;">
+                        <div style="background: white; padding: 20px; border-radius: 8px; box-shadow: 0 2px 4px rgba(0,0,0,0.1);">
+                            <h3 style="color: #2196f3;"><i class="fas fa-shopping-cart"></i> 1. Commande</h3>
+                            <p>Vous passez votre commande en ligne</p>
+                        </div>
+                        <div style="background: white; padding: 20px; border-radius: 8px; box-shadow: 0 2px 4px rgba(0,0,0,0.1);">
+                            <h3 style="color: #2196f3;"><i class="fas fa-box-open"></i> 2. Préparation</h3>
+                            <p>Nous préparons votre colis avec soin (24-48h)</p>
+                        </div>
+                        <div style="background: white; padding: 20px; border-radius: 8px; box-shadow: 0 2px 4px rgba(0,0,0,0.1);">
+                            <h3 style="color: #2196f3;"><i class="fas fa-shipping-fast"></i> 3. Expédition</h3>
+                            <p>Votre commande est expédiée + email de suivi</p>
+                        </div>
+                        <div style="background: white; padding: 20px; border-radius: 8px; box-shadow: 0 2px 4px rgba(0,0,0,0.1);">
+                            <h3 style="color: #2196f3;"><i class="fas fa-home"></i> 4. Livraison</h3>
+                            <p>Réception de votre commande selon le délai choisi</p>
+                        </div>
+                    </div>
+
+                    <h2><i class="fas fa-question-circle"></i> Questions fréquentes</h2>
+                    <div style="background: white; border-radius: 8px; margin: 20px 0;">
+                        <div style="padding: 15px; border-bottom: 1px solid #eee;">
+                            <h4><i class="fas fa-chevron-right" style="color: #2196f3; font-size: 12px;"></i> Puis-je modifier mon adresse de livraison après avoir passé commande ?</h4>
+                            <p>Oui, vous pouvez modifier votre adresse de livraison dans les 2 heures suivant votre commande. Contactez notre service client au plus vite.</p>
+                        </div>
+                        <div style="padding: 15px; border-bottom: 1px solid #eee;">
+                            <h4><i class="fas fa-chevron-right" style="color: #2196f3; font-size: 12px;"></i> Que faire si je ne suis pas là lors de la livraison ?</h4>
+                            <p>Le transporteur laissera un avis de passage. Vous pourrez récupérer votre colis en point relais ou organiser une nouvelle livraison.</p>
+                        </div>
+                        <div style="padding: 15px;">
+                            <h4><i class="fas fa-chevron-right" style="color: #2196f3; font-size: 12px;"></i> Ma commande n'est pas arrivée dans les délais annoncés, que faire ?</h4>
+                            <p>Contactez notre service client via le formulaire de contact. Nous vous aiderons à localiser votre colis et trouver une solution rapidement.</p>
+                        </div>
+                    </div>
+
+                    <div style="background: #e8f5e9; padding: 20px; border-radius: 8px; border-left: 4px solid #4caf50; margin: 20px 0;">
+                        <p><i class="fas fa-headset"></i> <strong>Besoin d'aide ?</strong> Notre service client est disponible du lundi au vendredi de 9h à 18h. <a href="contact.html" style="color: #2196f3; text-decoration: underline;">Contactez-nous</a></p>
+                    </div>
+                </section>
+            </div>
+        </div>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>StyleCraft</h3>
+                    <p>Mode intemporelle pour une garde-robe moderne. Des vêtements de qualité qui durent.</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-pinterest"></i></a>
+                    </div>
+                </div>
+                <div class="footer-section">
+                    <h4>Boutique</h4>
+                    <ul>
+                        <li><a href="shop.html?category=vetements">Vêtements</a></li>
+                        <li><a href="shop.html?category=sacs">Sacs</a></li>
+                        <li><a href="shop.html?category=perruques">Perruques</a></li>
+                        <li><a href="shop.html?sale=true">Promotions</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Aide</h4>
+                    <ul>
+                        <li><a href="guide-tailles.html">Guide des tailles</a></li>
+                        <li><a href="livraison.html">Informations de livraison</a></li>
+                        <li><a href="retours.html">Retours</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Mon espace</h4>
+                    <ul>
+                        <li><a href="#">Mon compte</a></li>
+                        <li><a href="#">Historique des commandes</a></li>
+                        <li><a href="#">Liste de souhaits</a></li>
+                        <li><a href="#">Suivre ma commande</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 StyleCraft. Tous droits réservés.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script type="module" src="js/script.js"></script>
+</body>
+</html>
