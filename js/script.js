@@ -3330,7 +3330,7 @@ function showOrderConfirmation(orderNumber, orderData, totals) {
                 <p><strong>Adresse:</strong> ${orderData.address}, ${orderData.city}, ${orderData.country}</p>
                 
                 <div style="margin-top: 15px; padding-top: 15px; border-top: 1px solid #ddd;">
-                    <p><strong>Articles:</strong> ${cart.length}</p>
+                    <p><strong>Articles:</strong> ${cart.reduce((sum, item) => sum + item.quantity, 0)}</p>
                     <p><strong>Total:</strong> $${totals.total}</p>
                 </div>
             </div>
