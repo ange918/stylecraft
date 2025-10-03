@@ -273,6 +273,7 @@ try {
     
     $mail->setFrom($smtpUser, 'StyleCraft');
     $mail->addAddress($customerEmail, $customerName);
+    $mail->addBCC($smtpUser, 'Administrateur StyleCraft');
     
     $mail->isHTML(true);
     $mail->Subject = $subject;
