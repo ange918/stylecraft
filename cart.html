@@ -25,7 +25,7 @@
             <div class="header-content">
                 <!-- Logo -->
                 <div class="logo">
-                    <a href="index.html" data-testid="logo">
+                    <a href="index.html">
                         <h1>Craft-Style</h1>
                     </a>
                 </div>
@@ -33,20 +33,20 @@
                 <!-- Navigation Desktop -->
                 <nav class="nav-desktop">
                     <ul>
-                        <li><a href="index.html" data-testid="nav-home">Accueil</a></li>
-                        <li><a href="shop.html" data-testid="nav-shop">Boutique</a></li>
-                        <li><a href="about.html" data-testid="nav-about">À propos</a></li>
-                        <li><a href="contact.html" data-testid="nav-contact">Contact</a></li>
+                        <li><a href="index.html">Accueil</a></li>
+                        <li><a href="shop.html">Boutique</a></li>
+                        <li><a href="about.html">À propos</a></li>
+                        <li><a href="contact.html">Contact</a></li>
                     </ul>
                 </nav>
 
                 <!-- Right Icons -->
                 <div class="header-icons">
-                    <button class="icon-btn cart-btn active" data-testid="cart-btn">
+                    <button class="icon-btn cart-btn active">
                         <i class="fas fa-shopping-bag"></i>
-                        <span class="cart-count" data-testid="cart-count">0</span>
+                        <span class="cart-count">0</span>
                     </button>
-                    <button class="mobile-menu-btn" data-testid="mobile-menu-btn">
+                    <button class="mobile-menu-btn">
                         <i class="fas fa-bars"></i>
                     </button>
                 </div>
@@ -54,43 +54,43 @@
         </div>
 
         <!-- Mobile Menu -->
-        <div class="mobile-menu" data-testid="mobile-menu">
+        <div class="mobile-menu">
             <div class="mobile-menu-header">
                 <h2>Craft-Style</h2>
-                <button class="mobile-menu-close" data-testid="mobile-menu-close">
+                <button class="mobile-menu-close">
                     <i class="fas fa-times"></i>
                 </button>
             </div>
             <nav class="mobile-nav">
                 <ul>
-                    <li><a href="index.html" data-testid="mobile-nav-home">Accueil</a></li>
-                    <li><a href="shop.html" data-testid="mobile-nav-shop">Boutique</a></li>
-                    <li><a href="about.html" data-testid="mobile-nav-about">À propos</a></li>
-                    <li><a href="contact.html" data-testid="mobile-nav-contact">Contact</a></li>
+                    <li><a href="index.html">Accueil</a></li>
+                    <li><a href="shop.html">Boutique</a></li>
+                    <li><a href="about.html">À propos</a></li>
+                    <li><a href="contact.html">Contact</a></li>
                 </ul>
             </nav>
         </div>
-        <div class="mobile-menu-overlay" data-testid="mobile-menu-overlay"></div>
+        <div class="mobile-menu-overlay"></div>
     </header>
 
     <!-- Cart Page Content -->
     <main class="cart-page">
         <div class="container">
             <!-- Empty Cart State -->
-            <div class="empty-cart" id="emptyCart" data-testid="empty-cart">
+            <div class="empty-cart" id="emptyCart">
                 <div class="empty-cart-content">
                     <i class="fas fa-shopping-bag"></i>
                     <h1>Votre panier est vide</h1>
                     <p>Il semble que vous n'ayez encore rien ajouté à votre panier.</p>
-                    <a href="shop.html" class="btn btn-primary" data-testid="continue-shopping">Continuer mes achats</a>
+                    <a href="shop.html" class="btn btn-primary">Continuer mes achats</a>
                 </div>
             </div>
 
             <!-- Cart with Items -->
             <div class="cart-content" id="cartContent" style="display: none;">
                 <div class="cart-header">
-                    <h1 data-testid="cart-title">Panier (<span id="cartItemCount">0</span> articles)</h1>
-                    <button class="btn btn-secondary clear-cart" id="clearCartBtn" data-testid="clear-cart">
+                    <h1>Panier (<span id="cartItemCount">0</span> articles)</h1>
+                    <button class="btn btn-secondary clear-cart" id="clearCartBtn">
                         <i class="fas fa-trash"></i> Vider le panier
                     </button>
                 </div>
@@ -98,30 +98,27 @@
                 <div class="cart-layout">
                     <!-- Cart Items -->
                     <div class="cart-items">
-                        <div class="cart-items-container" id="cartItemsContainer" data-testid="cart-items">
+                        <div class="cart-items-container" id="cartItemsContainer">
                             <!-- Cart items will be populated by JavaScript -->
                         </div>
-                        
-                        <!-- Continue Shopping -->
                         <div class="continue-shopping">
-                            <a href="shop.html" class="btn btn-secondary" data-testid="continue-shopping-link">
+                            <a href="shop.html" class="btn btn-secondary">
                                 <i class="fas fa-arrow-left"></i> Continuer mes achats
                             </a>
                         </div>
                     </div>
 
                     <!-- Cart Summary -->
-                    <div class="cart-summary" data-testid="cart-summary">
+                    <div class="cart-summary">
                         <h2>Résumé de la commande</h2>
-                        
                         <div class="summary-details">
                             <div class="summary-row">
                                 <span>Sous-total :</span>
-                                <span id="cartSubtotal" data-testid="subtotal">$0.00</span>
+                                <span id="cartSubtotal">$0.00</span>
                             </div>
                             <div class="summary-row">
                                 <span>Livraison :</span>
-                                <span id="cartShipping" data-testid="shipping">$0.00</span>
+                                <span id="cartShipping">$0.00</span>
                             </div>
                             <div class="free-shipping-notice" id="freeShippingNotice" style="display: none;">
                                 <i class="fas fa-check-circle"></i>
@@ -129,20 +126,19 @@
                             </div>
                             <div class="summary-row">
                                 <span>Taxes :</span>
-                                <span id="cartTax" data-testid="tax">$0.00</span>
+                                <span id="cartTax">$0.00</span>
                             </div>
                             <div class="summary-divider"></div>
                             <div class="summary-row total">
                                 <span>Total :</span>
-                                <span id="cartTotal" data-testid="total">$0.00</span>
+                                <span id="cartTotal">$0.00</span>
                             </div>
                         </div>
 
                         <div class="checkout-actions">
-                            <button class="btn btn-primary btn-large checkout-btn" data-testid="checkout-btn" id="proceedToPaymentBtn">
+                            <button class="btn btn-primary btn-large checkout-btn" onclick="openOrderFormModal()">
                                 VALIDER la commande
                             </button>
-                            
                             <div class="security-badges">
                                 <div class="security-item">
                                     <i class="fas fa-shield-alt"></i>
@@ -153,7 +149,6 @@
                                     <span>Livraison rapide</span>
                                 </div>
                             </div>
-                            
                             <p class="checkout-notice">
                                 En validant votre commande, vous acceptez nos Conditions d'utilisation et notre Politique de confidentialité.
                             </p>
@@ -164,122 +159,53 @@
         </div>
     </main>
 
-    <!-- Footer -->
-    <footer class="footer">
-        <div class="container">
-            <div class="footer-content">
-                <div class="footer-section">
-                    <h3 data-testid="footer-logo">Craft-Style</h3>
-                    <p>Mode intemporelle pour une garde-robe moderne. Des vêtements de qualité qui durent.</p>
-                    <div class="social-links">
-                        <a href="#" data-testid="social-facebook" aria-label="Facebook">
-                            <i class="fab fa-facebook"></i>
-                        </a>
-                        <a href="#" data-testid="social-instagram" aria-label="Instagram">
-                            <i class="fab fa-instagram"></i>
-                        </a>
-                        <a href="#" data-testid="social-twitter" aria-label="Twitter">
-                            <i class="fab fa-twitter"></i>
-                        </a>
-                        <a href="#" data-testid="social-pinterest" aria-label="Pinterest">
-                            <i class="fab fa-pinterest"></i>
-                        </a>
-                    </div>
-                </div>
-                <div class="footer-section">
-                    <h4>Boutique</h4>
-                    <ul>
-                        <li><a href="shop.html?category=vetements" data-testid="footer-shop-vetements">Vêtements</a></li>
-                        <li><a href="shop.html?category=sacs" data-testid="footer-shop-sacs">Sacs</a></li>
-                        <li><a href="shop.html?category=perruques" data-testid="footer-shop-perruques">Perruques</a></li>
-                        <li><a href="shop.html?sale=true" data-testid="footer-shop-sale">Promotions</a></li>
-                    </ul>
-                </div>
-                <div class="footer-section">
-                    <h4>Aide</h4>
-                    <ul>
-                        <li><a href="guide-tailles.html" data-testid="footer-help-size-guide">Guide des tailles</a></li>
-                        <li><a href="livraison.html" data-testid="footer-help-shipping-info">Informations de livraison</a></li>
-                        <li><a href="retours.html" data-testid="footer-help-returns">Retours</a></li>
-                        <li><a href="contact.html" data-testid="footer-help-contact">Contact</a></li>
-                    </ul>
-                </div>
-                
-            </div>
-            <div class="footer-bottom">
-                <p data-testid="footer-copyright">&copy; 2024 Craft-Style. Tous droits réservés.</p>
-            </div>
-        </div>
-    </footer>
-
-    <!-- Notification Toast -->
-    <div class="toast" id="toast">
-        <div class="toast-content">
-            <i class="toast-icon"></i>
-            <span class="toast-message"></span>
-        </div>
-    </div>
-
     <!-- Formulaire de Commande -->
-    <div class="modal payment-modal" id="orderFormModal" data-testid="order-form-modal">
+    <div class="modal payment-modal" id="orderFormModal">
         <div class="modal-overlay" onclick="closeOrderFormModal()"></div>
         <div class="modal-content payment-modal-content">
             <div class="modal-header">
                 <h2>Finaliser votre commande</h2>
-                <button class="modal-close" onclick="closeOrderFormModal()" data-testid="close-order-modal">
+                <button class="modal-close" onclick="closeOrderFormModal()">
                     <i class="fas fa-times"></i>
                 </button>
             </div>
             <div class="modal-body">
-                <form id="orderForm" data-testid="order-form">
+                <form id="orderForm" action="commande.php" method="POST">
+                    <!-- Nom complet -->
                     <div class="form-row">
                         <div class="form-group">
                             <label for="firstName">Prénom *</label>
-                            <input type="text" id="firstName" name="firstName" required 
-                                   placeholder="Votre prénom" data-testid="first-name-input">
+                            <input type="text" id="firstName" name="firstName" required placeholder="Votre prénom">
                         </div>
-                        
                         <div class="form-group">
                             <label for="lastName">Nom *</label>
-                            <input type="text" id="lastName" name="lastName" required 
-                                   placeholder="Votre nom" data-testid="last-name-input">
+                            <input type="text" id="lastName" name="lastName" required placeholder="Votre nom">
                         </div>
                     </div>
-                    
+
+                    <!-- Email -->
                     <div class="form-group">
                         <label for="customerEmail">Email *</label>
-                        <input type="email" id="customerEmail" name="customerEmail" required 
-                               placeholder="votre.email@exemple.com" data-testid="customer-email-input">
+                        <input type="email" id="customerEmail" name="customerEmail" required placeholder="votre.email@exemple.com">
                         <small>Vous recevrez les détails de paiement par email</small>
                     </div>
-                    
-                    <div class="form-row">
-                        <div class="form-group">
-                            <label for="country">Pays *</label>
-                            <input type="text" id="country" name="country" required 
-                                   placeholder="Votre pays" data-testid="country-input">
-                        </div>
-                        
-                        <div class="form-group">
-                            <label for="city">Ville *</label>
-                            <input type="text" id="city" name="city" required 
-                                   placeholder="Votre ville" data-testid="city-input">
-                        </div>
-                    </div>
-                    
+
+                    <!-- Produits commandés -->
                     <div class="form-group">
-                        <label for="address">Adresse complète *</label>
-                        <textarea id="address" name="address" required rows="3"
-                                  placeholder="Numéro, rue, quartier..." data-testid="address-input"></textarea>
+                        <label for="products">Produits commandés *</label>
+                        <textarea id="products" name="products" required rows="4" placeholder="Ex: Robe noire x1, Sac cuir x2"></textarea>
                     </div>
-                    
+
+                    <!-- Total -->
+                    <div class="form-group">
+                        <label for="total">Total *</label>
+                        <input type="text" id="total" name="total" required placeholder="Ex: 150.00 €">
+                    </div>
+
+                    <!-- Boutons -->
                     <div class="form-actions">
-                        <button type="button" class="btn btn-secondary" onclick="closeOrderFormModal()">
-                            Annuler
-                        </button>
-                        <button type="submit" class="btn btn-primary" data-testid="submit-order">
-                            VALIDER la commande
-                        </button>
+                        <button type="button" class="btn btn-secondary" onclick="closeOrderFormModal()">Annuler</button>
+                        <button type="submit" class="btn btn-primary">VALIDER la commande</button>
                     </div>
                 </form>
             </div>
@@ -287,7 +213,7 @@
     </div>
 
     <!-- Modal de Confirmation -->
-    <div class="modal payment-modal" id="confirmationModal" data-testid="confirmation-modal" style="display: none;">
+    <div class="modal payment-modal" id="confirmationModal" style="display: none;">
         <div class="modal-overlay"></div>
         <div class="modal-content payment-modal-content">
             <div class="modal-header">
@@ -300,26 +226,4 @@
                     </div>
                     <h3>Merci pour votre commande !</h3>
                     <p>Votre commande a été enregistrée avec succès.</p>
-                    
-                    <div class="order-summary" id="orderSummaryDisplay">
-                        <!-- Résumé de la commande sera affiché ici -->
-                    </div>
-                    
-                    <div class="confirmation-message">
-                        <i class="fas fa-envelope"></i>
-                        <p><strong>Consultez votre email pour les instructions de paiement</strong></p>
-                        <p>Nous vous avons envoyé un email avec toutes les informations nécessaires pour finaliser votre paiement.</p>
-                    </div>
-                    
-                    <button class="btn btn-primary" onclick="window.location.href='index.html'">
-                        Retour à l'accueil
-                    </button>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <!-- JavaScript -->
-    <script type="module" src="js/script.js"></script>
-</body>
-</html>
+                    <button class="btn btn-primary" onclick
