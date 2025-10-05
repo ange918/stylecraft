@@ -33,86 +33,86 @@ let currentPaymentData = {
 // Sample Products Data
 const sampleProducts = [
     // === CHAUSSURES (14 produits) ===
-    { id: 1001, name: "Basket Adidas Moderne", price: 89.99, originalPrice: 119.99, category: "chaussures",
+    { id: 1001, name: "Basket Adidas Moderne", price: 45.99, originalPrice: 58.99, category: "chaussures",
         image: "attached_assets/chaussures/Chaussures-basket-ADIDAS-homme-2.png",
         images: ["attached_assets/chaussures/Chaussures-basket-ADIDAS-homme-2.png"],
         description: "Basket Adidas confortable pour un style sportif moderne.", sizes: ["38", "39", "40", "41", "42", "43"], colors: ["Blanc", "Noir", "Bleu"],
         featured: true, bestseller: true, sale: true },
-    { id: 1002, name: "Chaussures Sport Bleues", price: 79.99, originalPrice: null, category: "chaussures",
+    { id: 1002, name: "Chaussures Sport Bleues", price: 39.99, originalPrice: null, category: "chaussures",
         image: "attached_assets/chaussures/maite-steenhoudt-adidas-originals-adimatic-mid-victory-blue-ig8174-top.jpg",
         images: ["attached_assets/chaussures/maite-steenhoudt-adidas-originals-adimatic-mid-victory-blue-ig8174-top.jpg"],
         description: "Chaussures de sport bleu victoire, design contemporain.", sizes: ["38", "39", "40", "41", "42", "43"], colors: ["Bleu"], featured: true, bestseller: false, sale: false },
-    { id: 1003, name: "Sneakers Urbaines", price: 95.99, originalPrice: 125.99, category: "chaussures",
+    { id: 1003, name: "Sneakers Urbaines", price: 49.99, originalPrice: 58.99, category: "chaussures",
         image: "attached_assets/chaussures/a201045f2a8c478c863e5aa19f1437d6.jpg",
         images: ["attached_assets/chaussures/a201045f2a8c478c863e5aa19f1437d6.jpg"],
         description: "Sneakers urbaines au style unique.", sizes: ["38", "39", "40", "41", "42", "43"], colors: ["Noir", "Gris"], featured: false, bestseller: true, sale: true },
-    { id: 1004, name: "Chaussures Casual", price: 69.99, originalPrice: null, category: "chaussures",
+    { id: 1004, name: "Chaussures Casual", price: 29.99, originalPrice: null, category: "chaussures",
         image: "attached_assets/chaussures/03737ebb03e146aeb0f943bdc0a526c3.jpg",
         images: ["attached_assets/chaussures/03737ebb03e146aeb0f943bdc0a526c3.jpg"],
         description: "Chaussures casual pour le quotidien.", sizes: ["38", "39", "40", "41", "42", "43"], colors: ["Beige", "Marron"], featured: true, bestseller: false, sale: false },
-    { id: 1005, name: "Basket Tendance", price: 85.99, originalPrice: 99.99, category: "chaussures",
+    { id: 1005, name: "Basket Tendance", price: 42.99, originalPrice: 49.99, category: "chaussures",
         image: "attached_assets/chaussures/78e19addb8eb48c09d928574e7c14e9c.jpg",
         images: ["attached_assets/chaussures/78e19addb8eb48c09d928574e7c14e9c.jpg"],
         description: "Basket moderne et tendance.", sizes: ["38", "39", "40", "41", "42", "43"], colors: ["Blanc", "Noir"], featured: false, bestseller: false, sale: true },
-    { id: 1006, name: "Chaussures Confort", price: 75.99, originalPrice: null, category: "chaussures",
+    { id: 1006, name: "Chaussures Confort", price: 35.99, originalPrice: null, category: "chaussures",
         image: "attached_assets/chaussures/81f29e4a500e466a92f9515b3b1e7fcd.jpg",
         images: ["attached_assets/chaussures/81f29e4a500e466a92f9515b3b1e7fcd.jpg"],
         description: "Chaussures confortables pour toute la journée.", sizes: ["38", "39", "40", "41", "42", "43"], colors: ["Gris", "Noir"], featured: true, bestseller: true, sale: false },
-    { id: 1007, name: "Sneakers Premium", price: 105.99, originalPrice: 139.99, category: "chaussures",
+    { id: 1007, name: "Sneakers Premium", price: 54.99, originalPrice: 58.99, category: "chaussures",
         image: "attached_assets/chaussures/954f051d87df4422ae0da222d5ace7dc.jpg",
         images: ["attached_assets/chaussures/954f051d87df4422ae0da222d5ace7dc.jpg"],
         description: "Sneakers premium de haute qualité.", sizes: ["38", "39", "40", "41", "42", "43"], colors: ["Noir"], featured: true, bestseller: false, sale: true },
-    { id: 1008, name: "Chaussures Élégantes", price: 99.99, originalPrice: null, category: "chaussures",
+    { id: 1008, name: "Chaussures Élégantes", price: 48.99, originalPrice: null, category: "chaussures",
         image: "attached_assets/chaussures/a07036207fb94742bb1a43c65a6b566d.jpg",
         images: ["attached_assets/chaussures/a07036207fb94742bb1a43c65a6b566d.jpg"],
         description: "Chaussures élégantes pour occasions spéciales.", sizes: ["38", "39", "40", "41", "42", "43"], colors: ["Noir", "Marron"], featured: false, bestseller: true, sale: false },
-    { id: 1009, name: "Basket Sport Performance", price: 89.99, originalPrice: 109.99, category: "chaussures",
+    { id: 1009, name: "Basket Sport Performance", price: 44.99, originalPrice: 54.99, category: "chaussures",
         image: "attached_assets/chaussures/a6852d96238541f58e4bc315db73a88f.jpg",
         images: ["attached_assets/chaussures/a6852d96238541f58e4bc315db73a88f.jpg"],
         description: "Basket haute performance pour le sport.", sizes: ["38", "39", "40", "41", "42", "43"], colors: ["Blanc", "Rouge"], featured: true, bestseller: true, sale: true },
-    { id: 1010, name: "Chaussures Décontractées", price: 65.99, originalPrice: null, category: "chaussures",
+    { id: 1010, name: "Chaussures Décontractées", price: 25.99, originalPrice: null, category: "chaussures",
         image: "attached_assets/chaussures/a8d0f8278d0f461188759a486b71b81f.jpg",
         images: ["attached_assets/chaussures/a8d0f8278d0f461188759a486b71b81f.jpg"],
         description: "Chaussures décontractées pour tous les jours.", sizes: ["38", "39", "40", "41", "42", "43"], colors: ["Beige", "Gris"], featured: false, bestseller: false, sale: false },
-    { id: 1011, name: "Sneakers Style Unique", price: 119.99, originalPrice: 149.99, category: "chaussures",
+    { id: 1011, name: "Sneakers Style Unique", price: 57.99, originalPrice: 59, category: "chaussures",
         image: "attached_assets/chaussures/m98593917987_1.jpg",
         images: ["attached_assets/chaussures/m98593917987_1.jpg"],
         description: "Sneakers au style unique et moderne.", sizes: ["38", "39", "40", "41", "42", "43"], colors: ["Multicolore"], featured: true, bestseller: false, sale: true },
-    { id: 1012, name: "Chaussures Mode Urbaine", price: 92.99, originalPrice: null, category: "chaussures",
+    { id: 1012, name: "Chaussures Mode Urbaine", price: 46.99, originalPrice: null, category: "chaussures",
         image: "attached_assets/chaussures/images (2).jpeg",
         images: ["attached_assets/chaussures/images (2).jpeg"],
         description: "Chaussures mode urbaine pour un look moderne.", sizes: ["38", "39", "40", "41", "42", "43"], colors: ["Noir", "Blanc"], featured: true, bestseller: true, sale: false },
-    { id: 1013, name: "Basket Design Moderne", price: 87.99, originalPrice: 115.99, category: "chaussures",
+    { id: 1013, name: "Basket Design Moderne", price: 43.99, originalPrice: 57.99, category: "chaussures",
         image: "attached_assets/chaussures/images (3).jpeg",
         images: ["attached_assets/chaussures/images (3).jpeg"],
         description: "Basket au design moderne et élégant.", sizes: ["38", "39", "40", "41", "42", "43"], colors: ["Gris", "Blanc"], featured: false, bestseller: false, sale: true },
-    { id: 1014, name: "Chaussures Adimatic Mid", price: 109.99, originalPrice: null, category: "chaussures",
+    { id: 1014, name: "Chaussures Adimatic Mid", price: 52.99, originalPrice: null, category: "chaussures",
         image: "attached_assets/chaussures/new-pick-up-adidas-adimatic-mid-x-maité-v0-eqkjt66za25c1.jpg",
         images: ["attached_assets/chaussures/new-pick-up-adidas-adimatic-mid-x-maité-v0-eqkjt66za25c1.jpg"],
         description: "Adidas Adimatic Mid pour un style sportif raffiné.", sizes: ["38", "39", "40", "41", "42", "43"], colors: ["Bleu", "Blanc"], featured: true, bestseller: true, sale: false },
 
     // === MONTRES (6 produits) ===
-    { id: 2001, name: "Montre Élégante Classique", price: 199.99, originalPrice: 249.99, category: "montres",
+    { id: 2001, name: "Montre Élégante Classique", price: 99.99, originalPrice: 119.99, category: "montres",
         image: "attached_assets/montres/2e786e3df02c4f55b539145ff0e292c5.jpg",
         images: ["attached_assets/montres/2e786e3df02c4f55b539145ff0e292c5.jpg"],
         description: "Montre classique élégante pour toutes occasions.", sizes: ["One Size"], colors: ["Or", "Argent", "Or Rose"], featured: true, bestseller: true, sale: true },
-    { id: 2002, name: "Montre Sport Moderne", price: 149.99, originalPrice: null, category: "montres",
+    { id: 2002, name: "Montre Sport Moderne", price: 75.99, originalPrice: null, category: "montres",
         image: "attached_assets/montres/52ea9b884c4c4dde9b30d17b4c9cc649.jpg",
         images: ["attached_assets/montres/52ea9b884c4c4dde9b30d17b4c9cc649.jpg"],
         description: "Montre sportive moderne avec fonctions avancées.", sizes: ["One Size"], colors: ["Noir", "Bleu"], featured: true, bestseller: false, sale: false },
-    { id: 2003, name: "Montre Luxury Premium", price: 299.99, originalPrice: 399.99, category: "montres",
+    { id: 2003, name: "Montre Luxury Premium", price: 119.99, originalPrice: 122, category: "montres",
         image: "attached_assets/montres/643ffa375e9d42bea6871070b57488bc.jpg",
         images: ["attached_assets/montres/643ffa375e9d42bea6871070b57488bc.jpg"],
         description: "Montre de luxe premium avec mouvement suisse.", sizes: ["One Size"], colors: ["Or", "Platine"], featured: true, bestseller: true, sale: true },
-    { id: 2004, name: "Montre Casual Quotidien", price: 129.99, originalPrice: null, category: "montres",
+    { id: 2004, name: "Montre Casual Quotidien", price: 64.99, originalPrice: null, category: "montres",
         image: "attached_assets/montres/aeaf55190d214a40ae5293f06e5dfbdf.jpg",
         images: ["attached_assets/montres/aeaf55190d214a40ae5293f06e5dfbdf.jpg"],
         description: "Montre casual parfaite pour le quotidien.", sizes: ["One Size"], colors: ["Marron", "Noir"], featured: false, bestseller: true, sale: false },
-    { id: 2005, name: "Montre Digitale Tendance", price: 179.99, originalPrice: 219.99, category: "montres",
+    { id: 2005, name: "Montre Digitale Tendance", price: 89.99, originalPrice: 109.99, category: "montres",
         image: "attached_assets/montres/ba183f83e5f749cbb762ff7eee61ed40.jpg",
         images: ["attached_assets/montres/ba183f83e5f749cbb762ff7eee61ed40.jpg"],
         description: "Montre digitale tendance avec écran tactile.", sizes: ["One Size"], colors: ["Noir", "Argent"], featured: true, bestseller: false, sale: true },
-    { id: 2006, name: "Montre Chronographe Sport", price: 249.99, originalPrice: null, category: "montres",
+    { id: 2006, name: "Montre Chronographe Sport", price: 112.99, originalPrice: null, category: "montres",
         image: "attached_assets/montres/ccdc5ecd61c0484798bc871b26eb7758.jpg",
         images: ["attached_assets/montres/ccdc5ecd61c0484798bc871b26eb7758.jpg"],
         description: "Montre chronographe pour les sportifs exigeants.", sizes: ["One Size"], colors: ["Bleu", "Noir"], featured: true, bestseller: true, sale: false },
@@ -122,7 +122,7 @@ const sampleProducts = [
         image: "attached_assets/perruques/1.jpg",
         images: ["attached_assets/perruques/1.jpg"],
         description: "Perruque cheveux naturels longs pour un look élégant.", sizes: ["One Size"], colors: ["Brun", "Noir", "Blond"], featured: true, bestseller: true, sale: true },
-    { id: 3002, name: "Perruque Courte Moderne", price: 129.99, originalPrice: null, category: "perruques",
+    { id: 3002, name: "Perruque Courte Moderne", price: 109.99, originalPrice: null, category: "perruques",
         image: "attached_assets/perruques/2.jpg",
         images: ["attached_assets/perruques/2.jpg"],
         description: "Perruque courte au style moderne et dynamique.", sizes: ["One Size"], colors: ["Noir", "Brun"], featured: true, bestseller: false, sale: false },
@@ -130,7 +130,7 @@ const sampleProducts = [
         image: "attached_assets/perruques/3.jpg",
         images: ["attached_assets/perruques/3.jpg"],
         description: "Perruque ondulée pour un look glamour.", sizes: ["One Size"], colors: ["Brun", "Blond"], featured: true, bestseller: true, sale: true },
-    { id: 3004, name: "Perruque Bouclée Volume", price: 149.99, originalPrice: null, category: "perruques",
+    { id: 3004, name: "Perruque Bouclée Volume", price: 129.99, originalPrice: null, category: "perruques",
         image: "attached_assets/perruques/4.jpg",
         images: ["attached_assets/perruques/4.jpg"],
         description: "Perruque bouclée avec volume naturel.", sizes: ["One Size"], colors: ["Noir", "Brun"], featured: false, bestseller: true, sale: false },
@@ -138,7 +138,7 @@ const sampleProducts = [
         image: "attached_assets/perruques/5.jpg",
         images: ["attached_assets/perruques/5.jpg"],
         description: "Perruque lisse d'une élégance exceptionnelle.", sizes: ["One Size"], colors: ["Noir", "Brun", "Blond"], featured: true, bestseller: false, sale: true },
-    { id: 3006, name: "Perruque Mi-Longue Naturelle", price: 139.99, originalPrice: null, category: "perruques",
+    { id: 3006, name: "Perruque Mi-Longue Naturelle", price: 119.99, originalPrice: null, category: "perruques",
         image: "attached_assets/perruques/6.jpg",
         images: ["attached_assets/perruques/6.jpg"],
         description: "Perruque mi-longue aux reflets naturels.", sizes: ["One Size"], colors: ["Châtain", "Brun"], featured: true, bestseller: true, sale: false },
@@ -150,85 +150,85 @@ const sampleProducts = [
         image: "attached_assets/perruques/8.jpg",
         images: ["attached_assets/perruques/8.jpg"],
         description: "Perruque tendance avec reflets colorés.", sizes: ["One Size"], colors: ["Multicolore"], featured: false, bestseller: false, sale: false },
-    { id: 3009, name: "Perruque Bob Chic", price: 119.99, originalPrice: 149.99, category: "perruques",
+    { id: 3009, name: "Perruque Bob Chic", price: 99.99, originalPrice: 119.99, category: "perruques",
         image: "attached_assets/perruques/9.jpg",
         images: ["attached_assets/perruques/9.jpg"],
         description: "Coupe bob chic et intemporelle.", sizes: ["One Size"], colors: ["Noir", "Brun"], featured: true, bestseller: false, sale: true },
-    { id: 3010, name: "Perruque Luxe Premium", price: 299.99, originalPrice: 399.99, category: "perruques",
+    { id: 3010, name: "Perruque Luxe Premium", price: 269.99, originalPrice: 289, category: "perruques",
         image: "attached_assets/perruques/10.jpg",
         images: ["attached_assets/perruques/10.jpg"],
         description: "Perruque de luxe haut de gamme.", sizes: ["One Size"], colors: ["Brun Naturel", "Noir"], featured: true, bestseller: true, sale: true },
-    { id: 3011, name: "Perruque Dégradée Moderne", price: 155.99, originalPrice: null, category: "perruques",
+    { id: 3011, name: "Perruque Dégradée Moderne", price: 144.99, originalPrice: null, category: "perruques",
         image: "attached_assets/perruques/image.jpeg",
         images: ["attached_assets/perruques/image.jpeg"],
         description: "Perruque avec dégradé moderne.", sizes: ["One Size"], colors: ["Brun à Blond"], featured: false, bestseller: true, sale: false },
-    { id: 3012, name: "Perruque Style Unique", price: 169.99, originalPrice: 199.99, category: "perruques",
+    { id: 3012, name: "Perruque Style Unique", price: 164.99, originalPrice: 189.99, category: "perruques",
         image: "attached_assets/perruques/images.jpeg",
         images: ["attached_assets/perruques/images.jpeg"],
         description: "Perruque au style unique et original.", sizes: ["One Size"], colors: ["Brun", "Noir"], featured: true, bestseller: false, sale: true },
 
     // === SACS (17 produits) ===
-    { id: 4001, name: "Sac à Main Cuir Premium", price: 179.99, originalPrice: 229.99, category: "sacs",
+    { id: 4001, name: "Sac à Main Cuir Premium", price: 169.99, originalPrice: 188, category: "sacs",
         image: "attached_assets/sacs/1000x895.jpg",
         images: ["attached_assets/sacs/1000x895.jpg"],
         description: "Sac à main en cuir véritable de qualité premium.", sizes: ["One Size"], colors: ["Noir", "Marron", "Rouge"], featured: true, bestseller: true, sale: true },
-    { id: 4002, name: "Sac Tendance Moderne", price: 89.99, originalPrice: 119.99, category: "sacs",
+    { id: 4002, name: "Sac Tendance Moderne", price: 44.99, originalPrice: 59.99, category: "sacs",
         image: "attached_assets/sacs/4c06f44a4faa4648b6fd82845af64147.jpg",
         images: ["attached_assets/sacs/4c06f44a4faa4648b6fd82845af64147.jpg"],
         description: "Sac moderne au design contemporain.", sizes: ["One Size"], colors: ["Marron", "Noir"], featured: true, bestseller: false, sale: true },
-    { id: 4003, name: "Sac Élégant Soirée", price: 125.99, originalPrice: null, category: "sacs",
+    { id: 4003, name: "Sac Élégant Soirée", price: 119.99, originalPrice: null, category: "sacs",
         image: "attached_assets/sacs/574797bbd0e243b2b5e36fd3f407588e.jpg",
         images: ["attached_assets/sacs/574797bbd0e243b2b5e36fd3f407588e.jpg"],
         description: "Sac élégant pour les soirées et occasions spéciales.", sizes: ["One Size"], colors: ["Noir", "Or"], featured: true, bestseller: true, sale: false },
-    { id: 4004, name: "Sac Bandoulière Chic", price: 99.99, originalPrice: 129.99, category: "sacs",
+    { id: 4004, name: "Sac Bandoulière Chic", price: 49.99, originalPrice: 64.99, category: "sacs",
         image: "attached_assets/sacs/764b7ee3954a46999a877c6a78cedb61.jpg",
         images: ["attached_assets/sacs/764b7ee3954a46999a877c6a78cedb61.jpg"],
         description: "Sac bandoulière chic et pratique.", sizes: ["One Size"], colors: ["Beige", "Marron"], featured: false, bestseller: true, sale: true },
-    { id: 4005, name: "Sac Gucci GG Black", price: 299.99, originalPrice: 399.99, category: "sacs",
+    { id: 4005, name: "Sac Gucci GG Black", price: 179.99, originalPrice: 188, category: "sacs",
         image: "attached_assets/sacs/792456_FADJA_1042_001_087_0000_Light-sac-a-epaule-gg-black-petit-format.jpg",
         images: ["attached_assets/sacs/792456_FADJA_1042_001_087_0000_Light-sac-a-epaule-gg-black-petit-format.jpg"],
         description: "Sac à épaule GG black petit format de luxe.", sizes: ["One Size"], colors: ["Noir"], featured: true, bestseller: true, sale: true },
-    { id: 4006, name: "Sac Mode Urbain", price: 79.99, originalPrice: null, category: "sacs",
+    { id: 4006, name: "Sac Mode Urbain", price: 39.99, originalPrice: null, category: "sacs",
         image: "attached_assets/sacs/8effcdfb7a0d47de97a3901f43f27a87.jpg",
         images: ["attached_assets/sacs/8effcdfb7a0d47de97a3901f43f27a87.jpg"],
         description: "Sac mode urbain pour un style moderne.", sizes: ["One Size"], colors: ["Noir", "Gris"], featured: true, bestseller: false, sale: false },
-    { id: 4007, name: "Sac Cabas Spacieux", price: 95.99, originalPrice: 125.99, category: "sacs",
+    { id: 4007, name: "Sac Cabas Spacieux", price: 47.99, originalPrice: 62.99, category: "sacs",
         image: "attached_assets/sacs/9221_1144776046.jpg",
         images: ["attached_assets/sacs/9221_1144776046.jpg"],
         description: "Sac cabas spacieux pour le quotidien.", sizes: ["One Size"], colors: ["Beige", "Noir"], featured: false, bestseller: false, sale: true },
-    { id: 4008, name: "Sac Designer Unique", price: 249.99, originalPrice: null, category: "sacs",
+    { id: 4008, name: "Sac Designer Unique", price: 164.99, originalPrice: null, category: "sacs",
         image: "attached_assets/sacs/9276422cf5f2904dbb9b4339aadee61eacec87c6.jpg",
         images: ["attached_assets/sacs/9276422cf5f2904dbb9b4339aadee61eacec87c6.jpg"],
         description: "Sac designer au style unique.", sizes: ["One Size"], colors: ["Multicolore"], featured: true, bestseller: true, sale: false },
-    { id: 4009, name: "Sac Casual Pratique", price: 65.99, originalPrice: 85.99, category: "sacs",
+    { id: 4009, name: "Sac Casual Pratique", price: 32.99, originalPrice: 42.99, category: "sacs",
         image: "attached_assets/sacs/cas.jpg",
         images: ["attached_assets/sacs/cas.jpg"],
         description: "Sac casual pratique pour tous les jours.", sizes: ["One Size"], colors: ["Marron", "Beige"], featured: true, bestseller: false, sale: true },
-    { id: 4010, name: "Sac Eram Collection", price: 115.99, originalPrice: null, category: "sacs",
+    { id: 4010, name: "Sac Eram Collection", price: 89.99, originalPrice: null, category: "sacs",
         image: "attached_assets/sacs/eram.webp",
         images: ["attached_assets/sacs/eram.webp"],
         description: "Sac de la collection Eram, élégant et raffiné.", sizes: ["One Size"], colors: ["Noir"], featured: false, bestseller: true, sale: false },
-    { id: 4011, name: "Sac Moderne Tendance", price: 89.99, originalPrice: 109.99, category: "sacs",
+    { id: 4011, name: "Sac Moderne Tendance", price: 44.99, originalPrice: 54.99, category: "sacs",
         image: "attached_assets/sacs/images (4).jpeg",
         images: ["attached_assets/sacs/images (4).jpeg"],
         description: "Sac moderne au design tendance.", sizes: ["One Size"], colors: ["Blanc", "Noir"], featured: true, bestseller: true, sale: true },
-    { id: 4012, name: "Sac Jane Élégant", price: 135.99, originalPrice: null, category: "sacs",
+    { id: 4012, name: "Sac Jane Élégant", price: 104.99, originalPrice: null, category: "sacs",
         image: "attached_assets/sacs/jane.jpg",
         images: ["attached_assets/sacs/jane.jpg"],
         description: "Sac Jane élégant pour toutes occasions.", sizes: ["One Size"], colors: ["Beige", "Marron"], featured: true, bestseller: false, sale: false },
-    { id: 4013, name: "Sac Quotidien Chic", price: 75.99, originalPrice: 95.99, category: "sacs",
+    { id: 4013, name: "Sac Quotidien Chic", price: 37.99, originalPrice: 47.99, category: "sacs",
         image: "attached_assets/sacs/sac.webp",
         images: ["attached_assets/sacs/sac.webp"],
         description: "Sac quotidien chic et pratique.", sizes: ["One Size"], colors: ["Noir", "Gris"], featured: false, bestseller: false, sale: true },
-    { id: 4014, name: "Sac Collection Premium", price: 159.99, originalPrice: 199.99, category: "sacs",
+    { id: 4014, name: "Sac Collection Premium", price: 149.99, originalPrice: 179.99, category: "sacs",
         image: "attached_assets/sacs/sacs.webp",
         images: ["attached_assets/sacs/sacs.webp"],
         description: "Sac de la collection premium.", sizes: ["One Size"], colors: ["Marron", "Noir"], featured: true, bestseller: true, sale: true },
-    { id: 4015, name: "Sac Luxe Designer", price: 279.99, originalPrice: null, category: "sacs",
+    { id: 4015, name: "Sac Luxe Designer", price: 174.99, originalPrice: null, category: "sacs",
         image: "attached_assets/sacs/s-l1200.jpg",
         images: ["attached_assets/sacs/s-l1200.jpg"],
         description: "Sac de luxe designer de haute qualité.", sizes: ["One Size"], colors: ["Or", "Argent"], featured: true, bestseller: true, sale: false },
-    { id: 4016, name: "Sac Style Unique", price: 105.99, originalPrice: 139.99, category: "sacs",
+    { id: 4016, name: "Sac Style Unique", price: 52.99, originalPrice: 69.99, category: "sacs",
         image: "attached_assets/sacs/ssaak.png",
         images: ["attached_assets/sacs/ssaak.png"],
         description: "Sac au style unique et remarquable.", sizes: ["One Size"], colors: ["Multicolore"], featured: false, bestseller: true, sale: true },
@@ -344,27 +344,27 @@ const sampleProducts = [
         description: "Robe longue grande taille élégante.", sizes: ["L", "XL", "XXL", "XXXL"], colors: ["Noir", "Bleu"], featured: true, bestseller: true, sale: true },
 
     // === ÉLECTROMÉNAGER (6 produits - pour les cards surplus) ===
-    { id: 6001, name: "Appareil Cuisine Premium", price: 249.99, originalPrice: 299.99, category: "electromenager",
+    { id: 6001, name: "Appareil Cuisine Premium", price: 38.99, originalPrice: 40, category: "electromenager",
         image: "attached_assets/électroménager/2982505-1_1.jpg",
         images: ["attached_assets/électroménager/2982505-1_1.jpg"],
         description: "Appareil de cuisine premium haute performance.", sizes: ["One Size"], colors: ["Inox", "Noir"], featured: true, bestseller: true, sale: true },
-    { id: 6002, name: "Électroménager Moderne", price: 199.99, originalPrice: null, category: "electromenager",
+    { id: 6002, name: "Électroménager Moderne", price: 32.99, originalPrice: null, category: "electromenager",
         image: "attached_assets/électroménager/ASSET_MMS_104162091.webp",
         images: ["attached_assets/électroménager/ASSET_MMS_104162091.webp"],
         description: "Électroménager moderne pour cuisine équipée.", sizes: ["One Size"], colors: ["Blanc", "Inox"], featured: true, bestseller: false, sale: false },
-    { id: 6003, name: "Appareil Digital Premium", price: 179.99, originalPrice: 229.99, category: "electromenager",
+    { id: 6003, name: "Appareil Digital Premium", price: 29.99, originalPrice: 37.99, category: "electromenager",
         image: "attached_assets/électroménager/Digital-MLX_LM4305_7211003233_H1.png",
         images: ["attached_assets/électroménager/Digital-MLX_LM4305_7211003233_H1.png"],
         description: "Appareil digital avec fonctions avancées.", sizes: ["One Size"], colors: ["Inox"], featured: true, bestseller: true, sale: true },
-    { id: 6004, name: "Électroménager Économique", price: 149.99, originalPrice: null, category: "electromenager",
+    { id: 6004, name: "Électroménager Économique", price: 25.99, originalPrice: null, category: "electromenager",
         image: "attached_assets/électroménager/electromenager-energivore.jpg",
         images: ["attached_assets/électroménager/electromenager-energivore.jpg"],
         description: "Électroménager économique et performant.", sizes: ["One Size"], colors: ["Blanc"], featured: false, bestseller: true, sale: false },
-    { id: 6005, name: "Appareil Entretien Pro", price: 189.99, originalPrice: 239.99, category: "electromenager",
+    { id: 6005, name: "Appareil Entretien Pro", price: 31.99, originalPrice: 39.99, category: "electromenager",
         image: "attached_assets/électroménager/entretien_appareils.jpg",
         images: ["attached_assets/électroménager/entretien_appareils.jpg"],
         description: "Appareil d'entretien professionnel.", sizes: ["One Size"], colors: ["Gris", "Noir"], featured: true, bestseller: false, sale: true },
-    { id: 6006, name: "Électroménager Multifonction", price: 229.99, originalPrice: null, category: "electromenager",
+    { id: 6006, name: "Électroménager Multifonction", price: 35.99, originalPrice: null, category: "electromenager",
         image: "attached_assets/électroménager/images (1).jpeg",
         images: ["attached_assets/électroménager/images (1).jpeg"],
         description: "Électroménager multifonction pour cuisine moderne.", sizes: ["One Size"], colors: ["Inox", "Blanc"], featured: true, bestseller: true, sale: false }
@@ -822,11 +822,11 @@ function renderProductDetails(product) {
     const descriptionEl = document.getElementById('productDescription');
     
     if (nameEl) nameEl.textContent = product.name;
-    if (priceEl) priceEl.textContent = `$${product.price.toFixed(2)}`;
+    if (priceEl) priceEl.textContent = `€${product.price.toFixed(2)}`;
     if (descriptionEl) descriptionEl.textContent = product.description;
     
     if (product.originalPrice && originalPriceEl && savingsEl) {
-        originalPriceEl.textContent = `$${product.originalPrice.toFixed(2)}`;
+        originalPriceEl.textContent = `€${product.originalPrice.toFixed(2)}`;
         originalPriceEl.style.display = 'inline';
         
         const savings = product.originalPrice - product.price;
@@ -1036,7 +1036,7 @@ function renderCartItems() {
                 <div class="cart-item-details">
                     <h3 class="cart-item-name" onclick="goToProduct(${item.id})">${item.name}</h3>
                     <div class="cart-item-meta">Size: ${item.size} ${item.color ? `• Color: ${item.color}` : ''}</div>
-                    <div class="cart-item-price">$${item.price.toFixed(2)}</div>
+                    <div class="cart-item-price">€${item.price.toFixed(2)}</div>
                 </div>
                 <div class="cart-quantity-controls">
                     <button onclick="updateCartItemQuantity(${index}, -1)">-</button>
@@ -1044,7 +1044,7 @@ function renderCartItems() {
                     <button onclick="updateCartItemQuantity(${index}, 1)">+</button>
                 </div>
                 <div class="cart-item-total">
-                    <p>$${(item.price * item.quantity).toFixed(2)}</p>
+                    <p>€${(item.price * item.quantity).toFixed(2)}</p>
                 </div>
                 <button class="cart-remove-btn" onclick="removeFromCart(${index})">
                     <i class="fas fa-trash"></i>
@@ -1066,10 +1066,10 @@ function updateCartSummary() {
     const totalEl = document.getElementById('cartTotal');
     const freeShippingNotice = document.getElementById('freeShippingNotice');
     
-    if (subtotalEl) subtotalEl.textContent = `$${subtotal.toFixed(2)}`;
-    if (shippingEl) shippingEl.textContent = shipping === 0 ? 'Free' : `$${shipping.toFixed(2)}`;
-    if (taxEl) taxEl.textContent = `$${tax.toFixed(2)}`;
-    if (totalEl) totalEl.textContent = `$${total.toFixed(2)}`;
+    if (subtotalEl) subtotalEl.textContent = `€${subtotal.toFixed(2)}`;
+    if (shippingEl) shippingEl.textContent = shipping === 0 ? 'Free' : `€${shipping.toFixed(2)}`;
+    if (taxEl) taxEl.textContent = `€${tax.toFixed(2)}`;
+    if (totalEl) totalEl.textContent = `€${total.toFixed(2)}`;
     
     if (freeShippingNotice) {
         freeShippingNotice.style.display = shipping === 0 ? 'flex' : 'none';
@@ -1369,11 +1369,11 @@ function openQuickView(productId) {
         modalImage.alt = product.name;
     }
     if (modalName) modalName.textContent = product.name;
-    if (modalPrice) modalPrice.textContent = `$${product.price.toFixed(2)}`;
+    if (modalPrice) modalPrice.textContent = `€${product.price.toFixed(2)}`;
     
     if (modalOriginalPrice) {
         if (product.originalPrice) {
-            modalOriginalPrice.textContent = `$${product.originalPrice.toFixed(2)}`;
+            modalOriginalPrice.textContent = `€${product.originalPrice.toFixed(2)}`;
             modalOriginalPrice.style.display = 'inline';
         } else {
             modalOriginalPrice.style.display = 'none';
@@ -1626,7 +1626,7 @@ function openMobilePaymentModal(method) {
         titleEl.textContent = 'Paiement Orange Money';
     }
     
-    amountEl.value = `$${total.total.toFixed(2)}`;    
+    amountEl.value = `€${total.total.toFixed(2)}`;    
     
     // Set payment instructions with amount info
     instructionsEl.innerHTML = generatePaymentInstructions(method, '', total.total);
@@ -1787,7 +1787,7 @@ async function sendOrderConfirmation(customerEmail, phoneNumber, total, methodNa
                     
                     <div style="background: #f5f5f5; padding: 20px; border-radius: 8px; margin: 20px 0;">
                         <h3 style="margin: 0 0 15px 0;">Informations de paiement</h3>
-                        <p><strong>Montant à payer :</strong> $${total.total.toFixed(2)} USD</p>
+                        <p><strong>Montant à payer :</strong> €${total.total.toFixed(2)} USD</p>
                         <p><strong>Méthode :</strong> ${methodName}</p>
                         <p><strong>Votre numéro :</strong> ${phoneNumber}</p>
                         <p><strong>Envoyer vers :</strong> ${receivingData.number}</p>
@@ -1796,7 +1796,7 @@ async function sendOrderConfirmation(customerEmail, phoneNumber, total, methodNa
                     
                     <div style="background: #e8f5e8; padding: 15px; border-radius: 8px; margin: 20px 0;">
                         <h4 style="margin: 0 0 10px 0; color: #2c5530;">Instructions :</h4>
-                        <p style="margin: 0;">Effectuez le transfert de <strong>$${total.total.toFixed(2)} USD</strong> vers <strong>${receivingData.number}</strong> via ${methodName}</p>
+                        <p style="margin: 0;">Effectuez le transfert de <strong>€${total.total.toFixed(2)} USD</strong> vers <strong>${receivingData.number}</strong> via ${methodName}</p>
                     </div>
                     
                     <p>Votre commande sera traitée dès réception du paiement.</p>
@@ -1804,7 +1804,7 @@ async function sendOrderConfirmation(customerEmail, phoneNumber, total, methodNa
                     <p><strong>L'équipe StyleCraft</strong></p>
                 </div>
             `,
-            text: `Confirmation de commande StyleCraft\n\nMontant: $${total.total.toFixed(2)} USD\nMéthode: ${methodName}\nVotre numéro: ${phoneNumber}\nEnvoyer vers: ${receivingData.number}\nPays: ${receivingData.country}\n\nEffectuez le transfert via ${methodName} et votre commande sera traitée dès réception du paiement.\n\nMerci pour votre confiance !\nL'équipe StyleCraft`
+            text: `Confirmation de commande StyleCraft\n\nMontant: €${total.total.toFixed(2)} USD\nMéthode: ${methodName}\nVotre numéro: ${phoneNumber}\nEnvoyer vers: ${receivingData.number}\nPays: ${receivingData.country}\n\nEffectuez le transfert via ${methodName} et votre commande sera traitée dès réception du paiement.\n\nMerci pour votre confiance !\nL'équipe StyleCraft`
         };
         
         await sendEmail(emailData);
@@ -2011,7 +2011,7 @@ function calculateCartTotal() {
         return sum + (item.price * item.quantity);
     }, 0);
     
-    const shipping = subtotal >= 50 ? 0 : 5; // Free shipping over $50
+    const shipping = subtotal >= 50 ? 0 : 5; // Free shipping over €50
     const tax = subtotal * 0.08; // 8% tax
     const total = subtotal + shipping + tax;
     
@@ -2089,7 +2089,7 @@ function payWithFlutterwave() {
             
             if (data.status === "successful") {
                 // Afficher l'alerte de succès avec la référence
-                alert(`Paiement réussi ! \nRéférence de transaction: ${data.tx_ref}\nMontant: $${data.amount}`);
+                alert(`Paiement réussi ! \nRéférence de transaction: ${data.tx_ref}\nMontant: €${data.amount}`);
                 
                 // Vider le panier et rediriger
                 setTimeout(() => {
@@ -2177,7 +2177,7 @@ function selectPaymentAndProceed(paymentMethod) {
             
             if (data.status === "successful") {
                 // Afficher l'alerte de succès avec la référence
-                alert(`Paiement réussi ! \nRéférence de transaction: ${data.tx_ref}\nMontant: $${data.amount}`);
+                alert(`Paiement réussi ! \nRéférence de transaction: ${data.tx_ref}\nMontant: €${data.amount}`);
                 
                 // Vider le panier et rediriger
                 setTimeout(() => {
@@ -2213,7 +2213,7 @@ function openOrderFormModal() {
     
     // Créer la liste des produits
     const productsList = cart.map(item => 
-        `${item.name} (Taille: ${item.size}${item.color ? ', Couleur: ' + item.color : ''}) x${item.quantity} - $${(item.price * item.quantity).toFixed(2)}`
+        `${item.name} (Taille: ${item.size}${item.color ? ', Couleur: ' + item.color : ''}) x${item.quantity} - €${(item.price * item.quantity).toFixed(2)}`
     ).join('\n');
     
     // Remplir les champs du formulaire
@@ -2225,7 +2225,7 @@ function openOrderFormModal() {
     }
     
     if (totalField) {
-        totalField.value = `$${totals.total.toFixed(2)}`;
+        totalField.value = `€${totals.total.toFixed(2)}`;
     }
     
     const modal = document.getElementById('orderFormModal');
@@ -2307,7 +2307,7 @@ function showOrderConfirmation(orderNumber, orderData, totals) {
                 
                 <div style="margin-top: 15px; padding-top: 15px; border-top: 1px solid #ddd;">
                     <p><strong>Articles:</strong> ${cart.reduce((sum, item) => sum + item.quantity, 0)}</p>
-                    <p><strong>Total:</strong> $${totals.total}</p>
+                    <p><strong>Total:</strong> €${totals.total}</p>
                 </div>
             </div>
         `;
