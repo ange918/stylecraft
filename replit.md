@@ -8,6 +8,15 @@ StyleCraft is a modern, responsive e-commerce website for a premium fashion bran
 
 ## Recent Changes (October 2025)
 
+### Order Form Email Fix (October 5, 2025)
+- ✅ Fixed cart order form submission to properly send emails via commande.php
+- ✅ Corrected JavaScript event handler to collect correct form fields (firstName, lastName, customerEmail, products, total)
+- ✅ Implemented automatic customerName generation from firstName + lastName
+- ✅ Auto-populate products and total fields from cart data when opening order form
+- ✅ Proper POST request to commande.php with all required parameters
+- ✅ Email confirmation now sends successfully to customers after order validation
+- ✅ Form submission displays proper success/error messages based on PHP response
+
 ### Product Reorganization & UI Improvements (October 3, 2025)
 - ✅ Reorganized all products to use images from attached_assets subfolders (chaussures, électroménager, montres, perruques, sacs, vêtements)
 - ✅ Updated 81 products with category-specific images matching their subfolder names

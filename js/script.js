@@ -2208,6 +2208,26 @@ function openOrderFormModal() {
         return;
     }
     
+    // Auto-remplir les produits et le total depuis le panier
+    const totals = calculateCartTotal();
+    
+    // Créer la liste des produits
+    const productsList = cart.map(item => 
+        `${item.name} (Taille: ${item.size}${item.color ? ', Couleur: ' + item.color : ''}) x${item.quantity} - $${(item.price * item.quantity).toFixed(2)}`
+    ).join('\n');
+    
+    // Remplir les champs du formulaire
+    const productsField = document.getElementById('products');
+    const totalField = document.getElementById('total');
+    
+    if (productsField) {
+        productsField.value = productsList;
+    }
+    
+    if (totalField) {
+        totalField.value = `$${totals.total.toFixed(2)}`;
+    }
+    
     const modal = document.getElementById('orderFormModal');
     if (modal) {
         modal.style.display = 'block';
@@ -2319,14 +2339,14 @@ document.addEventListener('DOMContentLoaded', function() {
             e.preventDefault();
             
             const formData = new FormData(orderForm);
-            const orderData = {
-                firstName: formData.get('firstName'),
-                lastName: formData.get('lastName'),
-                email: formData.get('customerEmail'),
-                country: formData.get('country'),
-                city: formData.get('city'),
-                address: formData.get('address')
-            };
+            const firstName = formData.get('firstName');
+            const lastName = formData.get('lastName');
+            const customerEmail = formData.get('customerEmail');
+            const products = formData.get('products');
+            const total = formData.get('total');
+            
+            // Créer customerName à partir de firstName et lastName
+            const customerName = `${firstName} ${lastName}`;
             
             // Désactiver le bouton pendant l'envoi
             const submitBtn = orderForm.querySelector('button[type="submit"]');
@@ -2335,22 +2355,44 @@ document.addEventListener('DOMContentLoaded', function() {
             submitBtn.disabled = true;
             
             try {
-                const result = await sendOrderEmail(orderData);
+                // Envoyer les données à commande.php
+                const response = await fetch('commande.php', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/x-www-form-urlencoded',
+                    },
+                    body: new URLSearchParams({
+                        customerName: customerName,
+                        customerEmail: customerEmail,
+                        products: products,
+                        total: total
+                    })
+                });
                 
-                if (result.success) {
-                    showOrderConfirmation(result.orderNumber, orderData, result.totals);
-                    orderForm.reset();
-                } else {
+                const result = await response.json();
+                
+                if (result.type === 'success') {
+                    // Commande envoyée avec succès
                     const orderNumber = 'SC' + Date.now();
                     const totals = calculateCartTotal();
+                    const orderData = {
+                        firstName: firstName,
+                        lastName: lastName,
+                        email: customerEmail
+                    };
                     showOrderConfirmation(orderNumber, orderData, totals);
                     orderForm.reset();
+                } else {
+                    // Erreur lors de l'envoi
+                    alert(result.message || 'Erreur lors de l\'envoi de la commande');
+                    submitBtn.textContent = originalText;
+                    submitBtn.disabled = false;
                 }
             } catch (error) {
-                const orderNumber = 'SC' + Date.now();
-                const totals = calculateCartTotal();
-                showOrderConfirmation(orderNumber, orderData, totals);
-                orderForm.reset();
+                console.error('Erreur:', error);
+                alert('Erreur lors de l\'envoi de la commande. Veuillez réessayer.');
+                submitBtn.textContent = originalText;
+                submitBtn.disabled = false;
             }
         });
     }
