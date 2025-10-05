@@ -94,7 +94,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                             
                             <div class='section' style='text-align: center;'>
                                 <div class='section-title'>💰 Total à payer</div>
-                                <div class='total'>{$total}</div>
+                                <div class='total'>{$total} USD</div>
                             </div>
                             
                             <div class='payment-info'>
