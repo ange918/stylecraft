@@ -2342,6 +2342,9 @@ document.addEventListener('DOMContentLoaded', function() {
             const firstName = formData.get('firstName');
             const lastName = formData.get('lastName');
             const customerEmail = formData.get('customerEmail');
+            const address = formData.get('address');
+            const city = formData.get('city');
+            const country = formData.get('country');
             const products = formData.get('products');
             const total = formData.get('total');
             
@@ -2364,6 +2367,9 @@ document.addEventListener('DOMContentLoaded', function() {
                     body: new URLSearchParams({
                         customerName: customerName,
                         customerEmail: customerEmail,
+                        address: address,
+                        city: city,
+                        country: country,
                         products: products,
                         total: total
                     })
@@ -2378,19 +2384,22 @@ document.addEventListener('DOMContentLoaded', function() {
                     const orderData = {
                         firstName: firstName,
                         lastName: lastName,
-                        email: customerEmail
+                        email: customerEmail,
+                        address: address,
+                        city: city,
+                        country: country
                     };
                     showOrderConfirmation(orderNumber, orderData, totals);
                     orderForm.reset();
                 } else {
-                    // Erreur lors de l'envoi
-                    alert(result.message || 'Erreur lors de l\'envoi de la commande');
+                    // Erreur lors de l'envoi - utiliser toast au lieu de alert
+                    showToast(result.message || 'Erreur lors de l\'envoi de la commande', 'error');
                     submitBtn.textContent = originalText;
                     submitBtn.disabled = false;
                 }
             } catch (error) {
                 console.error('Erreur:', error);
-                alert('Erreur lors de l\'envoi de la commande. Veuillez réessayer.');
+                showToast('Erreur lors de l\'envoi de la commande. Veuillez réessayer.', 'error');
                 submitBtn.textContent = originalText;
                 submitBtn.disabled = false;
             }
