@@ -8,6 +8,22 @@ StyleCraft is a modern, responsive e-commerce website for a premium fashion bran
 
 ## Recent Changes (October 2025)
 
+### Currency Conversion & Price Adjustment (October 5, 2025)
+- ✅ Changed currency symbol from $ to € across all JavaScript and HTML files
+- ✅ Adjusted all 81 product prices to new euro price ranges:
+  - Chaussures (14 produits): 15-59€ (reduced from 65-119€)
+  - Montres (6 produits): 57-122€ (reduced from 129-299€)
+  - Perruques (12 produits): 90-289€ (slightly adjusted from 119-299€)
+  - Sacs (17 produits): 24-188€ (reduced from 65-299€)
+  - Électroménager (6 produits): 22-40€ (significantly reduced from 149-249€)
+- ✅ Updated testimonials with African names and photos:
+  - Sarah Johnson → Amina Kouadio (Côte d'Ivoire)
+  - Michael Chen → Kwame Mensah (Ghana)
+  - Emily Rodriguez → Fatou Diop (Sénégal)
+- ✅ Downloaded and integrated 3 stock images of African professionals for testimonials
+- ✅ All price displays now show € symbol in correct formatting
+- ✅ Maintained product quality tiers while adjusting to more competitive pricing
+
 ### Order Form Email Fix (October 5, 2025)
 - ✅ Fixed cart order form submission to properly send emails via commande.php
 - ✅ Corrected JavaScript event handler to collect correct form fields (firstName, lastName, customerEmail, products, total)
