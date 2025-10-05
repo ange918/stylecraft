@@ -822,11 +822,11 @@ function renderProductDetails(product) {
     const descriptionEl = document.getElementById('productDescription');
     
     if (nameEl) nameEl.textContent = product.name;
-    if (priceEl) priceEl.textContent = `€${product.price.toFixed(2)}`;
+    if (priceEl) priceEl.textContent = `${product.price.toFixed(2)}`;
     if (descriptionEl) descriptionEl.textContent = product.description;
     
     if (product.originalPrice && originalPriceEl && savingsEl) {
-        originalPriceEl.textContent = `€${product.originalPrice.toFixed(2)}`;
+        originalPriceEl.textContent = `${product.originalPrice.toFixed(2)}`;
         originalPriceEl.style.display = 'inline';
         
         const savings = product.originalPrice - product.price;
@@ -1036,7 +1036,7 @@ function renderCartItems() {
                 <div class="cart-item-details">
                     <h3 class="cart-item-name" onclick="goToProduct(${item.id})">${item.name}</h3>
                     <div class="cart-item-meta">Size: ${item.size} ${item.color ? `• Color: ${item.color}` : ''}</div>
-                    <div class="cart-item-price">€${item.price.toFixed(2)}</div>
+                    <div class="cart-item-price">${item.price.toFixed(2)}</div>
                 </div>
                 <div class="cart-quantity-controls">
                     <button onclick="updateCartItemQuantity(${index}, -1)">-</button>
@@ -1044,7 +1044,7 @@ function renderCartItems() {
                     <button onclick="updateCartItemQuantity(${index}, 1)">+</button>
                 </div>
                 <div class="cart-item-total">
-                    <p>€${(item.price * item.quantity).toFixed(2)}</p>
+                    <p>${(item.price * item.quantity).toFixed(2)}</p>
                 </div>
                 <button class="cart-remove-btn" onclick="removeFromCart(${index})">
                     <i class="fas fa-trash"></i>
@@ -1066,10 +1066,10 @@ function updateCartSummary() {
     const totalEl = document.getElementById('cartTotal');
     const freeShippingNotice = document.getElementById('freeShippingNotice');
     
-    if (subtotalEl) subtotalEl.textContent = `€${subtotal.toFixed(2)}`;
-    if (shippingEl) shippingEl.textContent = shipping === 0 ? 'Free' : `€${shipping.toFixed(2)}`;
-    if (taxEl) taxEl.textContent = `€${tax.toFixed(2)}`;
-    if (totalEl) totalEl.textContent = `€${total.toFixed(2)}`;
+    if (subtotalEl) subtotalEl.textContent = `${subtotal.toFixed(2)}`;
+    if (shippingEl) shippingEl.textContent = shipping === 0 ? 'Free' : `${shipping.toFixed(2)}`;
+    if (taxEl) taxEl.textContent = `${tax.toFixed(2)}`;
+    if (totalEl) totalEl.textContent = `${total.toFixed(2)}`;
     
     if (freeShippingNotice) {
         freeShippingNotice.style.display = shipping === 0 ? 'flex' : 'none';
@@ -1282,7 +1282,7 @@ function submitContactForm(name, email, message) {
 // Utility Functions
 function createProductCard(product) {
     const salePrice = product.originalPrice ? 
-        `<span class="original-price">${product.originalPrice.toFixed(2)}€</span>` : '';
+        `<span class="original-price">${product.originalPrice.toFixed(2)}$</span>` : '';
     const saleBadge = product.sale ? '<div class="sale-badge">Promo!</div>' : '';
     
     return `
@@ -1295,7 +1295,7 @@ function createProductCard(product) {
             <div class="product-info">
                 <h3>${product.name}</h3>
                 <div class="product-price">
-                    <span class="price">${product.price.toFixed(2)}€</span>
+                    <span class="price">${product.price.toFixed(2)}$</span>
                     ${salePrice}
                 </div>
                 <button class="btn btn-primary add-to-cart-btn" onclick="addToCartFromCard(${product.id})" data-product-id="${product.id}">
@@ -1369,11 +1369,11 @@ function openQuickView(productId) {
         modalImage.alt = product.name;
     }
     if (modalName) modalName.textContent = product.name;
-    if (modalPrice) modalPrice.textContent = `€${product.price.toFixed(2)}`;
+    if (modalPrice) modalPrice.textContent = `${product.price.toFixed(2)}`;
     
     if (modalOriginalPrice) {
         if (product.originalPrice) {
-            modalOriginalPrice.textContent = `€${product.originalPrice.toFixed(2)}`;
+            modalOriginalPrice.textContent = `${product.originalPrice.toFixed(2)}`;
             modalOriginalPrice.style.display = 'inline';
         } else {
             modalOriginalPrice.style.display = 'none';
@@ -1626,7 +1626,7 @@ function openMobilePaymentModal(method) {
         titleEl.textContent = 'Paiement Orange Money';
     }
     
-    amountEl.value = `€${total.total.toFixed(2)}`;    
+    amountEl.value = `${total.total.toFixed(2)}`;    
     
     // Set payment instructions with amount info
     instructionsEl.innerHTML = generatePaymentInstructions(method, '', total.total);
@@ -1787,7 +1787,7 @@ async function sendOrderConfirmation(customerEmail, phoneNumber, total, methodNa
                     
                     <div style="background: #f5f5f5; padding: 20px; border-radius: 8px; margin: 20px 0;">
                         <h3 style="margin: 0 0 15px 0;">Informations de paiement</h3>
-                        <p><strong>Montant à payer :</strong> €${total.total.toFixed(2)} USD</p>
+                        <p><strong>Montant à payer :</strong> ${total.total.toFixed(2)} USD</p>
                         <p><strong>Méthode :</strong> ${methodName}</p>
                         <p><strong>Votre numéro :</strong> ${phoneNumber}</p>
                         <p><strong>Envoyer vers :</strong> ${receivingData.number}</p>
@@ -1796,7 +1796,7 @@ async function sendOrderConfirmation(customerEmail, phoneNumber, total, methodNa
                     
                     <div style="background: #e8f5e8; padding: 15px; border-radius: 8px; margin: 20px 0;">
                         <h4 style="margin: 0 0 10px 0; color: #2c5530;">Instructions :</h4>
-                        <p style="margin: 0;">Effectuez le transfert de <strong>€${total.total.toFixed(2)} USD</strong> vers <strong>${receivingData.number}</strong> via ${methodName}</p>
+                        <p style="margin: 0;">Effectuez le transfert de <strong>${total.total.toFixed(2)} USD</strong> vers <strong>${receivingData.number}</strong> via ${methodName}</p>
                     </div>
                     
                     <p>Votre commande sera traitée dès réception du paiement.</p>
@@ -1804,7 +1804,7 @@ async function sendOrderConfirmation(customerEmail, phoneNumber, total, methodNa
                     <p><strong>L'équipe StyleCraft</strong></p>
                 </div>
             `,
-            text: `Confirmation de commande StyleCraft\n\nMontant: €${total.total.toFixed(2)} USD\nMéthode: ${methodName}\nVotre numéro: ${phoneNumber}\nEnvoyer vers: ${receivingData.number}\nPays: ${receivingData.country}\n\nEffectuez le transfert via ${methodName} et votre commande sera traitée dès réception du paiement.\n\nMerci pour votre confiance !\nL'équipe StyleCraft`
+            text: `Confirmation de commande StyleCraft\n\nMontant: ${total.total.toFixed(2)} USD\nMéthode: ${methodName}\nVotre numéro: ${phoneNumber}\nEnvoyer vers: ${receivingData.number}\nPays: ${receivingData.country}\n\nEffectuez le transfert via ${methodName} et votre commande sera traitée dès réception du paiement.\n\nMerci pour votre confiance !\nL'équipe StyleCraft`
         };
         
         await sendEmail(emailData);
@@ -1861,7 +1861,7 @@ function showVerificationCodeForm() {
                 </div>
                 <div class="summary-row">
                     <span>Montant :</span>
-                    <span>${currentPaymentData.orderDetails.total}€</span>
+                    <span>${currentPaymentData.orderDetails.total}$</span>
                 </div>
             </div>
             
@@ -1954,7 +1954,7 @@ function showPaymentSuccess() {
                 <i class="fas fa-check"></i>
             </div>
             <h3>Paiement Confirmé !</h3>
-            <p>Votre paiement de <strong>${currentPaymentData.orderDetails.total}€</strong> via ${paymentMethod} a été traité avec succès.</p>
+            <p>Votre paiement de <strong>${currentPaymentData.orderDetails.total}$</strong> via ${paymentMethod} a été traité avec succès.</p>
             <p>Commande N° : <strong>${currentPaymentData.orderNumber}</strong></p>
             <p>Email : <strong>${currentPaymentData.customerEmail}</strong></p>
             <p>Un email de confirmation détaillé a été envoyé à votre adresse.</p>
@@ -2011,7 +2011,7 @@ function calculateCartTotal() {
         return sum + (item.price * item.quantity);
     }, 0);
     
-    const shipping = subtotal >= 50 ? 0 : 5; // Free shipping over €50
+    const shipping = subtotal >= 50 ? 0 : 5; // Free shipping over $50
     const tax = subtotal * 0.08; // 8% tax
     const total = subtotal + shipping + tax;
     
@@ -2089,7 +2089,7 @@ function payWithFlutterwave() {
             
             if (data.status === "successful") {
                 // Afficher l'alerte de succès avec la référence
-                alert(`Paiement réussi ! \nRéférence de transaction: ${data.tx_ref}\nMontant: €${data.amount}`);
+                alert(`Paiement réussi ! \nRéférence de transaction: ${data.tx_ref}\nMontant: ${data.amount}`);
                 
                 // Vider le panier et rediriger
                 setTimeout(() => {
@@ -2177,7 +2177,7 @@ function selectPaymentAndProceed(paymentMethod) {
             
             if (data.status === "successful") {
                 // Afficher l'alerte de succès avec la référence
-                alert(`Paiement réussi ! \nRéférence de transaction: ${data.tx_ref}\nMontant: €${data.amount}`);
+                alert(`Paiement réussi ! \nRéférence de transaction: ${data.tx_ref}\nMontant: ${data.amount}`);
                 
                 // Vider le panier et rediriger
                 setTimeout(() => {
@@ -2213,7 +2213,7 @@ function openOrderFormModal() {
     
     // Créer la liste des produits
     const productsList = cart.map(item => 
-        `${item.name} (Taille: ${item.size}${item.color ? ', Couleur: ' + item.color : ''}) x${item.quantity} - €${(item.price * item.quantity).toFixed(2)}`
+        `${item.name} (Taille: ${item.size}${item.color ? ', Couleur: ' + item.color : ''}) x${item.quantity} - ${(item.price * item.quantity).toFixed(2)}`
     ).join('\n');
     
     // Remplir les champs du formulaire
@@ -2225,7 +2225,7 @@ function openOrderFormModal() {
     }
     
     if (totalField) {
-        totalField.value = `€${totals.total.toFixed(2)}`;
+        totalField.value = `${totals.total.toFixed(2)}`;
     }
     
     const modal = document.getElementById('orderFormModal');
@@ -2307,7 +2307,7 @@ function showOrderConfirmation(orderNumber, orderData, totals) {
                 
                 <div style="margin-top: 15px; padding-top: 15px; border-top: 1px solid #ddd;">
                     <p><strong>Articles:</strong> ${cart.reduce((sum, item) => sum + item.quantity, 0)}</p>
-                    <p><strong>Total:</strong> €${totals.total}</p>
+                    <p><strong>Total:</strong> ${totals.total}</p>
                 </div>
             </div>
         `;
