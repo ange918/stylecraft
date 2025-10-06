@@ -1,0 +1,62 @@
+Tu vas travailler sur mon site e-commerce déjà fonctionnel.  
+Voici les consignes précises pour créer un **Dashboard complet** et effectuer quelques ajustements :
+
+⚠️ IMPORTANT :
+- Ne touche en aucun cas aux fichiers `commande.php` et `cart.html`. Ces deux pages fonctionnent parfaitement et ne doivent PAS être modifiées.
+- Ne modifie surtout pas la configuration SMTP ni le système d’envoi d’emails.
+
+---
+
+✅ Voici exactement ce que tu dois faire :
+
+1️⃣ **Correction dans le mail envoyé**
+- Dans le mail de confirmation de commande, modifie le nom associé au numéro Airtel et mets : **Riziki Guillaume**.
+- Le reste du message ne doit pas être modifié.
+
+2️⃣ **Ajout d’une nouvelle catégorie**
+- J’ai ajouté un dossier `veste` dans `attached_assets`.
+- Crée une sous-catégorie appelée **“Vestes”** dans la section “Vêtements” du site.
+- Les vestes doivent s’afficher proprement avec le même design et style que les autres vêtements.
+
+3️⃣ **Création complète du Dashboard**
+Tu dois créer un Dashboard professionnel, bien stylisé, accessible uniquement par **identifiant et mot de passe** (authentification simple par PHP).
+
+Le Dashboard doit afficher des **statistiques réelles** liées au site e-commerce :
+
+📊 Statistiques à afficher :
+- 🛒 Nombre total d’ajouts au panier
+- ⏳ Nombre de paniers en attente (non validés)
+- ✅ Nombre de commandes confirmées / validées
+- 💰 Montant total des ventes (somme des commandes validées)
+- 📦 Top 5 des produits les plus ajoutés au panier
+
+⚙️ Détails techniques :
+- Récupère les données réelles à partir des fichiers déjà utilisés ou de la base existante.
+- Si le panier ou les commandes sont stockés dans le localStorage ou une base de données, adapte le code pour que le Dashboard lise ces données.
+- Les chiffres doivent se mettre à jour automatiquement ou régulièrement (pas de données fixes).
+
+🎨 Design :
+- Le style du Dashboard doit être moderne et cohérent avec le reste du site.
+- Ajoute des petits graphiques (barres, camemberts ou lignes simples) pour visualiser les statistiques.
+- Affiche aussi dans le Dashboard le **mail de l’utilisateur** (celui qui a passé une commande ou s’est connecté).
+
+🔐 Sécurité :
+- Le Dashboard doit être accessible uniquement via une page de connexion (ex : `/login`).
+- L’accès doit nécessiter un **identifiant et un mot de passe uniques** (par exemple “admin” et un mot de passe fort).
+- Empêche l’accès direct au Dashboard sans authentification (redirection automatique vers la page de connexion).
+
+4️⃣ **Correction du warning PHP**
+- Corrige le warning `Warning: ini_set(): session...` en plaçant correctement `ini_set()` et `session_start()` tout en haut du fichier PHP avant toute sortie HTML.
+- Aucune ligne HTML ou espace avant le code PHP.
+
+---
+
+🧩 En résumé :
+- Ne pas toucher à `commande.php`, `cart.html` ni au SMTP.
+- Modifier le nom Airtel → Riziki Guillaume.
+- Ajouter la catégorie “Vestes”.
+- Créer un Dashboard complet avec connexion sécurisée, affichage du mail utilisateur, vraies statistiques et graphiques.
+- Corriger le warning PHP sur la session.
+- Quand tu auras fini, donne-moi le **lien direct du Dashboard** (exemple : `/dashboard`) pour que seul le propriétaire puisse y accéder.
+
+Travaille proprement et garde le style général du site.

@@ -1,0 +1,44 @@
+[
+    {
+        "product_id": 7001,
+        "product_name": "Veste Élégante Premium",
+        "quantity": 1,
+        "price": 129.99,
+        "timestamp": "2025-10-06 10:00:00"
+    },
+    {
+        "product_id": 5001,
+        "product_name": "Robe Élégante Moderne",
+        "quantity": 2,
+        "price": 125.99,
+        "timestamp": "2025-10-06 10:15:00"
+    },
+    {
+        "product_id": 4001,
+        "product_name": "Sac à Main Cuir Premium",
+        "quantity": 1,
+        "price": 169.99,
+        "timestamp": "2025-10-06 10:30:00"
+    },
+    {
+        "product_id": 3001,
+        "product_name": "Perruque Naturelle Longue",
+        "quantity": 1,
+        "price": 189.99,
+        "timestamp": "2025-10-06 11:00:00"
+    },
+    {
+        "product_id": 7001,
+        "product_name": "Veste Élégante Premium",
+        "quantity": 1,
+        "price": 129.99,
+        "timestamp": "2025-10-06 11:30:00"
+    },
+    {
+        "product_id": 1001,
+        "product_name": "Basket Adidas Moderne",
+        "quantity": 2,
+        "price": 45.99,
+        "timestamp": "2025-10-06 12:00:00"
+    }
+]

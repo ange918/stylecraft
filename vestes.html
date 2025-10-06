@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vestes - Craft-Style | Collection Premium de Vestes</title>
+    <meta name="description" content="Découvrez notre collection de vestes premium. Styles variés pour toutes les occasions avec livraison gratuite.">
+    
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <!-- FontAwesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <!-- Promo Banner -->
+    <div class="promo-banner">
+        <p><i class="fas fa-gift"></i> -15% sur votre première commande - Code : WELCOME15</p>
+    </div>
+
+    <!-- Header -->
+    <header class="header">
+        <div class="container">
+            <div class="header-content">
+                <!-- Logo -->
+                <div class="logo">
+                    <a href="index.html">
+                        <h1>Craft-Style</h1>
+                    </a>
+                </div>
+
+                <!-- Navigation Desktop -->
+                <nav class="nav-desktop">
+                    <ul>
+                        <li><a href="index.html">Accueil</a></li>
+                        <li><a href="shop.html">Boutique</a></li>
+                        <li><a href="about.html">À propos</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </nav>
+
+                <!-- Right Icons -->
+                <div class="header-icons">
+                    <button class="icon-btn cart-btn" onclick="window.location.href='cart.html'">
+                        <i class="fas fa-shopping-bag"></i>
+                        <span class="cart-count">0</span>
+                    </button>
+                    <button class="mobile-menu-btn">
+                        <i class="fas fa-bars"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Mobile Menu -->
+        <div class="mobile-menu">
+            <div class="mobile-menu-header">
+                <h2>Craft-Style</h2>
+                <button class="mobile-menu-close">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            <nav class="mobile-nav">
+                <ul>
+                    <li><a href="index.html">Accueil</a></li>
+                    <li><a href="shop.html">Boutique</a></li>
+                    <li><a href="about.html">À propos</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+        <div class="mobile-menu-overlay"></div>
+    </header>
+
+    <!-- Hero Section for Vestes -->
+    <section class="category-hero">
+        <div class="container">
+            <div class="category-hero-content">
+                <h1>Collection Vestes Premium</h1>
+                <p>Découvrez notre sélection exclusive de vestes pour toutes les saisons. Style et qualité garantis.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Vestes Gallery -->
+    <section class="perruques-gallery">
+        <div class="container">
+            <div class="section-header">
+                <h2>Toutes nos Vestes</h2>
+                <p>Des styles variés pour tous les goûts</p>
+            </div>
+            
+            <!-- Vestes Grid -->
+            <div class="products-grid" id="vestes-grid">
+                <!-- Products will be loaded by JavaScript -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>Craft-Style</h3>
+                    <p>Mode intemporelle pour une garde-robe moderne. Des vêtements de qualité qui durent.</p>
+                    <div class="social-links">
+                        <a href="#" aria-label="Facebook">
+                            <i class="fab fa-facebook"></i>
+                        </a>
+                        <a href="#" aria-label="Instagram">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                        <a href="#" aria-label="Twitter">
+                            <i class="fab fa-twitter"></i>
+                        </a>
+                        <a href="#" aria-label="Pinterest">
+                            <i class="fab fa-pinterest"></i>
+                        </a>
+                    </div>
+                </div>
+                <div class="footer-section">
+                    <h4>Boutique</h4>
+                    <ul>
+                        <li><a href="shop.html?category=vetements">Vêtements</a></li>
+                        <li><a href="shop.html?category=vestes">Vestes</a></li>
+                        <li><a href="shop.html?category=sacs">Sacs</a></li>
+                        <li><a href="shop.html?category=perruques">Perruques</a></li>
+                        <li><a href="shop.html?sale=true">Promotions</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Aide</h4>
+                    <ul>
+                        <li><a href="guide-tailles.html">Guide des tailles</a></li>
+                        <li><a href="livraison.html">Informations de livraison</a></li>
+                        <li><a href="retours.html">Retours</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 Craft-Style. Tous droits réservés.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Quick View Modal -->
+    <div class="modal" id="quickViewModal">
+        <div class="modal-overlay"></div>
+        <div class="modal-content">
+            <button class="modal-close">
+                <i class="fas fa-times"></i>
+            </button>
+            <div class="modal-body">
+                <div class="modal-image">
+                    <img id="modalProductImage" src="" alt="">
+                </div>
+                <div class="modal-details">
+                    <h3 id="modalProductName"></h3>
+                    <div class="modal-price">
+                        <span id="modalProductPrice" class="price"></span>
+                        <span id="modalProductOriginalPrice" class="original-price"></span>
+                    </div>
+                    <div class="modal-sizes">
+                        <label>Taille *</label>
+                        <div class="size-options" id="modalSizeOptions">
+                            <!-- Size options will be populated by JS -->
+                        </div>
+                    </div>
+                    <div class="modal-colors">
+                        <label>Couleur</label>
+                        <div class="color-options" id="modalColorOptions">
+                            <!-- Color options will be populated by JS -->
+                        </div>
+                    </div>
+                    <div class="modal-quantity">
+                        <label>Quantité</label>
+                        <div class="quantity-controls">
+                            <button class="quantity-btn">-</button>
+                            <input type="number" value="1" min="1">
+                            <button class="quantity-btn">+</button>
+                        </div>
+                    </div>
+                    <div class="modal-actions">
+                        <button class="btn btn-primary" id="modalAddToCart">Ajouter au panier</button>
+                        <button class="btn btn-secondary" id="modalViewDetails">Voir les détails</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- JavaScript -->
+    <script type="module" src="js/script.js"></script>
+</body>
+</html>

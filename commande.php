@@ -101,7 +101,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                                 <div class='payment-title'>💳 Informations de paiement</div>
                                 <p style='margin: 0 0 15px 0; color: #856404;'>Veuillez effectuer votre paiement sur l'un de ces numéros :</p>
                                 <ul class='payment-numbers'>
-                                    <li>📱 <strong>+243 980137154</strong><br>Dinango Kambala Abraham — Airtel Congo 🇨🇩</li>
+                                    <li>📱 <strong>+243 980137154</strong><br>Riziki Guillaume — Airtel Congo 🇨🇩</li>
                                     <li>📱 <strong>+243 840574411</strong><br>Kalu Busalu — Orange Congo 🇨🇩</li>
                                 </ul>
                                 <p style='margin: 15px 0 0 0; color: #856404; font-size: 14px;'>
@@ -119,6 +119,28 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             ";
 
             $mail->send();
+            
+            // Track order for dashboard (server-side tracking)
+            $dataDir = __DIR__ . '/data';
+            if (!file_exists($dataDir)) {
+                mkdir($dataDir, 0777, true);
+            }
+            $ordersFile = $dataDir . '/orders.json';
+            $ordersData = [];
+            if (file_exists($ordersFile)) {
+                $ordersData = json_decode(file_get_contents($ordersFile), true) ?: [];
+            }
+            $ordersData[] = [
+                'order_id' => uniqid('ORD-'),
+                'customer_email' => $customerEmail,
+                'customer_name' => $customerName,
+                'products' => $products,
+                'total' => $total,
+                'status' => 'pending',
+                'timestamp' => date('Y-m-d H:i:s')
+            ];
+            file_put_contents($ordersFile, json_encode($ordersData, JSON_PRETTY_PRINT));
+            
             $message = "✅ Commande envoyée avec succès à {$customerEmail}";
             $messageType = 'success';
         } catch (Exception $e) {

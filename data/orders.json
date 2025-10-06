@@ -1,0 +1,29 @@
+[
+    {
+        "order_id": "ORD-670269a1b4c5e",
+        "customer_email": "client@example.com",
+        "customer_name": "Marie Dupont",
+        "products": "Veste Élégante Premium (x1), Robe Élégante Moderne (x1)",
+        "total": "255.98",
+        "status": "pending",
+        "timestamp": "2025-10-06 09:30:00"
+    },
+    {
+        "order_id": "ORD-670269a1b4c6f",
+        "customer_email": "jean.martin@example.com",
+        "customer_name": "Jean Martin",
+        "products": "Basket Adidas Moderne (x2)",
+        "total": "91.98",
+        "status": "confirmed",
+        "timestamp": "2025-10-06 10:00:00"
+    },
+    {
+        "order_id": "ORD-670269a1b4c7g",
+        "customer_email": "sophie.bernard@example.com",
+        "customer_name": "Sophie Bernard",
+        "products": "Sac à Main Cuir Premium (x1), Perruque Naturelle Longue (x1)",
+        "total": "359.98",
+        "status": "confirmed",
+        "timestamp": "2025-10-06 11:00:00"
+    }
+]

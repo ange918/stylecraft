@@ -8,6 +8,7 @@ import { sendEmail, sendPaymentConfirmationEmail, sendPaymentVerificationCode } 
 // Import payment configuration
 import { PAYMENT_CONFIG, PHONE_PATTERNS, getReceivingNumber, PAYMENT_INSTRUCTIONS } from './payment-config.js';
 
+
 // Global Variables
 let cart = JSON.parse(localStorage.getItem('stylecraft-cart')) || [];
 let products = [];
@@ -367,7 +368,73 @@ const sampleProducts = [
     { id: 6006, name: "Électroménager Multifonction", price: 35.99, originalPrice: null, category: "electromenager",
         image: "attached_assets/électroménager/images (1).jpeg",
         images: ["attached_assets/électroménager/images (1).jpeg"],
-        description: "Électroménager multifonction pour cuisine moderne.", sizes: ["One Size"], colors: ["Inox", "Blanc"], featured: true, bestseller: true, sale: false }
+        description: "Électroménager multifonction pour cuisine moderne.", sizes: ["One Size"], colors: ["Inox", "Blanc"], featured: true, bestseller: true, sale: false },
+
+    // === VESTES (16 produits) ===
+    { id: 7001, name: "Veste Élégante Premium", price: 129.99, originalPrice: 159.99, category: "vestes",
+        image: "attached_assets/veste/3cd4cb095f5013b4bdb7445e176df52d.jpg",
+        images: ["attached_assets/veste/3cd4cb095f5013b4bdb7445e176df52d.jpg"],
+        description: "Veste élégante premium de haute qualité.", sizes: ["S", "M", "L", "XL", "XXL"], colors: ["Noir", "Bleu Marine"], featured: true, bestseller: true, sale: true },
+    { id: 7002, name: "Veste Moderne Casual", price: 89.99, originalPrice: null, category: "vestes",
+        image: "attached_assets/veste/WhatsApp Image 2025-10-06 at 10.54.46.jpeg",
+        images: ["attached_assets/veste/WhatsApp Image 2025-10-06 at 10.54.46.jpeg"],
+        description: "Veste moderne pour un style casual chic.", sizes: ["S", "M", "L", "XL", "XXL"], colors: ["Beige", "Marron"], featured: true, bestseller: false, sale: false },
+    { id: 7003, name: "Veste Sport Tendance", price: 95.99, originalPrice: 119.99, category: "vestes",
+        image: "attached_assets/veste/WhatsApp Image 2025-10-06 at 10.54.47 (1).jpeg",
+        images: ["attached_assets/veste/WhatsApp Image 2025-10-06 at 10.54.47 (1).jpeg"],
+        description: "Veste sport tendance et confortable.", sizes: ["S", "M", "L", "XL", "XXL"], colors: ["Noir", "Gris"], featured: false, bestseller: true, sale: true },
+    { id: 7004, name: "Veste Classique Homme", price: 109.99, originalPrice: null, category: "vestes",
+        image: "attached_assets/veste/WhatsApp Image 2025-10-06 at 10.54.47.jpeg",
+        images: ["attached_assets/veste/WhatsApp Image 2025-10-06 at 10.54.47.jpeg"],
+        description: "Veste classique pour homme élégant.", sizes: ["S", "M", "L", "XL", "XXL"], colors: ["Bleu", "Noir"], featured: true, bestseller: true, sale: false },
+    { id: 7005, name: "Veste Décontractée Style", price: 79.99, originalPrice: 99.99, category: "vestes",
+        image: "attached_assets/veste/WhatsApp Image 2025-10-06 at 10.54.48 (1).jpeg",
+        images: ["attached_assets/veste/WhatsApp Image 2025-10-06 at 10.54.48 (1).jpeg"],
+        description: "Veste décontractée au style moderne.", sizes: ["S", "M", "L", "XL", "XXL"], colors: ["Vert", "Kaki"], featured: true, bestseller: false, sale: true },
+    { id: 7006, name: "Veste Urban Chic", price: 99.99, originalPrice: null, category: "vestes",
+        image: "attached_assets/veste/WhatsApp Image 2025-10-06 at 10.54.48 (2).jpeg",
+        images: ["attached_assets/veste/WhatsApp Image 2025-10-06 at 10.54.48 (2).jpeg"],
+        description: "Veste urban chic pour la ville.", sizes: ["S", "M", "L", "XL", "XXL"], colors: ["Noir", "Gris Foncé"], featured: false, bestseller: true, sale: false },
+    { id: 7007, name: "Veste Printemps Légère", price: 74.99, originalPrice: 94.99, category: "vestes",
+        image: "attached_assets/veste/WhatsApp Image 2025-10-06 at 10.54.48.jpeg",
+        images: ["attached_assets/veste/WhatsApp Image 2025-10-06 at 10.54.48.jpeg"],
+        description: "Veste légère parfaite pour le printemps.", sizes: ["S", "M", "L", "XL", "XXL"], colors: ["Blanc", "Beige"], featured: true, bestseller: true, sale: true },
+    { id: 7008, name: "Veste Hiver Chaude", price: 139.99, originalPrice: null, category: "vestes",
+        image: "attached_assets/veste/WhatsApp Image 2025-10-06 at 10.54.49 (1).jpeg",
+        images: ["attached_assets/veste/WhatsApp Image 2025-10-06 at 10.54.49 (1).jpeg"],
+        description: "Veste chaude pour l'hiver.", sizes: ["S", "M", "L", "XL", "XXL"], colors: ["Noir", "Marine"], featured: true, bestseller: false, sale: false },
+    { id: 7009, name: "Veste Cuir Premium", price: 189.99, originalPrice: 229.99, category: "vestes",
+        image: "attached_assets/veste/WhatsApp Image 2025-10-06 at 10.54.49 (2).jpeg",
+        images: ["attached_assets/veste/WhatsApp Image 2025-10-06 at 10.54.49 (2).jpeg"],
+        description: "Veste en cuir premium de luxe.", sizes: ["S", "M", "L", "XL", "XXL"], colors: ["Noir", "Marron"], featured: true, bestseller: true, sale: true },
+    { id: 7010, name: "Veste Bomber Moderne", price: 84.99, originalPrice: null, category: "vestes",
+        image: "attached_assets/veste/WhatsApp Image 2025-10-06 at 10.54.49.jpeg",
+        images: ["attached_assets/veste/WhatsApp Image 2025-10-06 at 10.54.49.jpeg"],
+        description: "Veste bomber au style moderne.", sizes: ["S", "M", "L", "XL", "XXL"], colors: ["Vert Olive", "Noir"], featured: false, bestseller: true, sale: false },
+    { id: 7011, name: "Veste Blazer Élégant", price: 119.99, originalPrice: 149.99, category: "vestes",
+        image: "attached_assets/veste/WhatsApp Image 2025-10-06 at 10.59.40.jpeg",
+        images: ["attached_assets/veste/WhatsApp Image 2025-10-06 at 10.59.40.jpeg"],
+        description: "Blazer élégant pour occasions formelles.", sizes: ["S", "M", "L", "XL", "XXL"], colors: ["Bleu Marine", "Gris"], featured: true, bestseller: true, sale: true },
+    { id: 7012, name: "Veste Denim Tendance", price: 69.99, originalPrice: null, category: "vestes",
+        image: "attached_assets/veste/WhatsApp Image 2025-10-06 at 10.59.41 (1).jpeg",
+        images: ["attached_assets/veste/WhatsApp Image 2025-10-06 at 10.59.41 (1).jpeg"],
+        description: "Veste en denim tendance.", sizes: ["S", "M", "L", "XL", "XXL"], colors: ["Bleu Jean", "Noir"], featured: true, bestseller: false, sale: false },
+    { id: 7013, name: "Veste Parka Style", price: 149.99, originalPrice: 189.99, category: "vestes",
+        image: "attached_assets/veste/WhatsApp Image 2025-10-06 at 10.59.41 (2).jpeg",
+        images: ["attached_assets/veste/WhatsApp Image 2025-10-06 at 10.59.41 (2).jpeg"],
+        description: "Parka style urbain avec capuche.", sizes: ["S", "M", "L", "XL", "XXL"], colors: ["Kaki", "Noir"], featured: false, bestseller: true, sale: true },
+    { id: 7014, name: "Veste Technique Sport", price: 94.99, originalPrice: null, category: "vestes",
+        image: "attached_assets/veste/WhatsApp Image 2025-10-06 at 10.59.41.jpeg",
+        images: ["attached_assets/veste/WhatsApp Image 2025-10-06 at 10.59.41.jpeg"],
+        description: "Veste technique pour le sport.", sizes: ["S", "M", "L", "XL", "XXL"], colors: ["Noir", "Bleu"], featured: true, bestseller: true, sale: false },
+    { id: 7015, name: "Veste Capuche Moderne", price: 79.99, originalPrice: 99.99, category: "vestes",
+        image: "attached_assets/veste/WhatsApp Image 2025-10-06 at 10.59.42 (1).jpeg",
+        images: ["attached_assets/veste/WhatsApp Image 2025-10-06 at 10.59.42 (1).jpeg"],
+        description: "Veste à capuche moderne et confortable.", sizes: ["S", "M", "L", "XL", "XXL"], colors: ["Gris", "Noir"], featured: true, bestseller: false, sale: true },
+    { id: 7016, name: "Veste Designer Luxe", price: 199.99, originalPrice: 249.99, category: "vestes",
+        image: "attached_assets/veste/WhatsApp Image 2025-10-06 at 10.59.42.jpeg",
+        images: ["attached_assets/veste/WhatsApp Image 2025-10-06 at 10.59.42.jpeg"],
+        description: "Veste designer de luxe exclusive.", sizes: ["S", "M", "L", "XL", "XXL"], colors: ["Noir", "Bleu Marine"], featured: true, bestseller: true, sale: true }
 ];
 
 // Initialize products
@@ -400,6 +467,8 @@ function initializeApp() {
         loadCategoryPage('perruques');
     } else if (currentPath.includes('sacs.html')) {
         loadCategoryPage('sacs');
+    } else if (currentPath.includes('vestes.html')) {
+        loadCategoryPage('vestes');
     }
 }
 
@@ -1494,6 +1563,24 @@ function addToCartFromModal() {
     showToast('Product added to cart!', 'success');
 }
 
+// Tracking function for dashboard
+async function trackEvent(type, data) {
+    try {
+        await fetch('api/track.php', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({
+                type: type,
+                ...data
+            })
+        });
+    } catch (error) {
+        console.error('Tracking error:', error);
+    }
+}
+
 // Cart Management
 function addToCart(item) {
     // Check if item already exists in cart with same size and color
@@ -1510,6 +1597,14 @@ function addToCart(item) {
         // Add new item
         cart.push(item);
     }
+    
+    // Track cart addition for dashboard
+    trackEvent('cart_add', {
+        product_id: item.id,
+        product_name: item.name,
+        quantity: item.quantity,
+        price: item.price
+    });
     
     saveCart();
     updateCartUI();
@@ -2378,7 +2473,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 const result = await response.json();
                 
                 if (result.type === 'success') {
-                    // Commande envoyée avec succès
+                    // Commande envoyée avec succès (tracking done server-side in commande.php)
                     const orderNumber = 'SC' + Date.now();
                     const totals = calculateCartTotal();
                     const orderData = {
